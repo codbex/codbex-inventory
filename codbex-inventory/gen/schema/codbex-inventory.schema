@@ -1,0 +1,424 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "CODBEX_STORESTATUS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "STORESTATUS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STORESTATUS_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_COMPANY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "COMPANY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "COMPANY_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "COMPANY_MANAGER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "COMPANY_EMAIL"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "COMPANY_PHONE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "COMPANY_ADDRESS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "COMPANY_POSTCODE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "COMPANY_CITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "COMPANY_COUNTRY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "COMPANY_TIN"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 22,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "COMPANY_IBAN"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_CITY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CITY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CITY_NAME"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CITY_COUNTRY"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_COUNTRY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "COUNTRY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 255,
+                        "nullable": true,
+                        "name": "COUNTRY_NAME"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 2,
+                        "nullable": true,
+                        "name": "COUNTRY_CODE2"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "name": "COUNTRY_CODE3"
+                    },
+                    {
+                        "type": "CHAR",
+                        "length": 3,
+                        "nullable": true,
+                        "name": "COUNTRY_NUMERIC"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_STORE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "STORE_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STORE_NUMBER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STORE_EMAIL"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STORE_PHONE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STORE_ADDRESS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STORE_POSTCODE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STORE_CITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STORE_COUNTRY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 2000,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STORE_LOCATION"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 2000,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STORE_CONTACT"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STORE_MANAGER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STORE_STORESTATUSID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STORE_COMPANY"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_GOODSRECEIPT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "GOODSRECEIPTS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "GOODSRECEIPTS_NUMBER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GOODSRECEIPTS_STORE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GOODSRECEIPTS_COMPANY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "GOODSRECEIPTS_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GOODSRECEIPTS_UUID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GOODSRECEIPTS_REFERENCE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_GOODSRECEIPTITEM",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "GOODSRECEIPTITEM_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "GOODSRECEIPTITEM_GOODSRECEIPT"
+                    }
+                ]
+            },
+            {
+                "name": "Store_City",
+                "type": "foreignKey",
+                "table": "CODBEX_STORE",
+                "constraintName": "Store_City",
+                "columns": "STORE_CITY",
+                "referencedTable": "CODBEX_CITY",
+                "referencedColumns": "CITY_ID"
+            },
+            {
+                "name": "Store_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_STORE",
+                "constraintName": "Store_Country",
+                "columns": "STORE_COUNTRY",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
+            },
+            {
+                "name": "Store_StoreStatus",
+                "type": "foreignKey",
+                "table": "CODBEX_STORE",
+                "constraintName": "Store_StoreStatus",
+                "columns": "STORE_STORESTATUSID",
+                "referencedTable": "CODBEX_STORESTATUS",
+                "referencedColumns": "STORESTATUS_ID"
+            },
+            {
+                "name": "Store_Company",
+                "type": "foreignKey",
+                "table": "CODBEX_STORE",
+                "constraintName": "Store_Company",
+                "columns": "STORE_COMPANY",
+                "referencedTable": "CODBEX_COMPANY",
+                "referencedColumns": "COMPANY_ID"
+            },
+            {
+                "name": "GoodsReceipt_Store",
+                "type": "foreignKey",
+                "table": "CODBEX_GOODSRECEIPT",
+                "constraintName": "GoodsReceipt_Store",
+                "columns": "GOODSRECEIPTS_STORE",
+                "referencedTable": "CODBEX_STORE",
+                "referencedColumns": "STORE_ID"
+            },
+            {
+                "name": "GoodsReceipt_Company",
+                "type": "foreignKey",
+                "table": "CODBEX_GOODSRECEIPT",
+                "constraintName": "GoodsReceipt_Company",
+                "columns": "GOODSRECEIPTS_COMPANY",
+                "referencedTable": "CODBEX_COMPANY",
+                "referencedColumns": "COMPANY_ID"
+            },
+            {
+                "name": "GoodsReceiptItem_GoodsReceipt",
+                "type": "foreignKey",
+                "table": "CODBEX_GOODSRECEIPTITEM",
+                "constraintName": "GoodsReceiptItem_GoodsReceipt",
+                "columns": "GOODSRECEIPTITEM_GOODSRECEIPT",
+                "referencedTable": "CODBEX_GOODSRECEIPT",
+                "referencedColumns": "GOODSRECEIPTS_ID"
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}
