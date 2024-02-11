@@ -1,2 +1,2 @@
-# codbex-inventories
+# codbex-inventory
 Inventory Management Module
