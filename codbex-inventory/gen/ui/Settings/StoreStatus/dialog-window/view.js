@@ -6,8 +6,8 @@
 const viewData = {
     id: "StoreStatus-details",
     label: "StoreStatus",
-    link: "/services/web/codbex-inventory/gen/ui/Stores/StoreStatus/dialog-window/index.html",
-    perspectiveName: "Stores"
+    link: "/services/web/codbex-inventory/gen/ui/Settings/StoreStatus/dialog-window/index.html",
+    perspectiveName: "Settings"
 };
 
 if (typeof exports !== 'undefined') {

@@ -1,16 +1,16 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-inventory.Stores.StoreStatus';
+		messageHubProvider.eventIdPrefix = 'codbex-inventory.Settings.StoreStatus';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/api/Stores/StoreStatusService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/api/Settings/StoreStatusService.ts";
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
 		//-----------------Custom Actions-------------------//
 		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-inventory-custom-action").then(function (response) {
-			$scope.pageActions = response.data.filter(e => e.perspective === "Stores" && e.view === "StoreStatus" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === "Stores" && e.view === "StoreStatus" && e.type === "entity");
+			$scope.pageActions = response.data.filter(e => e.perspective === "Settings" && e.view === "StoreStatus" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === "Settings" && e.view === "StoreStatus" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (actionId) {

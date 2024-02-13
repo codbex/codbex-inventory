@@ -166,7 +166,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-inventory/gen/api/Stores/StoreStatusService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-inventory/gen/api/Settings/StoreStatusService.ts").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,

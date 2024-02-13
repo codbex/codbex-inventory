@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-inventory.Stores.StoreStatus';
+		messageHubProvider.eventIdPrefix = 'codbex-inventory.Settings.StoreStatus';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/api/Stores/StoreStatusService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/api/Settings/StoreStatusService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 

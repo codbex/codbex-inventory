@@ -176,7 +176,7 @@ export class StoreStatusRepository {
     }
 
     private async triggerEvent(data: StoreStatusEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory/Stores/StoreStatus", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory/Settings/StoreStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -184,6 +184,6 @@ export class StoreStatusRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-inventory/Stores/StoreStatus").send(JSON.stringify(data));
+        producer.queue("codbex-inventory/Settings/StoreStatus").send(JSON.stringify(data));
     }
 }

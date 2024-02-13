@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
-import { StoreStatusRepository, StoreStatusEntityOptions } from "../../dao/Stores/StoreStatusRepository";
+import { StoreStatusRepository, StoreStatusEntityOptions } from "../../dao/Settings/StoreStatusRepository";
 import { HttpUtils } from "../utils/HttpUtils";
 
 @Controller
@@ -25,7 +25,7 @@ class StoreStatusService {
     public create(entity: any) {
         try {
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/api/Stores/StoreStatusService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/api/Settings/StoreStatusService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

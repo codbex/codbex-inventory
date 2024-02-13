@@ -9,15 +9,14 @@
   "filePath": "codbex-inventory.model",
   "templateId": "template-application-angular/template/template.js",
   "perspectives": {
-    "Stores": {
+    "Settings": {
       "views": [
-        "StoreStatus",
-        "Store"
+        "StoreStatus"
       ],
-      "name": "Stores",
-      "label": "Stores",
-      "order": "900",
-      "icon": "/services/web/resources/unicons/store.svg"
+      "name": "Settings",
+      "label": "Settings",
+      "order": "999",
+      "icon": "/services/web/resources/unicons/wrench.svg"
     },
     "Companies": {
       "views": [
@@ -45,6 +44,15 @@
       "label": "Countries",
       "order": "100",
       "icon": "/services/web/resources/unicons/globe.svg"
+    },
+    "Stores": {
+      "views": [
+        "Store"
+      ],
+      "name": "Stores",
+      "label": "Stores",
+      "order": "900",
+      "icon": "/services/web/resources/unicons/store.svg"
     },
     "GoodsReceipts": {
       "views": [
@@ -129,9 +137,9 @@
       "menuLabel": "StoreStatus",
       "name": "StoreStatus",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/store.svg",
-      "perspectiveName": "Stores",
-      "perspectiveOrder": "900",
+      "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+      "perspectiveName": "Settings",
+      "perspectiveOrder": "999",
       "title": "StoreStatus",
       "tooltip": "StoreStatus",
       "type": "SETTING",
@@ -937,7 +945,7 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Store_StoreStatus",
           "relationshipEntityName": "StoreStatus",
-          "relationshipEntityPerspectiveName": "Stores",
+          "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
           "dataTypeJava": "int",

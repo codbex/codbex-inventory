@@ -5,13 +5,13 @@
  */
 exports.getTile = function () {
     return {
-        group: "Stores",
+        group: "Settings",
         name: "StoreStatus",
         caption: "Manage entity StoreStatus",
         tooltip: "StoreStatus",
         // icon: "file-o",
-        location: "/services/web/codbex-inventory/gen/ui/Stores/index.html",
+        location: "/services/web/codbex-inventory/gen/ui/Settings/index.html",
         order: "100",
-        groupOrder: "900"
+        groupOrder: "999"
     };
 };
