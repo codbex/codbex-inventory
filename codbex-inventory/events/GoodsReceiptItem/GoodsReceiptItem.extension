@@ -1,5 +1,5 @@
 {
-    "module": "codbex-inventory/events/GoodsReceiptItem/GoodsReceiptItemHandler.ts",
+    "module": "codbex-inventory/events/GoodsReceiptItem/GoodsReceiptItemHandler.js",
     "extensionPoint": "codbex-inventory/GoodsReceipts/GoodsReceiptItem",
     "description": "GoodsReceiptItem Extension"
 }
