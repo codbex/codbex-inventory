@@ -45,17 +45,27 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//-----------------Events-------------------//
 		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 
 		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
-			$scope.loadPage($scope.dataPage);
+			$scope.loadPage($scope.dataPage, $scope.filter);
+		});
+
+		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+			resetPagination();
+			$scope.filter = msg.data.filter;
+			$scope.filterEntity = msg.data.entity;
+			$scope.loadPage($scope.dataPage, $scope.filter);
 		});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber) {
+		$scope.loadPage = function (pageNumber, filter) {
+			if (!filter && $scope.filter) {
+				filter = $scope.filter;
+			}
 			$scope.dataPage = pageNumber;
-			entityApi.count().then(function (response) {
+			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("Store", `Unable to count Store: '${response.message}'`);
 					return;
@@ -63,16 +73,24 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.dataCount = response.data;
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
-				entityApi.list(offset, limit).then(function (response) {
+				let request;
+				if (filter) {
+					filter.$offset = offset;
+					filter.$limit = limit;
+					request = entityApi.search(filter);
+				} else {
+					request = entityApi.list(offset, limit);
+				}
+				request.then(function (response) {
 					if (response.status != 200) {
-						messageHub.showAlertError("Store", `Unable to list Store: '${response.message}'`);
+						messageHub.showAlertError("Store", `Unable to list/filter Store: '${response.message}'`);
 						return;
 					}
 					$scope.data = response.data;
 				});
 			});
 		};
-		$scope.loadPage($scope.dataPage);
+		$scope.loadPage($scope.dataPage, $scope.filter);
 
 		$scope.selectEntity = function (entity) {
 			$scope.selectedEntity = entity;
@@ -83,6 +101,16 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Store-details", {
 				action: "select",
 				entity: entity,
+				optionsCity: $scope.optionsCity,
+				optionsCountry: $scope.optionsCountry,
+				optionsStatus: $scope.optionsStatus,
+				optionsCompany: $scope.optionsCompany,
+			});
+		};
+
+		$scope.openFilter = function (entity) {
+			messageHub.showDialogWindow("Store-filter", {
+				entity: $scope.filterEntity,
 				optionsCity: $scope.optionsCity,
 				optionsCountry: $scope.optionsCountry,
 				optionsStatus: $scope.optionsStatus,
@@ -135,7 +163,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							messageHub.showAlertError("Store", `Unable to delete Store: '${response.message}'`);
 							return;
 						}
-						$scope.loadPage($scope.dataPage);
+						$scope.loadPage($scope.dataPage, $scope.filter);
 						messageHub.postMessage("clearDetails");
 					});
 				}
@@ -148,7 +176,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsStatus = [];
 		$scope.optionsCompany = [];
 
-		$http.get("/services/ts/codbex-inventory/gen/api/Cities/CityService.ts").then(function (response) {
+
+		$http.get("/services/ts/codbex-cities/gen/api/Cities/CityService.ts").then(function (response) {
 			$scope.optionsCity = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -157,7 +186,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-inventory/gen/api/Countries/CountryService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-countries/gen/api/Countries/CountryService.ts").then(function (response) {
 			$scope.optionsCountry = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -175,7 +204,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-inventory/gen/api/Companies/CompanyService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-companies/gen/api/Companies/CompanyService.ts").then(function (response) {
 			$scope.optionsCompany = response.data.map(e => {
 				return {
 					value: e.Id,
@@ -183,6 +212,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
+
 		$scope.optionsCityValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCity.length; i++) {
 				if ($scope.optionsCity[i].value === optionKey) {

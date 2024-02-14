@@ -11,6 +11,9 @@ export interface GoodsReceiptEntity {
     Name?: string;
     UUID?: string;
     Reference?: string;
+    Net?: number;
+    VAT?: number;
+    Gross?: number;
 }
 
 export interface GoodsReceiptCreateEntity {
@@ -20,6 +23,9 @@ export interface GoodsReceiptCreateEntity {
     readonly Name?: string;
     readonly UUID?: string;
     readonly Reference?: string;
+    readonly Net?: number;
+    readonly VAT?: number;
+    readonly Gross?: number;
 }
 
 export interface GoodsReceiptUpdateEntity extends GoodsReceiptCreateEntity {
@@ -36,6 +42,9 @@ export interface GoodsReceiptEntityOptions {
             Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
+            Net?: number | number[];
+            VAT?: number | number[];
+            Gross?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -45,6 +54,9 @@ export interface GoodsReceiptEntityOptions {
             Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
+            Net?: number | number[];
+            VAT?: number | number[];
+            Gross?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -54,6 +66,9 @@ export interface GoodsReceiptEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -63,6 +78,9 @@ export interface GoodsReceiptEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -72,6 +90,9 @@ export interface GoodsReceiptEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
         };
         lessThan?: {
             Id?: number;
@@ -81,6 +102,9 @@ export interface GoodsReceiptEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -90,6 +114,9 @@ export interface GoodsReceiptEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
         };
     },
     $select?: (keyof GoodsReceiptEntity)[],
@@ -151,6 +178,21 @@ export class GoodsReceiptRepository {
                 name: "Reference",
                 column: "GOODSRECEIPTS_REFERENCE",
                 type: "VARCHAR",
+            },
+            {
+                name: "Net",
+                column: "GOODSRECEIPT_NET",
+                type: "DOUBLE",
+            },
+            {
+                name: "VAT",
+                column: "GOODSRECEIPT_VAT",
+                type: "DOUBLE",
+            },
+            {
+                name: "Gross",
+                column: "GOODSRECEIPT_GROSS",
+                type: "DOUBLE",
             }
         ]
     };
@@ -229,11 +271,11 @@ export class GoodsReceiptRepository {
         });
     }
 
-    public count(): number {
-        return this.dao.count();
+    public count(options?: GoodsReceiptEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: GoodsReceiptEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GOODSRECEIPT"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

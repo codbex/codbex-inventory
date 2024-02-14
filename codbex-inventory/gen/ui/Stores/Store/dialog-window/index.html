@@ -16,7 +16,7 @@
         <script type="text/javascript" src="controller.js"></script>
     </head>
 
-    <body class="dg-vbox" dg-contextmenu="contextMenuContent">
+    <body class="dg-vbox">
         <fd-scrollbar class="dg-full-height">
             <div class="fd-margin--md fd-message-strip fd-message-strip--error fd-message-strip--dismissible"
                 role="alert" ng-show="errorMessage">
@@ -26,12 +26,12 @@
             </div>
 
             <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
-                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container fd-form-group">
-                    <fd-form-item class="fd-row fd-form-item">
+                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idName" dg-required="false" dg-colon="true">Name</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Name ? false : true }}">
 	                            <fd-input id="idName"
 	                                name="Name"
@@ -50,11 +50,11 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idEmail" dg-required="false" dg-colon="true">Email</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Email ? false : true }}">
 	                            <fd-input id="idEmail"
 	                                name="Email"
@@ -73,11 +73,11 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idPhone" dg-required="false" dg-colon="true">Phone</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Phone ? false : true }}">
 	                            <fd-input id="idPhone"
 	                                name="Phone"
@@ -96,11 +96,11 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idAddress" dg-required="false" dg-colon="true">Address</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Address ? false : true }}">
 	                            <fd-input id="idAddress"
 	                                name="Address"
@@ -119,11 +119,11 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idPostCode" dg-required="false" dg-colon="true">PostCode</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ formErrors.PostCode ? false : true }}">
 	                            <fd-input id="idPostCode"
 	                                name="PostCode"
@@ -142,11 +142,11 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCity" dg-required="false" dg-colon="true">City</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idCity"
 	                            name="City"
 	                            state="{{ formErrors.City ? 'error' : '' }}"
@@ -159,11 +159,11 @@
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCountry" dg-required="false" dg-colon="true">Country</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idCountry"
 	                            name="Country"
 	                            state="{{ formErrors.Country ? 'error' : '' }}"
@@ -176,11 +176,11 @@
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
-					<fd-form-item class="fd-row fd-form-item">
+					<fd-form-item class="fd-row">
 						<div class="fd-col fd-col-md--2">
 							<fd-form-label for="idLocation" dg-required="false" dg-colon="true">Location</fd-form-label>
 						</div>
-						<div class="fd-col fd-col-md--8">
+						<div class="fd-col  fd-col-md--8 ">
 							<fd-textarea id="idLocation"
 								name="Location"
 								state="{{ formErrors.Location ? 'error' : '' }}"
@@ -196,11 +196,11 @@
 							<fd-form-message dg-type="error" ng-show="formErrors.Location">Incorrect Input</fd-form-message>
 						</div>
 					</fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idContact" dg-required="false" dg-colon="true">Contact</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Contact ? false : true }}">
 	                            <fd-input id="idContact"
 	                                name="Contact"
@@ -219,11 +219,11 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idManager" dg-required="false" dg-colon="true">Manager</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Manager ? false : true }}">
 	                            <fd-input id="idManager"
 	                                name="Manager"
@@ -242,11 +242,11 @@
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idStatus" dg-required="false" dg-colon="true">Status</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idStatus"
 	                            name="Status"
 	                            state="{{ formErrors.Status ? 'error' : '' }}"
@@ -259,11 +259,11 @@
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
-                    <fd-form-item class="fd-row fd-form-item">
+                    <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCompany" dg-required="false" dg-colon="true">Company</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--8">
+                        <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idCompany"
 	                            name="Company"
 	                            state="{{ formErrors.Company ? 'error' : '' }}"
@@ -276,6 +276,7 @@
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
+				</fd-form-group>
             </fd-fieldset>
         </fd-scrollbar>
 

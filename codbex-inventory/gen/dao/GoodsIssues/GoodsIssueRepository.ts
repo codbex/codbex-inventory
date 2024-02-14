@@ -1,0 +1,301 @@
+import { query } from "sdk/db";
+import { producer } from "sdk/messaging";
+import { extensions } from "sdk/extensions";
+import { dao as daoApi } from "sdk/db";
+
+export interface GoodsIssueEntity {
+    readonly Id: number;
+    Number?: string;
+    Store?: number;
+    Company?: number;
+    Name?: string;
+    UUID?: string;
+    Reference?: string;
+    Net?: number;
+    VAT?: number;
+    Gross?: number;
+}
+
+export interface GoodsIssueCreateEntity {
+    readonly Number?: string;
+    readonly Store?: number;
+    readonly Company?: number;
+    readonly Name?: string;
+    readonly UUID?: string;
+    readonly Reference?: string;
+    readonly Net?: number;
+    readonly VAT?: number;
+    readonly Gross?: number;
+}
+
+export interface GoodsIssueUpdateEntity extends GoodsIssueCreateEntity {
+    readonly Id: number;
+}
+
+export interface GoodsIssueEntityOptions {
+    $filter?: {
+        equals?: {
+            Id?: number | number[];
+            Number?: string | string[];
+            Store?: number | number[];
+            Company?: number | number[];
+            Name?: string | string[];
+            UUID?: string | string[];
+            Reference?: string | string[];
+            Net?: number | number[];
+            VAT?: number | number[];
+            Gross?: number | number[];
+        };
+        notEquals?: {
+            Id?: number | number[];
+            Number?: string | string[];
+            Store?: number | number[];
+            Company?: number | number[];
+            Name?: string | string[];
+            UUID?: string | string[];
+            Reference?: string | string[];
+            Net?: number | number[];
+            VAT?: number | number[];
+            Gross?: number | number[];
+        };
+        contains?: {
+            Id?: number;
+            Number?: string;
+            Store?: number;
+            Company?: number;
+            Name?: string;
+            UUID?: string;
+            Reference?: string;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
+        };
+        greaterThan?: {
+            Id?: number;
+            Number?: string;
+            Store?: number;
+            Company?: number;
+            Name?: string;
+            UUID?: string;
+            Reference?: string;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
+        };
+        greaterThanOrEqual?: {
+            Id?: number;
+            Number?: string;
+            Store?: number;
+            Company?: number;
+            Name?: string;
+            UUID?: string;
+            Reference?: string;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
+        };
+        lessThan?: {
+            Id?: number;
+            Number?: string;
+            Store?: number;
+            Company?: number;
+            Name?: string;
+            UUID?: string;
+            Reference?: string;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
+        };
+        lessThanOrEqual?: {
+            Id?: number;
+            Number?: string;
+            Store?: number;
+            Company?: number;
+            Name?: string;
+            UUID?: string;
+            Reference?: string;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
+        };
+    },
+    $select?: (keyof GoodsIssueEntity)[],
+    $sort?: string | (keyof GoodsIssueEntity)[],
+    $order?: 'asc' | 'desc',
+    $offset?: number,
+    $limit?: number,
+}
+
+interface GoodsIssueEntityEvent {
+    readonly operation: 'create' | 'update' | 'delete';
+    readonly table: string;
+    readonly entity: Partial<GoodsIssueEntity>;
+    readonly key: {
+        name: string;
+        column: string;
+        value: number;
+    }
+}
+
+export class GoodsIssueRepository {
+
+    private static readonly DEFINITION = {
+        table: "CODBEX_GOODSISSUE",
+        properties: [
+            {
+                name: "Id",
+                column: "GOODSISSUE_ID",
+                type: "INTEGER",
+                id: true,
+                autoIncrement: true,
+            },
+            {
+                name: "Number",
+                column: "GOODSISSUE_NUMBER",
+                type: "VARCHAR",
+            },
+            {
+                name: "Store",
+                column: "GOODSISSUE_STORE",
+                type: "INTEGER",
+            },
+            {
+                name: "Company",
+                column: "GOODSISSUE_COMPANY",
+                type: "INTEGER",
+            },
+            {
+                name: "Name",
+                column: "GOODSISSUE_NAME",
+                type: "VARCHAR",
+            },
+            {
+                name: "UUID",
+                column: "GOODSISSUE_UUID",
+                type: "VARCHAR",
+            },
+            {
+                name: "Reference",
+                column: "GOODSISSUE_REFERENCE",
+                type: "VARCHAR",
+            },
+            {
+                name: "Net",
+                column: "GOODSISSUE_NET",
+                type: "DOUBLE",
+            },
+            {
+                name: "VAT",
+                column: "GOODSISSUE_VAT",
+                type: "DOUBLE",
+            },
+            {
+                name: "Gross",
+                column: "GOODSISSUE_GROSS",
+                type: "DOUBLE",
+            }
+        ]
+    };
+
+    private readonly dao;
+
+    constructor(dataSource?: string) {
+        this.dao = daoApi.create(GoodsIssueRepository.DEFINITION, null, dataSource);
+    }
+
+    public findAll(options?: GoodsIssueEntityOptions): GoodsIssueEntity[] {
+        return this.dao.list(options);
+    }
+
+    public findById(id: number): GoodsIssueEntity | undefined {
+        const entity = this.dao.find(id);
+        return entity ?? undefined;
+    }
+
+    public create(entity: GoodsIssueCreateEntity): number {
+        const id = this.dao.insert(entity);
+        this.triggerEvent({
+            operation: "create",
+            table: "CODBEX_GOODSISSUE",
+            entity: entity,
+            key: {
+                name: "Id",
+                column: "GOODSISSUE_ID",
+                value: id
+            }
+        });
+        return id;
+    }
+
+    public update(entity: GoodsIssueUpdateEntity): void {
+        this.dao.update(entity);
+        this.triggerEvent({
+            operation: "update",
+            table: "CODBEX_GOODSISSUE",
+            entity: entity,
+            key: {
+                name: "Id",
+                column: "GOODSISSUE_ID",
+                value: entity.Id
+            }
+        });
+    }
+
+    public upsert(entity: GoodsIssueCreateEntity | GoodsIssueUpdateEntity): number {
+        const id = (entity as GoodsIssueUpdateEntity).Id;
+        if (!id) {
+            return this.create(entity);
+        }
+
+        const existingEntity = this.findById(id);
+        if (existingEntity) {
+            this.update(entity as GoodsIssueUpdateEntity);
+            return id;
+        } else {
+            return this.create(entity);
+        }
+    }
+
+    public deleteById(id: number): void {
+        const entity = this.dao.find(id);
+        this.dao.remove(id);
+        this.triggerEvent({
+            operation: "delete",
+            table: "CODBEX_GOODSISSUE",
+            entity: entity,
+            key: {
+                name: "Id",
+                column: "GOODSISSUE_ID",
+                value: id
+            }
+        });
+    }
+
+    public count(options?: GoodsIssueEntityOptions): number {
+        return this.dao.count(options);
+    }
+
+    public customDataCount(options?: GoodsIssueEntityOptions): number {
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GOODSISSUE"');
+        if (resultSet !== null && resultSet[0] !== null) {
+            if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
+                return resultSet[0].COUNT;
+            } else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
+                return resultSet[0].count;
+            }
+        }
+        return 0;
+    }
+
+    private async triggerEvent(data: GoodsIssueEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory/GoodsIssues/GoodsIssue", ["trigger"]);
+        triggerExtensions.forEach(triggerExtension => {
+            try {
+                triggerExtension.trigger(data);
+            } catch (error) {
+                console.error(error);
+            }            
+        });
+        producer.queue("codbex-inventory/GoodsIssues/GoodsIssue").send(JSON.stringify(data));
+    }
+}

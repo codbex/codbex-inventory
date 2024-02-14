@@ -6,10 +6,21 @@ import { dao as daoApi } from "sdk/db";
 export interface GoodsReceiptItemEntity {
     readonly Id: number;
     GoodsReceipt?: number;
+    Product?: number;
+    Quantity?: number;
+    UoM?: number;
+    Price?: number;
+    Net?: number;
+    VAT?: number;
+    Gross?: number;
 }
 
 export interface GoodsReceiptItemCreateEntity {
     readonly GoodsReceipt?: number;
+    readonly Product?: number;
+    readonly Quantity?: number;
+    readonly UoM?: number;
+    readonly Price?: number;
 }
 
 export interface GoodsReceiptItemUpdateEntity extends GoodsReceiptItemCreateEntity {
@@ -21,30 +32,79 @@ export interface GoodsReceiptItemEntityOptions {
         equals?: {
             Id?: number | number[];
             GoodsReceipt?: number | number[];
+            Product?: number | number[];
+            Quantity?: number | number[];
+            UoM?: number | number[];
+            Price?: number | number[];
+            Net?: number | number[];
+            VAT?: number | number[];
+            Gross?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             GoodsReceipt?: number | number[];
+            Product?: number | number[];
+            Quantity?: number | number[];
+            UoM?: number | number[];
+            Price?: number | number[];
+            Net?: number | number[];
+            VAT?: number | number[];
+            Gross?: number | number[];
         };
         contains?: {
             Id?: number;
             GoodsReceipt?: number;
+            Product?: number;
+            Quantity?: number;
+            UoM?: number;
+            Price?: number;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
         };
         greaterThan?: {
             Id?: number;
             GoodsReceipt?: number;
+            Product?: number;
+            Quantity?: number;
+            UoM?: number;
+            Price?: number;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             GoodsReceipt?: number;
+            Product?: number;
+            Quantity?: number;
+            UoM?: number;
+            Price?: number;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
         };
         lessThan?: {
             Id?: number;
             GoodsReceipt?: number;
+            Product?: number;
+            Quantity?: number;
+            UoM?: number;
+            Price?: number;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             GoodsReceipt?: number;
+            Product?: number;
+            Quantity?: number;
+            UoM?: number;
+            Price?: number;
+            Net?: number;
+            VAT?: number;
+            Gross?: number;
         };
     },
     $select?: (keyof GoodsReceiptItemEntity)[],
@@ -81,6 +141,41 @@ export class GoodsReceiptItemRepository {
                 name: "GoodsReceipt",
                 column: "GOODSRECEIPTITEM_GOODSRECEIPT",
                 type: "INTEGER",
+            },
+            {
+                name: "Product",
+                column: "GOODSRECEIPTITEM_PRODUCT",
+                type: "INTEGER",
+            },
+            {
+                name: "Quantity",
+                column: "GOODSRECEIPTITEM_QUANTITY",
+                type: "DOUBLE",
+            },
+            {
+                name: "UoM",
+                column: "GOODSRECEIPTITEM_UOM",
+                type: "INTEGER",
+            },
+            {
+                name: "Price",
+                column: "GOODSRECEIPTITEM_PRICE",
+                type: "DOUBLE",
+            },
+            {
+                name: "Net",
+                column: "GOODSRECEIPTITEM_NET",
+                type: "DOUBLE",
+            },
+            {
+                name: "VAT",
+                column: "GOODSRECEIPTITEM_VAT",
+                type: "DOUBLE",
+            },
+            {
+                name: "Gross",
+                column: "GOODSRECEIPTITEM_GROSS",
+                type: "DOUBLE",
             }
         ]
     };
@@ -101,6 +196,12 @@ export class GoodsReceiptItemRepository {
     }
 
     public create(entity: GoodsReceiptItemCreateEntity): number {
+        // @ts-ignore
+        (entity as GoodsReceiptItemEntity).Net = entity["Quantity"] * entity["Price"];
+        // @ts-ignore
+        (entity as GoodsReceiptItemEntity).VAT = entity["Net"] * 0.2;
+        // @ts-ignore
+        (entity as GoodsReceiptItemEntity).Gross = entity["Net"] + entity["VAT"];
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -116,6 +217,12 @@ export class GoodsReceiptItemRepository {
     }
 
     public update(entity: GoodsReceiptItemUpdateEntity): void {
+        // @ts-ignore
+        (entity as GoodsReceiptItemEntity).Net = entity["Quantity"] * entity["Price"];
+        // @ts-ignore
+        (entity as GoodsReceiptItemEntity).VAT = entity["Net"] * 0.2;
+        // @ts-ignore
+        (entity as GoodsReceiptItemEntity).Gross = entity["Net"] + entity["VAT"];
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
@@ -159,21 +266,11 @@ export class GoodsReceiptItemRepository {
         });
     }
 
-
-
-    public count(GoodsReceipt: number): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GOODSRECEIPTITEM" WHERE "GOODSRECEIPTITEM_GOODSRECEIPT" = ?', [GoodsReceipt]);
-        if (resultSet !== null && resultSet[0] !== null) {
-            if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
-                return resultSet[0].COUNT;
-            } else if (resultSet[0].count !== undefined && resultSet[0].count !== null) {
-                return resultSet[0].count;
-            }
-        }
-        return 0;
+    public count(options?: GoodsReceiptItemEntityOptions): number {
+        return this.dao.count(options);
     }
 
-    public customDataCount(): number {
+    public customDataCount(options?: GoodsReceiptItemEntityOptions): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GOODSRECEIPTITEM"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {

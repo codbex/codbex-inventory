@@ -10,7 +10,14 @@ class GoodsReceiptItemService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            let GoodsReceipt = parseInt(ctx.queryParameters.GoodsReceipt);
+            GoodsReceipt = isNaN(GoodsReceipt) ? ctx.queryParameters.GoodsReceipt : GoodsReceipt;
             const options: GoodsReceiptItemEntityOptions = {
+                $filter: {
+                    equals: {
+                        GoodsReceipt: GoodsReceipt
+                    }
+                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -33,12 +40,28 @@ class GoodsReceiptItemService {
         }
     }
 
-    @Get("/count/:GoodsReceipt")
-    public count(_: any, ctx: any) {
+    @Get("/count")
+    public count() {
         try {
-            let GoodsReceipt = parseInt(ctx.pathParameters.GoodsReceipt);
-            GoodsReceipt = isNaN(GoodsReceipt) ? ctx.pathParameters.GoodsReceipt : GoodsReceipt;
-            return this.repository.count(GoodsReceipt);
+            return this.repository.count();
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/count")
+    public countWithFilter(filter: any) {
+        try {
+            return this.repository.count(filter);
+        } catch (error: any) {
+            this.handleError(error);
+        }
+    }
+
+    @Post("/search")
+    public search(filter: any) {
+        try {
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }

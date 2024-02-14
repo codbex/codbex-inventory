@@ -16,6 +16,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -31,6 +32,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -38,6 +40,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STORESTATUS\"",
                 "dataName": "STORESTATUS",
                 "dataQuery": "",
+                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -67,6 +70,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -84,6 +88,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "100",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -101,6 +106,7 @@
                         "name": "Manager",
                         "widgetIsMajor": "true",
                         "widgetLength": "50",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -118,6 +124,7 @@
                         "name": "Email",
                         "widgetIsMajor": "true",
                         "widgetLength": "100",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -135,6 +142,7 @@
                         "name": "Phone",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEL"
                     },
                     {
@@ -152,6 +160,7 @@
                         "name": "Address",
                         "widgetIsMajor": "true",
                         "widgetLength": "200",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -167,6 +176,7 @@
                         "name": "PostCode",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -188,6 +198,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN"
                     },
                     {
@@ -209,6 +220,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN"
                     },
                     {
@@ -224,6 +236,7 @@
                         "name": "TIN",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -241,6 +254,7 @@
                         "name": "IBAN",
                         "widgetIsMajor": "true",
                         "widgetLength": "22",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -248,6 +262,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}COMPANY\"",
                 "dataName": "COMPANY",
                 "dataQuery": "",
+                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -279,6 +294,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -296,6 +312,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "100",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -317,6 +334,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN"
                     }
                 ],
@@ -324,6 +342,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}CITY\"",
                 "dataName": "CITY",
                 "dataQuery": "",
+                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -355,6 +374,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -370,6 +390,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -385,6 +406,7 @@
                         "name": "Code2",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -400,6 +422,7 @@
                         "name": "Code3",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -415,6 +438,7 @@
                         "name": "Numeric",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -422,6 +446,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}COUNTRY\"",
                 "dataName": "COUNTRY",
                 "dataQuery": "",
+                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -453,6 +478,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -468,6 +494,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -483,6 +510,7 @@
                         "name": "Email",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -498,6 +526,7 @@
                         "name": "Phone",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -513,6 +542,7 @@
                         "name": "Address",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -528,6 +558,7 @@
                         "name": "PostCode",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -547,6 +578,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Store_City",
                         "relationshipEntityName": "City",
@@ -569,6 +601,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Store_Country",
                         "relationshipEntityName": "Country",
@@ -589,6 +622,7 @@
                         "name": "Location",
                         "widgetIsMajor": "true",
                         "widgetLength": "2000",
+                        "widgetSize": "",
                         "widgetType": "TEXTAREA"
                     },
                     {
@@ -606,6 +640,7 @@
                         "name": "Contact",
                         "widgetIsMajor": "true",
                         "widgetLength": "2000",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -621,6 +656,7 @@
                         "name": "Manager",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -640,6 +676,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Store_StoreStatus",
                         "relationshipEntityName": "StoreStatus",
@@ -662,6 +699,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Store_Company",
                         "relationshipEntityName": "Company",
@@ -672,6 +710,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STORE\"",
                 "dataName": "STORE",
                 "dataQuery": "",
+                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -701,6 +740,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -716,6 +756,7 @@
                         "name": "Number",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -735,6 +776,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GoodsReceipt_Store",
                         "relationshipEntityName": "Store",
@@ -757,6 +799,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GoodsReceipt_Company",
                         "relationshipEntityName": "Company",
@@ -775,6 +818,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -792,6 +836,7 @@
                         "name": "UUID",
                         "widgetIsMajor": "true",
                         "widgetLength": "36",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -809,13 +854,69 @@
                         "name": "Reference",
                         "widgetIsMajor": "true",
                         "widgetLength": "36",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSRECEIPT_NET",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Net",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSRECEIPT_VAT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "VAT",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSRECEIPT_GROSS",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Gross",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
                     }
                 ],
                 "caption": "Manage entity GoodsReceipt",
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}GOODSRECEIPT\"",
                 "dataName": "GOODSRECEIPT",
                 "dataQuery": "",
+                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
@@ -845,6 +946,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -863,6 +965,7 @@
                         "relationshipType": "COMPOSITION",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "GoodsReceipt",
                         "relationshipEntityPerspectiveName": "GoodsReceipts"
@@ -884,6 +987,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN",
                         "relationshipName": "GoodsReceiptItem_Product",
                         "relationshipEntityName": "Product",
@@ -904,6 +1008,7 @@
                         "name": "Quantity",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -919,6 +1024,7 @@
                         "name": "UoM",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipName": "GoodsReceiptItem_UoM",
                         "relationshipEntityName": "UoM",
@@ -939,6 +1045,7 @@
                         "name": "Price",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -956,6 +1063,7 @@
                         "name": "Net",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -973,6 +1081,7 @@
                         "name": "VAT",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -990,6 +1099,7 @@
                         "name": "Gross",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     }
                 ],
@@ -997,6 +1107,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}GOODSRECEIPTITEM\"",
                 "dataName": "GOODSRECEIPTITEM",
                 "dataQuery": "",
+                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
@@ -1026,6 +1137,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1043,6 +1155,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "500",
+                        "widgetSize": "",
                         "widgetType": "TEXTAREA"
                     },
                     {
@@ -1064,6 +1177,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN"
                     },
                     {
@@ -1085,6 +1199,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN"
                     },
                     {
@@ -1106,6 +1221,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN"
                     },
                     {
@@ -1123,6 +1239,7 @@
                         "name": "Model",
                         "widgetIsMajor": "true",
                         "widgetLength": "200",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1144,6 +1261,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN"
                     },
                     {
@@ -1161,6 +1279,7 @@
                         "name": "SKU",
                         "widgetIsMajor": "true",
                         "widgetLength": "64",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1176,6 +1295,7 @@
                         "name": "UPC",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1191,6 +1311,7 @@
                         "name": "EAN",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1206,6 +1327,7 @@
                         "name": "JAN",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1221,6 +1343,7 @@
                         "name": "ISBN",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1238,6 +1361,7 @@
                         "name": "MPN",
                         "widgetIsMajor": "true",
                         "widgetLength": "40",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1259,6 +1383,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN"
                     },
                     {
@@ -1276,6 +1401,7 @@
                         "name": "Weight",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1293,6 +1419,7 @@
                         "name": "Height",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     },
                     {
@@ -1310,6 +1437,7 @@
                         "name": "Length",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "NUMBER"
                     }
                 ],
@@ -1317,6 +1445,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}PRODUCT\"",
                 "dataName": "PRODUCT",
                 "dataQuery": "",
+                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -1348,6 +1477,7 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1363,6 +1493,7 @@
                         "name": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1378,6 +1509,7 @@
                         "name": "Unit",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1397,6 +1529,7 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "DROPDOWN"
                     },
                     {
@@ -1412,6 +1545,7 @@
                         "name": "Numerator",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1427,6 +1561,7 @@
                         "name": "Denominator",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {
@@ -1442,6 +1577,7 @@
                         "name": "Rounding",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }
                 ],
@@ -1449,6 +1585,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}UOM\"",
                 "dataName": "UOM",
                 "dataQuery": "",
+                "disableGeneration": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
@@ -1464,6 +1601,674 @@
                 "title": "UoM",
                 "tooltip": "UoM",
                 "type": "PROJECTION"
+            },
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "GOODSISSUE_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSISSUE_NUMBER",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "false",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Number",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "GOODSISSUE_STORE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Store",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "GoodsIssue_Store",
+                        "relationshipEntityName": "Store",
+                        "relationshipEntityPerspectiveName": "Stores"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "GOODSISSUE_COMPANY",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Company",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "GoodsIssue_Company",
+                        "relationshipEntityName": "Company",
+                        "relationshipEntityPerspectiveName": "Companies"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSISSUE_NAME",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "false",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "36",
+                        "dataName": "GOODSISSUE_UUID",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "UUID",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "36",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "36",
+                        "dataName": "GOODSISSUE_REFERENCE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Reference",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "36",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSISSUE_NET",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Net",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSISSUE_VAT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "VAT",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSISSUE_GROSS",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Gross",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    }
+                ],
+                "caption": "Manage entity GoodsIssue",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}GOODSISSUE\"",
+                "dataName": "GOODSISSUE",
+                "dataQuery": "",
+                "disableGeneration": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE_MASTER",
+                "menuIndex": "100",
+                "menuKey": "goodsissue",
+                "menuLabel": "GoodsIssue",
+                "name": "GoodsIssue",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/minus-square.svg",
+                "perspectiveName": "GoodsIssues",
+                "perspectiveOrder": "200",
+                "title": "GoodsIssue",
+                "tooltip": "GoodsIssue",
+                "type": "PRIMARY"
+            },
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "GOODSISSUEITEM_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "GOODSISSUEITEM_GOODSISSUE",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "false",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "GoodsIssue",
+                        "relationshipCardinality": "1_n",
+                        "relationshipName": "GoodsIssueItem_GoodsIssue",
+                        "relationshipType": "COMPOSITION",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX",
+                        "relationshipEntityName": "GoodsIssue",
+                        "relationshipEntityPerspectiveName": "GoodsIssues"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "GOODSISSUEITEM_PRODUCT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Product",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "GoodsIssueItem_Product",
+                        "relationshipEntityName": "Product",
+                        "relationshipEntityPerspectiveName": "Products"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSISSUEITEM_QUANTITY",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Quantity",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "GOODSISSUEITEM_UOM",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "false",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "UoM",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX",
+                        "relationshipName": "GoodsIssueItem_UoM",
+                        "relationshipEntityName": "UoM",
+                        "relationshipEntityPerspectiveName": "UnitsOfMeasures"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSISSUEITEM_PRICE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Price",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSISSUEITEM_NET",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Net",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "entity[\"Net\"] * 0.2",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSISSUEITEM_VAT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "true",
+                        "name": "VAT",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "entity[\"Net\"] + entity[\"VAT\"]",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "GOODSISSUEITEM_GROSS",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "true",
+                        "name": "Gross",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    }
+                ],
+                "caption": "Manage entity GoodsIssueItem",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}GOODSISSUEITEM\"",
+                "dataName": "GOODSISSUEITEM",
+                "dataQuery": "",
+                "disableGeneration": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE_DETAILS",
+                "menuIndex": "100",
+                "menuKey": "goodsissueitem",
+                "menuLabel": "GoodsIssueItem",
+                "name": "GoodsIssueItem",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/minus-square.svg",
+                "perspectiveName": "GoodsIssues",
+                "perspectiveOrder": "200",
+                "title": "GoodsIssueItem",
+                "tooltip": "GoodsIssueItem",
+                "type": "DEPENDENT"
+            },
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "STOCKRECORD_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "36",
+                        "dataName": "STOCKRECORD_REFERENCE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Reference",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "36",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "STOCKRECORD_PRODUCT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Product",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "StockRecord_Product",
+                        "relationshipEntityName": "Product",
+                        "relationshipEntityPerspectiveName": "Products"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "STOCKRECORD_QUANTITY",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Quantity",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "STOCKRECORD_UOM",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "UoM",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "StockRecord_UoM",
+                        "relationshipEntityName": "UoM",
+                        "relationshipEntityPerspectiveName": "UnitsOfMeasures"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "STOCKRECORD_PRICE",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Price",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "STOCKRECORD_NET",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Net",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "STOCKRECORD_VAT",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "VAT",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "STOCKRECORD_GROSS",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "DOUBLE",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Gross",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "0",
+                        "dataName": "STOCKRECORD_DIRECTION",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Direction",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "StockRecord_StockRecordDirection",
+                        "relationshipEntityName": "StockRecordDirection",
+                        "relationshipEntityPerspectiveName": "Settings"
+                    }
+                ],
+                "caption": "Manage entity StockRecord",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STOCKRECORD\"",
+                "dataName": "STOCKRECORD",
+                "dataQuery": "",
+                "disableGeneration": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "stockrecord",
+                "menuLabel": "StockRecord",
+                "name": "StockRecord",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/align-justify.svg",
+                "perspectiveName": "StockRecords",
+                "perspectiveOrder": "600",
+                "title": "StockRecord",
+                "tooltip": "StockRecord",
+                "type": "PRIMARY"
+            },
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "STOCKRECORDDIRECTION_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "STOCKRECORDDIRECTION_NAME",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "false",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    }
+                ],
+                "caption": "Manage entity StockRecordDirection",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STOCKRECORDDIRECTION\"",
+                "dataName": "STOCKRECORDDIRECTION",
+                "dataQuery": "",
+                "disableGeneration": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "stockrecorddirection",
+                "menuLabel": "StockRecordDirection",
+                "name": "StockRecordDirection",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "999",
+                "title": "StockRecordDirection",
+                "tooltip": "StockRecordDirection",
+                "type": "SETTING"
             }
         ],
         "perspectives": [
