@@ -30,7 +30,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
 				$scope.optionsProduct = params.optionsProduct;
 				$scope.optionsUoM = params.optionsUoM;
-				$scope.optionsGross = params.optionsGross;
 				$scope.optionsDirection = params.optionsDirection;
 			}
 		}

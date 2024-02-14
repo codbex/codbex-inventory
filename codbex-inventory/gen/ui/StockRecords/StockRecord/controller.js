@@ -103,7 +103,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
-				optionsGross: $scope.optionsGross,
 				optionsDirection: $scope.optionsDirection,
 			});
 		};
@@ -113,7 +112,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: $scope.filterEntity,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
-				optionsGross: $scope.optionsGross,
 				optionsDirection: $scope.optionsDirection,
 			});
 		};
@@ -125,7 +123,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
-				optionsGross: $scope.optionsGross,
 				optionsDirection: $scope.optionsDirection,
 			}, null, false);
 		};
@@ -136,7 +133,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
-				optionsGross: $scope.optionsGross,
 				optionsDirection: $scope.optionsDirection,
 			}, null, false);
 		};
@@ -173,7 +169,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//----------------Dropdowns-----------------//
 		$scope.optionsProduct = [];
 		$scope.optionsUoM = [];
-		$scope.optionsGross = [];
 		$scope.optionsDirection = [];
 
 
@@ -188,15 +183,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		$http.get("/services/ts/codbex-uoms/gen/api/UnitsOfMeasures/UoMService.ts").then(function (response) {
 			$scope.optionsUoM = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
-		$http.get("/services/ts/codbex-inventory/gen/api/undefined/undefinedService.ts").then(function (response) {
-			$scope.optionsGross = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -225,14 +211,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsUoM.length; i++) {
 				if ($scope.optionsUoM[i].value === optionKey) {
 					return $scope.optionsUoM[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsGrossValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsGross.length; i++) {
-				if ($scope.optionsGross[i].value === optionKey) {
-					return $scope.optionsGross[i].text;
 				}
 			}
 			return null;

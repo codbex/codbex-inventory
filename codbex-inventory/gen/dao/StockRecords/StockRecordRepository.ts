@@ -2,6 +2,7 @@ import { query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
+import { EntityUtils } from "../utils/EntityUtils";
 
 export interface StockRecordEntity {
     readonly Id: number;
@@ -14,6 +15,8 @@ export interface StockRecordEntity {
     VAT?: number;
     Gross?: number;
     Direction?: number;
+    ItemId?: number;
+    Deleted?: boolean;
 }
 
 export interface StockRecordCreateEntity {
@@ -26,6 +29,8 @@ export interface StockRecordCreateEntity {
     readonly VAT?: number;
     readonly Gross?: number;
     readonly Direction?: number;
+    readonly ItemId?: number;
+    readonly Deleted?: boolean;
 }
 
 export interface StockRecordUpdateEntity extends StockRecordCreateEntity {
@@ -45,6 +50,8 @@ export interface StockRecordEntityOptions {
             VAT?: number | number[];
             Gross?: number | number[];
             Direction?: number | number[];
+            ItemId?: number | number[];
+            Deleted?: boolean | boolean[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -57,6 +64,8 @@ export interface StockRecordEntityOptions {
             VAT?: number | number[];
             Gross?: number | number[];
             Direction?: number | number[];
+            ItemId?: number | number[];
+            Deleted?: boolean | boolean[];
         };
         contains?: {
             Id?: number;
@@ -69,6 +78,8 @@ export interface StockRecordEntityOptions {
             VAT?: number;
             Gross?: number;
             Direction?: number;
+            ItemId?: number;
+            Deleted?: boolean;
         };
         greaterThan?: {
             Id?: number;
@@ -81,6 +92,8 @@ export interface StockRecordEntityOptions {
             VAT?: number;
             Gross?: number;
             Direction?: number;
+            ItemId?: number;
+            Deleted?: boolean;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -93,6 +106,8 @@ export interface StockRecordEntityOptions {
             VAT?: number;
             Gross?: number;
             Direction?: number;
+            ItemId?: number;
+            Deleted?: boolean;
         };
         lessThan?: {
             Id?: number;
@@ -105,6 +120,8 @@ export interface StockRecordEntityOptions {
             VAT?: number;
             Gross?: number;
             Direction?: number;
+            ItemId?: number;
+            Deleted?: boolean;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -117,6 +134,8 @@ export interface StockRecordEntityOptions {
             VAT?: number;
             Gross?: number;
             Direction?: number;
+            ItemId?: number;
+            Deleted?: boolean;
         };
     },
     $select?: (keyof StockRecordEntity)[],
@@ -193,6 +212,16 @@ export class StockRecordRepository {
                 name: "Direction",
                 column: "STOCKRECORD_DIRECTION",
                 type: "INTEGER",
+            },
+            {
+                name: "ItemId",
+                column: "STOCKRECORD_ITEMID",
+                type: "INTEGER",
+            },
+            {
+                name: "Deleted",
+                column: "STOCKRECORD_DELETED",
+                type: "BOOLEAN",
             }
         ]
     };
@@ -204,15 +233,20 @@ export class StockRecordRepository {
     }
 
     public findAll(options?: StockRecordEntityOptions): StockRecordEntity[] {
-        return this.dao.list(options);
+        return this.dao.list(options).map((e: StockRecordEntity) => {
+            EntityUtils.setBoolean(e, "Deleted");
+            return e;
+        });
     }
 
     public findById(id: number): StockRecordEntity | undefined {
         const entity = this.dao.find(id);
+        EntityUtils.setBoolean(entity, "Deleted");
         return entity ?? undefined;
     }
 
     public create(entity: StockRecordCreateEntity): number {
+        EntityUtils.setBoolean(entity, "Deleted");
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -228,6 +262,7 @@ export class StockRecordRepository {
     }
 
     public update(entity: StockRecordUpdateEntity): void {
+        EntityUtils.setBoolean(entity, "Deleted");
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

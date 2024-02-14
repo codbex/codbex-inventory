@@ -19,7 +19,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
 				$scope.optionsProduct = params.optionsProduct;
 				$scope.optionsUoM = params.optionsUoM;
-				$scope.optionsGross = params.optionsGross;
 				$scope.optionsDirection = params.optionsDirection;
 			}
 		}
@@ -84,6 +83,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			if (entity.Direction) {
 				filter.$filter.equals.Direction = entity.Direction;
+			}
+			if (entity.ItemId) {
+				filter.$filter.equals.ItemId = entity.ItemId;
+			}
+			if (entity.Deleted) {
+				filter.$filter.equals.Deleted = entity.Deleted;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

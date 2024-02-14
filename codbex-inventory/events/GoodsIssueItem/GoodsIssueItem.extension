@@ -1,0 +1,5 @@
+{
+    "module": "codbex-inventory/events/GoodsIssueItem/GoodsIssueItemHandler.ts",
+    "extensionPoint": "codbex-inventory/GoodsIssues/GoodsIssueItem",
+    "description": "GoodsIssueItem Extension"
+}

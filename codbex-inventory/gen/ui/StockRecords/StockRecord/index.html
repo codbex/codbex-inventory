@@ -37,6 +37,8 @@
 						<th fd-table-header-cell>VAT</th>
 						<th fd-table-header-cell>Gross</th>
 						<th fd-table-header-cell>Direction</th>
+						<th fd-table-header-cell>ItemId</th>
+						<th fd-table-header-cell>Deleted</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -57,11 +59,14 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Price}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Net}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.VAT}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsGrossValue(next.Gross)}}
-						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Gross}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsDirectionValue(next.Direction)}}
+						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.ItemId}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							<fd-checkbox id="idDeleted" compact="false" ng-disabled="true" ng-model="next.Deleted"></fd-checkbox>
+							<fd-checkbox-label for="idDeleted" empty="true"></fd-checkbox-label>
 						</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>

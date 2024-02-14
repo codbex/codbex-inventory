@@ -876,6 +876,22 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "STOCKRECORD_DIRECTION"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STOCKRECORD_ITEMID"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STOCKRECORD_DELETED"
                     }
                 ]
             },
