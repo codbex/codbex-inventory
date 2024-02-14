@@ -9,11 +9,12 @@ export interface GoodsIssueEntity {
     Store?: number;
     Company?: number;
     Name?: string;
-    UUID?: string;
-    Reference?: string;
+    Currency?: number;
     Net?: number;
     VAT?: number;
     Gross?: number;
+    UUID?: string;
+    Reference?: string;
 }
 
 export interface GoodsIssueCreateEntity {
@@ -21,11 +22,12 @@ export interface GoodsIssueCreateEntity {
     readonly Store?: number;
     readonly Company?: number;
     readonly Name?: string;
-    readonly UUID?: string;
-    readonly Reference?: string;
+    readonly Currency?: number;
     readonly Net?: number;
     readonly VAT?: number;
     readonly Gross?: number;
+    readonly UUID?: string;
+    readonly Reference?: string;
 }
 
 export interface GoodsIssueUpdateEntity extends GoodsIssueCreateEntity {
@@ -40,11 +42,12 @@ export interface GoodsIssueEntityOptions {
             Store?: number | number[];
             Company?: number | number[];
             Name?: string | string[];
-            UUID?: string | string[];
-            Reference?: string | string[];
+            Currency?: number | number[];
             Net?: number | number[];
             VAT?: number | number[];
             Gross?: number | number[];
+            UUID?: string | string[];
+            Reference?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -52,11 +55,12 @@ export interface GoodsIssueEntityOptions {
             Store?: number | number[];
             Company?: number | number[];
             Name?: string | string[];
-            UUID?: string | string[];
-            Reference?: string | string[];
+            Currency?: number | number[];
             Net?: number | number[];
             VAT?: number | number[];
             Gross?: number | number[];
+            UUID?: string | string[];
+            Reference?: string | string[];
         };
         contains?: {
             Id?: number;
@@ -64,11 +68,12 @@ export interface GoodsIssueEntityOptions {
             Store?: number;
             Company?: number;
             Name?: string;
-            UUID?: string;
-            Reference?: string;
+            Currency?: number;
             Net?: number;
             VAT?: number;
             Gross?: number;
+            UUID?: string;
+            Reference?: string;
         };
         greaterThan?: {
             Id?: number;
@@ -76,11 +81,12 @@ export interface GoodsIssueEntityOptions {
             Store?: number;
             Company?: number;
             Name?: string;
-            UUID?: string;
-            Reference?: string;
+            Currency?: number;
             Net?: number;
             VAT?: number;
             Gross?: number;
+            UUID?: string;
+            Reference?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -88,11 +94,12 @@ export interface GoodsIssueEntityOptions {
             Store?: number;
             Company?: number;
             Name?: string;
-            UUID?: string;
-            Reference?: string;
+            Currency?: number;
             Net?: number;
             VAT?: number;
             Gross?: number;
+            UUID?: string;
+            Reference?: string;
         };
         lessThan?: {
             Id?: number;
@@ -100,11 +107,12 @@ export interface GoodsIssueEntityOptions {
             Store?: number;
             Company?: number;
             Name?: string;
-            UUID?: string;
-            Reference?: string;
+            Currency?: number;
             Net?: number;
             VAT?: number;
             Gross?: number;
+            UUID?: string;
+            Reference?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -112,11 +120,12 @@ export interface GoodsIssueEntityOptions {
             Store?: number;
             Company?: number;
             Name?: string;
-            UUID?: string;
-            Reference?: string;
+            Currency?: number;
             Net?: number;
             VAT?: number;
             Gross?: number;
+            UUID?: string;
+            Reference?: string;
         };
     },
     $select?: (keyof GoodsIssueEntity)[],
@@ -170,14 +179,9 @@ export class GoodsIssueRepository {
                 type: "VARCHAR",
             },
             {
-                name: "UUID",
-                column: "GOODSISSUE_UUID",
-                type: "VARCHAR",
-            },
-            {
-                name: "Reference",
-                column: "GOODSISSUE_REFERENCE",
-                type: "VARCHAR",
+                name: "Currency",
+                column: "GOODSISSUE_CURRENCY",
+                type: "INTEGER",
             },
             {
                 name: "Net",
@@ -193,6 +197,16 @@ export class GoodsIssueRepository {
                 name: "Gross",
                 column: "GOODSISSUE_GROSS",
                 type: "DOUBLE",
+            },
+            {
+                name: "UUID",
+                column: "GOODSISSUE_UUID",
+                type: "VARCHAR",
+            },
+            {
+                name: "Reference",
+                column: "GOODSISSUE_REFERENCE",
+                type: "VARCHAR",
             }
         ]
     };

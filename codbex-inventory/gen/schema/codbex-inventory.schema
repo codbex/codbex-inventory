@@ -318,20 +318,12 @@
                         "name": "GOODSRECEIPTS_NAME"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 36,
+                        "type": "INTEGER",
+                        "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "GOODSRECEIPTS_UUID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 36,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "GOODSRECEIPTS_REFERENCE"
+                        "name": "GOODSRECEIPT_CURRENCY"
                     },
                     {
                         "type": "DOUBLE",
@@ -356,6 +348,22 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "GOODSRECEIPT_GROSS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GOODSRECEIPTS_UUID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GOODSRECEIPTS_REFERENCE"
                     }
                 ]
             },
@@ -658,20 +666,12 @@
                         "name": "GOODSISSUE_NAME"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 36,
+                        "type": "INTEGER",
+                        "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "GOODSISSUE_UUID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 36,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "GOODSISSUE_REFERENCE"
+                        "name": "GOODSISSUE_CURRENCY"
                     },
                     {
                         "type": "DOUBLE",
@@ -696,6 +696,22 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "GOODSISSUE_GROSS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GOODSISSUE_UUID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GOODSISSUE_REFERENCE"
                     }
                 ]
             },
@@ -880,6 +896,68 @@
                 ]
             },
             {
+                "name": "CODBEX_CURRENCY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CURRENCY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CURRENCY_CODE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 127,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CURRENCY_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 3,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CURRENCY_NUMERIC"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CURRENCY_ROUNDING"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CURRENCY_BASE"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CURRENCY_RATE"
+                    }
+                ]
+            },
+            {
                 "name": "Store_City",
                 "type": "foreignKey",
                 "table": "CODBEX_STORE",
@@ -934,6 +1012,15 @@
                 "referencedColumns": "COMPANY_ID"
             },
             {
+                "name": "GoodsReceipt_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_GOODSRECEIPT",
+                "constraintName": "GoodsReceipt_Currency",
+                "columns": "GOODSRECEIPT_CURRENCY",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_ID"
+            },
+            {
                 "name": "GoodsReceiptItem_GoodsReceipt",
                 "type": "foreignKey",
                 "table": "CODBEX_GOODSRECEIPTITEM",
@@ -977,6 +1064,15 @@
                 "columns": "GOODSISSUE_COMPANY",
                 "referencedTable": "CODBEX_COMPANY",
                 "referencedColumns": "COMPANY_ID"
+            },
+            {
+                "name": "GoodsIssue_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_GOODSISSUE",
+                "constraintName": "GoodsIssue_Currency",
+                "columns": "GOODSISSUE_CURRENCY",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_ID"
             },
             {
                 "name": "GoodsIssueItem_GoodsIssue",
