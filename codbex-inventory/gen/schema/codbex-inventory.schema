@@ -404,6 +404,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "GOODSRECEIPTITEM_UOM"
                     },
@@ -752,6 +754,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "GOODSISSUEITEM_UOM"
                     },
