@@ -17,6 +17,7 @@ export const trigger = (event) => {
             UoM: item.UoM,
             Price: item.Price,
             Net: item.Net,
+            VAT: item.VAT,
             Gross: item.Gross,
             ItemId: item.Id,
             Direction: -1,
