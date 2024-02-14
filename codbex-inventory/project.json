@@ -1,5 +1,31 @@
 {
     "guid": "codbex-inventory",
+    "dependencies": [
+        {
+            "guid": "codbex-cities",
+            "type": "git",
+            "url": "https://github.com/codbex/codbex-cities.git",
+            "branch": "main"
+        },
+        {
+            "guid": "codbex-countries",
+            "type": "git",
+            "url": "https://github.com/codbex/codbex-countries.git",
+            "branch": "main"
+        },
+        {
+            "guid": "codbex-companies",
+            "type": "git",
+            "url": "https://github.com/codbex/codbex-companies.git",
+            "branch": "main"
+        },
+        {
+            "guid": "codbex-products",
+            "type": "git",
+            "url": "https://github.com/codbex/codbex-products.git",
+            "branch": "main"
+        }
+    ],
     "actions": [
         {
             "name": "Build TypeScript",
