@@ -146,7 +146,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "STORESTATUS_ID",
@@ -168,7 +169,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STORESTATUS_NAME",
@@ -219,7 +221,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "COMPANY_ID",
@@ -241,7 +244,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "100",
           "dataName": "COMPANY_NAME",
@@ -267,7 +271,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "50",
           "dataName": "COMPANY_MANAGER",
@@ -293,7 +298,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "100",
           "dataName": "COMPANY_EMAIL",
@@ -319,7 +325,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "COMPANY_PHONE",
@@ -345,7 +352,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "200",
           "dataName": "COMPANY_ADDRESS",
@@ -371,7 +379,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "COMPANY_POSTCODE",
@@ -395,7 +404,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "COMPANY_CITY",
@@ -423,7 +433,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "COMPANY_COUNTRY",
@@ -451,7 +462,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "COMPANY_TIN",
@@ -475,7 +487,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "22",
           "dataName": "COMPANY_IBAN",
@@ -531,7 +544,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "CITY_ID",
@@ -553,7 +567,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "100",
           "dataName": "CITY_NAME",
@@ -579,7 +594,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "CITY_COUNTRY",
@@ -637,7 +653,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "COUNTRY_ID",
@@ -659,7 +676,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "COUNTRY_NAME",
@@ -683,7 +701,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2",
           "dataName": "COUNTRY_CODE2",
@@ -707,7 +726,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "3",
           "dataName": "COUNTRY_CODE3",
@@ -731,7 +751,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "3",
           "dataName": "COUNTRY_NUMERIC",
@@ -784,7 +805,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "STORE_ID",
@@ -806,7 +828,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STORE_NUMBER",
@@ -830,7 +853,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STORE_EMAIL",
@@ -854,7 +878,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STORE_PHONE",
@@ -878,7 +903,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STORE_ADDRESS",
@@ -902,7 +928,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STORE_POSTCODE",
@@ -926,7 +953,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "STORE_CITY",
@@ -955,7 +983,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "STORE_COUNTRY",
@@ -984,7 +1013,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2000",
           "dataName": "STORE_LOCATION",
@@ -1010,7 +1040,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "2000",
           "dataName": "STORE_CONTACT",
@@ -1036,7 +1067,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STORE_MANAGER",
@@ -1060,7 +1092,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "STORE_STORESTATUSID",
@@ -1089,7 +1122,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "STORE_COMPANY",
@@ -1159,7 +1193,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "GOODSRECEIPTS_ID",
@@ -1181,7 +1216,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSRECEIPTS_NUMBER",
@@ -1205,7 +1241,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GOODSRECEIPTS_STORE",
@@ -1234,7 +1271,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GOODSRECEIPTS_COMPANY",
@@ -1263,7 +1301,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSRECEIPTS_NAME",
@@ -1287,7 +1326,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GOODSRECEIPT_CURRENCY",
@@ -1316,7 +1356,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSRECEIPT_NET",
@@ -1340,7 +1381,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSRECEIPT_VAT",
@@ -1364,7 +1406,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSRECEIPT_GROSS",
@@ -1388,7 +1431,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "require(\"sdk/utils/uuid\").random()",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "36",
           "dataName": "GOODSRECEIPTS_UUID",
@@ -1398,7 +1442,7 @@
           "dataScale": "NaN",
           "dataType": "VARCHAR",
           "dataUnique": false,
-          "isCalculatedProperty": false,
+          "isCalculatedProperty": true,
           "name": "UUID",
           "widgetIsMajor": true,
           "widgetLength": "36",
@@ -1414,7 +1458,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "36",
           "dataName": "GOODSRECEIPTS_REFERENCE",
@@ -1474,7 +1519,8 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSRECEIPTS_NUMBER",
@@ -1499,7 +1545,8 @@
         },
         "properties": [
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "GOODSRECEIPTS_STORE",
@@ -1528,7 +1575,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "GOODSRECEIPTS_COMPANY",
@@ -1557,7 +1605,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "GOODSRECEIPTS_NAME",
@@ -1581,7 +1630,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "GOODSRECEIPT_CURRENCY",
@@ -1610,7 +1660,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "GOODSRECEIPT_NET",
@@ -1634,7 +1685,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "GOODSRECEIPT_VAT",
@@ -1658,7 +1710,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "GOODSRECEIPT_GROSS",
@@ -1682,7 +1735,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "require(\"sdk/utils/uuid\").random()",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "36",
             "dataName": "GOODSRECEIPTS_UUID",
@@ -1692,7 +1746,7 @@
             "dataScale": "NaN",
             "dataType": "VARCHAR",
             "dataUnique": false,
-            "isCalculatedProperty": false,
+            "isCalculatedProperty": true,
             "name": "UUID",
             "widgetIsMajor": true,
             "widgetLength": "36",
@@ -1708,7 +1762,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "36",
             "dataName": "GOODSRECEIPTS_REFERENCE",
@@ -1740,7 +1795,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "GOODSRECEIPTITEM_ID",
@@ -1762,7 +1818,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GOODSRECEIPTITEM_GOODSRECEIPT",
@@ -1789,7 +1846,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GOODSRECEIPTITEM_PRODUCT",
@@ -1818,7 +1876,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSRECEIPTITEM_QUANTITY",
@@ -1842,7 +1901,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GOODSRECEIPTITEM_UOM",
@@ -1867,7 +1927,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSRECEIPTITEM_PRICE",
@@ -1891,7 +1952,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "entity[\"Quantity\"] * entity[\"Price\"]",
+          "calculatedPropertyExpressionCreate": "entity[\"Quantity\"] * entity[\"Price\"]",
+          "calculatedPropertyExpressionUpdate": "entity[\"Quantity\"] * entity[\"Price\"]",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSRECEIPTITEM_NET",
@@ -1915,7 +1977,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "entity[\"Net\"] * 0.2",
+          "calculatedPropertyExpressionCreate": "entity[\"Net\"] * 0.2",
+          "calculatedPropertyExpressionUpdate": "entity[\"Net\"] * 0.2",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSRECEIPTITEM_VAT",
@@ -1939,7 +2002,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "entity[\"Net\"] + entity[\"VAT\"]",
+          "calculatedPropertyExpressionCreate": "entity[\"Net\"] + entity[\"VAT\"]",
+          "calculatedPropertyExpressionUpdate": "entity[\"Net\"] + entity[\"VAT\"]",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSRECEIPTITEM_GROSS",
@@ -2002,7 +2066,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "PRODUCT_ID",
@@ -2024,7 +2089,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "500",
           "dataName": "PRODUCT_NAME",
@@ -2050,7 +2116,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCT_TYPE",
@@ -2078,7 +2145,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCT_CATEGORY",
@@ -2106,7 +2174,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCT_BASEUNIT",
@@ -2134,7 +2203,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "200",
           "dataName": "PRODUCT_MODEL",
@@ -2160,7 +2230,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCT_COMPANY",
@@ -2188,7 +2259,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "64",
           "dataName": "PRODUCT_SKU",
@@ -2214,7 +2286,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "PRODUCT_UPC",
@@ -2238,7 +2311,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "PRODUCT_EAN",
@@ -2262,7 +2336,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "PRODUCT_JAN",
@@ -2286,7 +2361,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "PRODUCT_ISBN",
@@ -2310,7 +2386,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "40",
           "dataName": "PRODUCT_MPN",
@@ -2336,7 +2413,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "PRODUCT_MANUFACTURER",
@@ -2364,7 +2442,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "PRODUCT_WEIGHT",
@@ -2388,7 +2467,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "PRODUCT_HEIGHT",
@@ -2412,7 +2492,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "PRODUCT_LENGTH",
@@ -2466,7 +2547,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "UOM_ID",
@@ -2488,7 +2570,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "255",
           "dataName": "UOM_NAME",
@@ -2512,7 +2595,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "UOM_UNIT",
@@ -2536,7 +2620,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "UOM_DIMENSION",
@@ -2562,7 +2647,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "UOM_NUMERATOR",
@@ -2584,7 +2670,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "UOM_DENOMINATOR",
@@ -2606,7 +2693,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "UOM_ROUNDING",
@@ -2658,7 +2746,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "GOODSISSUE_ID",
@@ -2680,7 +2769,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSISSUE_NUMBER",
@@ -2704,7 +2794,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GOODSISSUE_STORE",
@@ -2733,7 +2824,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GOODSISSUE_COMPANY",
@@ -2762,7 +2854,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSISSUE_NAME",
@@ -2786,7 +2879,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GOODSISSUE_CURRENCY",
@@ -2815,7 +2909,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSISSUE_NET",
@@ -2839,7 +2934,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSISSUE_VAT",
@@ -2863,7 +2959,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSISSUE_GROSS",
@@ -2887,7 +2984,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "require(\"sdk/utils/uuid\").random()",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "36",
           "dataName": "GOODSISSUE_UUID",
@@ -2897,7 +2995,7 @@
           "dataScale": "NaN",
           "dataType": "VARCHAR",
           "dataUnique": false,
-          "isCalculatedProperty": false,
+          "isCalculatedProperty": true,
           "name": "UUID",
           "widgetIsMajor": true,
           "widgetLength": "36",
@@ -2913,7 +3011,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "36",
           "dataName": "GOODSISSUE_REFERENCE",
@@ -2973,7 +3072,8 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSISSUE_NUMBER",
@@ -2998,7 +3098,8 @@
         },
         "properties": [
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "GOODSISSUE_STORE",
@@ -3027,7 +3128,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "GOODSISSUE_COMPANY",
@@ -3056,7 +3158,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "GOODSISSUE_NAME",
@@ -3080,7 +3183,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
             "dataName": "GOODSISSUE_CURRENCY",
@@ -3109,7 +3213,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "GOODSISSUE_NET",
@@ -3133,7 +3238,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "GOODSISSUE_VAT",
@@ -3157,7 +3263,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "20",
             "dataName": "GOODSISSUE_GROSS",
@@ -3181,7 +3288,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "require(\"sdk/utils/uuid\").random()",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "36",
             "dataName": "GOODSISSUE_UUID",
@@ -3191,7 +3299,7 @@
             "dataScale": "NaN",
             "dataType": "VARCHAR",
             "dataUnique": false,
-            "isCalculatedProperty": false,
+            "isCalculatedProperty": true,
             "name": "UUID",
             "widgetIsMajor": true,
             "widgetLength": "36",
@@ -3207,7 +3315,8 @@
             "inputRule": ""
           },
           {
-            "calculatedPropertyExpression": "",
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
             "dataAutoIncrement": false,
             "dataLength": "36",
             "dataName": "GOODSISSUE_REFERENCE",
@@ -3239,7 +3348,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "GOODSISSUEITEM_ID",
@@ -3261,7 +3371,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GOODSISSUEITEM_GOODSISSUE",
@@ -3288,7 +3399,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GOODSISSUEITEM_PRODUCT",
@@ -3317,7 +3429,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSISSUEITEM_QUANTITY",
@@ -3341,7 +3454,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "GOODSISSUEITEM_UOM",
@@ -3366,7 +3480,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSISSUEITEM_PRICE",
@@ -3390,7 +3505,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "entity[\"Quantity\"] * entity[\"Price\"]",
+          "calculatedPropertyExpressionUpdate": "entity[\"Quantity\"] * entity[\"Price\"]",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSISSUEITEM_NET",
@@ -3400,7 +3516,7 @@
           "dataScale": "NaN",
           "dataType": "DOUBLE",
           "dataUnique": false,
-          "isCalculatedProperty": false,
+          "isCalculatedProperty": true,
           "name": "Net",
           "widgetIsMajor": true,
           "widgetLength": "20",
@@ -3414,7 +3530,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "entity[\"Net\"] * 0.2",
+          "calculatedPropertyExpressionCreate": "entity[\"Net\"] * 0.2",
+          "calculatedPropertyExpressionUpdate": "entity[\"Net\"] * 0.2",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSISSUEITEM_VAT",
@@ -3438,7 +3555,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "entity[\"Net\"] + entity[\"VAT\"]",
+          "calculatedPropertyExpressionCreate": "entity[\"Net\"] + entity[\"VAT\"]",
+          "calculatedPropertyExpressionUpdate": "entity[\"Net\"] + entity[\"VAT\"]",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "GOODSISSUEITEM_GROSS",
@@ -3501,7 +3619,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "STOCKRECORD_ID",
@@ -3523,7 +3642,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "36",
           "dataName": "STOCKRECORD_REFERENCE",
@@ -3549,7 +3669,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "STOCKRECORD_PRODUCT",
@@ -3578,7 +3699,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STOCKRECORD_QUANTITY",
@@ -3602,7 +3724,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "STOCKRECORD_UOM",
@@ -3631,7 +3754,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STOCKRECORD_PRICE",
@@ -3655,7 +3779,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STOCKRECORD_NET",
@@ -3679,7 +3804,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STOCKRECORD_VAT",
@@ -3703,7 +3829,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STOCKRECORD_GROSS",
@@ -3729,7 +3856,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
           "dataName": "STOCKRECORD_DIRECTION",
@@ -3795,7 +3923,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "STOCKRECORDDIRECTION_ID",
@@ -3817,7 +3946,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "STOCKRECORDDIRECTION_NAME",
@@ -3868,7 +3998,8 @@
     {
       "properties": [
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": true,
           "dataLength": "0",
           "dataName": "CURRENCY_ID",
@@ -3890,7 +4021,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "3",
           "dataName": "CURRENCY_CODE",
@@ -3916,7 +4048,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "127",
           "dataName": "CURRENCY_NAME",
@@ -3942,7 +4075,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "3",
           "dataName": "CURRENCY_NUMERIC",
@@ -3968,7 +4102,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "CURRENCY_ROUNDING",
@@ -3992,7 +4127,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "CURRENCY_BASE",
@@ -4016,7 +4152,8 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpression": "",
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "20",
           "dataName": "CURRENCY_RATE",

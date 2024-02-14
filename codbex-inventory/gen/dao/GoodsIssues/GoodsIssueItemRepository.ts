@@ -21,7 +21,6 @@ export interface GoodsIssueItemCreateEntity {
     readonly Quantity?: number;
     readonly UoM?: number;
     readonly Price?: number;
-    readonly Net?: number;
 }
 
 export interface GoodsIssueItemUpdateEntity extends GoodsIssueItemCreateEntity {
@@ -198,6 +197,8 @@ export class GoodsIssueItemRepository {
 
     public create(entity: GoodsIssueItemCreateEntity): number {
         // @ts-ignore
+        (entity as GoodsIssueItemEntity).Net = entity["Quantity"] * entity["Price"];
+        // @ts-ignore
         (entity as GoodsIssueItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
         (entity as GoodsIssueItemEntity).Gross = entity["Net"] + entity["VAT"];
@@ -216,6 +217,8 @@ export class GoodsIssueItemRepository {
     }
 
     public update(entity: GoodsIssueItemUpdateEntity): void {
+        // @ts-ignore
+        (entity as GoodsIssueItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
         (entity as GoodsIssueItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore

@@ -26,7 +26,6 @@ export interface GoodsIssueCreateEntity {
     readonly Net?: number;
     readonly VAT?: number;
     readonly Gross?: number;
-    readonly UUID?: string;
     readonly Reference?: string;
 }
 
@@ -227,6 +226,8 @@ export class GoodsIssueRepository {
     }
 
     public create(entity: GoodsIssueCreateEntity): number {
+        // @ts-ignore
+        (entity as GoodsIssueEntity).UUID = require("sdk/utils/uuid").random();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
