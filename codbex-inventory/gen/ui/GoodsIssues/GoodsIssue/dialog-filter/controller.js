@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-inventory.GoodsIssues.GoodsIssueItem';
+		messageHubProvider.eventIdPrefix = 'codbex-inventory.GoodsIssues.GoodsIssue';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/api/GoodsIssues/GoodsIssueItemService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/api/GoodsIssues/GoodsIssueService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 
@@ -19,8 +19,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = params.entity ?? {};
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsProduct = params.optionsProduct;
-				$scope.optionsUoM = params.optionsUoM;
+				$scope.optionsStore = params.optionsStore;
+				$scope.optionsCompany = params.optionsCompany;
+				$scope.optionsCurrency = params.optionsCurrency;
 			}
 		}
 
@@ -47,20 +48,20 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (entity.Id) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.GoodsIssue) {
-				filter.$filter.equals.GoodsIssue = entity.GoodsIssue;
+			if (entity.Number) {
+				filter.$filter.contains.Number = entity.Number;
 			}
-			if (entity.Product) {
-				filter.$filter.equals.Product = entity.Product;
+			if (entity.Store) {
+				filter.$filter.equals.Store = entity.Store;
 			}
-			if (entity.Quantity) {
-				filter.$filter.equals.Quantity = entity.Quantity;
+			if (entity.Company) {
+				filter.$filter.equals.Company = entity.Company;
 			}
-			if (entity.UoM) {
-				filter.$filter.equals.UoM = entity.UoM;
+			if (entity.Name) {
+				filter.$filter.contains.Name = entity.Name;
 			}
-			if (entity.Price) {
-				filter.$filter.equals.Price = entity.Price;
+			if (entity.Currency) {
+				filter.$filter.equals.Currency = entity.Currency;
 			}
 			if (entity.Net) {
 				filter.$filter.equals.Net = entity.Net;
@@ -71,10 +72,17 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (entity.Gross) {
 				filter.$filter.equals.Gross = entity.Gross;
 			}
+			if (entity.UUID) {
+				filter.$filter.contains.UUID = entity.UUID;
+			}
+			if (entity.Reference) {
+				filter.$filter.contains.Reference = entity.Reference;
+			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
 				filter: filter
 			});
+			messageHub.postMessage("clearDetails");
 			$scope.cancel();
 		};
 
@@ -84,7 +92,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		$scope.cancel = function () {
-			messageHub.closeDialogWindow("GoodsIssueItem-filter");
+			messageHub.closeDialogWindow("GoodsIssue-filter");
 		};
 
 		$scope.clearErrorMessage = function () {

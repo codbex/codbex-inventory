@@ -311,6 +311,6 @@ export class GoodsReceiptRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-inventory/GoodsReceipts/GoodsReceipt").send(JSON.stringify(data));
+        producer.topic("codbex-inventory/GoodsReceipts/GoodsReceipt").send(JSON.stringify(data));
     }
 }

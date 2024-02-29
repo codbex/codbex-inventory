@@ -194,30 +194,40 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STORE_NUMBER"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STORE_EMAIL"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STORE_PHONE"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STORE_ADDRESS"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STORE_POSTCODE"
                     },
@@ -256,6 +266,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STORE_MANAGER"
                     },
@@ -292,6 +304,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "GOODSRECEIPTS_NUMBER"
                     },
@@ -314,6 +328,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "GOODSRECEIPTS_NAME"
                     },
@@ -642,6 +658,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "GOODSISSUE_NUMBER"
                     },
@@ -664,6 +682,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "GOODSISSUE_NAME"
                     },

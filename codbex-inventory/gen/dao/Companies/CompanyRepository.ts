@@ -310,6 +310,6 @@ export class CompanyRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-inventory/Companies/Company").send(JSON.stringify(data));
+        producer.topic("codbex-inventory/Companies/Company").send(JSON.stringify(data));
     }
 }
