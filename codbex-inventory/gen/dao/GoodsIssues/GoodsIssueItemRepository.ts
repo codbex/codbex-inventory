@@ -291,6 +291,6 @@ export class GoodsIssueItemRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-inventory/GoodsIssues/GoodsIssueItem").send(JSON.stringify(data));
+        producer.topic("codbex-inventory/GoodsIssues/GoodsIssueItem").send(JSON.stringify(data));
     }
 }

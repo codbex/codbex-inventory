@@ -338,6 +338,6 @@ export class StoreRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-inventory/Stores/Store").send(JSON.stringify(data));
+        producer.topic("codbex-inventory/Stores/Store").send(JSON.stringify(data));
     }
 }

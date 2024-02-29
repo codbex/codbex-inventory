@@ -198,6 +198,6 @@ export class CityRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-inventory/Cities/City").send(JSON.stringify(data));
+        producer.topic("codbex-inventory/Cities/City").send(JSON.stringify(data));
     }
 }

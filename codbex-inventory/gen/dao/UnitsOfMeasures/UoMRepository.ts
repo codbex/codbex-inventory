@@ -254,6 +254,6 @@ export class UoMRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-inventory/UnitsOfMeasures/UoM").send(JSON.stringify(data));
+        producer.topic("codbex-inventory/UnitsOfMeasures/UoM").send(JSON.stringify(data));
     }
 }

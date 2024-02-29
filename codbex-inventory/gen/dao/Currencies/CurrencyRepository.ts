@@ -261,6 +261,6 @@ export class CurrencyRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-inventory/Currencies/Currency").send(JSON.stringify(data));
+        producer.topic("codbex-inventory/Currencies/Currency").send(JSON.stringify(data));
     }
 }
