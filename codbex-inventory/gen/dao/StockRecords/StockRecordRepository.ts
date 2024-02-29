@@ -331,6 +331,6 @@ export class StockRecordRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-inventory/StockRecords/StockRecord").send(JSON.stringify(data));
+        producer.topic("codbex-inventory/StockRecords/StockRecord").send(JSON.stringify(data));
     }
 }
