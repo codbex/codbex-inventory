@@ -310,7 +310,7 @@ export class StockRecordRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: StockRecordEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_STOCKRECORD"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -323,7 +323,7 @@ export class StockRecordRepository {
     }
 
     private async triggerEvent(data: StockRecordEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory/StockRecords/StockRecord", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-StockRecords-StockRecord", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

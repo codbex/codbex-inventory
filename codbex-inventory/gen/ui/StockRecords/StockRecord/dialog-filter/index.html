@@ -38,10 +38,8 @@
 	                                state="{{ forms.details['Reference'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Reference"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="36.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Reference">
 	                            </fd-input>
@@ -74,7 +72,6 @@
 								state="{{ forms.details['Quantity'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Quantity"
-								is-readonly="action === 'select'"
 								placeholder="Enter Quantity"
 								>
 							</fd-step-input>
@@ -105,7 +102,6 @@
 								state="{{ forms.details['Price'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Price"
-								is-readonly="action === 'select'"
 								placeholder="Enter Price"
 								>
 							</fd-step-input>
@@ -121,7 +117,6 @@
 								state="{{ forms.details['Net'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Net"
-								is-readonly="action === 'select'"
 								placeholder="Enter Net"
 								>
 							</fd-step-input>
@@ -137,7 +132,6 @@
 								state="{{ forms.details['VAT'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.VAT"
-								is-readonly="action === 'select'"
 								placeholder="Enter VAT"
 								>
 							</fd-step-input>
@@ -153,7 +147,6 @@
 								state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Gross"
-								is-readonly="action === 'select'"
 								placeholder="Enter Gross"
 								>
 							</fd-step-input>
@@ -184,7 +177,6 @@
 								state="{{ forms.details['ItemId'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.ItemId"
-								is-readonly="action === 'select'"
 								placeholder="Enter ItemId"
 								>
 							</fd-step-input>

@@ -317,7 +317,7 @@ export class StoreRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: StoreEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_STORE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -330,7 +330,7 @@ export class StoreRepository {
     }
 
     private async triggerEvent(data: StoreEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory/Stores/Store", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-Stores-Store", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

@@ -1,1 +1,4 @@
-{"location":"codbex-inventory/gen/dao/GoodsIssues/GoodsIssue.extensionpoint","name":"codbex-inventory/GoodsIssues/GoodsIssue","description":"Extension Point for codbex-inventory GoodsIssues GoodsIssue"}
+{
+    "name": "codbex-inventory-GoodsIssues-GoodsIssue",
+    "description": "Extension Point for the codbex-inventory-GoodsIssues-GoodsIssue entity"
+}

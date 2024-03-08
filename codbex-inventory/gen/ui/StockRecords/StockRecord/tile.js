@@ -12,6 +12,6 @@ exports.getTile = function () {
         // icon: "file-o",
         location: "/services/web/codbex-inventory/gen/ui/StockRecords/index.html",
         order: "100",
-        groupOrder: "600"
+        groupOrder: "600",
     };
 };

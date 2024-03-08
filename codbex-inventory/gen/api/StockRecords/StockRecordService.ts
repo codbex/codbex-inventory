@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { StockRecordRepository, StockRecordEntityOptions } from "../../dao/StockRecords/StockRecordRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-inventory-StockRecords-StockRecord", ["validate"]);
 
 @Controller
 class StockRecordService {
@@ -24,6 +28,7 @@ class StockRecordService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/api/StockRecords/StockRecordService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -66,7 +71,7 @@ class StockRecordService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("StockRecord not found");
             }
@@ -79,6 +84,7 @@ class StockRecordService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -111,4 +117,14 @@ class StockRecordService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Reference?.length > 36) {
+            throw new ValidationError(`The 'Reference' exceeds the maximum length of [36] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { GoodsReceiptRepository, GoodsReceiptEntityOptions } from "../../dao/GoodsReceipts/GoodsReceiptRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-inventory-GoodsReceipts-GoodsReceipt", ["validate"]);
 
 @Controller
 class GoodsReceiptService {
@@ -24,6 +28,7 @@ class GoodsReceiptService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/api/GoodsReceipts/GoodsReceiptService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -66,7 +71,7 @@ class GoodsReceiptService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("GoodsReceipt not found");
             }
@@ -79,6 +84,7 @@ class GoodsReceiptService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -111,4 +117,23 @@ class GoodsReceiptService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Number?.length > 20) {
+            throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Name?.length > 20) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.UUID?.length > 36) {
+            throw new ValidationError(`The 'UUID' exceeds the maximum length of [36] characters`);
+        }
+        if (entity.Reference?.length > 36) {
+            throw new ValidationError(`The 'Reference' exceeds the maximum length of [36] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

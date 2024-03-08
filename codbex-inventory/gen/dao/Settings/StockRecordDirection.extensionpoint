@@ -1,1 +1,4 @@
-{"location":"codbex-inventory/gen/dao/Settings/StockRecordDirection.extensionpoint","name":"codbex-inventory/Settings/StockRecordDirection","description":"Extension Point for codbex-inventory Settings StockRecordDirection"}
+{
+    "name": "codbex-inventory-Settings-StockRecordDirection",
+    "description": "Extension Point for the codbex-inventory-Settings-StockRecordDirection entity"
+}

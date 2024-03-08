@@ -270,7 +270,7 @@ export class GoodsReceiptItemRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: GoodsReceiptItemEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GOODSRECEIPTITEM"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -283,7 +283,7 @@ export class GoodsReceiptItemRepository {
     }
 
     private async triggerEvent(data: GoodsReceiptItemEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory/GoodsReceipts/GoodsReceiptItem", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-GoodsReceipts-GoodsReceiptItem", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

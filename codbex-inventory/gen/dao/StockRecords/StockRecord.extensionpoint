@@ -1,1 +1,4 @@
-{"location":"codbex-inventory/gen/dao/StockRecords/StockRecord.extensionpoint","name":"codbex-inventory/StockRecords/StockRecord","description":"Extension Point for codbex-inventory StockRecords StockRecord"}
+{
+    "name": "codbex-inventory-StockRecords-StockRecord",
+    "description": "Extension Point for the codbex-inventory-StockRecords-StockRecord entity"
+}

@@ -38,10 +38,8 @@
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Name"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Name">
 	                            </fd-input>
@@ -60,10 +58,8 @@
 	                                state="{{ forms.details['Email'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Email"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Email">
 	                            </fd-input>
@@ -82,10 +78,8 @@
 	                                state="{{ forms.details['Phone'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Phone"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Phone">
 	                            </fd-input>
@@ -104,10 +98,8 @@
 	                                state="{{ forms.details['Address'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Address"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Address">
 	                            </fd-input>
@@ -126,10 +118,8 @@
 	                                state="{{ forms.details['PostCode'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.PostCode"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter PostCode">
 	                            </fd-input>
@@ -177,10 +167,8 @@
 								state="{{ forms.details['Location'].$valid ? '' : 'error' }}"
 								ng-required="false"
 								ng-model="entity.Location"
-	                            ng-readonly="action === 'select'"
 								ng-minlength="0.0 || 0"
 								ng-maxlength="2000.0 || -1"
-								dg-input-rules="{ patterns: [''] }"
 								placeholder="Enter Location">
 							</fd-textarea>
 							<fd-form-message dg-type="error" ng-show="!forms.details['Location'].$valid">Incorrect Input</fd-form-message>
@@ -197,10 +185,8 @@
 	                                state="{{ forms.details['Contact'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Contact"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="2000.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Contact">
 	                            </fd-input>
@@ -219,10 +205,8 @@
 	                                state="{{ forms.details['Manager'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Manager"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Manager">
 	                            </fd-input>

@@ -7,7 +7,7 @@ const viewData = {
     id: "GoodsReceiptItem-details",
     label: "GoodsReceiptItem",
     link: "/services/web/codbex-inventory/gen/ui/GoodsReceipts/GoodsReceipt/GoodsReceiptItem/dialog-window/index.html",
-    perspectiveName: "GoodsReceipts"
+    perspectiveName: "GoodsReceipts",
 };
 
 if (typeof exports !== 'undefined') {

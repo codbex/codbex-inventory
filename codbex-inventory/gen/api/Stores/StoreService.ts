@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { StoreRepository, StoreEntityOptions } from "../../dao/Stores/StoreRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-inventory-Stores-Store", ["validate"]);
 
 @Controller
 class StoreService {
@@ -24,6 +28,7 @@ class StoreService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/api/Stores/StoreService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -66,7 +71,7 @@ class StoreService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("Store not found");
             }
@@ -79,6 +84,7 @@ class StoreService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -111,4 +117,35 @@ class StoreService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Name?.length > 20) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Email?.length > 20) {
+            throw new ValidationError(`The 'Email' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Phone?.length > 20) {
+            throw new ValidationError(`The 'Phone' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Address?.length > 20) {
+            throw new ValidationError(`The 'Address' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.PostCode?.length > 20) {
+            throw new ValidationError(`The 'PostCode' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Location?.length > 2000) {
+            throw new ValidationError(`The 'Location' exceeds the maximum length of [2000] characters`);
+        }
+        if (entity.Contact?.length > 2000) {
+            throw new ValidationError(`The 'Contact' exceeds the maximum length of [2000] characters`);
+        }
+        if (entity.Manager?.length > 20) {
+            throw new ValidationError(`The 'Manager' exceeds the maximum length of [20] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

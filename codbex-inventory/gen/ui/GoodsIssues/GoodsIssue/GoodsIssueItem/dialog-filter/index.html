@@ -52,7 +52,6 @@
 								state="{{ forms.details['Quantity'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Quantity"
-								is-readonly="action === 'select'"
 								placeholder="Enter Quantity"
 								>
 							</fd-step-input>
@@ -83,7 +82,6 @@
 								state="{{ forms.details['Price'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Price"
-								is-readonly="action === 'select'"
 								placeholder="Enter Price"
 								>
 							</fd-step-input>
@@ -99,7 +97,6 @@
 								state="{{ forms.details['Net'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Net"
-								is-readonly="true"
 								placeholder="Enter Net"
 								>
 							</fd-step-input>
@@ -115,7 +112,6 @@
 								state="{{ forms.details['VAT'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.VAT"
-								is-readonly="true"
 								placeholder="Enter VAT"
 								>
 							</fd-step-input>
@@ -131,7 +127,6 @@
 								state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Gross"
-								is-readonly="true"
 								placeholder="Enter Gross"
 								>
 							</fd-step-input>

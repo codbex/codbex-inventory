@@ -163,7 +163,7 @@ export class StockRecordDirectionRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: StockRecordDirectionEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_STOCKRECORDDIRECTION"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -176,7 +176,7 @@ export class StockRecordDirectionRepository {
     }
 
     private async triggerEvent(data: StockRecordDirectionEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory/Settings/StockRecordDirection", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-Settings-StockRecordDirection", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

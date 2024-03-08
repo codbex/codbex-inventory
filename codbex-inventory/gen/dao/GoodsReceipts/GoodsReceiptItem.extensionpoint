@@ -1,1 +1,4 @@
-{"location":"codbex-inventory/gen/dao/GoodsReceipts/GoodsReceiptItem.extensionpoint","name":"codbex-inventory/GoodsReceipts/GoodsReceiptItem","description":"Extension Point for codbex-inventory GoodsReceipts GoodsReceiptItem"}
+{
+    "name": "codbex-inventory-GoodsReceipts-GoodsReceiptItem",
+    "description": "Extension Point for the codbex-inventory-GoodsReceipts-GoodsReceiptItem entity"
+}

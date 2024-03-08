@@ -290,7 +290,7 @@ export class GoodsIssueRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: GoodsIssueEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_GOODSISSUE"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -303,7 +303,7 @@ export class GoodsIssueRepository {
     }
 
     private async triggerEvent(data: GoodsIssueEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory/GoodsIssues/GoodsIssue", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-GoodsIssues-GoodsIssue", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

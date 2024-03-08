@@ -1,0 +1,5 @@
+{
+    "module": "codbex-inventory/events/GoodsReceiptItem/GoodsReceiptItemToRecordHandler.ts",
+    "extensionPoint": "codbex-inventory/GoodsReceipts/GoodsReceipt",
+    "description": "GoodsIssueItem Extension"
+}
