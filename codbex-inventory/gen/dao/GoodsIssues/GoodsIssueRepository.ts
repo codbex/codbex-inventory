@@ -2,6 +2,8 @@ import { query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 export interface GoodsIssueEntity {
     readonly Id: number;
@@ -18,7 +20,6 @@ export interface GoodsIssueEntity {
 }
 
 export interface GoodsIssueCreateEntity {
-    readonly Number?: string;
     readonly Store?: number;
     readonly Company?: number;
     readonly Name?: string;
@@ -226,6 +227,8 @@ export class GoodsIssueRepository {
     }
 
     public create(entity: GoodsIssueCreateEntity): number {
+        // @ts-ignore
+        (entity as GoodsIssueEntity).Number = new NumberGeneratorService().generate(17);
         // @ts-ignore
         (entity as GoodsIssueEntity).UUID = require("sdk/utils/uuid").random();
         const id = this.dao.insert(entity);

@@ -3,6 +3,8 @@ import { Extensions } from "sdk/extensions"
 import { GoodsReceiptRepository, GoodsReceiptEntityOptions } from "../../dao/GoodsReceipts/GoodsReceiptRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-inventory-GoodsReceipts-GoodsReceipt", ["validate"]);
 

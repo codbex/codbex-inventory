@@ -134,6 +134,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "GOODSRECEIPTS_NUMBER"
                     },
@@ -300,6 +302,8 @@
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "GOODSISSUE_NUMBER"
                     },

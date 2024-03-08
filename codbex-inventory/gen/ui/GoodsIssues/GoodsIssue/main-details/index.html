@@ -30,7 +30,7 @@
 	                                state="{{ forms.details['Number'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Number"
-	                                ng-readonly="action === 'select'"
+	                                ng-readonly="true"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
 	                                dg-input-rules="{ patterns: [''] }"
