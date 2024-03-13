@@ -23,7 +23,6 @@ export const trigger = (event) => {
             Direction: 1,
             Deleted: false,
         }
-        console.log("RECORD" + JSON.stringify(record));
         StockRecordDao.create(record);
     } else if (operation === "update") {
         // TODO find by Item Id and update
