@@ -121,11 +121,14 @@ class GoodsReceiptService {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.Date === null || entity.Date === undefined) {
+            throw new ValidationError(`The 'Date' property is required, provide a valid value`);
+        }
         if (entity.Number?.length > 20) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
         }
-        if (entity.Name?.length > 20) {
-            throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
+        if (entity.Name?.length > 200) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [200] characters`);
         }
         if (entity.UUID?.length > 36) {
             throw new ValidationError(`The 'UUID' exceeds the maximum length of [36] characters`);

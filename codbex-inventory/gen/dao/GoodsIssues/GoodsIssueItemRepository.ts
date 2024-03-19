@@ -160,22 +160,22 @@ export class GoodsIssueItemRepository {
             {
                 name: "Price",
                 column: "GOODSISSUEITEM_PRICE",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Net",
                 column: "GOODSISSUEITEM_NET",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "VAT",
                 column: "GOODSISSUEITEM_VAT",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Gross",
                 column: "GOODSISSUEITEM_GROSS",
-                type: "DOUBLE",
+                type: "DECIMAL",
             }
         ]
     };
@@ -291,6 +291,6 @@ export class GoodsIssueItemRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-inventory/GoodsIssues/GoodsIssueItem").send(JSON.stringify(data));
+        producer.topic("codbex-inventory-GoodsIssues-GoodsIssueItem").send(JSON.stringify(data));
     }
 }

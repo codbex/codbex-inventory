@@ -132,6 +132,13 @@
                         "name": "GOODSRECEIPTS_ID"
                     },
                     {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "GOODSRECEIPT_DATE"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 20,
                         "precision": "NaN",
@@ -157,8 +164,9 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "GOODSRECEIPTS_NAME"
                     },
                     {
@@ -170,26 +178,29 @@
                         "name": "GOODSRECEIPT_CURRENCY"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "GOODSRECEIPT_NET"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "GOODSRECEIPT_VAT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "GOODSRECEIPT_GROSS"
                     },
@@ -254,34 +265,34 @@
                         "name": "GOODSRECEIPTITEM_UOM"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "GOODSRECEIPTITEM_PRICE"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "GOODSRECEIPTITEM_NET"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "GOODSRECEIPTITEM_VAT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "GOODSRECEIPTITEM_GROSS"
                     }
@@ -298,6 +309,14 @@
                         "identity": true,
                         "nullable": true,
                         "name": "GOODSISSUE_ID"
+                    },
+                    {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "GOODSISSUE_DATE"
                     },
                     {
                         "type": "VARCHAR",
@@ -325,8 +344,9 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "GOODSISSUE_NAME"
                     },
                     {
@@ -338,26 +358,29 @@
                         "name": "GOODSISSUE_CURRENCY"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "GOODSISSUE_NET"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "GOODSISSUE_VAT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "GOODSISSUE_GROSS"
                     },
@@ -422,34 +445,34 @@
                         "name": "GOODSISSUEITEM_UOM"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "GOODSISSUEITEM_PRICE"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "GOODSISSUEITEM_NET"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "GOODSISSUEITEM_VAT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "GOODSISSUEITEM_GROSS"
                     }
@@ -500,34 +523,34 @@
                         "name": "STOCKRECORD_UOM"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "STOCKRECORD_PRICE"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "STOCKRECORD_NET"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "STOCKRECORD_VAT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "STOCKRECORD_GROSS"
                     },

@@ -184,6 +184,6 @@ export class StockRecordDirectionRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-inventory/Settings/StockRecordDirection").send(JSON.stringify(data));
+        producer.topic("codbex-inventory-Settings-StockRecordDirection").send(JSON.stringify(data));
     }
 }

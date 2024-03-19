@@ -160,22 +160,22 @@ export class GoodsReceiptItemRepository {
             {
                 name: "Price",
                 column: "GOODSRECEIPTITEM_PRICE",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Net",
                 column: "GOODSRECEIPTITEM_NET",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "VAT",
                 column: "GOODSRECEIPTITEM_VAT",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Gross",
                 column: "GOODSRECEIPTITEM_GROSS",
-                type: "DOUBLE",
+                type: "DECIMAL",
             }
         ]
     };
@@ -291,6 +291,6 @@ export class GoodsReceiptItemRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-inventory/GoodsReceipts/GoodsReceiptItem").send(JSON.stringify(data));
+        producer.topic("codbex-inventory-GoodsReceipts-GoodsReceiptItem").send(JSON.stringify(data));
     }
 }

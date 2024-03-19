@@ -48,6 +48,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		messageHub.onDidReceiveMessage("entitySelected", function (msg) {
 			$scope.$apply(function () {
+				if (msg.data.entity.Date) {
+					msg.data.entity.Date = new Date(msg.data.entity.Date);
+				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsCompany = msg.data.optionsCompany;
@@ -68,6 +71,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		messageHub.onDidReceiveMessage("updateEntity", function (msg) {
 			$scope.$apply(function () {
+				if (msg.data.entity.Date) {
+					msg.data.entity.Date = new Date(msg.data.entity.Date);
+				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsCompany = msg.data.optionsCompany;

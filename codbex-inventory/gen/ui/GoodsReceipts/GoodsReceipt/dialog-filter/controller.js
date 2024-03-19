@@ -16,6 +16,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			let dataParameters = window.frameElement.getAttribute("data-parameters");
 			if (dataParameters) {
 				let params = JSON.parse(dataParameters);
+				if (params?.entity?.DateFrom) {
+					params.entity.DateFrom = new Date(params.entity.DateFrom);
+				}
+				if (params?.entity?.DateTo) {
+					params.entity.DateTo = new Date(params.entity.DateTo);
+				}
 				$scope.entity = params.entity ?? {};
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
@@ -47,6 +53,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			};
 			if (entity.Id) {
 				filter.$filter.equals.Id = entity.Id;
+			}
+			if (entity.DateFrom) {
+				filter.$filter.greaterThanOrEqual.Date = entity.DateFrom;
+			}
+			if (entity.DateTo) {
+				filter.$filter.lessThanOrEqual.Date = entity.DateTo;
 			}
 			if (entity.Number) {
 				filter.$filter.contains.Number = entity.Number;

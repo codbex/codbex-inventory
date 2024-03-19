@@ -191,22 +191,22 @@ export class StockRecordRepository {
             {
                 name: "Price",
                 column: "STOCKRECORD_PRICE",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Net",
                 column: "STOCKRECORD_NET",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "VAT",
                 column: "STOCKRECORD_VAT",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Gross",
                 column: "STOCKRECORD_GROSS",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Direction",
@@ -331,6 +331,6 @@ export class StockRecordRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-inventory/StockRecords/StockRecord").send(JSON.stringify(data));
+        producer.topic("codbex-inventory-StockRecords-StockRecord").send(JSON.stringify(data));
     }
 }

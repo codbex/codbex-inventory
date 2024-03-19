@@ -2,15 +2,17 @@ import { query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
+import { EntityUtils } from "../utils/EntityUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 export interface GoodsReceiptEntity {
     readonly Id: number;
+    Date: Date;
     Number?: string;
     Store?: number;
     Company?: number;
-    Name?: string;
+    Name: string;
     Currency?: number;
     Net?: number;
     VAT?: number;
@@ -20,9 +22,9 @@ export interface GoodsReceiptEntity {
 }
 
 export interface GoodsReceiptCreateEntity {
+    readonly Date: Date;
     readonly Store?: number;
     readonly Company?: number;
-    readonly Name?: string;
     readonly Currency?: number;
     readonly Net?: number;
     readonly VAT?: number;
@@ -38,6 +40,7 @@ export interface GoodsReceiptEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
+            Date?: Date | Date[];
             Number?: string | string[];
             Store?: number | number[];
             Company?: number | number[];
@@ -51,6 +54,7 @@ export interface GoodsReceiptEntityOptions {
         };
         notEquals?: {
             Id?: number | number[];
+            Date?: Date | Date[];
             Number?: string | string[];
             Store?: number | number[];
             Company?: number | number[];
@@ -64,6 +68,7 @@ export interface GoodsReceiptEntityOptions {
         };
         contains?: {
             Id?: number;
+            Date?: Date;
             Number?: string;
             Store?: number;
             Company?: number;
@@ -77,6 +82,7 @@ export interface GoodsReceiptEntityOptions {
         };
         greaterThan?: {
             Id?: number;
+            Date?: Date;
             Number?: string;
             Store?: number;
             Company?: number;
@@ -90,6 +96,7 @@ export interface GoodsReceiptEntityOptions {
         };
         greaterThanOrEqual?: {
             Id?: number;
+            Date?: Date;
             Number?: string;
             Store?: number;
             Company?: number;
@@ -103,6 +110,7 @@ export interface GoodsReceiptEntityOptions {
         };
         lessThan?: {
             Id?: number;
+            Date?: Date;
             Number?: string;
             Store?: number;
             Company?: number;
@@ -116,6 +124,7 @@ export interface GoodsReceiptEntityOptions {
         };
         lessThanOrEqual?: {
             Id?: number;
+            Date?: Date;
             Number?: string;
             Store?: number;
             Company?: number;
@@ -159,6 +168,12 @@ export class GoodsReceiptRepository {
                 autoIncrement: true,
             },
             {
+                name: "Date",
+                column: "GOODSRECEIPT_DATE",
+                type: "DATE",
+                required: true
+            },
+            {
                 name: "Number",
                 column: "GOODSRECEIPTS_NUMBER",
                 type: "VARCHAR",
@@ -177,6 +192,7 @@ export class GoodsReceiptRepository {
                 name: "Name",
                 column: "GOODSRECEIPTS_NAME",
                 type: "VARCHAR",
+                required: true
             },
             {
                 name: "Currency",
@@ -186,17 +202,17 @@ export class GoodsReceiptRepository {
             {
                 name: "Net",
                 column: "GOODSRECEIPT_NET",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "VAT",
                 column: "GOODSRECEIPT_VAT",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Gross",
                 column: "GOODSRECEIPT_GROSS",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "UUID",
@@ -218,19 +234,35 @@ export class GoodsReceiptRepository {
     }
 
     public findAll(options?: GoodsReceiptEntityOptions): GoodsReceiptEntity[] {
-        return this.dao.list(options);
+        return this.dao.list(options).map((e: GoodsReceiptEntity) => {
+            EntityUtils.setDate(e, "Date");
+            return e;
+        });
     }
 
     public findById(id: number): GoodsReceiptEntity | undefined {
         const entity = this.dao.find(id);
+        EntityUtils.setDate(entity, "Date");
         return entity ?? undefined;
     }
 
     public create(entity: GoodsReceiptCreateEntity): number {
+        EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
         (entity as GoodsReceiptEntity).Number = new NumberGeneratorService().generate(16);
         // @ts-ignore
+        (entity as GoodsReceiptEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Gross"];
+        // @ts-ignore
         (entity as GoodsReceiptEntity).UUID = require("sdk/utils/uuid").random();
+        if (!entity.Net) {
+            entity.Net = "0";
+        }
+        if (!entity.VAT) {
+            entity.VAT = "0";
+        }
+        if (!entity.Gross) {
+            entity.Gross = "0";
+        }
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -246,6 +278,7 @@ export class GoodsReceiptRepository {
     }
 
     public update(entity: GoodsReceiptUpdateEntity): void {
+        // EntityUtils.setLocalDate(entity, "Date");
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
@@ -314,6 +347,6 @@ export class GoodsReceiptRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-inventory/GoodsReceipts/GoodsReceipt").send(JSON.stringify(data));
+        producer.topic("codbex-inventory-GoodsReceipts-GoodsReceipt").send(JSON.stringify(data));
     }
 }
