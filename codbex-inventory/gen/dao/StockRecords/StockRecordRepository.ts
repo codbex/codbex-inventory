@@ -9,7 +9,7 @@ export interface StockRecordEntity {
     Reference?: string;
     Product?: number;
     Quantity?: number;
-    UoM?: number;
+    UoM: number;
     Price?: number;
     Net?: number;
     VAT?: number;
@@ -23,7 +23,7 @@ export interface StockRecordCreateEntity {
     readonly Reference?: string;
     readonly Product?: number;
     readonly Quantity?: number;
-    readonly UoM?: number;
+    readonly UoM: number;
     readonly Price?: number;
     readonly Net?: number;
     readonly VAT?: number;
@@ -187,6 +187,7 @@ export class StockRecordRepository {
                 name: "UoM",
                 column: "STOCKRECORD_UOM",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Price",
@@ -228,7 +229,7 @@ export class StockRecordRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(StockRecordRepository.DEFINITION, null, dataSource);
     }
 

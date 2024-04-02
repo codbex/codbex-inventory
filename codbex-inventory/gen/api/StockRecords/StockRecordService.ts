@@ -122,6 +122,9 @@ class StockRecordService {
         if (entity.Reference?.length > 36) {
             throw new ValidationError(`The 'Reference' exceeds the maximum length of [36] characters`);
         }
+        if (entity.UoM === null || entity.UoM === undefined) {
+            throw new ValidationError(`The 'UoM' property is required, provide a valid value`);
+        }
         for (const next of validationModules) {
             next.validate(entity);
         }

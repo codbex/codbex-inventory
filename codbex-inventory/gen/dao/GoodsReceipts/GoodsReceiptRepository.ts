@@ -229,7 +229,7 @@ export class GoodsReceiptRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(GoodsReceiptRepository.DEFINITION, null, dataSource);
     }
 
@@ -254,14 +254,14 @@ export class GoodsReceiptRepository {
         (entity as GoodsReceiptEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Gross"];
         // @ts-ignore
         (entity as GoodsReceiptEntity).UUID = require("sdk/utils/uuid").random();
-        if (!entity.Net) {
-            entity.Net = "0";
+        if (entity.Net === undefined || entity.Net === null) {
+            (entity as GoodsReceiptEntity).Net = 0;
         }
-        if (!entity.VAT) {
-            entity.VAT = "0";
+        if (entity.VAT === undefined || entity.VAT === null) {
+            (entity as GoodsReceiptEntity).VAT = 0;
         }
-        if (!entity.Gross) {
-            entity.Gross = "0";
+        if (entity.Gross === undefined || entity.Gross === null) {
+            (entity as GoodsReceiptEntity).Gross = 0;
         }
         const id = this.dao.insert(entity);
         this.triggerEvent({

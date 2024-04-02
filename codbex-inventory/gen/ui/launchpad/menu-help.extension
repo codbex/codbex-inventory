@@ -1,1 +1,5 @@
-{"module":"codbex-inventory/gen/ui/launchpad/menu-help.js","extensionPoint":"codbex-inventory-menu","description":"codbex-inventory - Application Menu"}
+{
+    "module": "codbex-inventory/gen/ui/launchpad/menu-help.js",
+    "extensionPoint": "codbex-inventory-menu",
+    "description": "codbex-inventory - Application Menu"
+}

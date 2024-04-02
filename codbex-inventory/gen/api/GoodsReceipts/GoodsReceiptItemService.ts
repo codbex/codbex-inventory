@@ -126,6 +126,9 @@ class GoodsReceiptItemService {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.UoM === null || entity.UoM === undefined) {
+            throw new ValidationError(`The 'UoM' property is required, provide a valid value`);
+        }
         for (const next of validationModules) {
             next.validate(entity);
         }

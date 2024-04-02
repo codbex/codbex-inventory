@@ -87,7 +87,7 @@ export class StockRecordDirectionRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(StockRecordDirectionRepository.DEFINITION, null, dataSource);
     }
 

@@ -8,7 +8,7 @@ export interface GoodsIssueItemEntity {
     GoodsIssue?: number;
     Product?: number;
     Quantity?: number;
-    UoM?: number;
+    UoM: number;
     Price?: number;
     Net?: number;
     VAT?: number;
@@ -19,7 +19,7 @@ export interface GoodsIssueItemCreateEntity {
     readonly GoodsIssue?: number;
     readonly Product?: number;
     readonly Quantity?: number;
-    readonly UoM?: number;
+    readonly UoM: number;
     readonly Price?: number;
 }
 
@@ -156,6 +156,7 @@ export class GoodsIssueItemRepository {
                 name: "UoM",
                 column: "GOODSISSUEITEM_UOM",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Price",
@@ -182,7 +183,7 @@ export class GoodsIssueItemRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(GoodsIssueItemRepository.DEFINITION, null, dataSource);
     }
 

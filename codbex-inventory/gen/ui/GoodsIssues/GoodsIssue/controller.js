@@ -81,7 +81,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					messageHub.showAlertError("GoodsIssue", `Unable to count GoodsIssue: '${response.message}'`);
 					return;
 				}
-				$scope.dataCount = response.data;
+				if (response.data) {
+					$scope.dataCount = response.data;
+				}
 				$scope.dataPages = Math.ceil($scope.dataCount / $scope.dataLimit);
 				filter.$offset = ($scope.dataPage - 1) * $scope.dataLimit;
 				filter.$limit = $scope.dataLimit;
