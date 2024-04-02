@@ -4,11 +4,11 @@
   "brandUrl": "https://codbex.com",
   "title": "Inventory Management Application",
   "description": "Managing inventory data",
+  "dataSource": "DefaultDB",
   "projectName": "codbex-inventory",
   "workspaceName": "workspace",
   "filePath": "codbex-inventory.model",
   "templateId": "template-application-angular/template/template.js",
-  "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
       "views": [
@@ -4627,7 +4627,7 @@
       "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_UOM\"",
       "dataName": "UOM",
       "dataQuery": "",
-      "disableGeneration": "false",
+      "disableGeneration": "true",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE",
       "menuIndex": "100",

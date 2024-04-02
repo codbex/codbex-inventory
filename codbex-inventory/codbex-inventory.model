@@ -2846,7 +2846,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}UOM\"",
                 "dataName": "UOM",
                 "dataQuery": "",
-                "disableGeneration": "false",
+                "disableGeneration": "true",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",
