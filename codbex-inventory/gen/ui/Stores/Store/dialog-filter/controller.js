@@ -1,29 +1,23 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
+angular.module('page', ["ideUI", "ideView"])
 	.config(["messageHubProvider", function (messageHubProvider) {
 		messageHubProvider.eventIdPrefix = 'codbex-inventory.Stores.Store';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/api/Stores/StoreService.ts";
-	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
+	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
 
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
 		};
 
-		if (window != null && window.frameElement != null && window.frameElement.hasAttribute("data-parameters")) {
-			let dataParameters = window.frameElement.getAttribute("data-parameters");
-			if (dataParameters) {
-				let params = JSON.parse(dataParameters);
-				$scope.entity = params.entity ?? {};
-				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
-				$scope.selectedMainEntityId = params.selectedMainEntityId;
-				$scope.optionsCity = params.optionsCity;
-				$scope.optionsCountry = params.optionsCountry;
-				$scope.optionsStatus = params.optionsStatus;
-				$scope.optionsCompany = params.optionsCompany;
-			}
+		let params = ViewParameters.get();
+		if (Object.keys(params).length) {
+			$scope.entity = params.entity ?? {};
+			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
+			$scope.selectedMainEntityId = params.selectedMainEntityId;
+			$scope.optionsCity = params.optionsCity;
+			$scope.optionsCountry = params.optionsCountry;
+			$scope.optionsStatus = params.optionsStatus;
+			$scope.optionsCompany = params.optionsCompany;
 		}
 
 		$scope.filter = function () {
