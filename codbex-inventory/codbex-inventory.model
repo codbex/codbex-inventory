@@ -553,19 +553,21 @@
                         "calculatedPropertyExpressionCreate": "",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
-                        "dataLength": "20",
+                        "dataLength": "50",
                         "dataName": "STORE_EMAIL",
                         "dataNullable": "true",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
                         "dataType": "VARCHAR",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "isRequiredProperty": "false",
                         "name": "Email",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "50",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "EMAIL"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -574,7 +576,9 @@
                         "dataLength": "20",
                         "dataName": "STORE_PHONE",
                         "dataNullable": "true",
+                        "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
                         "dataType": "VARCHAR",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
@@ -583,7 +587,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "TEL"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",

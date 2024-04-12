@@ -53,7 +53,10 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idEmail" dg-required="false" dg-colon="true">Email</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+						<div ng-show="action === 'select'" style="margin: 4px 0px; padding: 0px 10px" class="fd-col  fd-col-md--8 ">
+							<a href="mailto:{{entity.Email}}" class="fd-link">{{entity.Email}}</a>
+						</div>
+                        <div ng-show="action !== 'select'" class="fd-col  fd-col-md--4 ">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Email'].$valid }}">
 	                            <fd-input id="idEmail"
 	                                name="Email"
@@ -62,9 +65,9 @@
 	                                ng-model="entity.Email"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="20.0 || -1"
+	                                ng-maxlength="50.0 || -1"
 	                                dg-input-rules="{ patterns: [''] }"
-	                                type="text"
+	                                type="email"
 	                                placeholder="Enter Email">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
@@ -75,7 +78,10 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idPhone" dg-required="false" dg-colon="true">Phone</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+						<div ng-show="action === 'select'" style="margin: 4px 0px; padding: 0px 10px" class="fd-col  fd-col-md--4 ">
+							<a href="tel:{{entity.Phone}}" class="fd-link">{{entity.Phone}}</a>
+						</div>
+                        <div ng-show="action !== 'select'" class="fd-col  fd-col-md--4 ">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Phone'].$valid }}">
 	                            <fd-input id="idPhone"
 	                                name="Phone"
@@ -85,8 +91,8 @@
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
-	                                type="text"
+	                                dg-input-rules="{ patterns:['^[0-9]{0,14}$'] }"
+	                                type="tel"
 	                                placeholder="Enter Phone">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>

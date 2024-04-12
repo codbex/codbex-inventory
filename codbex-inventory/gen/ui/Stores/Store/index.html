@@ -50,8 +50,12 @@
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Name}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Email}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Phone}}</td>
+						<td fd-table-cell>
+							<a href="mailto:{{next.Email}}" class="fd-link">{{next.Email}}</a>
+						</td>
+						<td fd-table-cell>
+							<a href="tel:{{next.Phone}}" class="fd-link">{{next.Phone}}</a>
+						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Address}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PostCode}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">

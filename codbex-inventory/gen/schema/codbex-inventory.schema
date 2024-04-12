@@ -43,13 +43,17 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 50,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STORE_EMAIL"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STORE_PHONE"
                     },
