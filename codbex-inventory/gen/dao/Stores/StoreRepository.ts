@@ -178,7 +178,7 @@ export class StoreRepository {
             },
             {
                 name: "Name",
-                column: "STORE_NUMBER",
+                column: "STORE_NAME",
                 type: "VARCHAR",
             },
             {

@@ -35,9 +35,11 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "STORE_NUMBER"
+                        "name": "STORE_NAME"
                     },
                     {
                         "type": "VARCHAR",

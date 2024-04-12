@@ -119,8 +119,8 @@ class StoreService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Name?.length > 20) {
-            throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
+        if (entity.Name?.length > 100) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [100] characters`);
         }
         if (entity.Email?.length > 20) {
             throw new ValidationError(`The 'Email' exceeds the maximum length of [20] characters`);
