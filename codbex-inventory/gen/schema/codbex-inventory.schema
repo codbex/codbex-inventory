@@ -134,8 +134,10 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
-                        "name": "GOODSRECEIPTS_ID"
+                        "name": "GOODSRECEIPT_ID"
                     },
                     {
                         "type": "DATE",
@@ -673,7 +675,7 @@
                 "constraintName": "GoodsReceiptItem_GoodsReceipt",
                 "columns": "GOODSRECEIPTITEM_GOODSRECEIPT",
                 "referencedTable": "CODBEX_GOODSRECEIPT",
-                "referencedColumns": "GOODSRECEIPTS_ID"
+                "referencedColumns": "GOODSRECEIPT_ID"
             },
             {
                 "name": "GoodsReceiptItem_Product",

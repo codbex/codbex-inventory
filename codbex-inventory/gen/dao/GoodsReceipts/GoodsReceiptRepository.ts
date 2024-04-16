@@ -162,7 +162,7 @@ export class GoodsReceiptRepository {
         properties: [
             {
                 name: "Id",
-                column: "GOODSRECEIPTS_ID",
+                column: "GOODSRECEIPT_ID",
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
@@ -270,7 +270,7 @@ export class GoodsReceiptRepository {
             entity: entity,
             key: {
                 name: "Id",
-                column: "GOODSRECEIPTS_ID",
+                column: "GOODSRECEIPT_ID",
                 value: id
             }
         });
@@ -286,7 +286,7 @@ export class GoodsReceiptRepository {
             entity: entity,
             key: {
                 name: "Id",
-                column: "GOODSRECEIPTS_ID",
+                column: "GOODSRECEIPT_ID",
                 value: entity.Id
             }
         });
@@ -316,7 +316,7 @@ export class GoodsReceiptRepository {
             entity: entity,
             key: {
                 name: "Id",
-                column: "GOODSRECEIPTS_ID",
+                column: "GOODSRECEIPT_ID",
                 value: id
             }
         });
