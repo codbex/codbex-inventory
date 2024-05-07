@@ -126,8 +126,20 @@ class GoodsIssueItemService {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.GoodsIssue === null || entity.GoodsIssue === undefined) {
+            throw new ValidationError(`The 'GoodsIssue' property is required, provide a valid value`);
+        }
+        if (entity.Product === null || entity.Product === undefined) {
+            throw new ValidationError(`The 'Product' property is required, provide a valid value`);
+        }
+        if (entity.Quantity === null || entity.Quantity === undefined) {
+            throw new ValidationError(`The 'Quantity' property is required, provide a valid value`);
+        }
         if (entity.UoM === null || entity.UoM === undefined) {
             throw new ValidationError(`The 'UoM' property is required, provide a valid value`);
+        }
+        if (entity.Price === null || entity.Price === undefined) {
+            throw new ValidationError(`The 'Price' property is required, provide a valid value`);
         }
         for (const next of validationModules) {
             next.validate(entity);

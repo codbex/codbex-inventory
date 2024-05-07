@@ -1,0 +1,5 @@
+{
+    "module": "codbex-inventory/gen/ui/StockAdjustments/${masterEntity}/StockAdjustmentItem/view.js",
+    "extensionPoint": "codbex-inventory-view",
+    "description": "codbex-inventory - Application View - Details"
+}

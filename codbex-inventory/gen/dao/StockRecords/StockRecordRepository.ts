@@ -6,7 +6,6 @@ import { EntityUtils } from "../utils/EntityUtils";
 
 export interface StockRecordEntity {
     readonly Id: number;
-    Reference?: string;
     Product?: number;
     Quantity?: number;
     UoM: number;
@@ -17,10 +16,10 @@ export interface StockRecordEntity {
     Direction?: number;
     ItemId?: number;
     Deleted?: boolean;
+    Reference?: string;
 }
 
 export interface StockRecordCreateEntity {
-    readonly Reference?: string;
     readonly Product?: number;
     readonly Quantity?: number;
     readonly UoM: number;
@@ -31,6 +30,7 @@ export interface StockRecordCreateEntity {
     readonly Direction?: number;
     readonly ItemId?: number;
     readonly Deleted?: boolean;
+    readonly Reference?: string;
 }
 
 export interface StockRecordUpdateEntity extends StockRecordCreateEntity {
@@ -41,7 +41,6 @@ export interface StockRecordEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
-            Reference?: string | string[];
             Product?: number | number[];
             Quantity?: number | number[];
             UoM?: number | number[];
@@ -52,10 +51,10 @@ export interface StockRecordEntityOptions {
             Direction?: number | number[];
             ItemId?: number | number[];
             Deleted?: boolean | boolean[];
+            Reference?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
-            Reference?: string | string[];
             Product?: number | number[];
             Quantity?: number | number[];
             UoM?: number | number[];
@@ -66,10 +65,10 @@ export interface StockRecordEntityOptions {
             Direction?: number | number[];
             ItemId?: number | number[];
             Deleted?: boolean | boolean[];
+            Reference?: string | string[];
         };
         contains?: {
             Id?: number;
-            Reference?: string;
             Product?: number;
             Quantity?: number;
             UoM?: number;
@@ -80,10 +79,10 @@ export interface StockRecordEntityOptions {
             Direction?: number;
             ItemId?: number;
             Deleted?: boolean;
+            Reference?: string;
         };
         greaterThan?: {
             Id?: number;
-            Reference?: string;
             Product?: number;
             Quantity?: number;
             UoM?: number;
@@ -94,10 +93,10 @@ export interface StockRecordEntityOptions {
             Direction?: number;
             ItemId?: number;
             Deleted?: boolean;
+            Reference?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
-            Reference?: string;
             Product?: number;
             Quantity?: number;
             UoM?: number;
@@ -108,10 +107,10 @@ export interface StockRecordEntityOptions {
             Direction?: number;
             ItemId?: number;
             Deleted?: boolean;
+            Reference?: string;
         };
         lessThan?: {
             Id?: number;
-            Reference?: string;
             Product?: number;
             Quantity?: number;
             UoM?: number;
@@ -122,10 +121,10 @@ export interface StockRecordEntityOptions {
             Direction?: number;
             ItemId?: number;
             Deleted?: boolean;
+            Reference?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
-            Reference?: string;
             Product?: number;
             Quantity?: number;
             UoM?: number;
@@ -136,6 +135,7 @@ export interface StockRecordEntityOptions {
             Direction?: number;
             ItemId?: number;
             Deleted?: boolean;
+            Reference?: string;
         };
     },
     $select?: (keyof StockRecordEntity)[],
@@ -167,11 +167,6 @@ export class StockRecordRepository {
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
-            },
-            {
-                name: "Reference",
-                column: "STOCKRECORD_REFERENCE",
-                type: "VARCHAR",
             },
             {
                 name: "Product",
@@ -223,6 +218,11 @@ export class StockRecordRepository {
                 name: "Deleted",
                 column: "STOCKRECORD_DELETED",
                 type: "BOOLEAN",
+            },
+            {
+                name: "Reference",
+                column: "STOCKRECORD_REFERENCE",
+                type: "VARCHAR",
             }
         ]
     };

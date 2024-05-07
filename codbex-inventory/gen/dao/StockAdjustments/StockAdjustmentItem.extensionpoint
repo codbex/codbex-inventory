@@ -1,0 +1,4 @@
+{
+    "name": "codbex-inventory-StockAdjustments-StockAdjustmentItem",
+    "description": "Extension Point for the codbex-inventory-StockAdjustments-StockAdjustmentItem entity"
+}

@@ -39,41 +39,41 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
+			}
+			if (entity.Product !== undefined) {
+				filter.$filter.equals.Product = entity.Product;
+			}
+			if (entity.Quantity !== undefined) {
+				filter.$filter.equals.Quantity = entity.Quantity;
+			}
+			if (entity.UoM !== undefined) {
+				filter.$filter.equals.UoM = entity.UoM;
+			}
+			if (entity.Price !== undefined) {
+				filter.$filter.equals.Price = entity.Price;
+			}
+			if (entity.Net !== undefined) {
+				filter.$filter.equals.Net = entity.Net;
+			}
+			if (entity.VAT !== undefined) {
+				filter.$filter.equals.VAT = entity.VAT;
+			}
+			if (entity.Gross !== undefined) {
+				filter.$filter.equals.Gross = entity.Gross;
+			}
+			if (entity.Direction !== undefined) {
+				filter.$filter.equals.Direction = entity.Direction;
+			}
+			if (entity.ItemId !== undefined) {
+				filter.$filter.equals.ItemId = entity.ItemId;
+			}
+			if (entity.Deleted !== undefined && entity.isDeletedIndeterminate === false) {
+				filter.$filter.equals.Deleted = entity.Deleted;
 			}
 			if (entity.Reference) {
 				filter.$filter.contains.Reference = entity.Reference;
-			}
-			if (entity.Product) {
-				filter.$filter.equals.Product = entity.Product;
-			}
-			if (entity.Quantity) {
-				filter.$filter.equals.Quantity = entity.Quantity;
-			}
-			if (entity.UoM) {
-				filter.$filter.equals.UoM = entity.UoM;
-			}
-			if (entity.Price) {
-				filter.$filter.equals.Price = entity.Price;
-			}
-			if (entity.Net) {
-				filter.$filter.equals.Net = entity.Net;
-			}
-			if (entity.VAT) {
-				filter.$filter.equals.VAT = entity.VAT;
-			}
-			if (entity.Gross) {
-				filter.$filter.equals.Gross = entity.Gross;
-			}
-			if (entity.Direction) {
-				filter.$filter.equals.Direction = entity.Direction;
-			}
-			if (entity.ItemId) {
-				filter.$filter.equals.ItemId = entity.ItemId;
-			}
-			if (entity.Deleted) {
-				filter.$filter.equals.Deleted = entity.Deleted;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

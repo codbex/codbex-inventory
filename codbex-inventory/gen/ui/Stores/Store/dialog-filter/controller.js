@@ -40,7 +40,7 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.Name) {
@@ -58,10 +58,10 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.PostCode) {
 				filter.$filter.contains.PostCode = entity.PostCode;
 			}
-			if (entity.City) {
+			if (entity.City !== undefined) {
 				filter.$filter.equals.City = entity.City;
 			}
-			if (entity.Country) {
+			if (entity.Country !== undefined) {
 				filter.$filter.equals.Country = entity.Country;
 			}
 			if (entity.Location) {
@@ -73,10 +73,10 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Manager) {
 				filter.$filter.contains.Manager = entity.Manager;
 			}
-			if (entity.Status) {
+			if (entity.Status !== undefined) {
 				filter.$filter.equals.Status = entity.Status;
 			}
-			if (entity.Company) {
+			if (entity.Company !== undefined) {
 				filter.$filter.equals.Company = entity.Company;
 			}
 			messageHub.postMessage("entitySearch", {

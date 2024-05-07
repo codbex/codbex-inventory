@@ -5,22 +5,22 @@ import { dao as daoApi } from "sdk/db";
 
 export interface GoodsReceiptItemEntity {
     readonly Id: number;
-    GoodsReceipt?: number;
-    Product?: number;
-    Quantity?: number;
+    GoodsReceipt: number;
+    Product: number;
+    Quantity: number;
     UoM: number;
-    Price?: number;
+    Price: number;
     Net?: number;
     VAT?: number;
     Gross?: number;
 }
 
 export interface GoodsReceiptItemCreateEntity {
-    readonly GoodsReceipt?: number;
-    readonly Product?: number;
-    readonly Quantity?: number;
+    readonly GoodsReceipt: number;
+    readonly Product: number;
+    readonly Quantity: number;
     readonly UoM: number;
-    readonly Price?: number;
+    readonly Price: number;
 }
 
 export interface GoodsReceiptItemUpdateEntity extends GoodsReceiptItemCreateEntity {
@@ -141,16 +141,19 @@ export class GoodsReceiptItemRepository {
                 name: "GoodsReceipt",
                 column: "GOODSRECEIPTITEM_GOODSRECEIPT",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Product",
                 column: "GOODSRECEIPTITEM_PRODUCT",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Quantity",
                 column: "GOODSRECEIPTITEM_QUANTITY",
                 type: "DOUBLE",
+                required: true
             },
             {
                 name: "UoM",
@@ -162,6 +165,7 @@ export class GoodsReceiptItemRepository {
                 name: "Price",
                 column: "GOODSRECEIPTITEM_PRICE",
                 type: "DECIMAL",
+                required: true
             },
             {
                 name: "Net",

@@ -21,13 +21,13 @@
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idProduct" dg-required="false" dg-colon="true">Product</fd-form-label>
+                        	<fd-form-label for="idProduct" dg-required="true" dg-colon="true">Product</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idProduct"
 	                            name="Product"
 	                            state="{{ forms.details['Product'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.Product"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsProduct"
@@ -37,13 +37,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idQuantity" dg-required="false" dg-colon="true">Quantity</fd-form-label>
+                        	<fd-form-label for="idQuantity" dg-required="true" dg-colon="true">Quantity</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <fd-step-input dg-id="idQuantity"
 								name="Quantity"
 								state="{{ forms.details['Quantity'].$valid ? '' : 'error' }}"
-								dg-required="false"
+								dg-required="true"
 								ng-model="entity.Quantity"
 								is-readonly="action === 'select'"
 								placeholder="Enter Quantity"
@@ -69,13 +69,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idPrice" dg-required="false" dg-colon="true">Price</fd-form-label>
+                        	<fd-form-label for="idPrice" dg-required="true" dg-colon="true">Price</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <fd-step-input dg-id="idPrice"
 								name="Price"
 								state="{{ forms.details['Price'].$valid ? '' : 'error' }}"
-								dg-required="false"
+								dg-required="true"
 								ng-model="entity.Price"
 								is-readonly="action === 'select'"
 								placeholder="Enter Price"

@@ -29,25 +29,6 @@
                 <fd-form-group dg-header="StockRecord Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idReference" dg-colon="true">Reference</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Reference'].$valid }}">
-	                            <fd-input id="idReference"
-	                                name="Reference"
-	                                state="{{ forms.details['Reference'].$valid ? '' : 'error' }}"
-	                                ng-model="entity.Reference"
-	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="36.0 || -1"
-	                                type="text"
-	                                placeholder="Enter Reference">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idProduct" dg-colon="true">Product</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
@@ -177,10 +158,32 @@
 	                    <div class="fd-col fd-col-md--8">
 							<fd-checkbox id="idDeleted"
 	                            compact="false"
-								ng-model="entity.Deleted">
+								ng-init="entity.isDeletedIndeterminate=true"
+								ng-model="entity.Deleted"
+								dg-indeterminate="entity.isDeletedIndeterminate"
+								ng-click="entity.isDeletedIndeterminate=false">
 	                        </fd-checkbox>
                         	<fd-checkbox-label for="idDeleted">Deleted</fd-checkbox-label>
                         </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idReference" dg-colon="true">Reference</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Reference'].$valid }}">
+	                            <fd-input id="idReference"
+	                                name="Reference"
+	                                state="{{ forms.details['Reference'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.Reference"
+	                                ng-minlength="0.0 || 0"
+	                                ng-maxlength="36.0 || -1"
+	                                type="text"
+	                                placeholder="Enter Reference">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
                     </fd-form-item>
                 </fd-form-group>
             </fd-fieldset>

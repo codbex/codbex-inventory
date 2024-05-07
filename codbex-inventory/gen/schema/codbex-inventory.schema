@@ -245,7 +245,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "GOODSRECEIPTITEM_GOODSRECEIPT"
                     },
                     {
@@ -253,7 +254,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GOODSRECEIPTITEM_PRODUCT"
                     },
                     {
@@ -261,7 +261,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GOODSRECEIPTITEM_QUANTITY"
                     },
                     {
@@ -276,7 +275,6 @@
                         "length": 20,
                         "precision": "16",
                         "scale": "2",
-                        "nullable": true,
                         "name": "GOODSRECEIPTITEM_PRICE"
                     },
                     {
@@ -424,7 +422,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
-                        "nullable": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "name": "GOODSISSUEITEM_GOODSISSUE"
                     },
                     {
@@ -432,7 +431,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GOODSISSUEITEM_PRODUCT"
                     },
                     {
@@ -440,7 +438,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "GOODSISSUEITEM_QUANTITY"
                     },
                     {
@@ -455,7 +452,6 @@
                         "length": 20,
                         "precision": "16",
                         "scale": "2",
-                        "nullable": true,
                         "name": "GOODSISSUEITEM_PRICE"
                     },
                     {
@@ -495,14 +491,6 @@
                         "identity": true,
                         "nullable": true,
                         "name": "STOCKRECORD_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 36,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "STOCKRECORD_REFERENCE"
                     },
                     {
                         "type": "INTEGER",
@@ -582,6 +570,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "STOCKRECORD_DELETED"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STOCKRECORD_REFERENCE"
                     }
                 ]
             },
@@ -602,6 +598,177 @@
                         "length": 20,
                         "nullable": true,
                         "name": "STOCKRECORDDIRECTION_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_STOCKADJUSTMENT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENT_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENT_NUMBER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENT_PURPOSE"
+                    },
+                    {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STOCKADJUSTMENT_DATE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENT_STOCKADJUSTMENTTYPE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENT_STORE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STOCKADJUSTMENT_OPERATOR"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 500,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENT_DESCRIPTION"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENT_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENT_UUID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENT_REFERENCE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_STOCKADJUSTMENTITEM",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENTITEM_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STOCKADJUSTMENTITEM_PRODUCT"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STOCKADJUSTMENTITEM_ADJUSTEDQUANTITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STOCKADJUSTMENTITEM_UOM"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENTITEM_BATCH"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENTITEM_SERIAL"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENTITEM_DESCRIPTION"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_STOCKADJUSTMENTTYPE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENTTYPE_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENTTYPE_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENTTYPE_DESCRIPTION"
                     }
                 ]
             },
@@ -775,6 +942,51 @@
                 "columns": "STOCKRECORD_DIRECTION",
                 "referencedTable": "CODBEX_STOCKRECORDDIRECTION",
                 "referencedColumns": "STOCKRECORDDIRECTION_ID"
+            },
+            {
+                "name": "StockAdjustment_StockAdjustmentType",
+                "type": "foreignKey",
+                "table": "CODBEX_STOCKADJUSTMENT",
+                "constraintName": "StockAdjustment_StockAdjustmentType",
+                "columns": "STOCKADJUSTMENT_STOCKADJUSTMENTTYPE",
+                "referencedTable": "CODBEX_STOCKADJUSTMENTTYPE",
+                "referencedColumns": "STOCKADJUSTMENTTYPE_ID"
+            },
+            {
+                "name": "StockAdjustment_Store",
+                "type": "foreignKey",
+                "table": "CODBEX_STOCKADJUSTMENT",
+                "constraintName": "StockAdjustment_Store",
+                "columns": "STOCKADJUSTMENT_STORE",
+                "referencedTable": "CODBEX_STORE",
+                "referencedColumns": "STORE_ID"
+            },
+            {
+                "name": "StockAdjustment_Employee",
+                "type": "foreignKey",
+                "table": "CODBEX_STOCKADJUSTMENT",
+                "constraintName": "StockAdjustment_Employee",
+                "columns": "STOCKADJUSTMENT_OPERATOR",
+                "referencedTable": "CODBEX_EMPLOYEE",
+                "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "StockAdjustmentItem_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_STOCKADJUSTMENTITEM",
+                "constraintName": "StockAdjustmentItem_Product",
+                "columns": "STOCKADJUSTMENTITEM_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "StockAdjustmentItem_UoM",
+                "type": "foreignKey",
+                "table": "CODBEX_STOCKADJUSTMENTITEM",
+                "constraintName": "StockAdjustmentItem_UoM",
+                "columns": "STOCKADJUSTMENTITEM_UOM",
+                "referencedTable": "CODBEX_UOM",
+                "referencedColumns": "UOM_ID"
             }
         ]
     },

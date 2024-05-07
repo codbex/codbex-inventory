@@ -45,7 +45,7 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.DateFrom) {
@@ -57,25 +57,25 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Number) {
 				filter.$filter.contains.Number = entity.Number;
 			}
-			if (entity.Store) {
+			if (entity.Store !== undefined) {
 				filter.$filter.equals.Store = entity.Store;
 			}
-			if (entity.Company) {
+			if (entity.Company !== undefined) {
 				filter.$filter.equals.Company = entity.Company;
 			}
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;
 			}
-			if (entity.Currency) {
+			if (entity.Currency !== undefined) {
 				filter.$filter.equals.Currency = entity.Currency;
 			}
-			if (entity.Net) {
+			if (entity.Net !== undefined) {
 				filter.$filter.equals.Net = entity.Net;
 			}
-			if (entity.VAT) {
+			if (entity.VAT !== undefined) {
 				filter.$filter.equals.VAT = entity.VAT;
 			}
-			if (entity.Gross) {
+			if (entity.Gross !== undefined) {
 				filter.$filter.equals.Gross = entity.Gross;
 			}
 			if (entity.UUID) {
