@@ -14,12 +14,12 @@ class StockAdjustmentItemService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            let ${masterEntityId} = parseInt(ctx.queryParameters.${masterEntityId});
-            ${masterEntityId} = isNaN(${masterEntityId}) ? ctx.queryParameters.${masterEntityId} : ${masterEntityId};
+            let StockAdjustment = parseInt(ctx.queryParameters.StockAdjustment);
+            StockAdjustment = isNaN(StockAdjustment) ? ctx.queryParameters.StockAdjustment : StockAdjustment;
             const options: StockAdjustmentItemEntityOptions = {
                 $filter: {
                     equals: {
-                        ${masterEntityId}: ${masterEntityId}
+                        StockAdjustment: StockAdjustment
                     }
                 },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
@@ -132,17 +132,14 @@ class StockAdjustmentItemService {
         if (entity.AdjustedQuantity === null || entity.AdjustedQuantity === undefined) {
             throw new ValidationError(`The 'AdjustedQuantity' property is required, provide a valid value`);
         }
-        if (entity.AdjustedQuantity?.length > 20) {
-            throw new ValidationError(`The 'AdjustedQuantity' exceeds the maximum length of [20] characters`);
-        }
         if (entity.UoM === null || entity.UoM === undefined) {
             throw new ValidationError(`The 'UoM' property is required, provide a valid value`);
         }
-        if (entity.Batch?.length > 20) {
-            throw new ValidationError(`The 'Batch' exceeds the maximum length of [20] characters`);
+        if (entity.Batch?.length > 30) {
+            throw new ValidationError(`The 'Batch' exceeds the maximum length of [30] characters`);
         }
-        if (entity.Serial?.length > 20) {
-            throw new ValidationError(`The 'Serial' exceeds the maximum length of [20] characters`);
+        if (entity.Serial?.length > 30) {
+            throw new ValidationError(`The 'Serial' exceeds the maximum length of [30] characters`);
         }
         if (entity.Description?.length > 200) {
             throw new ValidationError(`The 'Description' exceeds the maximum length of [200] characters`);

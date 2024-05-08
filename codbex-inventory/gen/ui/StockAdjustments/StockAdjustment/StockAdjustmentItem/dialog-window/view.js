@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "StockAdjustmentItem",
+    id: "StockAdjustmentItem-details",
     label: "StockAdjustmentItem",
-    factory: "frame",
-    region: "bottom",
-    link: "/services/web/codbex-inventory/gen/ui/StockAdjustments/${masterEntity}/StockAdjustmentItem/index.html",
+    link: "/services/web/codbex-inventory/gen/ui/StockAdjustments/StockAdjustment/StockAdjustmentItem/dialog-window/index.html",
     perspectiveName: "StockAdjustments",
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
+    exports.getDialogWindow = function () {
         return viewData;
     }
 }

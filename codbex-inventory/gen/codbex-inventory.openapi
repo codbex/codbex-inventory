@@ -4310,7 +4310,6 @@ paths:
                     notEquals:
                       Id: 33
                     contains:
-                      AdjustedQuantity: "abcd"
                       Batch: "abcd"
                       Serial: "abcd"
                       Description: "abcd"
@@ -4335,7 +4334,6 @@ paths:
                 value:
                   $filter:
                     contains:
-                      AdjustedQuantity: "abcd"
                       Batch: "abcd"
                       Serial: "abcd"
                       Description: "abcd"
@@ -4402,7 +4400,6 @@ paths:
                     notEquals:
                       Id: 33
                     contains:
-                      AdjustedQuantity: "abcd"
                       Batch: "abcd"
                       Serial: "abcd"
                       Description: "abcd"
@@ -4427,7 +4424,6 @@ paths:
                 value:
                   $filter:
                     contains:
-                      AdjustedQuantity: "abcd"
                       Batch: "abcd"
                       Serial: "abcd"
                       Description: "abcd"
@@ -8035,20 +8031,19 @@ components:
           type: integer
           format: int32
         AdjustedQuantity:
-          type: string
-          minLength: 0
-          maxLength: 20
+          type: number
+          format: double
         UoM:
           type: integer
           format: int32
         Batch:
           type: string
           minLength: 0
-          maxLength: 20
+          maxLength: 30
         Serial:
           type: string
           minLength: 0
-          maxLength: 20
+          maxLength: 30
         Description:
           type: string
           minLength: 0
@@ -8088,15 +8083,12 @@ components:
                         format: int32
                 AdjustedQuantity:
                   oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 20
+                    - type: number
+                      format: double
                     - type: array
                       items:
-                        type: string
+                        type: number
                         format: double
-                        minLength: 0
-                        maxLength: 20
                 UoM:
                   oneOf:
                     - type: integer
@@ -8109,24 +8101,24 @@ components:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 20
+                      maxLength: 30
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 20
+                        maxLength: 30
                 Serial:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 20
+                      maxLength: 30
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 20
+                        maxLength: 30
                 Description:
                   oneOf:
                     - type: string
@@ -8167,15 +8159,12 @@ components:
                         format: int32
                 AdjustedQuantity:
                   oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 20
+                    - type: number
+                      format: double
                     - type: array
                       items:
-                        type: string
+                        type: number
                         format: double
-                        minLength: 0
-                        maxLength: 20
                 UoM:
                   oneOf:
                     - type: integer
@@ -8188,24 +8177,24 @@ components:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 20
+                      maxLength: 30
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 20
+                        maxLength: 30
                 Serial:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 20
+                      maxLength: 30
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 20
+                        maxLength: 30
                 Description:
                   oneOf:
                     - type: string
@@ -8224,18 +8213,15 @@ components:
                 StockAdjustment:
                 Product:
                 AdjustedQuantity:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
                 UoM:
                 Batch:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 30
                 Serial:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 30
                 Description:
                   type: string
                   minLength: 0
@@ -8253,20 +8239,19 @@ components:
                   type: integer
                   format: int32
                 AdjustedQuantity:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
+                  type: number
+                  format: double
                 UoM:
                   type: integer
                   format: int32
                 Batch:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 30
                 Serial:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 30
                 Description:
                   type: string
                   minLength: 0
@@ -8284,20 +8269,19 @@ components:
                   type: integer
                   format: int32
                 AdjustedQuantity:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
+                  type: number
+                  format: double
                 UoM:
                   type: integer
                   format: int32
                 Batch:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 30
                 Serial:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 30
                 Description:
                   type: string
                   minLength: 0
@@ -8315,20 +8299,19 @@ components:
                   type: integer
                   format: int32
                 AdjustedQuantity:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
+                  type: number
+                  format: double
                 UoM:
                   type: integer
                   format: int32
                 Batch:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 30
                 Serial:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 30
                 Description:
                   type: string
                   minLength: 0
@@ -8346,20 +8329,19 @@ components:
                   type: integer
                   format: int32
                 AdjustedQuantity:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
+                  type: number
+                  format: double
                 UoM:
                   type: integer
                   format: int32
                 Batch:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 30
                 Serial:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 30
                 Description:
                   type: string
                   minLength: 0

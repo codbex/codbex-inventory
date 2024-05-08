@@ -745,7 +745,7 @@
                         "name": "STOCKADJUSTMENTITEM_PRODUCT"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "DOUBLE",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -760,13 +760,17 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 30,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STOCKADJUSTMENTITEM_BATCH"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 30,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STOCKADJUSTMENTITEM_SERIAL"
                     },

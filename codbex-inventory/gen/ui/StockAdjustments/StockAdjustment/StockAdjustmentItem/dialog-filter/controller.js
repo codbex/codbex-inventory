@@ -47,8 +47,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Product !== undefined) {
 				filter.$filter.equals.Product = entity.Product;
 			}
-			if (entity.AdjustedQuantity) {
-				filter.$filter.contains.AdjustedQuantity = entity.AdjustedQuantity;
+			if (entity.AdjustedQuantity !== undefined) {
+				filter.$filter.equals.AdjustedQuantity = entity.AdjustedQuantity;
 			}
 			if (entity.UoM !== undefined) {
 				filter.$filter.equals.UoM = entity.UoM;
