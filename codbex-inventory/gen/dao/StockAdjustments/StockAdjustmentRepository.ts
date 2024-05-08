@@ -8,11 +8,11 @@ import { NumberGeneratorService } from "/codbex-number-generator/service/generat
 
 export interface StockAdjustmentEntity {
     readonly Id: number;
-    Number?: string;
-    Purpose?: string;
     Date: Date;
-    StockAdjustmentType?: number;
+    Number?: string;
     Store?: number;
+    Purpose?: string;
+    StockAdjustmentType?: number;
     Operator: number;
     Description?: string;
     Name?: string;
@@ -21,10 +21,10 @@ export interface StockAdjustmentEntity {
 }
 
 export interface StockAdjustmentCreateEntity {
-    readonly Purpose?: string;
     readonly Date: Date;
-    readonly StockAdjustmentType?: number;
     readonly Store?: number;
+    readonly Purpose?: string;
+    readonly StockAdjustmentType?: number;
     readonly Operator: number;
     readonly Description?: string;
     readonly Reference?: string;
@@ -38,11 +38,11 @@ export interface StockAdjustmentEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
-            Number?: string | string[];
-            Purpose?: string | string[];
             Date?: Date | Date[];
-            StockAdjustmentType?: number | number[];
+            Number?: string | string[];
             Store?: number | number[];
+            Purpose?: string | string[];
+            StockAdjustmentType?: number | number[];
             Operator?: number | number[];
             Description?: string | string[];
             Name?: string | string[];
@@ -51,11 +51,11 @@ export interface StockAdjustmentEntityOptions {
         };
         notEquals?: {
             Id?: number | number[];
-            Number?: string | string[];
-            Purpose?: string | string[];
             Date?: Date | Date[];
-            StockAdjustmentType?: number | number[];
+            Number?: string | string[];
             Store?: number | number[];
+            Purpose?: string | string[];
+            StockAdjustmentType?: number | number[];
             Operator?: number | number[];
             Description?: string | string[];
             Name?: string | string[];
@@ -64,11 +64,11 @@ export interface StockAdjustmentEntityOptions {
         };
         contains?: {
             Id?: number;
-            Number?: string;
-            Purpose?: string;
             Date?: Date;
-            StockAdjustmentType?: number;
+            Number?: string;
             Store?: number;
+            Purpose?: string;
+            StockAdjustmentType?: number;
             Operator?: number;
             Description?: string;
             Name?: string;
@@ -77,11 +77,11 @@ export interface StockAdjustmentEntityOptions {
         };
         greaterThan?: {
             Id?: number;
-            Number?: string;
-            Purpose?: string;
             Date?: Date;
-            StockAdjustmentType?: number;
+            Number?: string;
             Store?: number;
+            Purpose?: string;
+            StockAdjustmentType?: number;
             Operator?: number;
             Description?: string;
             Name?: string;
@@ -90,11 +90,11 @@ export interface StockAdjustmentEntityOptions {
         };
         greaterThanOrEqual?: {
             Id?: number;
-            Number?: string;
-            Purpose?: string;
             Date?: Date;
-            StockAdjustmentType?: number;
+            Number?: string;
             Store?: number;
+            Purpose?: string;
+            StockAdjustmentType?: number;
             Operator?: number;
             Description?: string;
             Name?: string;
@@ -103,11 +103,11 @@ export interface StockAdjustmentEntityOptions {
         };
         lessThan?: {
             Id?: number;
-            Number?: string;
-            Purpose?: string;
             Date?: Date;
-            StockAdjustmentType?: number;
+            Number?: string;
             Store?: number;
+            Purpose?: string;
+            StockAdjustmentType?: number;
             Operator?: number;
             Description?: string;
             Name?: string;
@@ -116,11 +116,11 @@ export interface StockAdjustmentEntityOptions {
         };
         lessThanOrEqual?: {
             Id?: number;
-            Number?: string;
-            Purpose?: string;
             Date?: Date;
-            StockAdjustmentType?: number;
+            Number?: string;
             Store?: number;
+            Purpose?: string;
+            StockAdjustmentType?: number;
             Operator?: number;
             Description?: string;
             Name?: string;
@@ -159,9 +159,20 @@ export class StockAdjustmentRepository {
                 autoIncrement: true,
             },
             {
+                name: "Date",
+                column: "STOCKADJUSTMENT_DATE",
+                type: "DATE",
+                required: true
+            },
+            {
                 name: "Number",
                 column: "STOCKADJUSTMENT_NUMBER",
                 type: "VARCHAR",
+            },
+            {
+                name: "Store",
+                column: "STOCKADJUSTMENT_STORE",
+                type: "INTEGER",
             },
             {
                 name: "Purpose",
@@ -169,19 +180,8 @@ export class StockAdjustmentRepository {
                 type: "VARCHAR",
             },
             {
-                name: "Date",
-                column: "STOCKADJUSTMENT_DATE",
-                type: "DATE",
-                required: true
-            },
-            {
                 name: "StockAdjustmentType",
                 column: "STOCKADJUSTMENT_STOCKADJUSTMENTTYPE",
-                type: "INTEGER",
-            },
-            {
-                name: "Store",
-                column: "STOCKADJUSTMENT_STORE",
                 type: "INTEGER",
             },
             {
@@ -236,6 +236,8 @@ export class StockAdjustmentRepository {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
         (entity as StockAdjustmentEntity).Number = new NumberGeneratorService().generate(23);
+        // @ts-ignore
+        (entity as StockAdjustmentEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10);
         // @ts-ignore
         (entity as StockAdjustmentEntity).UUID = require("sdk/utils/uuid").random();
         const id = this.dao.insert(entity);

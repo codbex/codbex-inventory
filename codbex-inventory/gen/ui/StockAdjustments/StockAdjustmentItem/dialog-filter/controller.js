@@ -40,6 +40,9 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
+			if (entity.StockAdjustment !== undefined) {
+				filter.$filter.equals.StockAdjustment = entity.StockAdjustment;
+			}
 			if (entity.Product !== undefined) {
 				filter.$filter.equals.Product = entity.Product;
 			}

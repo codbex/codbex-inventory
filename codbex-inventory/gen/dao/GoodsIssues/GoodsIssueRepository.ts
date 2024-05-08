@@ -12,11 +12,11 @@ export interface GoodsIssueEntity {
     Number?: string;
     Store?: number;
     Company?: number;
-    Name: string;
     Currency?: number;
     Net?: number;
     VAT?: number;
     Gross?: number;
+    Name: string;
     UUID?: string;
     Reference?: string;
 }
@@ -44,11 +44,11 @@ export interface GoodsIssueEntityOptions {
             Number?: string | string[];
             Store?: number | number[];
             Company?: number | number[];
-            Name?: string | string[];
             Currency?: number | number[];
             Net?: number | number[];
             VAT?: number | number[];
             Gross?: number | number[];
+            Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
         };
@@ -58,11 +58,11 @@ export interface GoodsIssueEntityOptions {
             Number?: string | string[];
             Store?: number | number[];
             Company?: number | number[];
-            Name?: string | string[];
             Currency?: number | number[];
             Net?: number | number[];
             VAT?: number | number[];
             Gross?: number | number[];
+            Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
         };
@@ -72,11 +72,11 @@ export interface GoodsIssueEntityOptions {
             Number?: string;
             Store?: number;
             Company?: number;
-            Name?: string;
             Currency?: number;
             Net?: number;
             VAT?: number;
             Gross?: number;
+            Name?: string;
             UUID?: string;
             Reference?: string;
         };
@@ -86,11 +86,11 @@ export interface GoodsIssueEntityOptions {
             Number?: string;
             Store?: number;
             Company?: number;
-            Name?: string;
             Currency?: number;
             Net?: number;
             VAT?: number;
             Gross?: number;
+            Name?: string;
             UUID?: string;
             Reference?: string;
         };
@@ -100,11 +100,11 @@ export interface GoodsIssueEntityOptions {
             Number?: string;
             Store?: number;
             Company?: number;
-            Name?: string;
             Currency?: number;
             Net?: number;
             VAT?: number;
             Gross?: number;
+            Name?: string;
             UUID?: string;
             Reference?: string;
         };
@@ -114,11 +114,11 @@ export interface GoodsIssueEntityOptions {
             Number?: string;
             Store?: number;
             Company?: number;
-            Name?: string;
             Currency?: number;
             Net?: number;
             VAT?: number;
             Gross?: number;
+            Name?: string;
             UUID?: string;
             Reference?: string;
         };
@@ -128,11 +128,11 @@ export interface GoodsIssueEntityOptions {
             Number?: string;
             Store?: number;
             Company?: number;
-            Name?: string;
             Currency?: number;
             Net?: number;
             VAT?: number;
             Gross?: number;
+            Name?: string;
             UUID?: string;
             Reference?: string;
         };
@@ -188,12 +188,6 @@ export class GoodsIssueRepository {
                 type: "INTEGER",
             },
             {
-                name: "Name",
-                column: "GOODSISSUE_NAME",
-                type: "VARCHAR",
-                required: true
-            },
-            {
                 name: "Currency",
                 column: "GOODSISSUE_CURRENCY",
                 type: "INTEGER",
@@ -212,6 +206,12 @@ export class GoodsIssueRepository {
                 name: "Gross",
                 column: "GOODSISSUE_GROSS",
                 type: "DECIMAL",
+            },
+            {
+                name: "Name",
+                column: "GOODSISSUE_NAME",
+                type: "VARCHAR",
+                required: true
             },
             {
                 name: "UUID",

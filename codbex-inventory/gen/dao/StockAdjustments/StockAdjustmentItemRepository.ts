@@ -5,6 +5,7 @@ import { dao as daoApi } from "sdk/db";
 
 export interface StockAdjustmentItemEntity {
     readonly Id: number;
+    StockAdjustment: number;
     Product: number;
     AdjustedQuantity: number;
     UoM: number;
@@ -14,6 +15,7 @@ export interface StockAdjustmentItemEntity {
 }
 
 export interface StockAdjustmentItemCreateEntity {
+    readonly StockAdjustment: number;
     readonly Product: number;
     readonly AdjustedQuantity: number;
     readonly UoM: number;
@@ -30,6 +32,7 @@ export interface StockAdjustmentItemEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
+            StockAdjustment?: number | number[];
             Product?: number | number[];
             AdjustedQuantity?: number | number[];
             UoM?: number | number[];
@@ -39,6 +42,7 @@ export interface StockAdjustmentItemEntityOptions {
         };
         notEquals?: {
             Id?: number | number[];
+            StockAdjustment?: number | number[];
             Product?: number | number[];
             AdjustedQuantity?: number | number[];
             UoM?: number | number[];
@@ -48,6 +52,7 @@ export interface StockAdjustmentItemEntityOptions {
         };
         contains?: {
             Id?: number;
+            StockAdjustment?: number;
             Product?: number;
             AdjustedQuantity?: number;
             UoM?: number;
@@ -57,6 +62,7 @@ export interface StockAdjustmentItemEntityOptions {
         };
         greaterThan?: {
             Id?: number;
+            StockAdjustment?: number;
             Product?: number;
             AdjustedQuantity?: number;
             UoM?: number;
@@ -66,6 +72,7 @@ export interface StockAdjustmentItemEntityOptions {
         };
         greaterThanOrEqual?: {
             Id?: number;
+            StockAdjustment?: number;
             Product?: number;
             AdjustedQuantity?: number;
             UoM?: number;
@@ -75,6 +82,7 @@ export interface StockAdjustmentItemEntityOptions {
         };
         lessThan?: {
             Id?: number;
+            StockAdjustment?: number;
             Product?: number;
             AdjustedQuantity?: number;
             UoM?: number;
@@ -84,6 +92,7 @@ export interface StockAdjustmentItemEntityOptions {
         };
         lessThanOrEqual?: {
             Id?: number;
+            StockAdjustment?: number;
             Product?: number;
             AdjustedQuantity?: number;
             UoM?: number;
@@ -121,6 +130,12 @@ export class StockAdjustmentItemRepository {
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
+            },
+            {
+                name: "StockAdjustment",
+                column: "STOCKADJUSTMENTITEM_STOCKADJUSTMENT",
+                type: "INTEGER",
+                required: true
             },
             {
                 name: "Product",

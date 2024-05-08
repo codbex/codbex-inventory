@@ -29,44 +29,6 @@
                 <fd-form-group dg-header="StockAdjustment Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idNumber" dg-colon="true">Number</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Number'].$valid }}">
-	                            <fd-input id="idNumber"
-	                                name="Number"
-	                                state="{{ forms.details['Number'].$valid ? '' : 'error' }}"
-	                                ng-model="entity.Number"
-	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="20.0 || -1"
-	                                type="text"
-	                                placeholder="Enter Number">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idPurpose" dg-colon="true">Purpose</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--8">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Purpose'].$valid }}">
-	                            <fd-input id="idPurpose"
-	                                name="Purpose"
-	                                state="{{ forms.details['Purpose'].$valid ? '' : 'error' }}"
-	                                ng-model="entity.Purpose"
-	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="20.0 || -1"
-	                                type="text"
-	                                placeholder="Enter Purpose">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idDateFrom" dg-colon="true">From Date</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2">
@@ -97,16 +59,21 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idStockAdjustmentType" dg-colon="true">StockAdjustmentType</fd-form-label>
+                        	<fd-form-label for="idNumber" dg-colon="true">Number</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-combobox-input id="idStockAdjustmentType"
-	                            name="StockAdjustmentType"
-	                            state="{{ forms.details['StockAdjustmentType'].$valid ? '' : 'error' }}"
-	                            ng-model="entity.StockAdjustmentType"
-	                            dropdown-items="optionsStockAdjustmentType"
-	                            dg-placeholder="Search StockAdjustmentType ...">
-	                        </fd-combobox-input>
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Number'].$valid }}">
+	                            <fd-input id="idNumber"
+	                                name="Number"
+	                                state="{{ forms.details['Number'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.Number"
+	                                ng-minlength="0.0 || 0"
+	                                ng-maxlength="20.0 || -1"
+	                                type="text"
+	                                placeholder="Enter Number">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -120,6 +87,39 @@
 	                            ng-model="entity.Store"
 	                            dropdown-items="optionsStore"
 	                            dg-placeholder="Search Store ...">
+	                        </fd-combobox-input>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idPurpose" dg-colon="true">Purpose</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Purpose'].$valid }}">
+	                            <fd-input id="idPurpose"
+	                                name="Purpose"
+	                                state="{{ forms.details['Purpose'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.Purpose"
+	                                ng-minlength="0.0 || 0"
+	                                ng-maxlength="20.0 || -1"
+	                                type="text"
+	                                placeholder="Enter Purpose">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idStockAdjustmentType" dg-colon="true">StockAdjustmentType</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-combobox-input id="idStockAdjustmentType"
+	                            name="StockAdjustmentType"
+	                            state="{{ forms.details['StockAdjustmentType'].$valid ? '' : 'error' }}"
+	                            ng-model="entity.StockAdjustmentType"
+	                            dropdown-items="optionsStockAdjustmentType"
+	                            dg-placeholder="Search StockAdjustmentType ...">
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>

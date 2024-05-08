@@ -40,8 +40,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsStockAdjustmentType = [];
 				$scope.optionsStore = [];
+				$scope.optionsStockAdjustmentType = [];
 				$scope.optionsOperator = [];
 				$scope.action = 'select';
 			});
@@ -53,8 +53,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					msg.data.entity.Date = new Date(msg.data.entity.Date);
 				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsStockAdjustmentType = msg.data.optionsStockAdjustmentType;
 				$scope.optionsStore = msg.data.optionsStore;
+				$scope.optionsStockAdjustmentType = msg.data.optionsStockAdjustmentType;
 				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.action = 'select';
 			});
@@ -63,8 +63,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("createEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsStockAdjustmentType = msg.data.optionsStockAdjustmentType;
 				$scope.optionsStore = msg.data.optionsStore;
+				$scope.optionsStockAdjustmentType = msg.data.optionsStockAdjustmentType;
 				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.action = 'create';
 			});
@@ -76,8 +76,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					msg.data.entity.Date = new Date(msg.data.entity.Date);
 				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsStockAdjustmentType = msg.data.optionsStockAdjustmentType;
 				$scope.optionsStore = msg.data.optionsStore;
+				$scope.optionsStockAdjustmentType = msg.data.optionsStockAdjustmentType;
 				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.action = 'update';
 			});

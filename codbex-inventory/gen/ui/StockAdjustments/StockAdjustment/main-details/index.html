@@ -21,6 +21,24 @@
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idDate" dg-required="true" dg-colon="true">Date</fd-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--2 ">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Date'].$valid }}">
+	                            <fd-input id="idDate"
+	                                name="Date"
+	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
+									ng-required="true"
+	                                ng-model="entity.Date"
+	                                ng-readonly="action === 'select'"
+	                                type="date">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idNumber" dg-required="false" dg-colon="true">Number</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
@@ -39,6 +57,22 @@
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
 	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idStore" dg-required="false" dg-colon="true">Store</fd-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <fd-combobox-input id="idStore"
+	                            name="Store"
+	                            state="{{ forms.details['Store'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
+	                            ng-model="entity.Store"
+	                            dg-disabled="action === 'select'"
+	                            dropdown-items="optionsStore"
+	                            dg-placeholder="Search Store ...">
+	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -65,24 +99,6 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDate" dg-required="true" dg-colon="true">Date</fd-form-label>
-                        </div>
-                        <div class="fd-col  fd-col-md--2 ">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Date'].$valid }}">
-	                            <fd-input id="idDate"
-	                                name="Date"
-	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
-									ng-required="true"
-	                                ng-model="entity.Date"
-	                                ng-readonly="action === 'select'"
-	                                type="date">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idStockAdjustmentType" dg-required="false" dg-colon="true">StockAdjustmentType</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
@@ -94,22 +110,6 @@
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsStockAdjustmentType"
 	                            dg-placeholder="Search StockAdjustmentType ...">
-	                        </fd-combobox-input>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idStore" dg-required="false" dg-colon="true">Store</fd-form-label>
-                        </div>
-                        <div class="fd-col  fd-col-md--8 ">
-	                        <fd-combobox-input id="idStore"
-	                            name="Store"
-	                            state="{{ forms.details['Store'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
-	                            ng-model="entity.Store"
-	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsStore"
-	                            dg-placeholder="Search Store ...">
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>

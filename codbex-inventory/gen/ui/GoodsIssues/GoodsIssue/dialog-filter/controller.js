@@ -63,9 +63,6 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Company !== undefined) {
 				filter.$filter.equals.Company = entity.Company;
 			}
-			if (entity.Name) {
-				filter.$filter.contains.Name = entity.Name;
-			}
 			if (entity.Currency !== undefined) {
 				filter.$filter.equals.Currency = entity.Currency;
 			}
@@ -77,6 +74,9 @@ angular.module('page', ["ideUI", "ideView"])
 			}
 			if (entity.Gross !== undefined) {
 				filter.$filter.equals.Gross = entity.Gross;
+			}
+			if (entity.Name) {
+				filter.$filter.contains.Name = entity.Name;
 			}
 			if (entity.UUID) {
 				filter.$filter.contains.UUID = entity.UUID;

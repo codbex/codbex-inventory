@@ -119,8 +119,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("entitySelected", {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
-				optionsStockAdjustmentType: $scope.optionsStockAdjustmentType,
 				optionsStore: $scope.optionsStore,
+				optionsStockAdjustmentType: $scope.optionsStockAdjustmentType,
 				optionsOperator: $scope.optionsOperator,
 			});
 		};
@@ -131,8 +131,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 			messageHub.postMessage("createEntity", {
 				entity: {},
-				optionsStockAdjustmentType: $scope.optionsStockAdjustmentType,
 				optionsStore: $scope.optionsStore,
+				optionsStockAdjustmentType: $scope.optionsStockAdjustmentType,
 				optionsOperator: $scope.optionsOperator,
 			});
 		};
@@ -141,8 +141,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.action = "update";
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
-				optionsStockAdjustmentType: $scope.optionsStockAdjustmentType,
 				optionsStore: $scope.optionsStore,
+				optionsStockAdjustmentType: $scope.optionsStockAdjustmentType,
 				optionsOperator: $scope.optionsOperator,
 			});
 		};
@@ -180,20 +180,20 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("StockAdjustment-filter", {
 				entity: $scope.filterEntity,
-				optionsStockAdjustmentType: $scope.optionsStockAdjustmentType,
 				optionsStore: $scope.optionsStore,
+				optionsStockAdjustmentType: $scope.optionsStockAdjustmentType,
 				optionsOperator: $scope.optionsOperator,
 			});
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsStockAdjustmentType = [];
 		$scope.optionsStore = [];
+		$scope.optionsStockAdjustmentType = [];
 		$scope.optionsOperator = [];
 
 
-		$http.get("/services/ts/codbex-inventory/gen/api/Settings/StockAdjustmentTypeService.ts").then(function (response) {
-			$scope.optionsStockAdjustmentType = response.data.map(e => {
+		$http.get("/services/ts/codbex-inventory/gen/api/Stores/StoreService.ts").then(function (response) {
+			$scope.optionsStore = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -201,8 +201,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-inventory/gen/api/Stores/StoreService.ts").then(function (response) {
-			$scope.optionsStore = response.data.map(e => {
+		$http.get("/services/ts/codbex-inventory/gen/api/Settings/StockAdjustmentTypeService.ts").then(function (response) {
+			$scope.optionsStockAdjustmentType = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -219,18 +219,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$scope.optionsStockAdjustmentTypeValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsStockAdjustmentType.length; i++) {
-				if ($scope.optionsStockAdjustmentType[i].value === optionKey) {
-					return $scope.optionsStockAdjustmentType[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsStoreValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsStore.length; i++) {
 				if ($scope.optionsStore[i].value === optionKey) {
 					return $scope.optionsStore[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsStockAdjustmentTypeValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStockAdjustmentType.length; i++) {
+				if ($scope.optionsStockAdjustmentType[i].value === optionKey) {
+					return $scope.optionsStockAdjustmentType[i].text;
 				}
 			}
 			return null;

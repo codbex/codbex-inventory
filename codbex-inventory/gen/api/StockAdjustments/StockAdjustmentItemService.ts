@@ -126,6 +126,9 @@ class StockAdjustmentItemService {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.StockAdjustment === null || entity.StockAdjustment === undefined) {
+            throw new ValidationError(`The 'StockAdjustment' property is required, provide a valid value`);
+        }
         if (entity.Product === null || entity.Product === undefined) {
             throw new ValidationError(`The 'Product' property is required, provide a valid value`);
         }

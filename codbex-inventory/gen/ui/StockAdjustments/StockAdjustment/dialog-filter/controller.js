@@ -20,8 +20,8 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
-			$scope.optionsStockAdjustmentType = params.optionsStockAdjustmentType;
 			$scope.optionsStore = params.optionsStore;
+			$scope.optionsStockAdjustmentType = params.optionsStockAdjustmentType;
 			$scope.optionsOperator = params.optionsOperator;
 		}
 
@@ -48,23 +48,23 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.Number) {
-				filter.$filter.contains.Number = entity.Number;
-			}
-			if (entity.Purpose) {
-				filter.$filter.contains.Purpose = entity.Purpose;
-			}
 			if (entity.DateFrom) {
 				filter.$filter.greaterThanOrEqual.Date = entity.DateFrom;
 			}
 			if (entity.DateTo) {
 				filter.$filter.lessThanOrEqual.Date = entity.DateTo;
 			}
-			if (entity.StockAdjustmentType !== undefined) {
-				filter.$filter.equals.StockAdjustmentType = entity.StockAdjustmentType;
+			if (entity.Number) {
+				filter.$filter.contains.Number = entity.Number;
 			}
 			if (entity.Store !== undefined) {
 				filter.$filter.equals.Store = entity.Store;
+			}
+			if (entity.Purpose) {
+				filter.$filter.contains.Purpose = entity.Purpose;
+			}
+			if (entity.StockAdjustmentType !== undefined) {
+				filter.$filter.equals.StockAdjustmentType = entity.StockAdjustmentType;
 			}
 			if (entity.Operator !== undefined) {
 				filter.$filter.equals.Operator = entity.Operator;

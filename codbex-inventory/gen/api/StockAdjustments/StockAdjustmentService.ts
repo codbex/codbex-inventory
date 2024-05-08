@@ -121,14 +121,14 @@ class StockAdjustmentService {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.Date === null || entity.Date === undefined) {
+            throw new ValidationError(`The 'Date' property is required, provide a valid value`);
+        }
         if (entity.Number?.length > 36) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [36] characters`);
         }
         if (entity.Purpose?.length > 100) {
             throw new ValidationError(`The 'Purpose' exceeds the maximum length of [100] characters`);
-        }
-        if (entity.Date === null || entity.Date === undefined) {
-            throw new ValidationError(`The 'Date' property is required, provide a valid value`);
         }
         if (entity.Operator === null || entity.Operator === undefined) {
             throw new ValidationError(`The 'Operator' property is required, provide a valid value`);

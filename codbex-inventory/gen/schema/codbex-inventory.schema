@@ -171,13 +171,6 @@
                         "name": "GOODSRECEIPTS_COMPANY"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 200,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "GOODSRECEIPTS_NAME"
-                    },
-                    {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
@@ -211,6 +204,13 @@
                         "defaultValue": "0",
                         "nullable": true,
                         "name": "GOODSRECEIPT_GROSS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "GOODSRECEIPTS_NAME"
                     },
                     {
                         "type": "VARCHAR",
@@ -348,13 +348,6 @@
                         "name": "GOODSISSUE_COMPANY"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 200,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "GOODSISSUE_NAME"
-                    },
-                    {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
@@ -388,6 +381,13 @@
                         "defaultValue": "0",
                         "nullable": true,
                         "name": "GOODSISSUE_GROSS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "GOODSISSUE_NAME"
                     },
                     {
                         "type": "VARCHAR",
@@ -614,12 +614,27 @@
                         "name": "STOCKADJUSTMENT_ID"
                     },
                     {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STOCKADJUSTMENT_DATE"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 36,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
                         "name": "STOCKADJUSTMENT_NUMBER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENT_STORE"
                     },
                     {
                         "type": "VARCHAR",
@@ -630,27 +645,12 @@
                         "name": "STOCKADJUSTMENT_PURPOSE"
                     },
                     {
-                        "type": "DATE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "STOCKADJUSTMENT_DATE"
-                    },
-                    {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
                         "name": "STOCKADJUSTMENT_STOCKADJUSTMENTTYPE"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "STOCKADJUSTMENT_STORE"
                     },
                     {
                         "type": "INTEGER",
@@ -704,6 +704,13 @@
                         "identity": true,
                         "nullable": true,
                         "name": "STOCKADJUSTMENTITEM_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "STOCKADJUSTMENTITEM_STOCKADJUSTMENT"
                     },
                     {
                         "type": "INTEGER",
@@ -944,15 +951,6 @@
                 "referencedColumns": "STOCKRECORDDIRECTION_ID"
             },
             {
-                "name": "StockAdjustment_StockAdjustmentType",
-                "type": "foreignKey",
-                "table": "CODBEX_STOCKADJUSTMENT",
-                "constraintName": "StockAdjustment_StockAdjustmentType",
-                "columns": "STOCKADJUSTMENT_STOCKADJUSTMENTTYPE",
-                "referencedTable": "CODBEX_STOCKADJUSTMENTTYPE",
-                "referencedColumns": "STOCKADJUSTMENTTYPE_ID"
-            },
-            {
                 "name": "StockAdjustment_Store",
                 "type": "foreignKey",
                 "table": "CODBEX_STOCKADJUSTMENT",
@@ -962,6 +960,15 @@
                 "referencedColumns": "STORE_ID"
             },
             {
+                "name": "StockAdjustment_StockAdjustmentType",
+                "type": "foreignKey",
+                "table": "CODBEX_STOCKADJUSTMENT",
+                "constraintName": "StockAdjustment_StockAdjustmentType",
+                "columns": "STOCKADJUSTMENT_STOCKADJUSTMENTTYPE",
+                "referencedTable": "CODBEX_STOCKADJUSTMENTTYPE",
+                "referencedColumns": "STOCKADJUSTMENTTYPE_ID"
+            },
+            {
                 "name": "StockAdjustment_Employee",
                 "type": "foreignKey",
                 "table": "CODBEX_STOCKADJUSTMENT",
@@ -969,6 +976,15 @@
                 "columns": "STOCKADJUSTMENT_OPERATOR",
                 "referencedTable": "CODBEX_EMPLOYEE",
                 "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "StockAdjustmentItem_StockAdjustment",
+                "type": "foreignKey",
+                "table": "CODBEX_STOCKADJUSTMENTITEM",
+                "constraintName": "StockAdjustmentItem_StockAdjustment",
+                "columns": "STOCKADJUSTMENTITEM_STOCKADJUSTMENT",
+                "referencedTable": "CODBEX_STOCKADJUSTMENT",
+                "referencedColumns": "STOCKADJUSTMENT_ID"
             },
             {
                 "name": "StockAdjustmentItem_Product",
