@@ -126,14 +126,14 @@ class StockAdjustmentItemService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.StockAdjustment === null || entity.StockAdjustment === undefined) {
-            throw new ValidationError(`The 'StockAdjustment' property is required, provide a valid value`);
-        }
         if (entity.Product === null || entity.Product === undefined) {
             throw new ValidationError(`The 'Product' property is required, provide a valid value`);
         }
         if (entity.AdjustedQuantity === null || entity.AdjustedQuantity === undefined) {
             throw new ValidationError(`The 'AdjustedQuantity' property is required, provide a valid value`);
+        }
+        if (entity.AdjustedQuantity?.length > 20) {
+            throw new ValidationError(`The 'AdjustedQuantity' exceeds the maximum length of [20] characters`);
         }
         if (entity.UoM === null || entity.UoM === undefined) {
             throw new ValidationError(`The 'UoM' property is required, provide a valid value`);
@@ -144,8 +144,8 @@ class StockAdjustmentItemService {
         if (entity.Serial?.length > 20) {
             throw new ValidationError(`The 'Serial' exceeds the maximum length of [20] characters`);
         }
-        if (entity.Description?.length > 20) {
-            throw new ValidationError(`The 'Description' exceeds the maximum length of [20] characters`);
+        if (entity.Description?.length > 200) {
+            throw new ValidationError(`The 'Description' exceeds the maximum length of [200] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

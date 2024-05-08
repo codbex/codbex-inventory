@@ -5,9 +5,9 @@ import { dao as daoApi } from "sdk/db";
 
 export interface StockAdjustmentItemEntity {
     readonly Id: number;
-    StockAdjustment: number;
+    StockAdjustment?: number;
     Product: number;
-    AdjustedQuantity: number;
+    AdjustedQuantity: string;
     UoM: number;
     Batch?: string;
     Serial?: string;
@@ -15,9 +15,9 @@ export interface StockAdjustmentItemEntity {
 }
 
 export interface StockAdjustmentItemCreateEntity {
-    readonly StockAdjustment: number;
+    readonly StockAdjustment?: number;
     readonly Product: number;
-    readonly AdjustedQuantity: number;
+    readonly AdjustedQuantity: string;
     readonly UoM: number;
     readonly Batch?: string;
     readonly Serial?: string;
@@ -34,7 +34,7 @@ export interface StockAdjustmentItemEntityOptions {
             Id?: number | number[];
             StockAdjustment?: number | number[];
             Product?: number | number[];
-            AdjustedQuantity?: number | number[];
+            AdjustedQuantity?: string | string[];
             UoM?: number | number[];
             Batch?: string | string[];
             Serial?: string | string[];
@@ -44,7 +44,7 @@ export interface StockAdjustmentItemEntityOptions {
             Id?: number | number[];
             StockAdjustment?: number | number[];
             Product?: number | number[];
-            AdjustedQuantity?: number | number[];
+            AdjustedQuantity?: string | string[];
             UoM?: number | number[];
             Batch?: string | string[];
             Serial?: string | string[];
@@ -54,7 +54,7 @@ export interface StockAdjustmentItemEntityOptions {
             Id?: number;
             StockAdjustment?: number;
             Product?: number;
-            AdjustedQuantity?: number;
+            AdjustedQuantity?: string;
             UoM?: number;
             Batch?: string;
             Serial?: string;
@@ -64,7 +64,7 @@ export interface StockAdjustmentItemEntityOptions {
             Id?: number;
             StockAdjustment?: number;
             Product?: number;
-            AdjustedQuantity?: number;
+            AdjustedQuantity?: string;
             UoM?: number;
             Batch?: string;
             Serial?: string;
@@ -74,7 +74,7 @@ export interface StockAdjustmentItemEntityOptions {
             Id?: number;
             StockAdjustment?: number;
             Product?: number;
-            AdjustedQuantity?: number;
+            AdjustedQuantity?: string;
             UoM?: number;
             Batch?: string;
             Serial?: string;
@@ -84,7 +84,7 @@ export interface StockAdjustmentItemEntityOptions {
             Id?: number;
             StockAdjustment?: number;
             Product?: number;
-            AdjustedQuantity?: number;
+            AdjustedQuantity?: string;
             UoM?: number;
             Batch?: string;
             Serial?: string;
@@ -94,7 +94,7 @@ export interface StockAdjustmentItemEntityOptions {
             Id?: number;
             StockAdjustment?: number;
             Product?: number;
-            AdjustedQuantity?: number;
+            AdjustedQuantity?: string;
             UoM?: number;
             Batch?: string;
             Serial?: string;
@@ -135,7 +135,6 @@ export class StockAdjustmentItemRepository {
                 name: "StockAdjustment",
                 column: "STOCKADJUSTMENTITEM_STOCKADJUSTMENT",
                 type: "INTEGER",
-                required: true
             },
             {
                 name: "Product",
@@ -146,7 +145,7 @@ export class StockAdjustmentItemRepository {
             {
                 name: "AdjustedQuantity",
                 column: "STOCKADJUSTMENTITEM_ADJUSTEDQUANTITY",
-                type: "DOUBLE",
+                type: "VARCHAR",
                 required: true
             },
             {

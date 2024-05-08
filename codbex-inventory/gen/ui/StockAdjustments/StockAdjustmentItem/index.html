@@ -49,7 +49,9 @@
 					<tr fd-table-row hoverable="true" ng-repeat="next in data"
 						dg-selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.StockAdjustment}}</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Product}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsProductValue(next.Product)}}
+						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.AdjustedQuantity}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsUoMValue(next.UoM)}}

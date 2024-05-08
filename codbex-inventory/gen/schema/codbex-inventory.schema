@@ -694,6 +694,32 @@
                 ]
             },
             {
+                "name": "CODBEX_STOCKADJUSTMENTTYPE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENTTYPE_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENTTYPE_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENTTYPE_DESCRIPTION"
+                    }
+                ]
+            },
+            {
                 "name": "CODBEX_STOCKADJUSTMENTITEM",
                 "type": "TABLE",
                 "columns": [
@@ -708,8 +734,7 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "nullable": true,
                         "name": "STOCKADJUSTMENTITEM_STOCKADJUSTMENT"
                     },
                     {
@@ -720,7 +745,7 @@
                         "name": "STOCKADJUSTMENTITEM_PRODUCT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "VARCHAR",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -747,35 +772,11 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STOCKADJUSTMENTITEM_DESCRIPTION"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_STOCKADJUSTMENTTYPE",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "STOCKADJUSTMENTTYPE_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "STOCKADJUSTMENTTYPE_NAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "STOCKADJUSTMENTTYPE_DESCRIPTION"
                     }
                 ]
             },
