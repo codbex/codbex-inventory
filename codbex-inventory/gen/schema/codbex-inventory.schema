@@ -707,13 +707,17 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STOCKADJUSTMENTTYPE_NAME"
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 20,
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "STOCKADJUSTMENTTYPE_DESCRIPTION"
                     }

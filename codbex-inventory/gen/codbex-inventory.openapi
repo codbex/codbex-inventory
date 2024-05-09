@@ -7851,11 +7851,11 @@ components:
         Name:
           type: string
           minLength: 0
-          maxLength: 20
+          maxLength: 36
         Description:
           type: string
           minLength: 0
-          maxLength: 20
+          maxLength: 200
     StockAdjustmentTypeFilterOptions:
       type: object
       properties:
@@ -7877,24 +7877,24 @@ components:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 20
+                      maxLength: 36
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 20
+                        maxLength: 36
                 Description:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 20
+                      maxLength: 200
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 20
+                        maxLength: 200
             notEquals:
               type: object
               properties:
@@ -7910,24 +7910,24 @@ components:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 20
+                      maxLength: 36
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 20
+                        maxLength: 36
                 Description:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 20
+                      maxLength: 200
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 20
+                        maxLength: 200
             contains:
               type: object
               properties:
@@ -7935,11 +7935,11 @@ components:
                 Name:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 36
                 Description:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 200
             greaterThan:
               type: object
               properties:
@@ -7949,11 +7949,11 @@ components:
                 Name:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 36
                 Description:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 200
             greaterThanOrEqual:
               type: object
               properties:
@@ -7963,11 +7963,11 @@ components:
                 Name:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 36
                 Description:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 200
             lessThan:
               type: object
               properties:
@@ -7977,11 +7977,11 @@ components:
                 Name:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 36
                 Description:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 200
             lessThanOrEqual:
               type: object
               properties:
@@ -7991,11 +7991,11 @@ components:
                 Name:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 36
                 Description:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 200
         $select:
           type: array
           example: ["Id", "Name", "Description"]
