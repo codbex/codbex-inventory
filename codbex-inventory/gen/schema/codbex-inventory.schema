@@ -745,7 +745,7 @@
                         "name": "STOCKADJUSTMENTITEM_PRODUCT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "INTEGER",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",

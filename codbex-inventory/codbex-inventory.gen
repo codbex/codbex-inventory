@@ -5812,7 +5812,7 @@
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
-          "dataType": "DOUBLE",
+          "dataType": "INTEGER",
           "dataUnique": false,
           "isCalculatedProperty": false,
           "isRequiredProperty": true,
@@ -5824,7 +5824,7 @@
           "dataNotNull": true,
           "widgetLabel": "AdjustedQuantity",
           "widgetDropdownUrl": "",
-          "dataTypeJava": "double",
+          "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
         },

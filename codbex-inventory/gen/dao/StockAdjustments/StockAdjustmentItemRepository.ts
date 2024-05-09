@@ -145,7 +145,7 @@ export class StockAdjustmentItemRepository {
             {
                 name: "AdjustedQuantity",
                 column: "STOCKADJUSTMENTITEM_ADJUSTEDQUANTITY",
-                type: "DOUBLE",
+                type: "INTEGER",
                 required: true
             },
             {

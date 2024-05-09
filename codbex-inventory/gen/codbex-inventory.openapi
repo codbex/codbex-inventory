@@ -8031,8 +8031,8 @@ components:
           type: integer
           format: int32
         AdjustedQuantity:
-          type: number
-          format: double
+          type: integer
+          format: int32
         UoM:
           type: integer
           format: int32
@@ -8083,12 +8083,12 @@ components:
                         format: int32
                 AdjustedQuantity:
                   oneOf:
-                    - type: number
-                      format: double
+                    - type: integer
+                      format: int32
                     - type: array
                       items:
-                        type: number
-                        format: double
+                        type: integer
+                        format: int32
                 UoM:
                   oneOf:
                     - type: integer
@@ -8159,12 +8159,12 @@ components:
                         format: int32
                 AdjustedQuantity:
                   oneOf:
-                    - type: number
-                      format: double
+                    - type: integer
+                      format: int32
                     - type: array
                       items:
-                        type: number
-                        format: double
+                        type: integer
+                        format: int32
                 UoM:
                   oneOf:
                     - type: integer
@@ -8239,8 +8239,8 @@ components:
                   type: integer
                   format: int32
                 AdjustedQuantity:
-                  type: number
-                  format: double
+                  type: integer
+                  format: int32
                 UoM:
                   type: integer
                   format: int32
@@ -8269,8 +8269,8 @@ components:
                   type: integer
                   format: int32
                 AdjustedQuantity:
-                  type: number
-                  format: double
+                  type: integer
+                  format: int32
                 UoM:
                   type: integer
                   format: int32
@@ -8299,8 +8299,8 @@ components:
                   type: integer
                   format: int32
                 AdjustedQuantity:
-                  type: number
-                  format: double
+                  type: integer
+                  format: int32
                 UoM:
                   type: integer
                   format: int32
@@ -8329,8 +8329,8 @@ components:
                   type: integer
                   format: int32
                 AdjustedQuantity:
-                  type: number
-                  format: double
+                  type: integer
+                  format: int32
                 UoM:
                   type: integer
                   format: int32
