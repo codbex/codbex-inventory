@@ -21,7 +21,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsStore = params.optionsStore;
-			$scope.optionsStockAdjustmentType = params.optionsStockAdjustmentType;
+			$scope.optionsType = params.optionsType;
 			$scope.optionsOperator = params.optionsOperator;
 		}
 
@@ -63,8 +63,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Purpose) {
 				filter.$filter.contains.Purpose = entity.Purpose;
 			}
-			if (entity.StockAdjustmentType !== undefined) {
-				filter.$filter.equals.StockAdjustmentType = entity.StockAdjustmentType;
+			if (entity.Type !== undefined) {
+				filter.$filter.equals.Type = entity.Type;
 			}
 			if (entity.Operator !== undefined) {
 				filter.$filter.equals.Operator = entity.Operator;

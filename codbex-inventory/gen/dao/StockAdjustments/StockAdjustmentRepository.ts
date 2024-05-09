@@ -12,7 +12,7 @@ export interface StockAdjustmentEntity {
     Number?: string;
     Store?: number;
     Purpose?: string;
-    StockAdjustmentType?: number;
+    Type?: number;
     Operator: number;
     Description?: string;
     Name?: string;
@@ -24,7 +24,7 @@ export interface StockAdjustmentCreateEntity {
     readonly Date: Date;
     readonly Store?: number;
     readonly Purpose?: string;
-    readonly StockAdjustmentType?: number;
+    readonly Type?: number;
     readonly Operator: number;
     readonly Description?: string;
     readonly Reference?: string;
@@ -42,7 +42,7 @@ export interface StockAdjustmentEntityOptions {
             Number?: string | string[];
             Store?: number | number[];
             Purpose?: string | string[];
-            StockAdjustmentType?: number | number[];
+            Type?: number | number[];
             Operator?: number | number[];
             Description?: string | string[];
             Name?: string | string[];
@@ -55,7 +55,7 @@ export interface StockAdjustmentEntityOptions {
             Number?: string | string[];
             Store?: number | number[];
             Purpose?: string | string[];
-            StockAdjustmentType?: number | number[];
+            Type?: number | number[];
             Operator?: number | number[];
             Description?: string | string[];
             Name?: string | string[];
@@ -68,7 +68,7 @@ export interface StockAdjustmentEntityOptions {
             Number?: string;
             Store?: number;
             Purpose?: string;
-            StockAdjustmentType?: number;
+            Type?: number;
             Operator?: number;
             Description?: string;
             Name?: string;
@@ -81,7 +81,7 @@ export interface StockAdjustmentEntityOptions {
             Number?: string;
             Store?: number;
             Purpose?: string;
-            StockAdjustmentType?: number;
+            Type?: number;
             Operator?: number;
             Description?: string;
             Name?: string;
@@ -94,7 +94,7 @@ export interface StockAdjustmentEntityOptions {
             Number?: string;
             Store?: number;
             Purpose?: string;
-            StockAdjustmentType?: number;
+            Type?: number;
             Operator?: number;
             Description?: string;
             Name?: string;
@@ -107,7 +107,7 @@ export interface StockAdjustmentEntityOptions {
             Number?: string;
             Store?: number;
             Purpose?: string;
-            StockAdjustmentType?: number;
+            Type?: number;
             Operator?: number;
             Description?: string;
             Name?: string;
@@ -120,7 +120,7 @@ export interface StockAdjustmentEntityOptions {
             Number?: string;
             Store?: number;
             Purpose?: string;
-            StockAdjustmentType?: number;
+            Type?: number;
             Operator?: number;
             Description?: string;
             Name?: string;
@@ -180,8 +180,8 @@ export class StockAdjustmentRepository {
                 type: "VARCHAR",
             },
             {
-                name: "StockAdjustmentType",
-                column: "STOCKADJUSTMENT_STOCKADJUSTMENTTYPE",
+                name: "Type",
+                column: "STOCKADJUSTMENT_TYPE",
                 type: "INTEGER",
             },
             {

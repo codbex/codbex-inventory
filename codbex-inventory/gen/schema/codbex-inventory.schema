@@ -650,7 +650,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "STOCKADJUSTMENT_STOCKADJUSTMENTTYPE"
+                        "name": "STOCKADJUSTMENT_TYPE"
                     },
                     {
                         "type": "INTEGER",
@@ -969,7 +969,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_STOCKADJUSTMENT",
                 "constraintName": "StockAdjustment_StockAdjustmentType",
-                "columns": "STOCKADJUSTMENT_STOCKADJUSTMENTTYPE",
+                "columns": "STOCKADJUSTMENT_TYPE",
                 "referencedTable": "CODBEX_STOCKADJUSTMENTTYPE",
                 "referencedColumns": "STOCKADJUSTMENTTYPE_ID"
             },

@@ -120,7 +120,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityId: entity.Id,
 				optionsStore: $scope.optionsStore,
-				optionsStockAdjustmentType: $scope.optionsStockAdjustmentType,
+				optionsType: $scope.optionsType,
 				optionsOperator: $scope.optionsOperator,
 			});
 		};
@@ -132,7 +132,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("createEntity", {
 				entity: {},
 				optionsStore: $scope.optionsStore,
-				optionsStockAdjustmentType: $scope.optionsStockAdjustmentType,
+				optionsType: $scope.optionsType,
 				optionsOperator: $scope.optionsOperator,
 			});
 		};
@@ -142,7 +142,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
 				optionsStore: $scope.optionsStore,
-				optionsStockAdjustmentType: $scope.optionsStockAdjustmentType,
+				optionsType: $scope.optionsType,
 				optionsOperator: $scope.optionsOperator,
 			});
 		};
@@ -181,14 +181,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("StockAdjustment-filter", {
 				entity: $scope.filterEntity,
 				optionsStore: $scope.optionsStore,
-				optionsStockAdjustmentType: $scope.optionsStockAdjustmentType,
+				optionsType: $scope.optionsType,
 				optionsOperator: $scope.optionsOperator,
 			});
 		};
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsStore = [];
-		$scope.optionsStockAdjustmentType = [];
+		$scope.optionsType = [];
 		$scope.optionsOperator = [];
 
 
@@ -202,7 +202,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		});
 
 		$http.get("/services/ts/codbex-inventory/gen/api/Settings/StockAdjustmentTypeService.ts").then(function (response) {
-			$scope.optionsStockAdjustmentType = response.data.map(e => {
+			$scope.optionsType = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -227,10 +227,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsStockAdjustmentTypeValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsStockAdjustmentType.length; i++) {
-				if ($scope.optionsStockAdjustmentType[i].value === optionKey) {
-					return $scope.optionsStockAdjustmentType[i].text;
+		$scope.optionsTypeValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsType.length; i++) {
+				if ($scope.optionsType[i].value === optionKey) {
+					return $scope.optionsType[i].text;
 				}
 			}
 			return null;

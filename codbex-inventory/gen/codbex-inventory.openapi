@@ -7395,7 +7395,7 @@ components:
           type: string
           minLength: 0
           maxLength: 100
-        StockAdjustmentType:
+        Type:
           type: integer
           format: int32
         Operator:
@@ -7468,7 +7468,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 100
-                StockAdjustmentType:
+                Type:
                   oneOf:
                     - type: integer
                       format: int32
@@ -7571,7 +7571,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 100
-                StockAdjustmentType:
+                Type:
                   oneOf:
                     - type: integer
                       format: int32
@@ -7645,7 +7645,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 100
-                StockAdjustmentType:
+                Type:
                 Operator:
                 Description:
                   type: string
@@ -7681,7 +7681,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 100
-                StockAdjustmentType:
+                Type:
                   type: integer
                   format: int32
                 Operator:
@@ -7721,7 +7721,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 100
-                StockAdjustmentType:
+                Type:
                   type: integer
                   format: int32
                 Operator:
@@ -7761,7 +7761,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 100
-                StockAdjustmentType:
+                Type:
                   type: integer
                   format: int32
                 Operator:
@@ -7801,7 +7801,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 100
-                StockAdjustmentType:
+                Type:
                   type: integer
                   format: int32
                 Operator:
@@ -7825,12 +7825,12 @@ components:
                   maxLength: 36
         $select:
           type: array
-          example: ["Id", "Date", "Number", "Store", "Purpose", "StockAdjustmentType", "Operator", "Description", "Name", "UUID", "Reference"]
+          example: ["Id", "Date", "Number", "Store", "Purpose", "Type", "Operator", "Description", "Name", "UUID", "Reference"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Date,Number,Store,Purpose,StockAdjustmentType,Operator,Description,Name,UUID,Reference"
+            example: "Id,Date,Number,Store,Purpose,Type,Operator,Description,Name,UUID,Reference"
         $order:
           type: string
           enum: ["asc", "desc"]

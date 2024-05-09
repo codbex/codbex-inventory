@@ -41,7 +41,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsStore = [];
-				$scope.optionsStockAdjustmentType = [];
+				$scope.optionsType = [];
 				$scope.optionsOperator = [];
 				$scope.action = 'select';
 			});
@@ -54,7 +54,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsStockAdjustmentType = msg.data.optionsStockAdjustmentType;
+				$scope.optionsType = msg.data.optionsType;
 				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.action = 'select';
 			});
@@ -64,7 +64,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsStockAdjustmentType = msg.data.optionsStockAdjustmentType;
+				$scope.optionsType = msg.data.optionsType;
 				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.action = 'create';
 			});
@@ -77,7 +77,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsStockAdjustmentType = msg.data.optionsStockAdjustmentType;
+				$scope.optionsType = msg.data.optionsType;
 				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.action = 'update';
 			});

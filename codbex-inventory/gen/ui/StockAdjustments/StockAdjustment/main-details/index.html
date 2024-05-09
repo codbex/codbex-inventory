@@ -99,17 +99,17 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idStockAdjustmentType" dg-required="false" dg-colon="true">StockAdjustmentType</fd-form-label>
+                        	<fd-form-label for="idType" dg-required="false" dg-colon="true">Type</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-combobox-input id="idStockAdjustmentType"
-	                            name="StockAdjustmentType"
-	                            state="{{ forms.details['StockAdjustmentType'].$valid ? '' : 'error' }}"
+	                        <fd-combobox-input id="idType"
+	                            name="Type"
+	                            state="{{ forms.details['Type'].$valid ? '' : 'error' }}"
 	                            ng-required="false"
-	                            ng-model="entity.StockAdjustmentType"
+	                            ng-model="entity.Type"
 	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsStockAdjustmentType"
-	                            dg-placeholder="Search StockAdjustmentType ...">
+	                            dropdown-items="optionsType"
+	                            dg-placeholder="Search Type ...">
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
