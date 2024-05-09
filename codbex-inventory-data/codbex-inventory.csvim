@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "table": "CODBEX_STOCKADJUSTMENTTYPE",
+      "schema": "PUBLIC",
+      "file": "/codbex-inventory-data/stock-adjustment-types.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
+    }
+  ]
+}

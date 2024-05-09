@@ -1,0 +1,9 @@
+STOCKADJUSTMENTTYPE_ID,STOCKADJUSTMENTTYPE_NAME,STOCKADJUSTMENTTYPE_DESCRIPTION
+1,Inventory Increase,This type of adjustment is made when additional stock is added to the inventory.
+2,Inventory Decrease,This type of adjustment is made when stock is removed from the inventory.
+3,Damage/Wastage,This type of adjustment is made to account for damaged/expired/otherwise unusable items.
+4,Shrinkage/Theft,This type of adjustment is made to account for inventory shrinkage or theft.
+5,Quality Control,This type of adjustment is made when items are found to be defective or of inferior quality during quality control inspections.
+6,Stock Transfer,This type of adjustment is made when stock is transferred from one location to another within the organization.
+7,Obsolete Stock,This type of adjustment is made when items become obsolete or outdated and need to be removed from inventory.
+8,Stock Correction,This type of adjustment is made to correct errors or discrepancies in inventory records.

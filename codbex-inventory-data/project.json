@@ -1,0 +1,8 @@
+{
+    "guid": "codbex-inventory-data",
+    "repository": {
+        "type": "git",
+        "branch": "main",
+        "url": "https://github.com/codbex/codbex-inventory.git"
+    }
+}
