@@ -27,10 +27,10 @@ export const trigger = (event) => {
         }
         StockRecordDao.create(record);
 
-        const catalogueRecords = await CatalogueDao.findAll({
+        const catalogueRecords = CatalogueDao.findAll({
             $filter: {
                 equals: {
-                    Store: event.Store,
+                    Store: header.Store,
                     Product: item.Product,
                 },
             },
@@ -40,10 +40,14 @@ export const trigger = (event) => {
             catalogueRecord.Quantity += record.Direction * record.Quantity;
             CatalogueDao.update(catalogueRecord);
         } else {
+            if (header.Store === undefined) {
+                throw new Error("Store is undefined in GoodsIssue header");
+            }
             const catalogueRecord = {
-                Store: event.Store,
+                Store: header.Store,
                 Product: record.Product,
-                Quantity: record.Quantity * record.Direction
+                Quantity: record.Quantity * record.Direction,
+                UoM: record.UoM
             }
             CatalogueDao.create(catalogueRecord);
         }
