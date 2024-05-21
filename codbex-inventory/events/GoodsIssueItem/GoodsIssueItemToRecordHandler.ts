@@ -40,7 +40,12 @@ export const trigger = (event) => {
             catalogueRecord.Quantity += record.Direction * record.Quantity;
             CatalogueDao.update(catalogueRecord);
         } else {
-            console.error(`Catalogue record not found for Store: ${event.Store}, Product: ${item.Product}`);
+            const catalogueRecord = {
+                Store: event.Store,
+                Product: record.Product,
+                Quantity: record.Quantity * record.Direction
+            }
+            CatalogueDao.create(catalogueRecord);
         }
 
     } else if (operation === "update") {
