@@ -1,7 +1,7 @@
 import { GoodsReceiptRepository } from "../../gen/dao/GoodsReceipts/GoodsReceiptRepository";
 //import { GoodsReceiptItemRepository, GoodsReceiptItemEntity } from "../../gen/dao/GoodsReceipts/GoodsReceiptItemRepository";
 import { StockRecordRepository } from "../../gen/dao/StockRecords/StockRecordRepository";
-import { CatalogueRepository } from "codbex-products/gen/dao/Products/CatalogueRepository"
+import { CatalogueRepository } from "codbex-products/gen/dao/Catalogues/CatalogueRepository"
 
 export const trigger = (event) => {
     const GoodsReceiptDao = new GoodsReceiptRepository();
@@ -47,7 +47,6 @@ export const trigger = (event) => {
                 Store: header.Store,
                 Product: record.Product,
                 Quantity: record.Quantity * record.Direction,
-                UoM: record.UoM
             }
             CatalogueDao.create(catalogueRecord);
         }

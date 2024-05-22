@@ -1,32 +1,15 @@
-import { GoodsIssueRepository } from "../../gen/dao/GoodsIssues/GoodsIssueRepository";
+import { StockAdjustmentRepository } from "../../gen/dao/StockAdjustments/StockAdjustmentRepository";
 //import { GoodsIssueItemRepository, GoodsIssueItemEntity } from "../../gen/dao/GoodsIssues/GoodsIssueItemRepository";
-import { StockRecordRepository } from "../../gen/dao/StockRecords/StockRecordRepository";
-import { CatalogueRepository } from "codbex-products/gen/dao/Catalogues/CatalogueRepository"
+import { CatalogueRepository } from "codbex-products/gen/dao/Catalogues/CatalogueRepository";
 
 export const trigger = (event) => {
-    const GoodsIssueDao = new GoodsIssueRepository();
-    const StockRecordDao = new StockRecordRepository();
+    const StockAdjustmentDao = new StockAdjustmentRepository();
     const CatalogueDao = new CatalogueRepository();
     const item = event.entity;
     const operation = event.operation;
-    const header = GoodsIssueDao.findById(item.GoodsIssue);
+    const header = StockAdjustmentDao.findById(item.StockAdjustment);
 
     if (operation === "create") {
-        const record = {
-            Reference: header.UUID,
-            Product: item.Product,
-            Quantity: item.Quantity,
-            UoM: item.UoM,
-            Price: item.Price,
-            Net: item.Net,
-            VAT: item.VAT,
-            Gross: item.Gross,
-            ItemId: item.Id,
-            Direction: -1,
-            Deleted: false,
-        }
-        StockRecordDao.create(record);
-
         const catalogueRecords = CatalogueDao.findAll({
             $filter: {
                 equals: {
@@ -37,7 +20,7 @@ export const trigger = (event) => {
         });
         if (catalogueRecords.length > 0) {
             const catalogueRecord = catalogueRecords[0];
-            catalogueRecord.Quantity += record.Direction * record.Quantity;
+            catalogueRecord.Quantity = item.Quantity;
             CatalogueDao.update(catalogueRecord);
         } else {
             if (header.Store === undefined) {
@@ -45,12 +28,11 @@ export const trigger = (event) => {
             }
             const catalogueRecord = {
                 Store: header.Store,
-                Product: record.Product,
-                Quantity: record.Quantity * record.Direction,
+                Product: item.Product,
+                Quantity: item.Quantity,
             }
             CatalogueDao.create(catalogueRecord);
         }
-
     } else if (operation === "update") {
         // TODO find by Item Id and update
     } else if (operation === "delete") {
