@@ -1,5 +1,4 @@
 import { StockAdjustmentRepository } from "../../gen/dao/StockAdjustments/StockAdjustmentRepository";
-//import { GoodsIssueItemRepository, GoodsIssueItemEntity } from "../../gen/dao/GoodsIssues/GoodsIssueItemRepository";
 import { CatalogueRepository } from "codbex-products/gen/dao/Catalogues/CatalogueRepository";
 
 export const trigger = (event) => {
@@ -8,6 +7,10 @@ export const trigger = (event) => {
     const item = event.entity;
     const operation = event.operation;
     const header = StockAdjustmentDao.findById(item.StockAdjustment);
+
+    if (!header || header.Store === undefined) {
+        throw new Error("Store is undefined in StockAdjustment header");
+    }
 
     if (operation === "create") {
         const catalogueRecords = CatalogueDao.findAll({
@@ -18,26 +21,25 @@ export const trigger = (event) => {
                 },
             },
         });
+
         if (catalogueRecords.length > 0) {
             const catalogueRecord = catalogueRecords[0];
-            catalogueRecord.Quantity = item.Quantity;
+            catalogueRecord.Quantity = item.AdjustedQuantity;
             CatalogueDao.update(catalogueRecord);
         } else {
-            if (header.Store === undefined) {
-                throw new Error("Store is undefined in GoodsIssue header");
-            }
-            const catalogueRecord = {
+            const newCatalogueRecord = {
                 Store: header.Store,
                 Product: item.Product,
-                Quantity: item.Quantity,
-            }
-            CatalogueDao.create(catalogueRecord);
+                Quantity: item.AdjustedQuantity,
+            };
+            CatalogueDao.create(newCatalogueRecord);
         }
+
     } else if (operation === "update") {
-        // TODO find by Item Id and update
+        // TODO: Implement update logic
     } else if (operation === "delete") {
-        // TODO find by Item Id and mark as deleted
+        // TODO: Implement delete logic
     } else {
         throw new Error("Unknown operation: " + operation);
     }
-}
+};

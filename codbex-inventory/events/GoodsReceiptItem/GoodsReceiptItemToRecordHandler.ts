@@ -11,6 +11,10 @@ export const trigger = (event) => {
     const operation = event.operation;
     const header = GoodsReceiptDao.findById(item.GoodsReceipt);
 
+    if (!header || header.Store === undefined) {
+        throw new Error("Store is undefined in GoodsReceipt header");
+    }
+
     if (operation === "create") {
         const record = {
             Reference: header.UUID,
@@ -40,9 +44,6 @@ export const trigger = (event) => {
             catalogueRecord.Quantity += record.Direction * record.Quantity;
             CatalogueDao.update(catalogueRecord);
         } else {
-            if (header.Store === undefined) {
-                throw new Error("Store is undefined in GoodsIssue header");
-            }
             const catalogueRecord = {
                 Store: header.Store,
                 Product: record.Product,
