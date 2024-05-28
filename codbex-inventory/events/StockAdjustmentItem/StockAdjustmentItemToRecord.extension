@@ -1,0 +1,5 @@
+{
+    "module": "codbex-inventory/events/StockAdjustmentItem/StockAdjustmentItemToRecordHandler.ts",
+    "extensionPoint": "codbex-inventory-StockAdjustments-StockAdjustmentItem",
+    "description": "StockAdjustmentItem Extension"
+}

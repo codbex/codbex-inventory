@@ -1,13 +1,19 @@
 import { GoodsIssueRepository } from "../../gen/dao/GoodsIssues/GoodsIssueRepository";
 //import { GoodsIssueItemRepository, GoodsIssueItemEntity } from "../../gen/dao/GoodsIssues/GoodsIssueItemRepository";
 import { StockRecordRepository } from "../../gen/dao/StockRecords/StockRecordRepository";
+import { CatalogueRepository } from "codbex-products/gen/dao/Catalogues/CatalogueRepository"
 
 export const trigger = (event) => {
     const GoodsIssueDao = new GoodsIssueRepository();
     const StockRecordDao = new StockRecordRepository();
+    const CatalogueDao = new CatalogueRepository();
     const item = event.entity;
     const operation = event.operation;
     const header = GoodsIssueDao.findById(item.GoodsIssue);
+
+    if (!header || header.Store === undefined) {
+        throw new Error("Store is undefined in GoodsIssue header");
+    }
 
     if (operation === "create") {
         const record = {
@@ -24,6 +30,28 @@ export const trigger = (event) => {
             Deleted: false,
         }
         StockRecordDao.create(record);
+
+        const catalogueRecords = CatalogueDao.findAll({
+            $filter: {
+                equals: {
+                    Store: header.Store,
+                    Product: item.Product,
+                },
+            },
+        });
+        if (catalogueRecords.length > 0) {
+            const catalogueRecord = catalogueRecords[0];
+            catalogueRecord.Quantity += record.Direction * record.Quantity;
+            CatalogueDao.update(catalogueRecord);
+        } else {
+            const catalogueRecord = {
+                Store: header.Store,
+                Product: record.Product,
+                Quantity: record.Quantity * record.Direction,
+            }
+            CatalogueDao.create(catalogueRecord);
+        }
+
     } else if (operation === "update") {
         // TODO find by Item Id and update
     } else if (operation === "delete") {
