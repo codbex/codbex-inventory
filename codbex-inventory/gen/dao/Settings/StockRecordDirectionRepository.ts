@@ -65,6 +65,10 @@ interface StockRecordDirectionEntityEvent {
     }
 }
 
+interface StockRecordDirectionUpdateEntityEvent extends StockRecordDirectionEntityEvent {
+    readonly previousEntity: StockRecordDirectionEntity;
+}
+
 export class StockRecordDirectionRepository {
 
     private static readonly DEFINITION = {
@@ -116,11 +120,13 @@ export class StockRecordDirectionRepository {
     }
 
     public update(entity: StockRecordDirectionUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_STOCKRECORDDIRECTION",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "STOCKRECORDDIRECTION_ID",
@@ -175,7 +181,7 @@ export class StockRecordDirectionRepository {
         return 0;
     }
 
-    private async triggerEvent(data: StockRecordDirectionEntityEvent) {
+    private async triggerEvent(data: StockRecordDirectionEntityEvent | StockRecordDirectionUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-Settings-StockRecordDirection", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

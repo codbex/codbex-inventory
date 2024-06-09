@@ -65,6 +65,10 @@ interface StoreStatusEntityEvent {
     }
 }
 
+interface StoreStatusUpdateEntityEvent extends StoreStatusEntityEvent {
+    readonly previousEntity: StoreStatusEntity;
+}
+
 export class StoreStatusRepository {
 
     private static readonly DEFINITION = {
@@ -116,11 +120,13 @@ export class StoreStatusRepository {
     }
 
     public update(entity: StoreStatusUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_STORESTATUS",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "STORESTATUS_ID",
@@ -175,7 +181,7 @@ export class StoreStatusRepository {
         return 0;
     }
 
-    private async triggerEvent(data: StoreStatusEntityEvent) {
+    private async triggerEvent(data: StoreStatusEntityEvent | StoreStatusUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-Settings-StoreStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

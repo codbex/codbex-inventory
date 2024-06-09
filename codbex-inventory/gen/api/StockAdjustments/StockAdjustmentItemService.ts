@@ -14,17 +14,21 @@ class StockAdjustmentItemService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            let StockAdjustment = parseInt(ctx.queryParameters.StockAdjustment);
-            StockAdjustment = isNaN(StockAdjustment) ? ctx.queryParameters.StockAdjustment : StockAdjustment;
             const options: StockAdjustmentItemEntityOptions = {
-                $filter: {
-                    equals: {
-                        StockAdjustment: StockAdjustment
-                    }
-                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
+
+            let StockAdjustment = parseInt(ctx.queryParameters.StockAdjustment);
+            StockAdjustment = isNaN(StockAdjustment) ? ctx.queryParameters.StockAdjustment : StockAdjustment;
+
+            if (StockAdjustment !== undefined) {
+                options.$filter = {
+                    equals: {
+                        StockAdjustment: StockAdjustment
+                    }
+                };
+            }
 
             return this.repository.findAll(options);
         } catch (error: any) {

@@ -1,0 +1,5 @@
+{
+    "module": "codbex-inventory/gen/ui/Reports/StockRecord/tile.js",
+    "extensionPoint": "codbex-inventory-tile",
+    "description": "codbex-inventory - Application Tile"
+}

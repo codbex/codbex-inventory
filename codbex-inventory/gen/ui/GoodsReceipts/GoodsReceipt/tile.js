@@ -5,11 +5,13 @@
  */
 exports.getTile = function () {
     return {
-        group: "GoodsReceipts",
+        group: "codbex-inventory",
         name: "GoodsReceipt",
         caption: "Manage entity GoodsReceipt",
         tooltip: "GoodsReceipt",
-        // icon: "file-o",
+        type: "PRIMARY",
+        report: "false",
+        icon: "/services/web/resources/unicons/file.svg",
         location: "/services/web/codbex-inventory/gen/ui/GoodsReceipts/index.html",
         order: "100",
         groupOrder: "100",

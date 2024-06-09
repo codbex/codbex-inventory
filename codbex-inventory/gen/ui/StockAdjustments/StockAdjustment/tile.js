@@ -5,11 +5,13 @@
  */
 exports.getTile = function () {
     return {
-        group: "StockAdjustments",
+        group: "codbex-inventory",
         name: "StockAdjustment",
         caption: "Manage entity StockAdjustment",
         tooltip: "StockAdjustment",
-        // icon: "file-o",
+        type: "PRIMARY",
+        report: "false",
+        icon: "/services/web/resources/unicons/file.svg",
         location: "/services/web/codbex-inventory/gen/ui/StockAdjustments/index.html",
         order: "100",
         groupOrder: "500",

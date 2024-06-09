@@ -5,11 +5,13 @@
  */
 exports.getTile = function () {
     return {
-        group: "GoodsIssues",
+        group: "codbex-inventory",
         name: "GoodsIssue",
         caption: "Manage entity GoodsIssue",
         tooltip: "GoodsIssue",
-        // icon: "file-o",
+        type: "PRIMARY",
+        report: "false",
+        icon: "/services/web/resources/unicons/file.svg",
         location: "/services/web/codbex-inventory/gen/ui/GoodsIssues/index.html",
         order: "100",
         groupOrder: "200",

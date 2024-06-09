@@ -125,6 +125,10 @@ interface GoodsIssueItemEntityEvent {
     }
 }
 
+interface GoodsIssueItemUpdateEntityEvent extends GoodsIssueItemEntityEvent {
+    readonly previousEntity: GoodsIssueItemEntity;
+}
+
 export class GoodsIssueItemRepository {
 
     private static readonly DEFINITION = {
@@ -228,11 +232,13 @@ export class GoodsIssueItemRepository {
         (entity as GoodsIssueItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
         (entity as GoodsIssueItemEntity).Gross = entity["Net"] + entity["VAT"];
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_GOODSISSUEITEM",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "GOODSISSUEITEM_ID",
@@ -287,7 +293,7 @@ export class GoodsIssueItemRepository {
         return 0;
     }
 
-    private async triggerEvent(data: GoodsIssueItemEntityEvent) {
+    private async triggerEvent(data: GoodsIssueItemEntityEvent | GoodsIssueItemUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-GoodsIssues-GoodsIssueItem", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

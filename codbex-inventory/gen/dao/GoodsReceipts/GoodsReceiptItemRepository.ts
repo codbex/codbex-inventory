@@ -125,6 +125,10 @@ interface GoodsReceiptItemEntityEvent {
     }
 }
 
+interface GoodsReceiptItemUpdateEntityEvent extends GoodsReceiptItemEntityEvent {
+    readonly previousEntity: GoodsReceiptItemEntity;
+}
+
 export class GoodsReceiptItemRepository {
 
     private static readonly DEFINITION = {
@@ -228,11 +232,13 @@ export class GoodsReceiptItemRepository {
         (entity as GoodsReceiptItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
         (entity as GoodsReceiptItemEntity).Gross = entity["Net"] + entity["VAT"];
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_GOODSRECEIPTITEM",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "GOODSRECEIPTITEM_ID",
@@ -287,7 +293,7 @@ export class GoodsReceiptItemRepository {
         return 0;
     }
 
-    private async triggerEvent(data: GoodsReceiptItemEntityEvent) {
+    private async triggerEvent(data: GoodsReceiptItemEntityEvent | GoodsReceiptItemUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-GoodsReceipts-GoodsReceiptItem", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

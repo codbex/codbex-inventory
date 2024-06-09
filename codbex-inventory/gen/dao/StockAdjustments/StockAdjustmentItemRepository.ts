@@ -119,6 +119,10 @@ interface StockAdjustmentItemEntityEvent {
     }
 }
 
+interface StockAdjustmentItemUpdateEntityEvent extends StockAdjustmentItemEntityEvent {
+    readonly previousEntity: StockAdjustmentItemEntity;
+}
+
 export class StockAdjustmentItemRepository {
 
     private static readonly DEFINITION = {
@@ -203,11 +207,13 @@ export class StockAdjustmentItemRepository {
     }
 
     public update(entity: StockAdjustmentItemUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_STOCKADJUSTMENTITEM",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "STOCKADJUSTMENTITEM_ID",
@@ -262,7 +268,7 @@ export class StockAdjustmentItemRepository {
         return 0;
     }
 
-    private async triggerEvent(data: StockAdjustmentItemEntityEvent) {
+    private async triggerEvent(data: StockAdjustmentItemEntityEvent | StockAdjustmentItemUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-StockAdjustments-StockAdjustmentItem", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

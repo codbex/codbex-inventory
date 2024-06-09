@@ -156,6 +156,10 @@ interface StockRecordEntityEvent {
     }
 }
 
+interface StockRecordUpdateEntityEvent extends StockRecordEntityEvent {
+    readonly previousEntity: StockRecordEntity;
+}
+
 export class StockRecordRepository {
 
     private static readonly DEFINITION = {
@@ -264,11 +268,13 @@ export class StockRecordRepository {
 
     public update(entity: StockRecordUpdateEntity): void {
         EntityUtils.setBoolean(entity, "Deleted");
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_STOCKRECORD",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "STOCKRECORD_ID",
@@ -323,7 +329,7 @@ export class StockRecordRepository {
         return 0;
     }
 
-    private async triggerEvent(data: StockRecordEntityEvent) {
+    private async triggerEvent(data: StockRecordEntityEvent | StockRecordUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-StockRecords-StockRecord", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

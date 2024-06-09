@@ -14,17 +14,21 @@ class GoodsIssueItemService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            let GoodsIssue = parseInt(ctx.queryParameters.GoodsIssue);
-            GoodsIssue = isNaN(GoodsIssue) ? ctx.queryParameters.GoodsIssue : GoodsIssue;
             const options: GoodsIssueItemEntityOptions = {
-                $filter: {
-                    equals: {
-                        GoodsIssue: GoodsIssue
-                    }
-                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
+
+            let GoodsIssue = parseInt(ctx.queryParameters.GoodsIssue);
+            GoodsIssue = isNaN(GoodsIssue) ? ctx.queryParameters.GoodsIssue : GoodsIssue;
+
+            if (GoodsIssue !== undefined) {
+                options.$filter = {
+                    equals: {
+                        GoodsIssue: GoodsIssue
+                    }
+                };
+            }
 
             return this.repository.findAll(options);
         } catch (error: any) {

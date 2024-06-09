@@ -5,15 +5,15 @@
  */
 exports.getTile = function () {
     return {
-        group: "codbex-inventory",
-        name: "Store",
-        caption: "Manage entity Store",
-        tooltip: "Store",
+        group: "Reports",
+        name: "StockRecord Report",
+        caption: "Report for entity StockRecord",
+        tooltip: "StockRecord",
         type: "PRIMARY",
-        report: "false",
+        report: "true",
         icon: "/services/web/resources/unicons/file.svg",
-        location: "/services/web/codbex-inventory/gen/ui/Stores/index.html",
+        location: "/services/web/codbex-inventory/gen/ui/Reports/index.html",
         order: "100",
-        groupOrder: "900",
+        groupOrder: "999",
     };
 };

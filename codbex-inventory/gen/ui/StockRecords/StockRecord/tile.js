@@ -5,11 +5,13 @@
  */
 exports.getTile = function () {
     return {
-        group: "StockRecords",
+        group: "codbex-inventory",
         name: "StockRecord",
         caption: "Manage entity StockRecord",
         tooltip: "StockRecord",
-        // icon: "file-o",
+        type: "PRIMARY",
+        report: "true",
+        icon: "/services/web/resources/unicons/file.svg",
         location: "/services/web/codbex-inventory/gen/ui/StockRecords/index.html",
         order: "100",
         groupOrder: "600",

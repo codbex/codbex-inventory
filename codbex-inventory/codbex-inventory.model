@@ -2462,7 +2462,7 @@
                 "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}STOCKRECORD\"",
                 "dataName": "STOCKRECORD",
                 "dataQuery": "",
-                "generateReport": "false",
+                "generateReport": "true",
                 "icon": "/services/web/resources/unicons/file.svg",
                 "layoutType": "MANAGE",
                 "menuIndex": "100",

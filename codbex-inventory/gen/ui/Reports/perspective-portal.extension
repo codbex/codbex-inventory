@@ -1,0 +1,5 @@
+{
+    "module": "codbex-inventory/gen/ui/Reports/perspective.js",
+    "extensionPoint": "portal",
+    "description": "codbex-inventory - Perspective - Reports"
+}
