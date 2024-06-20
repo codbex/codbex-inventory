@@ -10,6 +10,17 @@
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
       "version": "1.0"
+    },
+    {
+      "table": "CODBEX_STORESTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-inventory-data/store-statuses.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
     }
   ]
 }
