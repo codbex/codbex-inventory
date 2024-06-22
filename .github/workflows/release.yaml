@@ -1,0 +1,35 @@
+name: Release - Module
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-version:
+        description: Release Version
+        required: true
+        default: 1.0.0
+
+run-name: 'version set to ${{ inputs.release-version }} for release'
+
+jobs:
+  main:
+    uses: codbex/codbex-infra/.github/workflows/module-release.yaml@main
+    with:
+      packages: codbex-inventory,codbex-inventory-data
+      packages-build: codbex-inventory
+      release-version: ${{ inputs.release-version }}
+      release-content: |
+        ## codbex-inventory - ${{ inputs.release-version }}
+  
+        Inventory Management Module
+  
+        ## Installation
+  
+        ```
+        npm install @codbex/codbex-inventory@${{ inputs.release-version }}
+        npm install @codbex/codbex-inventory-data@${{ inputs.release-version }}
+        ```
+  
+        ## Access points:
+  
+        - [/services/web/codbex-inventory/gen/](http://localhost:80/services/web/codbex-inventory/gen/) - Admin Panel
+    secrets: inherit
