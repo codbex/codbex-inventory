@@ -1,5 +1,5 @@
-import { GoodsReceiptRepository } from "../../gen/dao/GoodsReceipts/GoodsReceiptRepository";
-import { GoodsReceiptItemRepository } from "../../gen/dao/GoodsReceipts/GoodsReceiptItemRepository";
+import { GoodsReceiptRepository } from "../../gen/codbex-inventory/dao/GoodsReceipts/GoodsReceiptRepository";
+import { GoodsReceiptItemRepository } from "../../gen/codbex-inventory/dao/GoodsReceipts/GoodsReceiptItemRepository";
 
 export const trigger = (event) => {
     const GoodsReceiptDao = new GoodsReceiptRepository();
