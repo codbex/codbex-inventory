@@ -1,5 +1,0 @@
-{
-    "module": "codbex-inventory/gen/ui/launchpad/Home/view.js",
-    "extensionPoint": "codbex-inventory-view",
-    "description": "codbex-inventory - Application View"
-}
