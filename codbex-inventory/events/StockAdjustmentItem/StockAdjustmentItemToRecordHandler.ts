@@ -1,5 +1,5 @@
-import { StockAdjustmentRepository } from "../../gen/dao/StockAdjustments/StockAdjustmentRepository";
-import { CatalogueRepository } from "codbex-products/gen/dao/Catalogues/CatalogueRepository";
+import { StockAdjustmentRepository } from "../../gen/codbex-inventory/dao/StockAdjustments/StockAdjustmentRepository";
+import { CatalogueRepository } from "codbex-products/gen/codbex-products/dao/Catalogues/CatalogueRepository";
 
 export const trigger = (event) => {
     const StockAdjustmentDao = new StockAdjustmentRepository();

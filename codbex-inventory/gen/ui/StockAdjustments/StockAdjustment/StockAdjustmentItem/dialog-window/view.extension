@@ -1,5 +1,0 @@
-{
-    "module": "codbex-inventory/gen/ui/StockAdjustments/StockAdjustment/StockAdjustmentItem/dialog-window/view.js",
-    "extensionPoint": "codbex-inventory-dialog-window",
-    "description": "codbex-inventory - Application Dialog Window"
-}

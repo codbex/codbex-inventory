@@ -1,5 +1,5 @@
-import { GoodsIssueRepository } from "../../gen/dao/GoodsIssues/GoodsIssueRepository";
-import { GoodsIssueItemRepository } from "../../gen/dao/GoodsIssues/GoodsIssueItemRepository";
+import { GoodsIssueRepository } from "../../gen/codbex-inventory/dao/GoodsIssues/GoodsIssueRepository";
+import { GoodsIssueItemRepository } from "../../gen/codbex-inventory/dao/GoodsIssues/GoodsIssueItemRepository";
 
 export const trigger = (event) => {
     const GoodsIssueDao = new GoodsIssueRepository();
