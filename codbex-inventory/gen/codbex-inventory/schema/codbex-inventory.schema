@@ -7,7 +7,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -27,7 +26,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -65,13 +63,11 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "STORE_CITY"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "STORE_COUNTRY"
                     },
@@ -95,13 +91,11 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "STORE_STORESTATUSID"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "STORE_COMPANY"
                     }
@@ -113,7 +107,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -121,7 +114,6 @@
                     },
                     {
                         "type": "DATE",
-                        "length": 20,
                         "name": "GOODSRECEIPT_DATE"
                     },
                     {
@@ -132,25 +124,21 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "GOODSRECEIPTS_STORE"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "GOODSRECEIPTS_COMPANY"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "GOODSRECEIPT_CURRENCY"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -159,7 +147,6 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -168,7 +155,6 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -200,7 +186,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -208,34 +193,28 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "GOODSRECEIPTITEM_GOODSRECEIPT"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "GOODSRECEIPTITEM_PRODUCT"
                     },
                     {
                         "type": "DOUBLE",
-                        "length": 20,
                         "name": "GOODSRECEIPTITEM_QUANTITY"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 20,
                         "name": "GOODSRECEIPTITEM_UOM"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "name": "GOODSRECEIPTITEM_PRICE"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -243,7 +222,6 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -251,7 +229,6 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -265,7 +242,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -273,7 +249,6 @@
                     },
                     {
                         "type": "DATE",
-                        "length": 20,
                         "nullable": true,
                         "name": "GOODSISSUE_DATE"
                     },
@@ -285,25 +260,21 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "GOODSISSUE_STORE"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "GOODSISSUE_COMPANY"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "GOODSISSUE_CURRENCY"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -312,7 +283,6 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -321,7 +291,6 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -353,7 +322,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -361,34 +329,28 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "GOODSISSUEITEM_GOODSISSUE"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "GOODSISSUEITEM_PRODUCT"
                     },
                     {
                         "type": "DOUBLE",
-                        "length": 20,
                         "name": "GOODSISSUEITEM_QUANTITY"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 20,
                         "name": "GOODSISSUEITEM_UOM"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "name": "GOODSISSUEITEM_PRICE"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -396,7 +358,6 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -404,7 +365,6 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -418,7 +378,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -426,24 +385,20 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "STOCKRECORD_PRODUCT"
                     },
                     {
                         "type": "DOUBLE",
-                        "length": 20,
                         "nullable": true,
                         "name": "STOCKRECORD_QUANTITY"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 20,
                         "name": "STOCKRECORD_UOM"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -451,7 +406,6 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -459,7 +413,6 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -467,7 +420,6 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -475,19 +427,16 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "STOCKRECORD_DIRECTION"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 20,
                         "nullable": true,
                         "name": "STOCKRECORD_ITEMID"
                     },
                     {
                         "type": "BOOLEAN",
-                        "length": 20,
                         "nullable": true,
                         "name": "STOCKRECORD_DELETED"
                     },
@@ -505,7 +454,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -525,7 +473,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -533,7 +480,6 @@
                     },
                     {
                         "type": "DATE",
-                        "length": 20,
                         "name": "STOCKADJUSTMENT_DATE"
                     },
                     {
@@ -544,7 +490,6 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "STOCKADJUSTMENT_STORE"
                     },
@@ -556,13 +501,11 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "STOCKADJUSTMENT_TYPE"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "STOCKADJUSTMENT_OPERATOR"
                     },
                     {
@@ -597,7 +540,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -623,7 +565,6 @@
                 "columns": [
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
@@ -631,23 +572,19 @@
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "nullable": true,
                         "name": "STOCKADJUSTMENTITEM_STOCKADJUSTMENT"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 0,
                         "name": "STOCKADJUSTMENTITEM_PRODUCT"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 20,
                         "name": "STOCKADJUSTMENTITEM_ADJUSTEDQUANTITY"
                     },
                     {
                         "type": "INTEGER",
-                        "length": 20,
                         "name": "STOCKADJUSTMENTITEM_UOM"
                     },
                     {
