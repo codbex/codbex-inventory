@@ -14,7 +14,7 @@
         "@codbex/codbex-countries-data": "0.1.0",
         "@codbex/codbex-companies": "0.1.0",
         "@codbex/codbex-products": "0.1.0",
-        "@codbex/codbex-products-data": "0.1.0",
+        "@codbex/codbex-products-data": "0.2.0",
         "@codbex/codbex-currencies": "0.1.0",
         "@codbex/codbex-currencies-data": "0.1.0"
     }
