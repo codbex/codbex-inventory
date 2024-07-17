@@ -65,7 +65,7 @@
                     };
                     Extensions.get('view', 'codbex-inventory-view').then(function (response) {
                         $scope.layoutModel = {
-                            views: response.filter(e => !e.isLaunchpad && e.perspectiveName === 'Reports').map(e => e.id)
+                            views: response.filter(e => !e.isLaunchpad && e.perspectiveName === 'DeliveryNote').map(e => e.id)
                         };
                         $scope.state.isBusy = false;
                     }, function (error) {
