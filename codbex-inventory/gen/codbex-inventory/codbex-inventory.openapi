@@ -21,6 +21,7 @@ tags:
   - name: Settings
   - name: StockAdjustments
   - name: DeliveryNote
+  - name: DeliveryNote
 paths:
   /codbex-inventory/gen/codbex-inventory/api/Settings/StoreStatusService.ts:
     get:
@@ -4720,6 +4721,7 @@ paths:
                       Id: 33
                     contains:
                       Name: "abcd"
+                      Number: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -4742,6 +4744,7 @@ paths:
                   $filter:
                     contains:
                       Name: "abcd"
+                      Number: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
                 value:
@@ -4806,6 +4809,7 @@ paths:
                       Id: 33
                     contains:
                       Name: "abcd"
+                      Number: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -4828,6 +4832,7 @@ paths:
                   $filter:
                     contains:
                       Name: "abcd"
+                      Number: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
                 value:
@@ -4862,6 +4867,390 @@ paths:
                 type: array
                 items:
                     $ref: '#/components/schemas/DeliveryNote'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-inventory/gen/codbex-inventory/api/DeliveryNote/DeliveryNoteItemService.ts:
+    get:
+      summary: List DeliveryNoteItem
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - DeliveryNote
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/DeliveryNoteItem'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create DeliveryNoteItem
+      tags:
+        - DeliveryNote
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeliveryNoteItem'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryNoteItem'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-inventory/gen/codbex-inventory/api/DeliveryNote/DeliveryNoteItemService.ts/{id}:
+    get:
+      summary: Get DeliveryNoteItem by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - DeliveryNote
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/DeliveryNoteItem'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update DeliveryNoteItem by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - DeliveryNote
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeliveryNoteItem'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeliveryNoteItem'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete DeliveryNoteItem by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - DeliveryNote
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-inventory/gen/codbex-inventory/api/DeliveryNote/DeliveryNoteItemService.ts/count:
+    get:
+      summary: Count the number of DeliveryNoteItem
+      tags:
+        - DeliveryNote
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of DeliveryNoteItem by DeliveryNoteItemFilterOptions
+      tags:
+        - DeliveryNote
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeliveryNoteItemFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-inventory/gen/codbex-inventory/api/DeliveryNote/DeliveryNoteItemService.ts/search:
+    post:
+      summary: Search DeliveryNoteItem by DeliveryNoteItemFilterOptions
+      tags:
+        - DeliveryNote
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeliveryNoteItemFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/DeliveryNoteItem'
         403:
           description: Forbidden Error
           content:
@@ -8771,7 +9160,6 @@ components:
         - Date
         - Store
         - Employee
-        - Product
       properties:
         Id:
           type: integer
@@ -8787,18 +9175,16 @@ components:
         Employee:
           type: integer
           format: int32
-        Product:
-          type: integer
-          format: int32
-        Quantity:
-          type: number
-          format: double
-        UoM:
-          type: integer
-          format: int32
         Company:
           type: integer
           format: int32
+        Customer:
+          type: integer
+          format: int32
+        Number:
+          type: string
+          minLength: 0
+          maxLength: 30
     DeliveryNoteFilterOptions:
       type: object
       properties:
@@ -8845,30 +9231,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                Product:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Quantity:
-                  oneOf:
-                    - type: number
-                      format: double
-                    - type: array
-                      items:
-                        type: number
-                        format: double
-                UoM:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Company:
                   oneOf:
                     - type: integer
@@ -8877,6 +9239,25 @@ components:
                       items:
                         type: integer
                         format: int32
+                Customer:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Number:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 30
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 30
             notEquals:
               type: object
               properties:
@@ -8917,7 +9298,205 @@ components:
                       items:
                         type: integer
                         format: int32
-                Product:
+                Company:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Customer:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Number:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 30
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 30
+            contains:
+              type: object
+              properties:
+                Id:
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 40
+                Date:
+                Store:
+                Employee:
+                Company:
+                Customer:
+                Number:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 40
+                Date:
+                Store:
+                  type: integer
+                  format: int32
+                Employee:
+                  type: integer
+                  format: int32
+                Company:
+                  type: integer
+                  format: int32
+                Customer:
+                  type: integer
+                  format: int32
+                Number:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 40
+                Date:
+                Store:
+                  type: integer
+                  format: int32
+                Employee:
+                  type: integer
+                  format: int32
+                Company:
+                  type: integer
+                  format: int32
+                Customer:
+                  type: integer
+                  format: int32
+                Number:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 40
+                Date:
+                Store:
+                  type: integer
+                  format: int32
+                Employee:
+                  type: integer
+                  format: int32
+                Company:
+                  type: integer
+                  format: int32
+                Customer:
+                  type: integer
+                  format: int32
+                Number:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 40
+                Date:
+                Store:
+                  type: integer
+                  format: int32
+                Employee:
+                  type: integer
+                  format: int32
+                Company:
+                  type: integer
+                  format: int32
+                Customer:
+                  type: integer
+                  format: int32
+                Number:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
+        $select:
+          type: array
+          example: ["Id", "Name", "Date", "Store", "Employee", "Company", "Customer", "Number"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Name,Date,Store,Employee,Company,Customer,Number"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    DeliveryNoteItem:
+      type: object
+      required:
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Quantity:
+          type: number
+          format: double
+        UoM:
+          type: integer
+          format: int32
+        Product:
+          type: integer
+          format: int32
+        DeliveryNote:
+          type: integer
+          format: int32
+    DeliveryNoteItemFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
                   oneOf:
                     - type: integer
                       format: int32
@@ -8941,7 +9520,58 @@ components:
                       items:
                         type: integer
                         format: int32
-                Company:
+                Product:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                DeliveryNote:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Quantity:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                UoM:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Product:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                DeliveryNote:
                   oneOf:
                     - type: integer
                       format: int32
@@ -8953,35 +9583,14 @@ components:
               type: object
               properties:
                 Id:
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 40
-                Date:
-                Store:
-                Employee:
-                Product:
                 Quantity:
                 UoM:
-                Company:
+                Product:
+                DeliveryNote:
             greaterThan:
               type: object
               properties:
                 Id:
-                  type: integer
-                  format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 40
-                Date:
-                Store:
-                  type: integer
-                  format: int32
-                Employee:
-                  type: integer
-                  format: int32
-                Product:
                   type: integer
                   format: int32
                 Quantity:
@@ -8990,7 +9599,10 @@ components:
                 UoM:
                   type: integer
                   format: int32
-                Company:
+                Product:
+                  type: integer
+                  format: int32
+                DeliveryNote:
                   type: integer
                   format: int32
             greaterThanOrEqual:
@@ -8999,27 +9611,16 @@ components:
                 Id:
                   type: integer
                   format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 40
-                Date:
-                Store:
-                  type: integer
-                  format: int32
-                Employee:
-                  type: integer
-                  format: int32
-                Product:
-                  type: integer
-                  format: int32
                 Quantity:
                   type: number
                   format: double
                 UoM:
                   type: integer
                   format: int32
-                Company:
+                Product:
+                  type: integer
+                  format: int32
+                DeliveryNote:
                   type: integer
                   format: int32
             lessThan:
@@ -9028,27 +9629,16 @@ components:
                 Id:
                   type: integer
                   format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 40
-                Date:
-                Store:
-                  type: integer
-                  format: int32
-                Employee:
-                  type: integer
-                  format: int32
-                Product:
-                  type: integer
-                  format: int32
                 Quantity:
                   type: number
                   format: double
                 UoM:
                   type: integer
                   format: int32
-                Company:
+                Product:
+                  type: integer
+                  format: int32
+                DeliveryNote:
                   type: integer
                   format: int32
             lessThanOrEqual:
@@ -9057,37 +9647,26 @@ components:
                 Id:
                   type: integer
                   format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 40
-                Date:
-                Store:
-                  type: integer
-                  format: int32
-                Employee:
-                  type: integer
-                  format: int32
-                Product:
-                  type: integer
-                  format: int32
                 Quantity:
                   type: number
                   format: double
                 UoM:
                   type: integer
                   format: int32
-                Company:
+                Product:
+                  type: integer
+                  format: int32
+                DeliveryNote:
                   type: integer
                   format: int32
         $select:
           type: array
-          example: ["Id", "Name", "Date", "Store", "Employee", "Product", "Quantity", "UoM", "Company"]
+          example: ["Id", "Quantity", "UoM", "Product", "DeliveryNote"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name,Date,Store,Employee,Product,Quantity,UoM,Company"
+            example: "Id,Quantity,UoM,Product,DeliveryNote"
         $order:
           type: string
           enum: ["asc", "desc"]

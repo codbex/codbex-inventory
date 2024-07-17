@@ -42,9 +42,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = {};
 				$scope.optionsStore = [];
 				$scope.optionsEmployee = [];
-				$scope.optionsProduct = [];
-				$scope.optionsUoM = [];
 				$scope.optionsCompany = [];
+				$scope.optionsCustomer = [];
 				$scope.action = 'select';
 			});
 		});
@@ -57,9 +56,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = msg.data.entity;
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsEmployee = msg.data.optionsEmployee;
-				$scope.optionsProduct = msg.data.optionsProduct;
-				$scope.optionsUoM = msg.data.optionsUoM;
 				$scope.optionsCompany = msg.data.optionsCompany;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.action = 'select';
 			});
 		});
@@ -69,9 +67,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = {};
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsEmployee = msg.data.optionsEmployee;
-				$scope.optionsProduct = msg.data.optionsProduct;
-				$scope.optionsUoM = msg.data.optionsUoM;
 				$scope.optionsCompany = msg.data.optionsCompany;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.action = 'create';
 			});
 		});
@@ -84,9 +81,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = msg.data.entity;
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsEmployee = msg.data.optionsEmployee;
-				$scope.optionsProduct = msg.data.optionsProduct;
-				$scope.optionsUoM = msg.data.optionsUoM;
 				$scope.optionsCompany = msg.data.optionsCompany;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.action = 'update';
 			});
 		});

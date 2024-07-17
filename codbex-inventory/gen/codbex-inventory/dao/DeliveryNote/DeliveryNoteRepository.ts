@@ -10,10 +10,9 @@ export interface DeliveryNoteEntity {
     Date?: Date;
     Store?: number;
     Employee?: number;
-    Product?: number;
-    Quantity?: number;
-    UoM?: number;
     Company?: number;
+    Customer?: number;
+    Number?: string;
 }
 
 export interface DeliveryNoteCreateEntity {
@@ -21,10 +20,9 @@ export interface DeliveryNoteCreateEntity {
     readonly Date?: Date;
     readonly Store?: number;
     readonly Employee?: number;
-    readonly Product?: number;
-    readonly Quantity?: number;
-    readonly UoM?: number;
     readonly Company?: number;
+    readonly Customer?: number;
+    readonly Number?: string;
 }
 
 export interface DeliveryNoteUpdateEntity extends DeliveryNoteCreateEntity {
@@ -39,10 +37,9 @@ export interface DeliveryNoteEntityOptions {
             Date?: Date | Date[];
             Store?: number | number[];
             Employee?: number | number[];
-            Product?: number | number[];
-            Quantity?: number | number[];
-            UoM?: number | number[];
             Company?: number | number[];
+            Customer?: number | number[];
+            Number?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -50,10 +47,9 @@ export interface DeliveryNoteEntityOptions {
             Date?: Date | Date[];
             Store?: number | number[];
             Employee?: number | number[];
-            Product?: number | number[];
-            Quantity?: number | number[];
-            UoM?: number | number[];
             Company?: number | number[];
+            Customer?: number | number[];
+            Number?: string | string[];
         };
         contains?: {
             Id?: number;
@@ -61,10 +57,9 @@ export interface DeliveryNoteEntityOptions {
             Date?: Date;
             Store?: number;
             Employee?: number;
-            Product?: number;
-            Quantity?: number;
-            UoM?: number;
             Company?: number;
+            Customer?: number;
+            Number?: string;
         };
         greaterThan?: {
             Id?: number;
@@ -72,10 +67,9 @@ export interface DeliveryNoteEntityOptions {
             Date?: Date;
             Store?: number;
             Employee?: number;
-            Product?: number;
-            Quantity?: number;
-            UoM?: number;
             Company?: number;
+            Customer?: number;
+            Number?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -83,10 +77,9 @@ export interface DeliveryNoteEntityOptions {
             Date?: Date;
             Store?: number;
             Employee?: number;
-            Product?: number;
-            Quantity?: number;
-            UoM?: number;
             Company?: number;
+            Customer?: number;
+            Number?: string;
         };
         lessThan?: {
             Id?: number;
@@ -94,10 +87,9 @@ export interface DeliveryNoteEntityOptions {
             Date?: Date;
             Store?: number;
             Employee?: number;
-            Product?: number;
-            Quantity?: number;
-            UoM?: number;
             Company?: number;
+            Customer?: number;
+            Number?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -105,10 +97,9 @@ export interface DeliveryNoteEntityOptions {
             Date?: Date;
             Store?: number;
             Employee?: number;
-            Product?: number;
-            Quantity?: number;
-            UoM?: number;
             Company?: number;
+            Customer?: number;
+            Number?: string;
         };
     },
     $select?: (keyof DeliveryNoteEntity)[],
@@ -166,24 +157,19 @@ export class DeliveryNoteRepository {
                 type: "INTEGER",
             },
             {
-                name: "Product",
-                column: "DELIVERYNOTE_PRODUCT",
-                type: "INTEGER",
-            },
-            {
-                name: "Quantity",
-                column: "DELIVERYNOTE_PROPERTY4",
-                type: "DOUBLE",
-            },
-            {
-                name: "UoM",
-                column: "DELIVERYNOTE_UOM",
-                type: "INTEGER",
-            },
-            {
                 name: "Company",
                 column: "DELIVERYNOTE_COMPANY",
                 type: "INTEGER",
+            },
+            {
+                name: "Customer",
+                column: "DELIVERYNOTE_CUSTOMER",
+                type: "INTEGER",
+            },
+            {
+                name: "Number",
+                column: "DELIVERYNOTE_NUMBER",
+                type: "VARCHAR",
             }
         ]
     };

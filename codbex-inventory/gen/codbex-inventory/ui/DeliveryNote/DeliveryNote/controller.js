@@ -121,9 +121,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				selectedMainEntityId: entity.Id,
 				optionsStore: $scope.optionsStore,
 				optionsEmployee: $scope.optionsEmployee,
-				optionsProduct: $scope.optionsProduct,
-				optionsUoM: $scope.optionsUoM,
 				optionsCompany: $scope.optionsCompany,
+				optionsCustomer: $scope.optionsCustomer,
 			});
 		};
 
@@ -135,9 +134,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: {},
 				optionsStore: $scope.optionsStore,
 				optionsEmployee: $scope.optionsEmployee,
-				optionsProduct: $scope.optionsProduct,
-				optionsUoM: $scope.optionsUoM,
 				optionsCompany: $scope.optionsCompany,
+				optionsCustomer: $scope.optionsCustomer,
 			});
 		};
 
@@ -147,9 +145,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: $scope.selectedEntity,
 				optionsStore: $scope.optionsStore,
 				optionsEmployee: $scope.optionsEmployee,
-				optionsProduct: $scope.optionsProduct,
-				optionsUoM: $scope.optionsUoM,
 				optionsCompany: $scope.optionsCompany,
+				optionsCustomer: $scope.optionsCustomer,
 			});
 		};
 
@@ -188,18 +185,16 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: $scope.filterEntity,
 				optionsStore: $scope.optionsStore,
 				optionsEmployee: $scope.optionsEmployee,
-				optionsProduct: $scope.optionsProduct,
-				optionsUoM: $scope.optionsUoM,
 				optionsCompany: $scope.optionsCompany,
+				optionsCustomer: $scope.optionsCustomer,
 			});
 		};
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsStore = [];
 		$scope.optionsEmployee = [];
-		$scope.optionsProduct = [];
-		$scope.optionsUoM = [];
 		$scope.optionsCompany = [];
+		$scope.optionsCustomer = [];
 
 
 		$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts").then(function (response) {
@@ -220,26 +215,17 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts").then(function (response) {
-			$scope.optionsProduct = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
-		$http.get("/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts").then(function (response) {
-			$scope.optionsUoM = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
-			});
-		});
-
 		$http.get("/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts").then(function (response) {
 			$scope.optionsCompany = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts").then(function (response) {
+			$scope.optionsCustomer = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -263,26 +249,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsProductValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsProduct.length; i++) {
-				if ($scope.optionsProduct[i].value === optionKey) {
-					return $scope.optionsProduct[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsUoMValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsUoM.length; i++) {
-				if ($scope.optionsUoM[i].value === optionKey) {
-					return $scope.optionsUoM[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsCompanyValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCompany.length; i++) {
 				if ($scope.optionsCompany[i].value === optionKey) {
 					return $scope.optionsCompany[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCustomerValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
+				if ($scope.optionsCustomer[i].value === optionKey) {
+					return $scope.optionsCustomer[i].text;
 				}
 			}
 			return null;

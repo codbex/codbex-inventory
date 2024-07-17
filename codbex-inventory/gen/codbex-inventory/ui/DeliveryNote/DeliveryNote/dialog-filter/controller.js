@@ -22,9 +22,8 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsStore = params.optionsStore;
 			$scope.optionsEmployee = params.optionsEmployee;
-			$scope.optionsProduct = params.optionsProduct;
-			$scope.optionsUoM = params.optionsUoM;
 			$scope.optionsCompany = params.optionsCompany;
+			$scope.optionsCustomer = params.optionsCustomer;
 		}
 
 		$scope.filter = function () {
@@ -65,17 +64,14 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Employee !== undefined) {
 				filter.$filter.equals.Employee = entity.Employee;
 			}
-			if (entity.Product !== undefined) {
-				filter.$filter.equals.Product = entity.Product;
-			}
-			if (entity.Quantity !== undefined) {
-				filter.$filter.equals.Quantity = entity.Quantity;
-			}
-			if (entity.UoM !== undefined) {
-				filter.$filter.equals.UoM = entity.UoM;
-			}
 			if (entity.Company !== undefined) {
 				filter.$filter.equals.Company = entity.Company;
+			}
+			if (entity.Customer !== undefined) {
+				filter.$filter.equals.Customer = entity.Customer;
+			}
+			if (entity.Number) {
+				filter.$filter.contains.Number = entity.Number;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

@@ -1,20 +1,20 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { DeliveryNoteRepository, DeliveryNoteEntityOptions } from "../../dao/DeliveryNote/DeliveryNoteRepository";
+import { DeliveryNoteItemRepository, DeliveryNoteItemEntityOptions } from "../../dao/DeliveryNote/DeliveryNoteItemRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-inventory-DeliveryNote-DeliveryNote", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-inventory-DeliveryNote-DeliveryNoteItem", ["validate"]);
 
 @Controller
-class DeliveryNoteService {
+class DeliveryNoteItemService {
 
-    private readonly repository = new DeliveryNoteRepository();
+    private readonly repository = new DeliveryNoteItemRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            const options: DeliveryNoteEntityOptions = {
+            const options: DeliveryNoteItemEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -30,7 +30,7 @@ class DeliveryNoteService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/codbex-inventory/api/DeliveryNote/DeliveryNoteService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/codbex-inventory/api/DeliveryNote/DeliveryNoteItemService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -73,7 +73,7 @@ class DeliveryNoteService {
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("DeliveryNote not found");
+                HttpUtils.sendResponseNotFound("DeliveryNoteItem not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -101,7 +101,7 @@ class DeliveryNoteService {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("DeliveryNote not found");
+                HttpUtils.sendResponseNotFound("DeliveryNoteItem not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -119,21 +119,6 @@ class DeliveryNoteService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Name?.length > 40) {
-            throw new ValidationError(`The 'Name' exceeds the maximum length of [40] characters`);
-        }
-        if (entity.Date === null || entity.Date === undefined) {
-            throw new ValidationError(`The 'Date' property is required, provide a valid value`);
-        }
-        if (entity.Store === null || entity.Store === undefined) {
-            throw new ValidationError(`The 'Store' property is required, provide a valid value`);
-        }
-        if (entity.Employee === null || entity.Employee === undefined) {
-            throw new ValidationError(`The 'Employee' property is required, provide a valid value`);
-        }
-        if (entity.Number?.length > 30) {
-            throw new ValidationError(`The 'Number' exceeds the maximum length of [30] characters`);
-        }
         for (const next of validationModules) {
             next.validate(entity);
         }
