@@ -6,22 +6,20 @@ import { EntityUtils } from "../utils/EntityUtils";
 
 export interface DeliveryNoteEntity {
     readonly Id: number;
-    Name?: string;
-    Date?: Date;
-    Store?: number;
+    Date: Date;
+    Store: number;
     Employee?: number;
     Company?: number;
-    Customer?: number;
+    Customer: number;
     Number?: string;
 }
 
 export interface DeliveryNoteCreateEntity {
-    readonly Name?: string;
-    readonly Date?: Date;
-    readonly Store?: number;
+    readonly Date: Date;
+    readonly Store: number;
     readonly Employee?: number;
     readonly Company?: number;
-    readonly Customer?: number;
+    readonly Customer: number;
     readonly Number?: string;
 }
 
@@ -33,7 +31,6 @@ export interface DeliveryNoteEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
-            Name?: string | string[];
             Date?: Date | Date[];
             Store?: number | number[];
             Employee?: number | number[];
@@ -43,7 +40,6 @@ export interface DeliveryNoteEntityOptions {
         };
         notEquals?: {
             Id?: number | number[];
-            Name?: string | string[];
             Date?: Date | Date[];
             Store?: number | number[];
             Employee?: number | number[];
@@ -53,7 +49,6 @@ export interface DeliveryNoteEntityOptions {
         };
         contains?: {
             Id?: number;
-            Name?: string;
             Date?: Date;
             Store?: number;
             Employee?: number;
@@ -63,7 +58,6 @@ export interface DeliveryNoteEntityOptions {
         };
         greaterThan?: {
             Id?: number;
-            Name?: string;
             Date?: Date;
             Store?: number;
             Employee?: number;
@@ -73,7 +67,6 @@ export interface DeliveryNoteEntityOptions {
         };
         greaterThanOrEqual?: {
             Id?: number;
-            Name?: string;
             Date?: Date;
             Store?: number;
             Employee?: number;
@@ -83,7 +76,6 @@ export interface DeliveryNoteEntityOptions {
         };
         lessThan?: {
             Id?: number;
-            Name?: string;
             Date?: Date;
             Store?: number;
             Employee?: number;
@@ -93,7 +85,6 @@ export interface DeliveryNoteEntityOptions {
         };
         lessThanOrEqual?: {
             Id?: number;
-            Name?: string;
             Date?: Date;
             Store?: number;
             Employee?: number;
@@ -137,19 +128,16 @@ export class DeliveryNoteRepository {
                 autoIncrement: true,
             },
             {
-                name: "Name",
-                column: "DELIVERYNOTE_NAME",
-                type: "VARCHAR",
-            },
-            {
                 name: "Date",
                 column: "DELIVERYNOTE_DATE",
                 type: "DATE",
+                required: true
             },
             {
                 name: "Store",
                 column: "DELIVERYNOTE_STORE",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Employee",
@@ -165,6 +153,7 @@ export class DeliveryNoteRepository {
                 name: "Customer",
                 column: "DELIVERYNOTE_CUSTOMER",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Number",

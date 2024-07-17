@@ -2420,19 +2420,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "dataLength": "40",
-                        "dataName": "DELIVERYNOTE_NAME",
-                        "dataNullable": "true",
-                        "dataType": "VARCHAR",
-                        "name": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "40",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
-                    },
-                    {
                         "dataName": "DELIVERYNOTE_DATE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "DATE",
                         "isRequiredProperty": "true",
                         "name": "Date",
@@ -2443,7 +2432,7 @@
                     },
                     {
                         "dataName": "DELIVERYNOTE_STORE",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "INTEGER",
                         "isRequiredProperty": "true",
                         "name": "Store",
@@ -2493,8 +2482,9 @@
                     },
                     {
                         "dataName": "DELIVERYNOTE_CUSTOMER",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "INTEGER",
+                        "isRequiredProperty": "true",
                         "name": "Customer",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
@@ -2719,6 +2709,7 @@
                         "dataName": "DELIVERYNOTEITEM_QUANTITY",
                         "dataNullable": "true",
                         "dataType": "DOUBLE",
+                        "isRequiredProperty": "true",
                         "name": "Quantity",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -2743,8 +2734,9 @@
                     },
                     {
                         "dataName": "DELIVERYNOTEITEM_PRODUCT",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "INTEGER",
+                        "isRequiredProperty": "true",
                         "name": "Product",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",

@@ -7,14 +7,14 @@ export interface DeliveryNoteItemEntity {
     readonly Id: number;
     Quantity?: number;
     UoM?: number;
-    Product?: number;
+    Product: number;
     DeliveryNote?: number;
 }
 
 export interface DeliveryNoteItemCreateEntity {
     readonly Quantity?: number;
     readonly UoM?: number;
-    readonly Product?: number;
+    readonly Product: number;
     readonly DeliveryNote?: number;
 }
 
@@ -122,6 +122,7 @@ export class DeliveryNoteItemRepository {
                 name: "Product",
                 column: "DELIVERYNOTEITEM_PRODUCT",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "DeliveryNote",

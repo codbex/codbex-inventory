@@ -619,19 +619,11 @@
                         "name": "DELIVERYNOTE_ID"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 40,
-                        "nullable": true,
-                        "name": "DELIVERYNOTE_NAME"
-                    },
-                    {
                         "type": "DATE",
-                        "nullable": true,
                         "name": "DELIVERYNOTE_DATE"
                     },
                     {
                         "type": "INTEGER",
-                        "nullable": true,
                         "name": "DELIVERYNOTE_STORE"
                     },
                     {
@@ -646,7 +638,6 @@
                     },
                     {
                         "type": "INTEGER",
-                        "nullable": true,
                         "name": "DELIVERYNOTE_CUSTOMER"
                     },
                     {
@@ -680,7 +671,6 @@
                     },
                     {
                         "type": "INTEGER",
-                        "nullable": true,
                         "name": "DELIVERYNOTEITEM_PRODUCT"
                     },
                     {

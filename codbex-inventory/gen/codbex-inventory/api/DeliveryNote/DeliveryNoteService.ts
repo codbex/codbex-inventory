@@ -119,9 +119,6 @@ class DeliveryNoteService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Name?.length > 40) {
-            throw new ValidationError(`The 'Name' exceeds the maximum length of [40] characters`);
-        }
         if (entity.Date === null || entity.Date === undefined) {
             throw new ValidationError(`The 'Date' property is required, provide a valid value`);
         }
@@ -130,6 +127,9 @@ class DeliveryNoteService {
         }
         if (entity.Employee === null || entity.Employee === undefined) {
             throw new ValidationError(`The 'Employee' property is required, provide a valid value`);
+        }
+        if (entity.Customer === null || entity.Customer === undefined) {
+            throw new ValidationError(`The 'Customer' property is required, provide a valid value`);
         }
         if (entity.Number?.length > 30) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [30] characters`);

@@ -4720,7 +4720,6 @@ paths:
                     notEquals:
                       Id: 33
                     contains:
-                      Name: "abcd"
                       Number: "abcd"
                     greaterThan:
                       Id: 0
@@ -4743,7 +4742,6 @@ paths:
                 value:
                   $filter:
                     contains:
-                      Name: "abcd"
                       Number: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
@@ -4808,7 +4806,6 @@ paths:
                     notEquals:
                       Id: 33
                     contains:
-                      Name: "abcd"
                       Number: "abcd"
                     greaterThan:
                       Id: 0
@@ -4831,7 +4828,6 @@ paths:
                 value:
                   $filter:
                     contains:
-                      Name: "abcd"
                       Number: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
@@ -9160,14 +9156,11 @@ components:
         - Date
         - Store
         - Employee
+        - Customer
       properties:
         Id:
           type: integer
           format: int32
-        Name:
-          type: string
-          minLength: 0
-          maxLength: 40
         Date:
         Store:
           type: integer
@@ -9202,17 +9195,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                Name:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 40
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 40
                 Date:
                   oneOf:
                 Store:
@@ -9269,17 +9251,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                Name:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 40
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 40
                 Date:
                   oneOf:
                 Store:
@@ -9329,10 +9300,6 @@ components:
               type: object
               properties:
                 Id:
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 40
                 Date:
                 Store:
                 Employee:
@@ -9348,10 +9315,6 @@ components:
                 Id:
                   type: integer
                   format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 40
                 Date:
                 Store:
                   type: integer
@@ -9375,10 +9338,6 @@ components:
                 Id:
                   type: integer
                   format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 40
                 Date:
                 Store:
                   type: integer
@@ -9402,10 +9361,6 @@ components:
                 Id:
                   type: integer
                   format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 40
                 Date:
                 Store:
                   type: integer
@@ -9429,10 +9384,6 @@ components:
                 Id:
                   type: integer
                   format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 40
                 Date:
                 Store:
                   type: integer
@@ -9452,12 +9403,12 @@ components:
                   maxLength: 30
         $select:
           type: array
-          example: ["Id", "Name", "Date", "Store", "Employee", "Company", "Customer", "Number"]
+          example: ["Id", "Date", "Store", "Employee", "Company", "Customer", "Number"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name,Date,Store,Employee,Company,Customer,Number"
+            example: "Id,Date,Store,Employee,Company,Customer,Number"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -9471,6 +9422,8 @@ components:
     DeliveryNoteItem:
       type: object
       required:
+        - Quantity
+        - Product
       properties:
         Id:
           type: integer
