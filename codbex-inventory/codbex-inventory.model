@@ -2420,6 +2420,17 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "dataLength": "30",
+                        "dataName": "DELIVERYNOTE_NUMBER",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "name": "Number",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "30",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
                         "dataName": "DELIVERYNOTE_DATE",
                         "dataNullable": "false",
                         "dataType": "DATE",
@@ -2496,17 +2507,6 @@
                         "relationshipEntityName": "Customer",
                         "relationshipEntityPerspectiveName": "Customers",
                         "relationshipEntityPerspectiveLabel": "Customers"
-                    },
-                    {
-                        "dataLength": "30",
-                        "dataName": "DELIVERYNOTE_NUMBER",
-                        "dataNullable": "true",
-                        "dataType": "VARCHAR",
-                        "name": "Number",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "30",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity DeliveryNote",
@@ -2706,6 +2706,23 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "dataName": "DELIVERYNOTEITEM_PRODUCT",
+                        "dataNullable": "false",
+                        "dataType": "INTEGER",
+                        "isRequiredProperty": "true",
+                        "name": "Product",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "DeliveryNoteItem_Product",
+                        "relationshipEntityName": "Product",
+                        "relationshipEntityPerspectiveName": "Products",
+                        "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
                         "dataName": "DELIVERYNOTEITEM_QUANTITY",
                         "dataNullable": "true",
                         "dataType": "DOUBLE",
@@ -2730,23 +2747,6 @@
                         "relationshipName": "DeliveryNoteItem_UoM",
                         "relationshipEntityName": "UoM",
                         "relationshipEntityPerspectiveName": "UnitsOfMeasures",
-                        "relationshipEntityPerspectiveLabel": "Entities"
-                    },
-                    {
-                        "dataName": "DELIVERYNOTEITEM_PRODUCT",
-                        "dataNullable": "false",
-                        "dataType": "INTEGER",
-                        "isRequiredProperty": "true",
-                        "name": "Product",
-                        "widgetDropDownKey": "Id",
-                        "widgetDropDownValue": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "DeliveryNoteItem_Product",
-                        "relationshipEntityName": "Product",
-                        "relationshipEntityPerspectiveName": "Products",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
