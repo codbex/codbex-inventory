@@ -608,6 +608,79 @@
                 ]
             },
             {
+                "name": "CODBEX_DELIVERYNOTE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "DELIVERYNOTE_ID"
+                    },
+                    {
+                        "type": "DATE",
+                        "name": "DELIVERYNOTE_DATE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "name": "DELIVERYNOTE_STORE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "DELIVERYNOTE_EMPLOYEE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "DELIVERYNOTE_COMPANY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "name": "DELIVERYNOTE_CUSTOMER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 30,
+                        "nullable": true,
+                        "name": "DELIVERYNOTE_NUMBER"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_DELIVERYNOTEITEM",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "DELIVERYNOTEITEM_ID"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "DELIVERYNOTEITEM_QUANTITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "DELIVERYNOTEITEM_UOM"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "name": "DELIVERYNOTEITEM_PRODUCT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "DELIVERYNOTEITEM_DELIVERYNOTE"
+                    }
+                ]
+            },
+            {
                 "name": "Store_City",
                 "type": "foreignKey",
                 "table": "CODBEX_STORE",
@@ -831,6 +904,69 @@
                 "columns": "STOCKADJUSTMENTITEM_UOM",
                 "referencedTable": "CODBEX_UOM",
                 "referencedColumns": "UOM_ID"
+            },
+            {
+                "name": "DeliveryNote_Store",
+                "type": "foreignKey",
+                "table": "CODBEX_DELIVERYNOTE",
+                "constraintName": "DeliveryNote_Store",
+                "columns": "DELIVERYNOTE_STORE",
+                "referencedTable": "CODBEX_STORE",
+                "referencedColumns": "STORE_ID"
+            },
+            {
+                "name": "DeliveryNote_Employee",
+                "type": "foreignKey",
+                "table": "CODBEX_DELIVERYNOTE",
+                "constraintName": "DeliveryNote_Employee",
+                "columns": "DELIVERYNOTE_EMPLOYEE",
+                "referencedTable": "CODBEX_EMPLOYEE",
+                "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "DeliveryNote_Company",
+                "type": "foreignKey",
+                "table": "CODBEX_DELIVERYNOTE",
+                "constraintName": "DeliveryNote_Company",
+                "columns": "DELIVERYNOTE_COMPANY",
+                "referencedTable": "CODBEX_COMPANY",
+                "referencedColumns": "COMPANY_ID"
+            },
+            {
+                "name": "DeliveryNote_Customer",
+                "type": "foreignKey",
+                "table": "CODBEX_DELIVERYNOTE",
+                "constraintName": "DeliveryNote_Customer",
+                "columns": "DELIVERYNOTE_CUSTOMER",
+                "referencedTable": "CODBEX_CUSTOMER",
+                "referencedColumns": "CUSTOMER_ID"
+            },
+            {
+                "name": "DeliveryNoteItem_UoM",
+                "type": "foreignKey",
+                "table": "CODBEX_DELIVERYNOTEITEM",
+                "constraintName": "DeliveryNoteItem_UoM",
+                "columns": "DELIVERYNOTEITEM_UOM",
+                "referencedTable": "CODBEX_UOM",
+                "referencedColumns": "UOM_ID"
+            },
+            {
+                "name": "DeliveryNoteItem_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_DELIVERYNOTEITEM",
+                "constraintName": "DeliveryNoteItem_Product",
+                "columns": "DELIVERYNOTEITEM_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "DeliveryNoteItem_DeliveryNote",
+                "type": "foreignKey",
+                "table": "CODBEX_DELIVERYNOTEITEM",
+                "constraintName": "DeliveryNoteItem_DeliveryNote",
+                "columns": "DELIVERYNOTEITEM_DELIVERYNOTE",
+                "referencedTable": "CODBEX_DELIVERYNOTE",
+                "referencedColumns": "DELIVERYNOTE_ID"
             }
         ]
     },
