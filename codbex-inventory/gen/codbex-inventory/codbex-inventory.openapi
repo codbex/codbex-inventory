@@ -9161,6 +9161,11 @@ components:
         Id:
           type: integer
           format: int32
+        Number:
+          type: string
+          minLength: 0
+          maxLength: 30
+          readOnly: true
         Date:
         Store:
           type: integer
@@ -9174,10 +9179,6 @@ components:
         Customer:
           type: integer
           format: int32
-        Number:
-          type: string
-          minLength: 0
-          maxLength: 30
     DeliveryNoteFilterOptions:
       type: object
       properties:
@@ -9195,6 +9196,17 @@ components:
                       items:
                         type: integer
                         format: int32
+                Number:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 30
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 30
                 Date:
                   oneOf:
                 Store:
@@ -9229,17 +9241,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                Number:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 30
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 30
             notEquals:
               type: object
               properties:
@@ -9251,40 +9252,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                Date:
-                  oneOf:
-                Store:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Employee:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Company:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Customer:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Number:
                   oneOf:
                     - type: string
@@ -9296,25 +9263,63 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 30
+                Date:
+                  oneOf:
+                Store:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Employee:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Company:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Customer:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
             contains:
               type: object
               properties:
                 Id:
+                Number:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
                 Date:
                 Store:
                 Employee:
                 Company:
                 Customer:
-                Number:
-                  type: string
-                  minLength: 0
-                  maxLength: 30
             greaterThan:
               type: object
               properties:
                 Id:
                   type: integer
                   format: int32
+                Number:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
                 Date:
                 Store:
                   type: integer
@@ -9328,16 +9333,16 @@ components:
                 Customer:
                   type: integer
                   format: int32
-                Number:
-                  type: string
-                  minLength: 0
-                  maxLength: 30
             greaterThanOrEqual:
               type: object
               properties:
                 Id:
                   type: integer
                   format: int32
+                Number:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
                 Date:
                 Store:
                   type: integer
@@ -9351,16 +9356,16 @@ components:
                 Customer:
                   type: integer
                   format: int32
-                Number:
-                  type: string
-                  minLength: 0
-                  maxLength: 30
             lessThan:
               type: object
               properties:
                 Id:
                   type: integer
                   format: int32
+                Number:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
                 Date:
                 Store:
                   type: integer
@@ -9374,16 +9379,16 @@ components:
                 Customer:
                   type: integer
                   format: int32
-                Number:
-                  type: string
-                  minLength: 0
-                  maxLength: 30
             lessThanOrEqual:
               type: object
               properties:
                 Id:
                   type: integer
                   format: int32
+                Number:
+                  type: string
+                  minLength: 0
+                  maxLength: 30
                 Date:
                 Store:
                   type: integer
@@ -9397,18 +9402,14 @@ components:
                 Customer:
                   type: integer
                   format: int32
-                Number:
-                  type: string
-                  minLength: 0
-                  maxLength: 30
         $select:
           type: array
-          example: ["Id", "Date", "Store", "Employee", "Company", "Customer", "Number"]
+          example: ["Id", "Number", "Date", "Store", "Employee", "Company", "Customer"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Date,Store,Employee,Company,Customer,Number"
+            example: "Id,Number,Date,Store,Employee,Company,Customer"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -9422,19 +9423,19 @@ components:
     DeliveryNoteItem:
       type: object
       required:
-        - Quantity
         - Product
+        - Quantity
       properties:
         Id:
+          type: integer
+          format: int32
+        Product:
           type: integer
           format: int32
         Quantity:
           type: number
           format: double
         UoM:
-          type: integer
-          format: int32
-        Product:
           type: integer
           format: int32
         DeliveryNote:
@@ -9457,6 +9458,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                Product:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 Quantity:
                   oneOf:
                     - type: number
@@ -9466,14 +9475,6 @@ components:
                         type: number
                         format: double
                 UoM:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Product:
                   oneOf:
                     - type: integer
                       format: int32
@@ -9500,6 +9501,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                Product:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 Quantity:
                   oneOf:
                     - type: number
@@ -9509,14 +9518,6 @@ components:
                         type: number
                         format: double
                 UoM:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Product:
                   oneOf:
                     - type: integer
                       format: int32
@@ -9536,9 +9537,9 @@ components:
               type: object
               properties:
                 Id:
+                Product:
                 Quantity:
                 UoM:
-                Product:
                 DeliveryNote:
             greaterThan:
               type: object
@@ -9546,13 +9547,13 @@ components:
                 Id:
                   type: integer
                   format: int32
+                Product:
+                  type: integer
+                  format: int32
                 Quantity:
                   type: number
                   format: double
                 UoM:
-                  type: integer
-                  format: int32
-                Product:
                   type: integer
                   format: int32
                 DeliveryNote:
@@ -9564,13 +9565,13 @@ components:
                 Id:
                   type: integer
                   format: int32
+                Product:
+                  type: integer
+                  format: int32
                 Quantity:
                   type: number
                   format: double
                 UoM:
-                  type: integer
-                  format: int32
-                Product:
                   type: integer
                   format: int32
                 DeliveryNote:
@@ -9582,13 +9583,13 @@ components:
                 Id:
                   type: integer
                   format: int32
+                Product:
+                  type: integer
+                  format: int32
                 Quantity:
                   type: number
                   format: double
                 UoM:
-                  type: integer
-                  format: int32
-                Product:
                   type: integer
                   format: int32
                 DeliveryNote:
@@ -9600,13 +9601,13 @@ components:
                 Id:
                   type: integer
                   format: int32
+                Product:
+                  type: integer
+                  format: int32
                 Quantity:
                   type: number
                   format: double
                 UoM:
-                  type: integer
-                  format: int32
-                Product:
                   type: integer
                   format: int32
                 DeliveryNote:
@@ -9614,12 +9615,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Quantity", "UoM", "Product", "DeliveryNote"]
+          example: ["Id", "Product", "Quantity", "UoM", "DeliveryNote"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Quantity,UoM,Product,DeliveryNote"
+            example: "Id,Product,Quantity,UoM,DeliveryNote"
         $order:
           type: string
           enum: ["asc", "desc"]

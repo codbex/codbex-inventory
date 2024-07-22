@@ -2420,10 +2420,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(26)",
                         "dataLength": "30",
                         "dataName": "DELIVERYNOTE_NUMBER",
                         "dataNullable": "true",
                         "dataType": "VARCHAR",
+                        "isCalculatedProperty": "true",
                         "name": "Number",
                         "widgetIsMajor": "true",
                         "widgetLength": "30",
@@ -2515,6 +2517,7 @@
                 "dataQuery": "",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
+                "importsCode": "aW1wb3J0IHsgTnVtYmVyR2VuZXJhdG9yU2VydmljZSB9IGZyb20gIi9jb2RiZXgtbnVtYmVyLWdlbmVyYXRvci9zZXJ2aWNlL2dlbmVyYXRvciI7",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
                 "menuKey": "deliverynote",

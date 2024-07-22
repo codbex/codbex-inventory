@@ -5,16 +5,16 @@ import { dao as daoApi } from "sdk/db";
 
 export interface DeliveryNoteItemEntity {
     readonly Id: number;
+    Product: number;
     Quantity?: number;
     UoM?: number;
-    Product: number;
     DeliveryNote?: number;
 }
 
 export interface DeliveryNoteItemCreateEntity {
+    readonly Product: number;
     readonly Quantity?: number;
     readonly UoM?: number;
-    readonly Product: number;
     readonly DeliveryNote?: number;
 }
 
@@ -26,51 +26,51 @@ export interface DeliveryNoteItemEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
+            Product?: number | number[];
             Quantity?: number | number[];
             UoM?: number | number[];
-            Product?: number | number[];
             DeliveryNote?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
+            Product?: number | number[];
             Quantity?: number | number[];
             UoM?: number | number[];
-            Product?: number | number[];
             DeliveryNote?: number | number[];
         };
         contains?: {
             Id?: number;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
-            Product?: number;
             DeliveryNote?: number;
         };
         greaterThan?: {
             Id?: number;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
-            Product?: number;
             DeliveryNote?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
-            Product?: number;
             DeliveryNote?: number;
         };
         lessThan?: {
             Id?: number;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
-            Product?: number;
             DeliveryNote?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
-            Product?: number;
             DeliveryNote?: number;
         };
     },
@@ -109,6 +109,12 @@ export class DeliveryNoteItemRepository {
                 autoIncrement: true,
             },
             {
+                name: "Product",
+                column: "DELIVERYNOTEITEM_PRODUCT",
+                type: "INTEGER",
+                required: true
+            },
+            {
                 name: "Quantity",
                 column: "DELIVERYNOTEITEM_QUANTITY",
                 type: "DOUBLE",
@@ -117,12 +123,6 @@ export class DeliveryNoteItemRepository {
                 name: "UoM",
                 column: "DELIVERYNOTEITEM_UOM",
                 type: "INTEGER",
-            },
-            {
-                name: "Product",
-                column: "DELIVERYNOTEITEM_PRODUCT",
-                type: "INTEGER",
-                required: true
             },
             {
                 name: "DeliveryNote",
