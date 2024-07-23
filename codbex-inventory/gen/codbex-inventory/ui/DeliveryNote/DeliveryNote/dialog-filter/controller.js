@@ -49,6 +49,9 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
+			if (entity.Number) {
+				filter.$filter.contains.Number = entity.Number;
+			}
 			if (entity.DateFrom) {
 				filter.$filter.greaterThanOrEqual.Date = entity.DateFrom;
 			}
@@ -66,9 +69,6 @@ angular.module('page', ["ideUI", "ideView"])
 			}
 			if (entity.Customer !== undefined) {
 				filter.$filter.equals.Customer = entity.Customer;
-			}
-			if (entity.Number) {
-				filter.$filter.contains.Number = entity.Number;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

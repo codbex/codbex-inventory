@@ -3,6 +3,8 @@ import { Extensions } from "sdk/extensions"
 import { DeliveryNoteRepository, DeliveryNoteEntityOptions } from "../../dao/DeliveryNote/DeliveryNoteRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-inventory-DeliveryNote-DeliveryNote", ["validate"]);
 
@@ -119,6 +121,9 @@ class DeliveryNoteService {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.Number?.length > 30) {
+            throw new ValidationError(`The 'Number' exceeds the maximum length of [30] characters`);
+        }
         if (entity.Date === null || entity.Date === undefined) {
             throw new ValidationError(`The 'Date' property is required, provide a valid value`);
         }
@@ -130,9 +135,6 @@ class DeliveryNoteService {
         }
         if (entity.Customer === null || entity.Customer === undefined) {
             throw new ValidationError(`The 'Customer' property is required, provide a valid value`);
-        }
-        if (entity.Number?.length > 30) {
-            throw new ValidationError(`The 'Number' exceeds the maximum length of [30] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

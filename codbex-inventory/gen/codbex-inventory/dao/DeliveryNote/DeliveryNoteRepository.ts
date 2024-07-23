@@ -3,15 +3,17 @@ import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 export interface DeliveryNoteEntity {
     readonly Id: number;
+    Number?: string;
     Date: Date;
     Store: number;
     Employee?: number;
     Company?: number;
     Customer: number;
-    Number?: string;
 }
 
 export interface DeliveryNoteCreateEntity {
@@ -20,7 +22,6 @@ export interface DeliveryNoteCreateEntity {
     readonly Employee?: number;
     readonly Company?: number;
     readonly Customer: number;
-    readonly Number?: string;
 }
 
 export interface DeliveryNoteUpdateEntity extends DeliveryNoteCreateEntity {
@@ -31,66 +32,66 @@ export interface DeliveryNoteEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
+            Number?: string | string[];
             Date?: Date | Date[];
             Store?: number | number[];
             Employee?: number | number[];
             Company?: number | number[];
             Customer?: number | number[];
-            Number?: string | string[];
         };
         notEquals?: {
             Id?: number | number[];
+            Number?: string | string[];
             Date?: Date | Date[];
             Store?: number | number[];
             Employee?: number | number[];
             Company?: number | number[];
             Customer?: number | number[];
-            Number?: string | string[];
         };
         contains?: {
             Id?: number;
+            Number?: string;
             Date?: Date;
             Store?: number;
             Employee?: number;
             Company?: number;
             Customer?: number;
-            Number?: string;
         };
         greaterThan?: {
             Id?: number;
+            Number?: string;
             Date?: Date;
             Store?: number;
             Employee?: number;
             Company?: number;
             Customer?: number;
-            Number?: string;
         };
         greaterThanOrEqual?: {
             Id?: number;
+            Number?: string;
             Date?: Date;
             Store?: number;
             Employee?: number;
             Company?: number;
             Customer?: number;
-            Number?: string;
         };
         lessThan?: {
             Id?: number;
+            Number?: string;
             Date?: Date;
             Store?: number;
             Employee?: number;
             Company?: number;
             Customer?: number;
-            Number?: string;
         };
         lessThanOrEqual?: {
             Id?: number;
+            Number?: string;
             Date?: Date;
             Store?: number;
             Employee?: number;
             Company?: number;
             Customer?: number;
-            Number?: string;
         };
     },
     $select?: (keyof DeliveryNoteEntity)[],
@@ -128,6 +129,11 @@ export class DeliveryNoteRepository {
                 autoIncrement: true,
             },
             {
+                name: "Number",
+                column: "DELIVERYNOTE_NUMBER",
+                type: "VARCHAR",
+            },
+            {
                 name: "Date",
                 column: "DELIVERYNOTE_DATE",
                 type: "DATE",
@@ -154,11 +160,6 @@ export class DeliveryNoteRepository {
                 column: "DELIVERYNOTE_CUSTOMER",
                 type: "INTEGER",
                 required: true
-            },
-            {
-                name: "Number",
-                column: "DELIVERYNOTE_NUMBER",
-                type: "VARCHAR",
             }
         ]
     };
@@ -184,6 +185,8 @@ export class DeliveryNoteRepository {
 
     public create(entity: DeliveryNoteCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
+        // @ts-ignore
+        (entity as DeliveryNoteEntity).Number = new NumberGeneratorService().generate(26);
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

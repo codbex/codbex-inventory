@@ -619,6 +619,12 @@
                         "name": "DELIVERYNOTE_ID"
                     },
                     {
+                        "type": "VARCHAR",
+                        "length": 30,
+                        "nullable": true,
+                        "name": "DELIVERYNOTE_NUMBER"
+                    },
+                    {
                         "type": "DATE",
                         "name": "DELIVERYNOTE_DATE"
                     },
@@ -639,12 +645,6 @@
                     {
                         "type": "INTEGER",
                         "name": "DELIVERYNOTE_CUSTOMER"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 30,
-                        "nullable": true,
-                        "name": "DELIVERYNOTE_NUMBER"
                     }
                 ]
             },
@@ -660,6 +660,10 @@
                         "name": "DELIVERYNOTEITEM_ID"
                     },
                     {
+                        "type": "INTEGER",
+                        "name": "DELIVERYNOTEITEM_PRODUCT"
+                    },
+                    {
                         "type": "DOUBLE",
                         "nullable": true,
                         "name": "DELIVERYNOTEITEM_QUANTITY"
@@ -668,10 +672,6 @@
                         "type": "INTEGER",
                         "nullable": true,
                         "name": "DELIVERYNOTEITEM_UOM"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "name": "DELIVERYNOTEITEM_PRODUCT"
                     },
                     {
                         "type": "INTEGER",
@@ -942,15 +942,6 @@
                 "referencedColumns": "CUSTOMER_ID"
             },
             {
-                "name": "DeliveryNoteItem_UoM",
-                "type": "foreignKey",
-                "table": "CODBEX_DELIVERYNOTEITEM",
-                "constraintName": "DeliveryNoteItem_UoM",
-                "columns": "DELIVERYNOTEITEM_UOM",
-                "referencedTable": "CODBEX_UOM",
-                "referencedColumns": "UOM_ID"
-            },
-            {
                 "name": "DeliveryNoteItem_Product",
                 "type": "foreignKey",
                 "table": "CODBEX_DELIVERYNOTEITEM",
@@ -958,6 +949,15 @@
                 "columns": "DELIVERYNOTEITEM_PRODUCT",
                 "referencedTable": "CODBEX_PRODUCT",
                 "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "DeliveryNoteItem_UoM",
+                "type": "foreignKey",
+                "table": "CODBEX_DELIVERYNOTEITEM",
+                "constraintName": "DeliveryNoteItem_UoM",
+                "columns": "DELIVERYNOTEITEM_UOM",
+                "referencedTable": "CODBEX_UOM",
+                "referencedColumns": "UOM_ID"
             },
             {
                 "name": "DeliveryNoteItem_DeliveryNote",
