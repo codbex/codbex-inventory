@@ -5420,14 +5420,14 @@
         },
         {
           "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(26)",
-          "dataLength": "30",
+          "dataLength": "20",
           "dataName": "DELIVERYNOTE_NUMBER",
           "dataNullable": true,
           "dataType": "VARCHAR",
           "isCalculatedProperty": true,
           "name": "Number",
           "widgetIsMajor": true,
-          "widgetLength": "30",
+          "widgetLength": "20",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
@@ -5440,7 +5440,7 @@
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
-          "maxLength": 30,
+          "maxLength": 20,
           "inputRule": ""
         },
         {
@@ -5622,14 +5622,14 @@
       "masterProperties": {
         "title": {
           "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(26)",
-          "dataLength": "30",
+          "dataLength": "20",
           "dataName": "DELIVERYNOTE_NUMBER",
           "dataNullable": true,
           "dataType": "VARCHAR",
           "isCalculatedProperty": true,
           "name": "Number",
           "widgetIsMajor": true,
-          "widgetLength": "30",
+          "widgetLength": "20",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
           "dataNotNull": false,
@@ -5642,7 +5642,7 @@
           "dataTypeJava": "string",
           "dataTypeTypescript": "string",
           "minLength": 0,
-          "maxLength": 30,
+          "maxLength": 20,
           "inputRule": ""
         },
         "properties": [

@@ -9164,7 +9164,7 @@ components:
         Number:
           type: string
           minLength: 0
-          maxLength: 30
+          maxLength: 20
           readOnly: true
         Date:
         Store:
@@ -9200,13 +9200,13 @@ components:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 30
+                      maxLength: 20
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 30
+                        maxLength: 20
                 Date:
                   oneOf:
                 Store:
@@ -9256,13 +9256,13 @@ components:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 30
+                      maxLength: 20
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 30
+                        maxLength: 20
                 Date:
                   oneOf:
                 Store:
@@ -9304,7 +9304,7 @@ components:
                 Number:
                   type: string
                   minLength: 0
-                  maxLength: 30
+                  maxLength: 20
                 Date:
                 Store:
                 Employee:
@@ -9319,7 +9319,7 @@ components:
                 Number:
                   type: string
                   minLength: 0
-                  maxLength: 30
+                  maxLength: 20
                 Date:
                 Store:
                   type: integer
@@ -9342,7 +9342,7 @@ components:
                 Number:
                   type: string
                   minLength: 0
-                  maxLength: 30
+                  maxLength: 20
                 Date:
                 Store:
                   type: integer
@@ -9365,7 +9365,7 @@ components:
                 Number:
                   type: string
                   minLength: 0
-                  maxLength: 30
+                  maxLength: 20
                 Date:
                 Store:
                   type: integer
@@ -9388,7 +9388,7 @@ components:
                 Number:
                   type: string
                   minLength: 0
-                  maxLength: 30
+                  maxLength: 20
                 Date:
                 Store:
                   type: integer

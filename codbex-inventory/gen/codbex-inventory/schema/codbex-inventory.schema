@@ -620,7 +620,7 @@
                     },
                     {
                         "type": "VARCHAR",
-                        "length": 30,
+                        "length": 20,
                         "nullable": true,
                         "name": "DELIVERYNOTE_NUMBER"
                     },
