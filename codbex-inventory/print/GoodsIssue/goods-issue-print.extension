@@ -1,5 +1,0 @@
-{
-    "module": "codbex-inventory/print/GoodsIssue/goods-issue-print.js",
-    "extensionPoint": "codbex-inventory-custom-action",
-    "description": "Print Goods Issue Custom Action"
-}
