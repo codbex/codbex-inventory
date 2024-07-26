@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "codbex-inventory-Stores-Store",
+    "module": "codbex-inventory/events/Store/SetCountryToStoreHandler.ts",
+    "description": "Extension for setting country"
+}
