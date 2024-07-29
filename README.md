@@ -22,6 +22,8 @@
 
 ![stock-record](images/inventory-stock-record.png)
 
+![delivery-note](images/inventory-delivery-note.png)
+
 ![store](images/inventory-store.png)
 
 ![settings](images/inventory-settings.png)
