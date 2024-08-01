@@ -24,8 +24,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.entity = params.entity;
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
-			$scope.optionsCity = params.optionsCity;
 			$scope.optionsCountry = params.optionsCountry;
+			$scope.optionsCity = params.optionsCity;
 			$scope.optionsStatus = params.optionsStatus;
 			$scope.optionsCompany = params.optionsCompany;
 		}
@@ -58,6 +58,28 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				messageHub.showAlertSuccess("Store", "Store successfully updated");
 			});
 		};
+
+		$scope.$watch('entity.Country', function (newValue, oldValue) {
+			if (newValue !== undefined && newValue !== null) {
+				entityApi.$http.post("/services/ts/codbex-cities/gen/codbex-cities/api/Cities/CityService.ts/search", {
+					$filter: {
+						equals: {
+							Country: newValue
+						}
+					}
+				}).then(function (response) {
+					$scope.optionsCity = response.data.map(e => {
+						return {
+							value: e.Id,
+							text: e.Name
+						}
+					});
+					if ($scope.action !== 'select' && newValue !== oldValue) {
+						$scope.entity.City = undefined;
+					}
+				});
+			}
+		});
 
 		$scope.cancel = function () {
 			$scope.entity = {};
