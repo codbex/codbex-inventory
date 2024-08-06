@@ -1893,7 +1893,6 @@ paths:
                       Id: 33
                     contains:
                       Number: "abcd"
-                      Number: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
                       Reference: "abcd"
@@ -1918,7 +1917,6 @@ paths:
                 value:
                   $filter:
                     contains:
-                      Number: "abcd"
                       Number: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
@@ -1987,7 +1985,6 @@ paths:
                       Id: 33
                     contains:
                       Number: "abcd"
-                      Number: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
                       Reference: "abcd"
@@ -2012,7 +2009,6 @@ paths:
                 value:
                   $filter:
                     contains:
-                      Number: "abcd"
                       Number: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
@@ -6805,11 +6801,9 @@ components:
         Company:
           type: integer
           format: int32
-        Number:
-          type: string
-          minLength: 0
-          maxLength: 20
-          readOnly: true
+        Currency:
+          type: integer
+          format: int32
         Net:
           type: number
           format: double
@@ -6879,17 +6873,14 @@ components:
                       items:
                         type: integer
                         format: int32
-                Number:
+                Currency:
                   oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 20
+                    - type: integer
+                      format: int32
                     - type: array
                       items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 20
+                        type: integer
+                        format: int32
                 Net:
                   oneOf:
                     - type: number
@@ -6987,17 +6978,14 @@ components:
                       items:
                         type: integer
                         format: int32
-                Number:
+                Currency:
                   oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 20
+                    - type: integer
+                      format: int32
                     - type: array
                       items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 20
+                        type: integer
+                        format: int32
                 Net:
                   oneOf:
                     - type: number
@@ -7066,10 +7054,7 @@ components:
                   maxLength: 20
                 Store:
                 Company:
-                Number:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
+                Currency:
                 Net:
                 VAT:
                 Gross:
@@ -7102,10 +7087,9 @@ components:
                 Company:
                   type: integer
                   format: int32
-                Number:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
+                Currency:
+                  type: integer
+                  format: int32
                 Net:
                   type: number
                   format: double
@@ -7144,10 +7128,9 @@ components:
                 Company:
                   type: integer
                   format: int32
-                Number:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
+                Currency:
+                  type: integer
+                  format: int32
                 Net:
                   type: number
                   format: double
@@ -7186,10 +7169,9 @@ components:
                 Company:
                   type: integer
                   format: int32
-                Number:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
+                Currency:
+                  type: integer
+                  format: int32
                 Net:
                   type: number
                   format: double
@@ -7228,10 +7210,9 @@ components:
                 Company:
                   type: integer
                   format: int32
-                Number:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
+                Currency:
+                  type: integer
+                  format: int32
                 Net:
                   type: number
                   format: double
@@ -7255,12 +7236,12 @@ components:
                   maxLength: 36
         $select:
           type: array
-          example: ["Id", "Date", "Number", "Store", "Company", "Number", "Net", "VAT", "Gross", "Name", "UUID", "Reference"]
+          example: ["Id", "Date", "Number", "Store", "Company", "Currency", "Net", "VAT", "Gross", "Name", "UUID", "Reference"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Date,Number,Store,Company,Number,Net,VAT,Gross,Name,UUID,Reference"
+            example: "Id,Date,Number,Store,Company,Currency,Net,VAT,Gross,Name,UUID,Reference"
         $order:
           type: string
           enum: ["asc", "desc"]

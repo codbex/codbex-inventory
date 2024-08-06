@@ -127,9 +127,6 @@ class GoodsIssueService {
         if (entity.Number?.length > 20) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
         }
-        if (entity.Number?.length > 20) {
-            throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
-        }
         if (entity.Name?.length > 200) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [200] characters`);
         }

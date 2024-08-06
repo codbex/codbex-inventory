@@ -22,6 +22,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsStore = params.optionsStore;
 			$scope.optionsCompany = params.optionsCompany;
+			$scope.optionsCurrency = params.optionsCurrency;
 		}
 
 		$scope.filter = function () {
@@ -62,8 +63,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Company !== undefined) {
 				filter.$filter.equals.Company = entity.Company;
 			}
-			if (entity.Number) {
-				filter.$filter.contains.Number = entity.Number;
+			if (entity.Currency !== undefined) {
+				filter.$filter.equals.Currency = entity.Currency;
 			}
 			if (entity.Net !== undefined) {
 				filter.$filter.equals.Net = entity.Net;

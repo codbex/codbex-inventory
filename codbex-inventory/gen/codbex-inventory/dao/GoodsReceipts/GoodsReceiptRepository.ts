@@ -162,7 +162,7 @@ interface GoodsReceiptUpdateEntityEvent extends GoodsReceiptEntityEvent {
 export class GoodsReceiptRepository {
 
     private static readonly DEFINITION = {
-        table: "CODBEX_PURCHASEORDER_NUMBER",
+        table: "CODBEX_GOODSRECEIPT",
         properties: [
             {
                 name: "Id",
@@ -279,7 +279,7 @@ export class GoodsReceiptRepository {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "CODBEX_PURCHASEORDER_NUMBER",
+            table: "CODBEX_GOODSRECEIPT",
             entity: entity,
             key: {
                 name: "Id",
@@ -296,7 +296,7 @@ export class GoodsReceiptRepository {
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "CODBEX_PURCHASEORDER_NUMBER",
+            table: "CODBEX_GOODSRECEIPT",
             entity: entity,
             previousEntity: previousEntity,
             key: {
@@ -327,7 +327,7 @@ export class GoodsReceiptRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "CODBEX_PURCHASEORDER_NUMBER",
+            table: "CODBEX_GOODSRECEIPT",
             entity: entity,
             key: {
                 name: "Id",
