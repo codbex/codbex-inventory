@@ -681,6 +681,54 @@
                 ]
             },
             {
+                "name": "CODBEX_WASTE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "WASTE_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 30,
+                        "name": "WASTE_NUMBER"
+                    },
+                    {
+                        "type": "DATE",
+                        "name": "WASTE_DATE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "WASTE_SUPPLIER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "WASTE_PRODUCT"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "WASTE_QUANTITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "WASTE_STORE"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "WASTE_REASON"
+                    }
+                ]
+            },
+            {
                 "name": "Store_City",
                 "type": "foreignKey",
                 "table": "CODBEX_STORE",
@@ -967,6 +1015,33 @@
                 "columns": "DELIVERYNOTEITEM_DELIVERYNOTE",
                 "referencedTable": "CODBEX_DELIVERYNOTE",
                 "referencedColumns": "DELIVERYNOTE_ID"
+            },
+            {
+                "name": "Waste_Supplier",
+                "type": "foreignKey",
+                "table": "CODBEX_WASTE",
+                "constraintName": "Waste_Supplier",
+                "columns": "WASTE_SUPPLIER",
+                "referencedTable": "CODBEX_SUPPLIER",
+                "referencedColumns": "SUPPLIER_ID"
+            },
+            {
+                "name": "Waste_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_WASTE",
+                "constraintName": "Waste_Product",
+                "columns": "WASTE_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "Waste_Store",
+                "type": "foreignKey",
+                "table": "CODBEX_WASTE",
+                "constraintName": "Waste_Store",
+                "columns": "WASTE_STORE",
+                "referencedTable": "CODBEX_STORE",
+                "referencedColumns": "STORE_ID"
             }
         ]
     },
