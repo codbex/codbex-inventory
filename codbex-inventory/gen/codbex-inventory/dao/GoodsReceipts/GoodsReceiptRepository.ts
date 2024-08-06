@@ -238,6 +238,15 @@ export class GoodsReceiptRepository {
     }
 
     public findAll(options?: GoodsReceiptEntityOptions): GoodsReceiptEntity[] {
+        // @ts-ignore
+        if (options.$sort === undefined) {
+            // @ts-ignore
+            options.$sort = "";
+        }
+        // @ts-ignore
+        options.$sort += "Number,";
+        // @ts-ignore
+        options.$order = "DESC";
         return this.dao.list(options).map((e: GoodsReceiptEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;

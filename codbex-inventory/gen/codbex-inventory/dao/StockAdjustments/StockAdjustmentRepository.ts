@@ -224,6 +224,15 @@ export class StockAdjustmentRepository {
     }
 
     public findAll(options?: StockAdjustmentEntityOptions): StockAdjustmentEntity[] {
+        // @ts-ignore
+        if (options.$sort === undefined) {
+            // @ts-ignore
+            options.$sort = "";
+        }
+        // @ts-ignore
+        options.$sort += "Number,";
+        // @ts-ignore
+        options.$order = "DESC";
         return this.dao.list(options).map((e: StockAdjustmentEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;

@@ -237,6 +237,15 @@ export class GoodsIssueRepository {
     }
 
     public findAll(options?: GoodsIssueEntityOptions): GoodsIssueEntity[] {
+        // @ts-ignore
+        if (options.$sort === undefined) {
+            // @ts-ignore
+            options.$sort = "";
+        }
+        // @ts-ignore
+        options.$sort += "Number,";
+        // @ts-ignore
+        options.$order = "DESC";
         return this.dao.list(options).map((e: GoodsIssueEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;
