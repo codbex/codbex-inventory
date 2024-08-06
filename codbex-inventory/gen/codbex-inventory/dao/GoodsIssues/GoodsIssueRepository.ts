@@ -12,7 +12,7 @@ export interface GoodsIssueEntity {
     Number?: string;
     Store?: number;
     Company?: number;
-    Currency?: number;
+    Number?: string;
     Net?: number;
     VAT?: number;
     Gross?: number;
@@ -25,7 +25,6 @@ export interface GoodsIssueCreateEntity {
     readonly Date?: Date;
     readonly Store?: number;
     readonly Company?: number;
-    readonly Currency?: number;
     readonly Net?: number;
     readonly VAT?: number;
     readonly Gross?: number;
@@ -44,7 +43,7 @@ export interface GoodsIssueEntityOptions {
             Number?: string | string[];
             Store?: number | number[];
             Company?: number | number[];
-            Currency?: number | number[];
+            Number?: string | string[];
             Net?: number | number[];
             VAT?: number | number[];
             Gross?: number | number[];
@@ -58,7 +57,7 @@ export interface GoodsIssueEntityOptions {
             Number?: string | string[];
             Store?: number | number[];
             Company?: number | number[];
-            Currency?: number | number[];
+            Number?: string | string[];
             Net?: number | number[];
             VAT?: number | number[];
             Gross?: number | number[];
@@ -72,7 +71,7 @@ export interface GoodsIssueEntityOptions {
             Number?: string;
             Store?: number;
             Company?: number;
-            Currency?: number;
+            Number?: string;
             Net?: number;
             VAT?: number;
             Gross?: number;
@@ -86,7 +85,7 @@ export interface GoodsIssueEntityOptions {
             Number?: string;
             Store?: number;
             Company?: number;
-            Currency?: number;
+            Number?: string;
             Net?: number;
             VAT?: number;
             Gross?: number;
@@ -100,7 +99,7 @@ export interface GoodsIssueEntityOptions {
             Number?: string;
             Store?: number;
             Company?: number;
-            Currency?: number;
+            Number?: string;
             Net?: number;
             VAT?: number;
             Gross?: number;
@@ -114,7 +113,7 @@ export interface GoodsIssueEntityOptions {
             Number?: string;
             Store?: number;
             Company?: number;
-            Currency?: number;
+            Number?: string;
             Net?: number;
             VAT?: number;
             Gross?: number;
@@ -128,7 +127,7 @@ export interface GoodsIssueEntityOptions {
             Number?: string;
             Store?: number;
             Company?: number;
-            Currency?: number;
+            Number?: string;
             Net?: number;
             VAT?: number;
             Gross?: number;
@@ -192,9 +191,9 @@ export class GoodsIssueRepository {
                 type: "INTEGER",
             },
             {
-                name: "Currency",
-                column: "GOODSISSUE_CURRENCY",
-                type: "INTEGER",
+                name: "Number",
+                column: "SALESINVOICE_NUMBER",
+                type: "VARCHAR",
             },
             {
                 name: "Net",
@@ -246,6 +245,15 @@ export class GoodsIssueRepository {
         options.$sort += "Number,";
         // @ts-ignore
         options.$order = "DESC";
+        // @ts-ignore
+        if (options.$sort === undefined) {
+            // @ts-ignore
+            options.$sort = "";
+        }
+        // @ts-ignore
+        options.$sort += "Number,";
+        // @ts-ignore
+        options.$order = "DESC";
         return this.dao.list(options).map((e: GoodsIssueEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;
@@ -262,6 +270,8 @@ export class GoodsIssueRepository {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
         (entity as GoodsIssueEntity).Number = new NumberGeneratorService().generate(17);
+        // @ts-ignore
+        (entity as GoodsIssueEntity).Number = new NumberGeneratorService().generate(5);
         // @ts-ignore
         (entity as GoodsIssueEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Gross"];
         // @ts-ignore

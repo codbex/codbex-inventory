@@ -42,7 +42,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = {};
 				$scope.optionsStore = [];
 				$scope.optionsCompany = [];
-				$scope.optionsCurrency = [];
 				$scope.action = 'select';
 			});
 		});
@@ -55,7 +54,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = msg.data.entity;
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsCompany = msg.data.optionsCompany;
-				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.action = 'select';
 			});
 		});
@@ -65,7 +63,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = {};
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsCompany = msg.data.optionsCompany;
-				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.action = 'create';
 			});
 		});
@@ -78,7 +75,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = msg.data.entity;
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.optionsCompany = msg.data.optionsCompany;
-				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.action = 'update';
 			});
 		});

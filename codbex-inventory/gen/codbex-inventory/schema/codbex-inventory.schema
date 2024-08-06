@@ -102,7 +102,7 @@
                 ]
             },
             {
-                "name": "CODBEX_GOODSRECEIPT",
+                "name": "CODBEX_PURCHASEORDER_NUMBER",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -269,9 +269,10 @@
                         "name": "GOODSISSUE_COMPANY"
                     },
                     {
-                        "type": "INTEGER",
+                        "type": "VARCHAR",
+                        "length": 20,
                         "nullable": true,
-                        "name": "GOODSISSUE_CURRENCY"
+                        "name": "SALESINVOICE_NUMBER"
                     },
                     {
                         "type": "DECIMAL",
@@ -719,7 +720,7 @@
             {
                 "name": "GoodsReceipt_Store",
                 "type": "foreignKey",
-                "table": "CODBEX_GOODSRECEIPT",
+                "table": "CODBEX_PURCHASEORDER_NUMBER",
                 "constraintName": "GoodsReceipt_Store",
                 "columns": "GOODSRECEIPTS_STORE",
                 "referencedTable": "CODBEX_STORE",
@@ -728,7 +729,7 @@
             {
                 "name": "GoodsReceipt_Company",
                 "type": "foreignKey",
-                "table": "CODBEX_GOODSRECEIPT",
+                "table": "CODBEX_PURCHASEORDER_NUMBER",
                 "constraintName": "GoodsReceipt_Company",
                 "columns": "GOODSRECEIPTS_COMPANY",
                 "referencedTable": "CODBEX_COMPANY",
@@ -737,7 +738,7 @@
             {
                 "name": "GoodsReceipt_Currency",
                 "type": "foreignKey",
-                "table": "CODBEX_GOODSRECEIPT",
+                "table": "CODBEX_PURCHASEORDER_NUMBER",
                 "constraintName": "GoodsReceipt_Currency",
                 "columns": "GOODSRECEIPT_CURRENCY",
                 "referencedTable": "CODBEX_CURRENCY",
@@ -749,7 +750,7 @@
                 "table": "CODBEX_GOODSRECEIPTITEM",
                 "constraintName": "GoodsReceiptItem_GoodsReceipt",
                 "columns": "GOODSRECEIPTITEM_GOODSRECEIPT",
-                "referencedTable": "CODBEX_GOODSRECEIPT",
+                "referencedTable": "CODBEX_PURCHASEORDER_NUMBER",
                 "referencedColumns": "GOODSRECEIPT_ID"
             },
             {
@@ -769,6 +770,15 @@
                 "columns": "GOODSRECEIPTITEM_UOM",
                 "referencedTable": "CODBEX_UOM",
                 "referencedColumns": "UOM_ID"
+            },
+            {
+                "name": "GoodsIssue_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_GOODSISSUE",
+                "constraintName": "GoodsIssue_Currency",
+                "columns": "GOODSISSUE_NUMBER",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_ID"
             },
             {
                 "name": "GoodsIssue_Store",
@@ -793,7 +803,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_GOODSISSUE",
                 "constraintName": "GoodsIssue_Currency",
-                "columns": "GOODSISSUE_CURRENCY",
+                "columns": "SALESINVOICE_NUMBER",
                 "referencedTable": "CODBEX_CURRENCY",
                 "referencedColumns": "CURRENCY_ID"
             },
