@@ -10039,7 +10039,9 @@ components:
     Waste:
       type: object
       required:
-        - Number
+        - Date
+        - Supplier
+        - Product
         - Quantity
       properties:
         Id:
@@ -10066,7 +10068,7 @@ components:
         Reason:
           type: string
           minLength: 0
-          maxLength: 20
+          maxLength: 300
     WasteFilterOptions:
       type: object
       properties:
@@ -10133,13 +10135,13 @@ components:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 20
+                      maxLength: 300
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 20
+                        maxLength: 300
             notEquals:
               type: object
               properties:
@@ -10200,13 +10202,13 @@ components:
                   oneOf:
                     - type: string
                       minLength: 0
-                      maxLength: 20
+                      maxLength: 300
                     - type: array
                       items:
                         type: string
                         format: double
                         minLength: 0
-                        maxLength: 20
+                        maxLength: 300
             contains:
               type: object
               properties:
@@ -10223,7 +10225,7 @@ components:
                 Reason:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 300
             greaterThan:
               type: object
               properties:
@@ -10250,7 +10252,7 @@ components:
                 Reason:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 300
             greaterThanOrEqual:
               type: object
               properties:
@@ -10277,7 +10279,7 @@ components:
                 Reason:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 300
             lessThan:
               type: object
               properties:
@@ -10304,7 +10306,7 @@ components:
                 Reason:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 300
             lessThanOrEqual:
               type: object
               properties:
@@ -10331,7 +10333,7 @@ components:
                 Reason:
                   type: string
                   minLength: 0
-                  maxLength: 20
+                  maxLength: 300
         $select:
           type: array
           example: ["Id", "Number", "Date", "Supplier", "Product", "Quantity", "Store", "Reason"]

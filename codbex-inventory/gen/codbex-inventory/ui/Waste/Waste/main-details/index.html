@@ -21,14 +21,14 @@
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idNumber" dg-required="true" dg-colon="true">Number</fd-form-label>
+                        	<fd-form-label for="idNumber" dg-required="false" dg-colon="true">Number</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Number'].$valid }}">
 	                            <fd-input id="idNumber"
 	                                name="Number"
 	                                state="{{ forms.details['Number'].$valid ? '' : 'error' }}"
-									ng-required="true"
+									ng-required="false"
 	                                ng-model="entity.Number"
 	                                ng-readonly="true"
 	                                ng-minlength="0.0 || 0"
@@ -43,14 +43,14 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDate" dg-required="false" dg-colon="true">Date</fd-form-label>
+                        	<fd-form-label for="idDate" dg-required="true" dg-colon="true">Date</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--2 ">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Date'].$valid }}">
 	                            <fd-input id="idDate"
 	                                name="Date"
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
-									ng-required="false"
+									ng-required="true"
 	                                ng-model="entity.Date"
 	                                ng-readonly="action === 'select'"
 	                                type="date">
@@ -61,13 +61,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idSupplier" dg-required="false" dg-colon="true">Supplier</fd-form-label>
+                        	<fd-form-label for="idSupplier" dg-required="true" dg-colon="true">Supplier</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idSupplier"
 	                            name="Supplier"
 	                            state="{{ forms.details['Supplier'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.Supplier"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsSupplier"
@@ -77,13 +77,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idProduct" dg-required="false" dg-colon="true">Product</fd-form-label>
+                        	<fd-form-label for="idProduct" dg-required="true" dg-colon="true">Product</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idProduct"
 	                            name="Product"
 	                            state="{{ forms.details['Product'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.Product"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsProduct"
@@ -136,7 +136,7 @@
 	                                ng-model="entity.Reason"
 	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="20.0 || -1"
+	                                ng-maxlength="300.0 || -1"
 	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Reason">

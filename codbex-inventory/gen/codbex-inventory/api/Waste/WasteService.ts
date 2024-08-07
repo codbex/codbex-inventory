@@ -121,17 +121,23 @@ class WasteService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Number === null || entity.Number === undefined) {
-            throw new ValidationError(`The 'Number' property is required, provide a valid value`);
-        }
         if (entity.Number?.length > 30) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [30] characters`);
+        }
+        if (entity.Date === null || entity.Date === undefined) {
+            throw new ValidationError(`The 'Date' property is required, provide a valid value`);
+        }
+        if (entity.Supplier === null || entity.Supplier === undefined) {
+            throw new ValidationError(`The 'Supplier' property is required, provide a valid value`);
+        }
+        if (entity.Product === null || entity.Product === undefined) {
+            throw new ValidationError(`The 'Product' property is required, provide a valid value`);
         }
         if (entity.Quantity === null || entity.Quantity === undefined) {
             throw new ValidationError(`The 'Quantity' property is required, provide a valid value`);
         }
-        if (entity.Reason?.length > 20) {
-            throw new ValidationError(`The 'Reason' exceeds the maximum length of [20] characters`);
+        if (entity.Reason?.length > 300) {
+            throw new ValidationError(`The 'Reason' exceeds the maximum length of [300] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

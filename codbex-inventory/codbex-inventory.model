@@ -2803,13 +2803,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(26)",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(27)",
                         "dataLength": "30",
                         "dataName": "WASTE_NUMBER",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataType": "VARCHAR",
                         "isCalculatedProperty": "true",
-                        "isRequiredProperty": "true",
                         "name": "Number",
                         "widgetIsMajor": "true",
                         "widgetLength": "30",
@@ -2820,6 +2819,7 @@
                         "dataName": "WASTE_DATE",
                         "dataNullable": "false",
                         "dataType": "DATE",
+                        "isRequiredProperty": "true",
                         "name": "Date",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
@@ -2828,8 +2828,9 @@
                     },
                     {
                         "dataName": "WASTE_SUPPLIER",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "INTEGER",
+                        "isRequiredProperty": "true",
                         "name": "Supplier",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
@@ -2844,8 +2845,9 @@
                     },
                     {
                         "dataName": "WASTE_PRODUCT",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "INTEGER",
+                        "isRequiredProperty": "true",
                         "name": "Product",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
@@ -2860,7 +2862,7 @@
                     },
                     {
                         "dataName": "WASTE_QUANTITY",
-                        "dataNullable": "true",
+                        "dataNullable": "false",
                         "dataType": "DOUBLE",
                         "isRequiredProperty": "true",
                         "name": "Quantity",
@@ -2886,13 +2888,13 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
-                        "dataLength": "20",
+                        "dataLength": "300",
                         "dataName": "WASTE_REASON",
                         "dataNullable": "true",
                         "dataType": "VARCHAR",
                         "name": "Reason",
                         "widgetIsMajor": "true",
-                        "widgetLength": "20",
+                        "widgetLength": "300",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     }

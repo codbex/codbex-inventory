@@ -8,20 +8,20 @@ import { NumberGeneratorService } from "/codbex-number-generator/service/generat
 
 export interface WasteEntity {
     readonly Id: number;
-    Number: string;
+    Number?: string;
     Date: Date;
-    Supplier?: number;
-    Product?: number;
-    Quantity?: number;
+    Supplier: number;
+    Product: number;
+    Quantity: number;
     Store?: number;
     Reason?: string;
 }
 
 export interface WasteCreateEntity {
     readonly Date: Date;
-    readonly Supplier?: number;
-    readonly Product?: number;
-    readonly Quantity?: number;
+    readonly Supplier: number;
+    readonly Product: number;
+    readonly Quantity: number;
     readonly Store?: number;
     readonly Reason?: string;
 }
@@ -141,7 +141,6 @@ export class WasteRepository {
                 name: "Number",
                 column: "WASTE_NUMBER",
                 type: "VARCHAR",
-                required: true
             },
             {
                 name: "Date",
@@ -153,16 +152,19 @@ export class WasteRepository {
                 name: "Supplier",
                 column: "WASTE_SUPPLIER",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Product",
                 column: "WASTE_PRODUCT",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Quantity",
                 column: "WASTE_QUANTITY",
                 type: "DOUBLE",
+                required: true
             },
             {
                 name: "Store",
@@ -199,7 +201,7 @@ export class WasteRepository {
     public create(entity: WasteCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as WasteEntity).Number = new NumberGeneratorService().generate(26);
+        (entity as WasteEntity).Number = new NumberGeneratorService().generate(27);
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
