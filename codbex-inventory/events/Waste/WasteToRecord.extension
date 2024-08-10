@@ -1,0 +1,5 @@
+{
+    "module": "codbex-inventory/events/Waste/WasteToRecordHandler.ts",
+    "description": "Waste product extension",
+    "extensionPoint": "/test-project/extensions/test"
+}
