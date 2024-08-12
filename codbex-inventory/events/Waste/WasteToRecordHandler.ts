@@ -23,12 +23,12 @@ export const trigger = (event) => {
             CatalogueDao.update(catalogueRecord);
         } else {
             //No item has been found
-            // const newCatalogueRecord = {
-            //     Store: item.Store,
-            //     Product: item.Product,
-            //     Quantity: item.Quantity,
-            // };
-            // CatalogueDao.create(newCatalogueRecord);
+            const newCatalogueRecord = {
+                Store: item.Store,
+                Product: item.Product,
+                Quantity: 0,
+            };
+            CatalogueDao.create(newCatalogueRecord);
         }
 
     } else if (operation === "update") {
