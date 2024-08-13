@@ -33,8 +33,8 @@
 						<th fd-table-header-cell>Phone</th>
 						<th fd-table-header-cell>Address</th>
 						<th fd-table-header-cell>PostCode</th>
-						<th fd-table-header-cell>City</th>
 						<th fd-table-header-cell>Country</th>
+						<th fd-table-header-cell>City</th>
 						<th fd-table-header-cell>Location</th>
 						<th fd-table-header-cell>Contact</th>
 						<th fd-table-header-cell>Manager</th>
@@ -59,10 +59,10 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Address}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.PostCode}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsCityValue(next.City)}}
+							{{optionsCountryValue(next.Country)}}
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsCountryValue(next.Country)}}
+							{{optionsCityValue(next.City)}}
 						</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Location}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Contact}}</td>
