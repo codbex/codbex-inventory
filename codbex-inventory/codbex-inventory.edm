@@ -36,8 +36,8 @@
     <property name="Phone" dataName="STORE_PHONE" dataType="VARCHAR" dataLength="20" dataNullable="true" widgetType="TEL" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
     <property name="Address" dataName="STORE_ADDRESS" dataType="VARCHAR" dataLength="20" dataNullable="true" widgetType="TEXTBOX" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
     <property name="PostCode" dataName="STORE_POSTCODE" dataType="VARCHAR" dataLength="20" dataNullable="true" widgetType="TEXTBOX" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
-    <property name="City" dataName="STORE_CITY" dataType="INTEGER" dataNullable="true" widgetType="DROPDOWN" widgetSize="" widgetLength="20" widgetIsMajor="true" widgetDropDownKey="Id" widgetDropDownValue="Name"></property>
     <property name="Country" dataName="STORE_COUNTRY" dataType="INTEGER" dataNullable="true" widgetType="DROPDOWN" widgetSize="" widgetLength="20" widgetIsMajor="true" widgetDropDownKey="Id" widgetDropDownValue="Name"></property>
+    <property name="City" dataName="STORE_CITY" dataType="INTEGER" dataNullable="true" widgetType="DROPDOWN" widgetSize="" widgetLength="20" widgetIsMajor="true" widgetDropDownKey="Id" widgetDropDownValue="Name" widgetDropDownDependsOn="Country"></property>
     <property name="Location" dataName="STORE_LOCATION" dataType="VARCHAR" dataLength="2000" dataNullable="true" widgetType="TEXTAREA" widgetSize="" widgetLength="2000" widgetIsMajor="true"></property>
     <property name="Contact" dataName="STORE_CONTACT" dataType="VARCHAR" dataLength="2000" dataNullable="true" widgetType="TEXTBOX" widgetSize="" widgetLength="2000" widgetIsMajor="true"></property>
     <property name="Manager" dataName="STORE_MANAGER" dataType="VARCHAR" dataLength="20" dataNullable="true" widgetType="TEXTBOX" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
