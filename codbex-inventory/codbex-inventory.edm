@@ -110,7 +110,7 @@
     <property name="Number" dataName="GOODSISSUE_NUMBER" dataType="VARCHAR" dataOrderBy="DESC" dataLength="20" dataNullable="true" isCalculatedProperty="true" calculatedPropertyExpressionCreate="new NumberGeneratorService().generate(17)" widgetType="TEXTBOX" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
     <property name="Store" dataName="GOODSISSUE_STORE" dataType="INTEGER" dataNullable="true" widgetType="DROPDOWN" widgetSize="" widgetLength="20" widgetIsMajor="true" widgetDropDownKey="Id" widgetDropDownValue="Name"></property>
     <property name="Company" dataName="GOODSISSUE_COMPANY" dataType="INTEGER" dataNullable="true" widgetType="DROPDOWN" widgetSize="" widgetLength="20" widgetIsMajor="true" widgetDropDownKey="Id" widgetDropDownValue="Name"></property>
-    <property name="Currency" dataName="GOODSISSUE_CURRENCY" dataType="INTEGER" dataNullable="true" widgetType="DROPDOWN" widgetSize="fd-col-md--2 fd-col--3" widgetLength="20" widgetIsMajor="true" widgetDropDownKey="Id" widgetDropDownValue="Name"></property>
+    <property name="Currency" dataName="GOODSISSUE_CURRENCY" dataType="INTEGER" dataNullable="true" widgetType="DROPDOWN" widgetSize="" widgetLength="20" widgetIsMajor="true" widgetDropDownKey="Id" widgetDropDownValue="Name"></property>
     <property name="Net" dataName="GOODSISSUE_NET" dataType="DECIMAL" dataNullable="true" dataDefaultValue="0" dataPrecision="16" dataScale="2" widgetType="NUMBER" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
     <property name="VAT" dataName="GOODSISSUE_VAT" dataType="DECIMAL" dataNullable="true" dataDefaultValue="0" dataPrecision="16" dataScale="2" widgetType="NUMBER" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
     <property name="Gross" dataName="GOODSISSUE_GROSS" dataType="DECIMAL" dataNullable="true" dataDefaultValue="0" dataPrecision="16" dataScale="2" widgetType="NUMBER" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
@@ -169,8 +169,6 @@
     <property name="Rate" dataName="CURRENCY_RATE" dataType="DOUBLE" dataNullable="true" widgetType="NUMBER" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
   </entity>
   <relation name="GoodsReceipt_Currency" type="relation" entity="GoodsReceipt" relationName="GoodsReceipt_Currency" relationshipEntityPerspectiveName="Currencies" relationshipEntityPerspectiveLabel="Entities" property="Currency" referenced="Currency" referencedProperty="Id">
-  </relation>
-  <relation name="GoodsIssue_Currency" type="relation" entity="GoodsIssue" relationName="GoodsIssue_Currency" relationshipEntityPerspectiveName="Currencies" relationshipEntityPerspectiveLabel="Entities" property="Currency" referenced="Currency" referencedProperty="Id">
   </relation>
   <entity name="UoM" dataName="UOM" dataCount="SELECT COUNT(*) AS COUNT FROM &quot;${tablePrefix}UOM&quot;" dataQuery="" type="PROJECTION" title="UoM" caption="Manage entity UoM" tooltip="UoM" icon="/services/web/resources/unicons/file.svg" menuKey="uom" menuLabel="UoM" menuIndex="100" layoutType="MANAGE" navigationPath="/Home" perspectiveName="UnitsOfMeasures" perspectiveLabel="Entities" perspectiveIcon="/services/web/resources/unicons/arrows-resize-v.svg" perspectiveOrder="980" perspectiveRole="" generateReport="false" projectionReferencedModel="/workspace/codbex-uoms/codbex-uoms.model" projectionReferencedEntity="UoM">
     <property name="Id" dataName="UOM_ID" dataType="INTEGER" dataNullable="true" dataPrimaryKey="true" dataAutoIncrement="true" calculatedPropertyExpressionCreate="" calculatedPropertyExpressionUpdate="" widgetType="TEXTBOX" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
@@ -240,7 +238,7 @@
   </relation>
   <entity name="DeliveryNote" dataName="DELIVERYNOTE" dataCount="SELECT COUNT(*) AS COUNT FROM &quot;${tablePrefix}DELIVERYNOTE&quot;" dataQuery="" type="PRIMARY" title="DeliveryNote" caption="Manage entity DeliveryNote" tooltip="DeliveryNote" icon="/services/web/resources/unicons/file.svg" menuKey="deliverynote" menuLabel="DeliveryNote" menuIndex="100" layoutType="MANAGE_MASTER" navigationPath="/Home" perspectiveName="DeliveryNote" perspectiveLabel="Delivery Note" perspectiveIcon="/services/web/resources/unicons/notes.svg" perspectiveOrder="700" perspectiveRole="" generateReport="false" importsCode="aW1wb3J0IHsgTnVtYmVyR2VuZXJhdG9yU2VydmljZSB9IGZyb20gIi9jb2RiZXgtbnVtYmVyLWdlbmVyYXRvci9zZXJ2aWNlL2dlbmVyYXRvciI7">
     <property name="Id" dataName="DELIVERYNOTE_ID" dataType="INTEGER" dataNullable="true" dataPrimaryKey="true" dataAutoIncrement="true" widgetType="TEXTBOX" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
-    <property name="Number" dataName="DELIVERYNOTE_NUMBER" dataType="VARCHAR" dataLength="30" dataNullable="true" isCalculatedProperty="true" calculatedPropertyExpressionCreate="new NumberGeneratorService().generate(26)" widgetType="TEXTBOX" widgetSize="" widgetLength="30" widgetIsMajor="true"></property>
+    <property name="Number" dataName="DELIVERYNOTE_NUMBER" dataType="VARCHAR" dataOrderBy="DESC" dataLength="30" dataNullable="true" isCalculatedProperty="true" calculatedPropertyExpressionCreate="new NumberGeneratorService().generate(26)" widgetType="TEXTBOX" widgetSize="" widgetLength="30" widgetIsMajor="true"></property>
     <property name="Date" dataName="DELIVERYNOTE_DATE" dataType="DATE" dataNullable="false" isRequiredProperty="true" widgetType="DATE" widgetSize="" widgetLength="20" widgetIsMajor="true"></property>
     <property name="Store" dataName="DELIVERYNOTE_STORE" dataType="INTEGER" dataNullable="false" isRequiredProperty="true" widgetType="DROPDOWN" widgetSize="" widgetLength="20" widgetIsMajor="true" widgetDropDownKey="Id" widgetDropDownValue="Name"></property>
     <property name="Employee" dataName="DELIVERYNOTE_EMPLOYEE" dataType="INTEGER" dataNullable="true" isRequiredProperty="true" widgetType="DROPDOWN" widgetSize="" widgetLength="20" widgetIsMajor="true" widgetDropDownKey="Id" widgetDropDownValue="FirstName"></property>
@@ -309,6 +307,7 @@
   <relation name="Waste_Product" type="relation" entity="Waste" relationName="Waste_Product" relationshipEntityPerspectiveName="Products" relationshipEntityPerspectiveLabel="Entities" property="Product" referenced="Product" referencedProperty="Id">
   </relation>
   <relation name="Waste_Store" type="relation" entity="Waste" relationName="Waste_Store" relationshipEntityPerspectiveName="Stores" relationshipEntityPerspectiveLabel="Entities" property="Store" referenced="Store" referencedProperty="Id">
+  <relation name="GoodsIssue_Currency" type="relation" entity="GoodsIssue" relationName="GoodsIssue_Currency" relationshipEntityPerspectiveName="Currencies" relationshipEntityPerspectiveLabel="Entities" property="Currency" referenced="Currency" referencedProperty="Id">
   </relation>
  </entities>
  <perspectives>
