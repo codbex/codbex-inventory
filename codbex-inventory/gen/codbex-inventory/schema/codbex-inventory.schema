@@ -681,7 +681,6 @@
                 ]
             },
             {
-
                 "name": "CODBEX_WASTE",
                 "type": "TABLE",
                 "columns": [
@@ -728,16 +727,6 @@
                 ]
             },
             {
-                "name": "Store_City",
-                "type": "foreignKey",
-                "table": "CODBEX_STORE",
-                "constraintName": "Store_City",
-                "columns": "STORE_CITY",
-                "referencedTable": "CODBEX_CITY",
-                "referencedColumns": "CITY_ID"
-            },
-            {
-
                 "name": "Store_Country",
                 "type": "foreignKey",
                 "table": "CODBEX_STORE",
