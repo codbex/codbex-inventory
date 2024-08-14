@@ -307,7 +307,6 @@
   <relation name="Waste_Product" type="relation" entity="Waste" relationName="Waste_Product" relationshipEntityPerspectiveName="Products" relationshipEntityPerspectiveLabel="Entities" property="Product" referenced="Product" referencedProperty="Id">
   </relation>
   <relation name="Waste_Store" type="relation" entity="Waste" relationName="Waste_Store" relationshipEntityPerspectiveName="Stores" relationshipEntityPerspectiveLabel="Entities" property="Store" referenced="Store" referencedProperty="Id">
-  <relation name="GoodsIssue_Currency" type="relation" entity="GoodsIssue" relationName="GoodsIssue_Currency" relationshipEntityPerspectiveName="Currencies" relationshipEntityPerspectiveLabel="Entities" property="Currency" referenced="Currency" referencedProperty="Id">
   </relation>
  </entities>
  <perspectives>

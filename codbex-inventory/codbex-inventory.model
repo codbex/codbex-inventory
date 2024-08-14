@@ -1188,11 +1188,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "GoodsIssue_Currency",
-                        "relationshipEntityName": "Currency",
-                        "relationshipEntityPerspectiveName": "Currencies",
-                        "relationshipEntityPerspectiveLabel": "Entities"
+                        "widgetType": "DROPDOWN"
                     },
                     {
                         "dataDefaultValue": "0",
