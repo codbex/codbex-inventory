@@ -8,7 +8,7 @@ const viewData = {
     label: "DeliveryNoteItem",
     factory: "frame",
     region: "bottom",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/${masterEntity}/DeliveryNoteItem/index.html",
+    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/DeliveryNoteItem/index.html",
     perspectiveName: "DeliveryNote",
 };
 

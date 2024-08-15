@@ -19,13 +19,13 @@ class DeliveryNoteItemService {
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
 
-            let ${masterEntityId} = parseInt(ctx.queryParameters.${masterEntityId});
-            ${masterEntityId} = isNaN(${masterEntityId}) ? ctx.queryParameters.${masterEntityId} : ${masterEntityId};
+            let DeliveryNote = parseInt(ctx.queryParameters.DeliveryNote);
+            DeliveryNote = isNaN(DeliveryNote) ? ctx.queryParameters.DeliveryNote : DeliveryNote;
 
-            if (${masterEntityId} !== undefined) {
+            if (DeliveryNote !== undefined) {
                 options.$filter = {
                     equals: {
-                        ${masterEntityId}: ${masterEntityId}
+                        DeliveryNote: DeliveryNote
                     }
                 };
             }

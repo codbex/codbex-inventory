@@ -6225,11 +6225,13 @@
           "dataNullable": true,
           "dataType": "INTEGER",
           "name": "DeliveryNote",
-          "widgetIsMajor": true,
+          "relationshipCardinality": "1_n",
+          "relationshipName": "DeliveryNoteItem_DeliveryNote",
+          "relationshipType": "COMPOSITION",
+          "widgetIsMajor": false,
           "widgetLength": "20",
           "widgetSize": "",
           "widgetType": "TEXTBOX",
-          "relationshipName": "DeliveryNoteItem_DeliveryNote",
           "relationshipEntityName": "DeliveryNote",
           "relationshipEntityPerspectiveName": "DeliveryNote",
           "relationshipEntityPerspectiveLabel": "Entities",
@@ -6283,7 +6285,9 @@
         "Id"
       ],
       "primaryKeysString": "Id",
-      "hasDropdowns": true
+      "hasDropdowns": true,
+      "masterEntity": "DeliveryNote",
+      "masterEntityId": "DeliveryNote"
     },
     {
       "properties": [

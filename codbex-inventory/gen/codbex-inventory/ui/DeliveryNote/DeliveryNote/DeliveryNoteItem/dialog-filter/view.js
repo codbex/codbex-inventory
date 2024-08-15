@@ -4,9 +4,9 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "DeliveryNoteItem-details",
-    label: "DeliveryNoteItem",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/${masterEntity}/DeliveryNoteItem/dialog-window/index.html",
+    id: "DeliveryNoteItem-filter",
+    label: "DeliveryNoteItem Filter",
+    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/DeliveryNoteItem/dialog-filter/index.html",
     perspectiveName: "DeliveryNote",
 };
 

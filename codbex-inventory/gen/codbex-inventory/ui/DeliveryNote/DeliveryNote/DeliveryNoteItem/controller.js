@@ -43,13 +43,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("codbex-inventory.DeliveryNote.${masterEntity}.entitySelected", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-inventory.DeliveryNote.DeliveryNote.entitySelected", function (msg) {
 			resetPagination();
 			$scope.selectedMainEntityId = msg.data.selectedMainEntityId;
 			$scope.loadPage($scope.dataPage);
 		}, true);
 
-		messageHub.onDidReceiveMessage("codbex-inventory.DeliveryNote.${masterEntity}.clearDetails", function (msg) {
+		messageHub.onDidReceiveMessage("codbex-inventory.DeliveryNote.DeliveryNote.clearDetails", function (msg) {
 			$scope.$apply(function () {
 				resetPagination();
 				$scope.selectedMainEntityId = null;
@@ -81,7 +81,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = function (pageNumber, filter) {
-			let ${masterEntityId} = $scope.selectedMainEntityId;
+			let DeliveryNote = $scope.selectedMainEntityId;
 			$scope.dataPage = pageNumber;
 			if (!filter && $scope.filter) {
 				filter = $scope.filter;
@@ -95,7 +95,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (!filter.$filter.equals) {
 				filter.$filter.equals = {};
 			}
-			filter.$filter.equals.${masterEntityId} = ${masterEntityId};
+			filter.$filter.equals.DeliveryNote = DeliveryNote;
 			entityApi.count(filter).then(function (response) {
 				if (response.status != 200) {
 					messageHub.showAlertError("DeliveryNoteItem", `Unable to count DeliveryNoteItem: '${response.message}'`);
@@ -143,7 +143,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("DeliveryNoteItem-details", {
 				action: "create",
 				entity: {},
-				selectedMainEntityKey: "${masterEntityId}",
+				selectedMainEntityKey: "DeliveryNote",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
@@ -154,7 +154,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("DeliveryNoteItem-details", {
 				action: "update",
 				entity: entity,
-				selectedMainEntityKey: "${masterEntityId}",
+				selectedMainEntityKey: "DeliveryNote",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,

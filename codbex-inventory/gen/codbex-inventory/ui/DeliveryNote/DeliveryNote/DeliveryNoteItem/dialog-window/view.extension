@@ -1,5 +1,5 @@
 {
-    "module": "codbex-inventory/gen/codbex-inventory/ui/DeliveryNote//DeliveryNoteItem/dialog-filter/view.js",
+    "module": "codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/DeliveryNoteItem/dialog-window/view.js",
     "extensionPoint": "codbex-inventory-dialog-window",
     "description": "codbex-inventory - Application Dialog Window"
 }
