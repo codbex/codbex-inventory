@@ -1,0 +1,5 @@
+{
+    "module": "codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/${masterEntity}/DeliveryNoteItem/dialog-window/view.js",
+    "extensionPoint": "codbex-inventory-dialog-window",
+    "description": "codbex-inventory - Application Dialog Window"
+}

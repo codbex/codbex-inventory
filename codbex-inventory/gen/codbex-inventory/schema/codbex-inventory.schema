@@ -64,12 +64,12 @@
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "STORE_COUNTRY"
+                        "name": "STORE_CITY"
                     },
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "STORE_CITY"
+                        "name": "STORE_COUNTRY"
                     },
                     {
                         "type": "VARCHAR",
@@ -727,15 +727,6 @@
                 ]
             },
             {
-                "name": "Store_Country",
-                "type": "foreignKey",
-                "table": "CODBEX_STORE",
-                "constraintName": "Store_Country",
-                "columns": "STORE_COUNTRY",
-                "referencedTable": "CODBEX_COUNTRY",
-                "referencedColumns": "COUNTRY_ID"
-            },
-            {
                 "name": "Store_City",
                 "type": "foreignKey",
                 "table": "CODBEX_STORE",
@@ -743,6 +734,15 @@
                 "columns": "STORE_CITY",
                 "referencedTable": "CODBEX_CITY",
                 "referencedColumns": "CITY_ID"
+            },
+            {
+                "name": "Store_Country",
+                "type": "foreignKey",
+                "table": "CODBEX_STORE",
+                "constraintName": "Store_Country",
+                "columns": "STORE_COUNTRY",
+                "referencedTable": "CODBEX_COUNTRY",
+                "referencedColumns": "COUNTRY_ID"
             },
             {
                 "name": "Store_StoreStatus",

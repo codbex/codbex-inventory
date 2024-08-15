@@ -171,15 +171,6 @@ export class DeliveryNoteRepository {
     }
 
     public findAll(options?: DeliveryNoteEntityOptions): DeliveryNoteEntity[] {
-        // @ts-ignore
-        if (options.$sort === undefined) {
-            // @ts-ignore
-            options.$sort = "";
-        }
-        // @ts-ignore
-        options.$sort += "Number,";
-        // @ts-ignore
-        options.$order = "DESC";
         return this.dao.list(options).map((e: DeliveryNoteEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;

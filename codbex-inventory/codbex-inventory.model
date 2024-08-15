@@ -1187,8 +1187,12 @@
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "DROPDOWN"
+                        "widgetSize": "fd-col-md--2 fd-col--3",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "GoodsIssue_Currency",
+                        "relationshipEntityName": "Currency",
+                        "relationshipEntityPerspectiveName": "Currencies",
+                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "dataDefaultValue": "0",
@@ -2423,7 +2427,6 @@
                         "dataLength": "30",
                         "dataName": "DELIVERYNOTE_NUMBER",
                         "dataNullable": "true",
-                        "dataOrderBy": "DESC",
                         "dataType": "VARCHAR",
                         "isCalculatedProperty": "true",
                         "name": "Number",
@@ -2773,7 +2776,7 @@
                 "dataQuery": "",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "MANAGE_DETAILS",
                 "menuIndex": "100",
                 "menuKey": "deliverynoteitem",
                 "menuLabel": "DeliveryNoteItem",
