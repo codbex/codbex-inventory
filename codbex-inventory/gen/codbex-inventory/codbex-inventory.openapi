@@ -5820,10 +5820,10 @@ components:
           type: string
           minLength: 0
           maxLength: 20
-        Country:
+        City:
           type: integer
           format: int32
-        City:
+        Country:
           type: integer
           format: int32
         Location:
@@ -5916,7 +5916,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                Country:
+                City:
                   oneOf:
                     - type: integer
                       format: int32
@@ -5924,7 +5924,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                City:
+                Country:
                   oneOf:
                     - type: integer
                       format: int32
@@ -6047,7 +6047,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                Country:
+                City:
                   oneOf:
                     - type: integer
                       format: int32
@@ -6055,7 +6055,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                City:
+                Country:
                   oneOf:
                     - type: integer
                       format: int32
@@ -6136,8 +6136,8 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Country:
                 City:
+                Country:
                 Location:
                   type: string
                   minLength: 0
@@ -6178,10 +6178,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Country:
+                City:
                   type: integer
                   format: int32
-                City:
+                Country:
                   type: integer
                   format: int32
                 Location:
@@ -6228,10 +6228,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Country:
+                City:
                   type: integer
                   format: int32
-                City:
+                Country:
                   type: integer
                   format: int32
                 Location:
@@ -6278,10 +6278,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Country:
+                City:
                   type: integer
                   format: int32
-                City:
+                Country:
                   type: integer
                   format: int32
                 Location:
@@ -6328,10 +6328,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Country:
+                City:
                   type: integer
                   format: int32
-                City:
+                Country:
                   type: integer
                   format: int32
                 Location:
@@ -6354,12 +6354,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Name", "Email", "Phone", "Address", "PostCode", "Country", "City", "Location", "Contact", "Manager", "Status", "Company"]
+          example: ["Id", "Name", "Email", "Phone", "Address", "PostCode", "City", "Country", "Location", "Contact", "Manager", "Status", "Company"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name,Email,Phone,Address,PostCode,Country,City,Location,Contact,Manager,Status,Company"
+            example: "Id,Name,Email,Phone,Address,PostCode,City,Country,Location,Contact,Manager,Status,Company"
         $order:
           type: string
           enum: ["asc", "desc"]

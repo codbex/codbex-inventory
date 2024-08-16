@@ -19,6 +19,17 @@ class DeliveryNoteItemService {
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
 
+            let DeliveryNote = parseInt(ctx.queryParameters.DeliveryNote);
+            DeliveryNote = isNaN(DeliveryNote) ? ctx.queryParameters.DeliveryNote : DeliveryNote;
+
+            if (DeliveryNote !== undefined) {
+                options.$filter = {
+                    equals: {
+                        DeliveryNote: DeliveryNote
+                    }
+                };
+            }
+
             return this.repository.findAll(options);
         } catch (error: any) {
             this.handleError(error);
