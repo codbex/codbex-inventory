@@ -127,9 +127,6 @@ class WasteService {
         if (entity.Date === null || entity.Date === undefined) {
             throw new ValidationError(`The 'Date' property is required, provide a valid value`);
         }
-        if (entity.Supplier === null || entity.Supplier === undefined) {
-            throw new ValidationError(`The 'Supplier' property is required, provide a valid value`);
-        }
         if (entity.Product === null || entity.Product === undefined) {
             throw new ValidationError(`The 'Product' property is required, provide a valid value`);
         }

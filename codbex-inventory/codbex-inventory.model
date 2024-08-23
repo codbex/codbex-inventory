@@ -628,6 +628,7 @@
                     },
                     {
                         "dataDefaultValue": "0",
+                        "dataLength": "18",
                         "dataName": "GOODSRECEIPT_NET",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -641,6 +642,7 @@
                     },
                     {
                         "dataDefaultValue": "0",
+                        "dataLength": "18",
                         "dataName": "GOODSRECEIPT_VAT",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -654,6 +656,7 @@
                     },
                     {
                         "dataDefaultValue": "0",
+                        "dataLength": "18",
                         "dataName": "GOODSRECEIPT_GROSS",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -802,6 +805,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "dataLength": "18",
                         "dataName": "GOODSRECEIPTITEM_PRICE",
                         "dataNullable": "false",
                         "dataPrecision": "16",
@@ -817,6 +821,7 @@
                     {
                         "calculatedPropertyExpressionCreate": "entity[\"Quantity\"] * entity[\"Price\"]",
                         "calculatedPropertyExpressionUpdate": "entity[\"Quantity\"] * entity[\"Price\"]",
+                        "dataLength": "18",
                         "dataName": "GOODSRECEIPTITEM_NET",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -832,6 +837,7 @@
                     {
                         "calculatedPropertyExpressionCreate": "entity[\"Net\"] * 0.2",
                         "calculatedPropertyExpressionUpdate": "entity[\"Net\"] * 0.2",
+                        "dataLength": "18",
                         "dataName": "GOODSRECEIPTITEM_VAT",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -847,6 +853,7 @@
                     {
                         "calculatedPropertyExpressionCreate": "entity[\"Net\"] + entity[\"VAT\"]",
                         "calculatedPropertyExpressionUpdate": "entity[\"Net\"] + entity[\"VAT\"]",
+                        "dataLength": "18",
                         "dataName": "GOODSRECEIPTITEM_GROSS",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -1196,6 +1203,7 @@
                     },
                     {
                         "dataDefaultValue": "0",
+                        "dataLength": "18",
                         "dataName": "GOODSISSUE_NET",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -1209,6 +1217,7 @@
                     },
                     {
                         "dataDefaultValue": "0",
+                        "dataLength": "18",
                         "dataName": "GOODSISSUE_VAT",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -1222,6 +1231,7 @@
                     },
                     {
                         "dataDefaultValue": "0",
+                        "dataLength": "18",
                         "dataName": "GOODSISSUE_GROSS",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -1370,6 +1380,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "dataLength": "18",
                         "dataName": "GOODSISSUEITEM_PRICE",
                         "dataNullable": "false",
                         "dataPrecision": "16",
@@ -1385,6 +1396,7 @@
                     {
                         "calculatedPropertyExpressionCreate": "entity[\"Quantity\"] * entity[\"Price\"]",
                         "calculatedPropertyExpressionUpdate": "entity[\"Quantity\"] * entity[\"Price\"]",
+                        "dataLength": "18",
                         "dataName": "GOODSISSUEITEM_NET",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -1400,6 +1412,7 @@
                     {
                         "calculatedPropertyExpressionCreate": "entity[\"Net\"] * 0.2",
                         "calculatedPropertyExpressionUpdate": "entity[\"Net\"] * 0.2",
+                        "dataLength": "18",
                         "dataName": "GOODSISSUEITEM_VAT",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -1415,6 +1428,7 @@
                     {
                         "calculatedPropertyExpressionCreate": "entity[\"Net\"] + entity[\"VAT\"]",
                         "calculatedPropertyExpressionUpdate": "entity[\"Net\"] + entity[\"VAT\"]",
+                        "dataLength": "18",
                         "dataName": "GOODSISSUEITEM_GROSS",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -1507,6 +1521,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "dataLength": "18",
                         "dataName": "STOCKRECORD_PRICE",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -1519,6 +1534,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "dataLength": "18",
                         "dataName": "STOCKRECORD_NET",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -1531,6 +1547,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "dataLength": "18",
                         "dataName": "STOCKRECORD_VAT",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -1543,6 +1560,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "dataLength": "18",
                         "dataName": "STOCKRECORD_GROSS",
                         "dataNullable": "true",
                         "dataPrecision": "16",
@@ -2832,21 +2850,18 @@
                         "widgetType": "DATE"
                     },
                     {
-                        "dataName": "WASTE_SUPPLIER",
-                        "dataNullable": "false",
+                        "dataName": "WASTE_CUSTOMER",
+                        "dataNullable": "true",
                         "dataType": "INTEGER",
-                        "isRequiredProperty": "true",
-                        "name": "Supplier",
-                        "widgetDropDownKey": "Id",
-                        "widgetDropDownValue": "Name",
+                        "name": "Customer",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "Waste_Supplier",
-                        "relationshipEntityName": "Supplier",
-                        "relationshipEntityPerspectiveName": "Suppliers",
-                        "relationshipEntityPerspectiveLabel": "Suppliers"
+                        "widgetType": "TEXTBOX",
+                        "relationshipName": "Waste_Customer",
+                        "relationshipEntityName": "Customer",
+                        "relationshipEntityPerspectiveName": "Customers",
+                        "relationshipEntityPerspectiveLabel": "Customers"
                     },
                     {
                         "dataName": "WASTE_PRODUCT",

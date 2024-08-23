@@ -10040,7 +10040,6 @@ components:
       type: object
       required:
         - Date
-        - Supplier
         - Product
         - Quantity
       properties:
@@ -10053,7 +10052,7 @@ components:
           maxLength: 30
           readOnly: true
         Date:
-        Supplier:
+        Customer:
           type: integer
           format: int32
         Product:
@@ -10099,7 +10098,7 @@ components:
                         maxLength: 30
                 Date:
                   oneOf:
-                Supplier:
+                Customer:
                   oneOf:
                     - type: integer
                       format: int32
@@ -10166,7 +10165,7 @@ components:
                         maxLength: 30
                 Date:
                   oneOf:
-                Supplier:
+                Customer:
                   oneOf:
                     - type: integer
                       format: int32
@@ -10218,7 +10217,7 @@ components:
                   minLength: 0
                   maxLength: 30
                 Date:
-                Supplier:
+                Customer:
                 Product:
                 Quantity:
                 Store:
@@ -10237,7 +10236,7 @@ components:
                   minLength: 0
                   maxLength: 30
                 Date:
-                Supplier:
+                Customer:
                   type: integer
                   format: int32
                 Product:
@@ -10264,7 +10263,7 @@ components:
                   minLength: 0
                   maxLength: 30
                 Date:
-                Supplier:
+                Customer:
                   type: integer
                   format: int32
                 Product:
@@ -10291,7 +10290,7 @@ components:
                   minLength: 0
                   maxLength: 30
                 Date:
-                Supplier:
+                Customer:
                   type: integer
                   format: int32
                 Product:
@@ -10318,7 +10317,7 @@ components:
                   minLength: 0
                   maxLength: 30
                 Date:
-                Supplier:
+                Customer:
                   type: integer
                   format: int32
                 Product:
@@ -10336,12 +10335,12 @@ components:
                   maxLength: 300
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Supplier", "Product", "Quantity", "Store", "Reason"]
+          example: ["Id", "Number", "Date", "Customer", "Product", "Quantity", "Store", "Reason"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Supplier,Product,Quantity,Store,Reason"
+            example: "Id,Number,Date,Customer,Product,Quantity,Store,Reason"
         $order:
           type: string
           enum: ["asc", "desc"]

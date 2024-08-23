@@ -20,7 +20,6 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
-			$scope.optionsSupplier = params.optionsSupplier;
 			$scope.optionsProduct = params.optionsProduct;
 			$scope.optionsStore = params.optionsStore;
 		}
@@ -57,8 +56,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.DateTo) {
 				filter.$filter.lessThanOrEqual.Date = entity.DateTo;
 			}
-			if (entity.Supplier !== undefined) {
-				filter.$filter.equals.Supplier = entity.Supplier;
+			if (entity.Customer !== undefined) {
+				filter.$filter.equals.Customer = entity.Customer;
 			}
 			if (entity.Product !== undefined) {
 				filter.$filter.equals.Product = entity.Product;

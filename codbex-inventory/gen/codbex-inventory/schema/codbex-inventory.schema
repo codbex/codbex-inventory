@@ -139,6 +139,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -147,6 +148,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -155,6 +157,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -209,12 +212,14 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "name": "GOODSRECEIPTITEM_PRICE"
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -222,6 +227,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -229,6 +235,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -275,6 +282,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -283,6 +291,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -291,6 +300,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -345,12 +355,14 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "name": "GOODSISSUEITEM_PRICE"
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -358,6 +370,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -365,6 +378,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -399,6 +413,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -406,6 +421,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -413,6 +429,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -420,6 +437,7 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -703,7 +721,8 @@
                     },
                     {
                         "type": "INTEGER",
-                        "name": "WASTE_SUPPLIER"
+                        "nullable": true,
+                        "name": "WASTE_CUSTOMER"
                     },
                     {
                         "type": "INTEGER",
@@ -1015,13 +1034,13 @@
                 "referencedColumns": "DELIVERYNOTE_ID"
             },
             {
-                "name": "Waste_Supplier",
+                "name": "Waste_Customer",
                 "type": "foreignKey",
                 "table": "CODBEX_WASTE",
-                "constraintName": "Waste_Supplier",
-                "columns": "WASTE_SUPPLIER",
-                "referencedTable": "CODBEX_SUPPLIER",
-                "referencedColumns": "SUPPLIER_ID"
+                "constraintName": "Waste_Customer",
+                "columns": "WASTE_CUSTOMER",
+                "referencedTable": "CODBEX_CUSTOMER",
+                "referencedColumns": "CUSTOMER_ID"
             },
             {
                 "name": "Waste_Product",
