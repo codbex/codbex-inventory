@@ -41,6 +41,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsProduct = [];
+				$scope.optionsSupplier = [];
 				$scope.optionsStore = [];
 				$scope.action = 'select';
 			});
@@ -53,6 +54,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsProduct = msg.data.optionsProduct;
+				$scope.optionsSupplier = msg.data.optionsSupplier;
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.action = 'select';
 			});
@@ -62,6 +64,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsProduct = msg.data.optionsProduct;
+				$scope.optionsSupplier = msg.data.optionsSupplier;
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.action = 'create';
 			});
@@ -74,6 +77,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsProduct = msg.data.optionsProduct;
+				$scope.optionsSupplier = msg.data.optionsSupplier;
 				$scope.optionsStore = msg.data.optionsStore;
 				$scope.action = 'update';
 			});

@@ -120,6 +120,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityId: entity.Id,
 				optionsProduct: $scope.optionsProduct,
+				optionsSupplier: $scope.optionsSupplier,
 				optionsStore: $scope.optionsStore,
 			});
 		};
@@ -131,6 +132,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("createEntity", {
 				entity: {},
 				optionsProduct: $scope.optionsProduct,
+				optionsSupplier: $scope.optionsSupplier,
 				optionsStore: $scope.optionsStore,
 			});
 		};
@@ -140,6 +142,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
 				optionsProduct: $scope.optionsProduct,
+				optionsSupplier: $scope.optionsSupplier,
 				optionsStore: $scope.optionsStore,
 			});
 		};
@@ -178,17 +181,28 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("Waste-filter", {
 				entity: $scope.filterEntity,
 				optionsProduct: $scope.optionsProduct,
+				optionsSupplier: $scope.optionsSupplier,
 				optionsStore: $scope.optionsStore,
 			});
 		};
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsProduct = [];
+		$scope.optionsSupplier = [];
 		$scope.optionsStore = [];
 
 
 		$http.get("/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts").then(function (response) {
 			$scope.optionsProduct = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Suppliers/SupplierService.ts").then(function (response) {
+			$scope.optionsSupplier = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -209,6 +223,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsProduct.length; i++) {
 				if ($scope.optionsProduct[i].value === optionKey) {
 					return $scope.optionsProduct[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsSupplierValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsSupplier.length; i++) {
+				if ($scope.optionsSupplier[i].value === optionKey) {
+					return $scope.optionsSupplier[i].text;
 				}
 			}
 			return null;

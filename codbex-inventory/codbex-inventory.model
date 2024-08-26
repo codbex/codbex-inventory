@@ -2850,6 +2850,22 @@
                         "widgetType": "DATE"
                     },
                     {
+                        "dataName": "WASTE_WASTETYPE",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "name": "WasteType",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "Waste_WasteType",
+                        "relationshipEntityName": "WasteType",
+                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
                         "dataName": "WASTE_CUSTOMER",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2890,6 +2906,22 @@
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "NUMBER"
+                    },
+                    {
+                        "dataName": "WASTE_SUPPLIER",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "name": "Supplier",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "Waste_Supplier",
+                        "relationshipEntityName": "Supplier",
+                        "relationshipEntityPerspectiveName": "Suppliers",
+                        "relationshipEntityPerspectiveLabel": "Suppliers"
                     },
                     {
                         "dataName": "WASTE_STORE",
@@ -3101,6 +3133,53 @@
                 "title": "Supplier",
                 "tooltip": "Supplier",
                 "type": "PROJECTION"
+            },
+            {
+                "properties": [
+                    {
+                        "dataAutoIncrement": "true",
+                        "dataName": "WASTETYPE_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataLength": "20",
+                        "dataName": "WASTETYPE_NAME",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    }
+                ],
+                "caption": "Manage entity WasteType",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}WASTETYPE\"",
+                "dataName": "WASTETYPE",
+                "dataQuery": "",
+                "generateReport": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "wastetype",
+                "menuLabel": "WasteType",
+                "name": "WasteType",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveLabel": "Entities",
+                "perspectiveName": "entities",
+                "perspectiveOrder": "100",
+                "perspectiveRole": "",
+                "title": "WasteType",
+                "tooltip": "WasteType",
+                "type": "PRIMARY"
             }
         ],
         "perspectives": [

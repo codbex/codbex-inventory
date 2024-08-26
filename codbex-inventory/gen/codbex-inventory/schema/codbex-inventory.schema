@@ -722,6 +722,11 @@
                     {
                         "type": "INTEGER",
                         "nullable": true,
+                        "name": "WASTE_WASTETYPE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
                         "name": "WASTE_CUSTOMER"
                     },
                     {
@@ -735,6 +740,11 @@
                     {
                         "type": "INTEGER",
                         "nullable": true,
+                        "name": "WASTE_SUPPLIER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
                         "name": "WASTE_STORE"
                     },
                     {
@@ -742,6 +752,25 @@
                         "length": 300,
                         "nullable": true,
                         "name": "WASTE_REASON"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_WASTETYPE",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "WASTETYPE_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "WASTETYPE_NAME"
                     }
                 ]
             },
@@ -1034,6 +1063,15 @@
                 "referencedColumns": "DELIVERYNOTE_ID"
             },
             {
+                "name": "Waste_WasteType",
+                "type": "foreignKey",
+                "table": "CODBEX_WASTE",
+                "constraintName": "Waste_WasteType",
+                "columns": "WASTE_WASTETYPE",
+                "referencedTable": "CODBEX_WASTETYPE",
+                "referencedColumns": "WASTETYPE_ID"
+            },
+            {
                 "name": "Waste_Customer",
                 "type": "foreignKey",
                 "table": "CODBEX_WASTE",
@@ -1050,6 +1088,15 @@
                 "columns": "WASTE_PRODUCT",
                 "referencedTable": "CODBEX_PRODUCT",
                 "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "Waste_Supplier",
+                "type": "foreignKey",
+                "table": "CODBEX_WASTE",
+                "constraintName": "Waste_Supplier",
+                "columns": "WASTE_SUPPLIER",
+                "referencedTable": "CODBEX_SUPPLIER",
+                "referencedColumns": "SUPPLIER_ID"
             },
             {
                 "name": "Waste_Store",
