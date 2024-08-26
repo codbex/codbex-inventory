@@ -17,7 +17,7 @@ export const trigger = (event) => {
             },
         });
 
-        if (catalogueRecords.length > 0) {
+        if (catalogueRecords.length > 0 && item.WasteType != 1) {
             const catalogueRecord = catalogueRecords[0];
             catalogueRecord.Quantity = (catalogueRecord.Quantity - item.Quantity) < 0 ? 0 : (catalogueRecord.Quantity - item.Quantity);
             CatalogueDao.update(catalogueRecord);

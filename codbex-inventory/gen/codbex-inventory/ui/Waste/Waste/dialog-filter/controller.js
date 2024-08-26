@@ -20,6 +20,8 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
+			$scope.optionsWasteType = params.optionsWasteType;
+			$scope.optionsCustomer = params.optionsCustomer;
 			$scope.optionsProduct = params.optionsProduct;
 			$scope.optionsSupplier = params.optionsSupplier;
 			$scope.optionsStore = params.optionsStore;

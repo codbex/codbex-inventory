@@ -119,6 +119,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("entitySelected", {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
+				optionsWasteType: $scope.optionsWasteType,
+				optionsCustomer: $scope.optionsCustomer,
 				optionsProduct: $scope.optionsProduct,
 				optionsSupplier: $scope.optionsSupplier,
 				optionsStore: $scope.optionsStore,
@@ -131,6 +133,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 			messageHub.postMessage("createEntity", {
 				entity: {},
+				optionsWasteType: $scope.optionsWasteType,
+				optionsCustomer: $scope.optionsCustomer,
 				optionsProduct: $scope.optionsProduct,
 				optionsSupplier: $scope.optionsSupplier,
 				optionsStore: $scope.optionsStore,
@@ -141,6 +145,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.action = "update";
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
+				optionsWasteType: $scope.optionsWasteType,
+				optionsCustomer: $scope.optionsCustomer,
 				optionsProduct: $scope.optionsProduct,
 				optionsSupplier: $scope.optionsSupplier,
 				optionsStore: $scope.optionsStore,
@@ -180,6 +186,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("Waste-filter", {
 				entity: $scope.filterEntity,
+				optionsWasteType: $scope.optionsWasteType,
+				optionsCustomer: $scope.optionsCustomer,
 				optionsProduct: $scope.optionsProduct,
 				optionsSupplier: $scope.optionsSupplier,
 				optionsStore: $scope.optionsStore,
@@ -187,10 +195,30 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
+		$scope.optionsWasteType = [];
+		$scope.optionsCustomer = [];
 		$scope.optionsProduct = [];
 		$scope.optionsSupplier = [];
 		$scope.optionsStore = [];
 
+
+		$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/entities/WasteTypeService.ts").then(function (response) {
+			$scope.optionsWasteType = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts").then(function (response) {
+			$scope.optionsCustomer = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
 
 		$http.get("/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts").then(function (response) {
 			$scope.optionsProduct = response.data.map(e => {
@@ -219,6 +247,22 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
+		$scope.optionsWasteTypeValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsWasteType.length; i++) {
+				if ($scope.optionsWasteType[i].value === optionKey) {
+					return $scope.optionsWasteType[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCustomerValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
+				if ($scope.optionsCustomer[i].value === optionKey) {
+					return $scope.optionsCustomer[i].text;
+				}
+			}
+			return null;
+		};
 		$scope.optionsProductValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsProduct.length; i++) {
 				if ($scope.optionsProduct[i].value === optionKey) {

@@ -51,8 +51,8 @@
 							item-title="{{next.Number}}">
 							<fd-list-byline dg-align="left">
 								{{next.Date | date: "dd/MMM/yyyy"}} |
-								{{next.WasteType}} |
-								{{next.Customer}} |
+								{{optionsWasteTypeValue(next.WasteType)}} |
+								{{optionsCustomerValue(next.Customer)}} |
 								{{optionsProductValue(next.Product)}} |
 								{{next.Quantity}} |
 								{{optionsSupplierValue(next.Supplier)}} |

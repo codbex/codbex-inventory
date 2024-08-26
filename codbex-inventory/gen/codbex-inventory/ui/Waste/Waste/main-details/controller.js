@@ -40,6 +40,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
+				$scope.optionsWasteType = [];
+				$scope.optionsCustomer = [];
 				$scope.optionsProduct = [];
 				$scope.optionsSupplier = [];
 				$scope.optionsStore = [];
@@ -53,6 +55,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					msg.data.entity.Date = new Date(msg.data.entity.Date);
 				}
 				$scope.entity = msg.data.entity;
+				$scope.optionsWasteType = msg.data.optionsWasteType;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsProduct = msg.data.optionsProduct;
 				$scope.optionsSupplier = msg.data.optionsSupplier;
 				$scope.optionsStore = msg.data.optionsStore;
@@ -63,6 +67,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("createEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
+				$scope.optionsWasteType = msg.data.optionsWasteType;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsProduct = msg.data.optionsProduct;
 				$scope.optionsSupplier = msg.data.optionsSupplier;
 				$scope.optionsStore = msg.data.optionsStore;
@@ -76,6 +82,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					msg.data.entity.Date = new Date(msg.data.entity.Date);
 				}
 				$scope.entity = msg.data.entity;
+				$scope.optionsWasteType = msg.data.optionsWasteType;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsProduct = msg.data.optionsProduct;
 				$scope.optionsSupplier = msg.data.optionsSupplier;
 				$scope.optionsStore = msg.data.optionsStore;
