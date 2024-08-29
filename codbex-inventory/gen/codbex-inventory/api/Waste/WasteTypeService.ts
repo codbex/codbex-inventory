@@ -1,10 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { WasteTypeRepository, WasteTypeEntityOptions } from "../../dao/entities/WasteTypeRepository";
+import { WasteTypeRepository, WasteTypeEntityOptions } from "../../dao/Waste/WasteTypeRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-inventory-entities-WasteType", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-inventory-Waste-WasteType", ["validate"]);
 
 @Controller
 class WasteTypeService {
@@ -30,7 +30,7 @@ class WasteTypeService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/codbex-inventory/api/entities/WasteTypeService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

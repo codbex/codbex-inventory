@@ -1,5 +1,5 @@
-WASTETYPE_ID,WASTETYPE_NAME
-1,Customer
-2,Supplier
-3,Expiration
-4,Inventory
+WASTETYPE_ID,WASTETYPE_NAME,WASTETYPE_DIRECTION
+1,Customer,0
+2,Supplier,1
+3,Expiration,1
+4,Inventory,1

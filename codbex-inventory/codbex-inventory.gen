@@ -247,6 +247,7 @@
     "Waste": {
       "views": [
         "Waste",
+        "WasteType",
         "Waste-details",
         "Waste-details",
         "Waste-details",
@@ -281,16 +282,6 @@
       "label": "Suppliers",
       "order": "200",
       "icon": "/services/web/resources/unicons/user-minus.svg",
-      "role": ""
-    },
-    "entities": {
-      "views": [
-        "WasteType"
-      ],
-      "name": "entities",
-      "label": "entities",
-      "order": "100",
-      "icon": "/services/web/resources/unicons/copy.svg",
       "role": ""
     }
   },
@@ -6406,7 +6397,7 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "Waste_WasteType",
           "relationshipEntityName": "WasteType",
-          "relationshipEntityPerspectiveName": "entities",
+          "relationshipEntityPerspectiveName": "Waste",
           "relationshipEntityPerspectiveLabel": "Entities",
           "dataNotNull": false,
           "dataAutoIncrement": false,
@@ -6415,7 +6406,7 @@
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
           "widgetLabel": "WasteType",
-          "widgetDropdownUrl": "/services/ts/codbex-inventory/gen/codbex-inventory/api/entities/WasteTypeService.ts",
+          "widgetDropdownUrl": "/services/ts/codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6679,7 +6670,7 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "Waste_WasteType",
             "relationshipEntityName": "WasteType",
-            "relationshipEntityPerspectiveName": "entities",
+            "relationshipEntityPerspectiveName": "Waste",
             "relationshipEntityPerspectiveLabel": "Entities",
             "dataNotNull": false,
             "dataAutoIncrement": false,
@@ -6688,7 +6679,7 @@
             "isRequiredProperty": false,
             "isCalculatedProperty": false,
             "widgetLabel": "WasteType",
-            "widgetDropdownUrl": "/services/ts/codbex-inventory/gen/codbex-inventory/api/entities/WasteTypeService.ts",
+            "widgetDropdownUrl": "/services/ts/codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
             "inputRule": ""
@@ -7195,6 +7186,27 @@
           "minLength": 0,
           "maxLength": 20,
           "inputRule": ""
+        },
+        {
+          "dataName": "WASTETYPE_DIRECTION",
+          "dataNullable": true,
+          "dataType": "DECIMAL",
+          "name": "Direction",
+          "widgetIsMajor": true,
+          "widgetLength": "20",
+          "widgetSize": "",
+          "widgetType": "TEXTBOX",
+          "dataNotNull": false,
+          "dataAutoIncrement": false,
+          "dataPrimaryKey": false,
+          "dataUnique": false,
+          "isRequiredProperty": false,
+          "isCalculatedProperty": false,
+          "widgetLabel": "Direction",
+          "widgetDropdownUrl": "",
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
+          "inputRule": ""
         }
       ],
       "caption": "Manage entity WasteType",
@@ -7209,14 +7221,14 @@
       "menuLabel": "WasteType",
       "name": "WasteType",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "entities",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/trash.svg",
+      "perspectiveLabel": "Waste",
+      "perspectiveName": "Waste",
+      "perspectiveOrder": "750",
       "perspectiveRole": "",
       "title": "WasteType",
       "tooltip": "WasteType",
-      "type": "PRIMARY",
+      "type": "SETTING",
       "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [

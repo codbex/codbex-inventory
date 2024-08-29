@@ -1,6 +1,6 @@
 angular.module('page', ["ideUI", "ideView"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-inventory.entities.WasteType';
+		messageHubProvider.eventIdPrefix = 'codbex-inventory.Waste.WasteType';
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
 
@@ -41,6 +41,9 @@ angular.module('page', ["ideUI", "ideView"])
 			}
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;
+			}
+			if (entity.Direction !== undefined) {
+				filter.$filter.equals.Direction = entity.Direction;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

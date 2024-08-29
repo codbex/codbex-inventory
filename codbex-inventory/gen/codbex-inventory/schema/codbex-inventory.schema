@@ -771,6 +771,11 @@
                         "length": 20,
                         "nullable": true,
                         "name": "WASTETYPE_NAME"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "nullable": true,
+                        "name": "WASTETYPE_DIRECTION"
                     }
                 ]
             },

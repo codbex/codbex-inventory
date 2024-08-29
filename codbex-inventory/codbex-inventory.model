@@ -2862,7 +2862,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "Waste_WasteType",
                         "relationshipEntityName": "WasteType",
-                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveName": "Waste",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
@@ -3160,6 +3160,19 @@
                         "widgetLength": "20",
                         "widgetSize": "",
                         "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataLength": "NaN",
+                        "dataName": "WASTETYPE_DIRECTION",
+                        "dataNullable": "true",
+                        "dataPrecision": "NaN",
+                        "dataScale": "NaN",
+                        "dataType": "DECIMAL",
+                        "name": "Direction",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity WasteType",
@@ -3174,14 +3187,14 @@
                 "menuLabel": "WasteType",
                 "name": "WasteType",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/trash.svg",
+                "perspectiveLabel": "Waste",
+                "perspectiveName": "Waste",
+                "perspectiveOrder": "750",
                 "perspectiveRole": "",
                 "title": "WasteType",
                 "tooltip": "WasteType",
-                "type": "PRIMARY"
+                "type": "SETTING"
             }
         ],
         "perspectives": [

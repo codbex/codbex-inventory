@@ -4,14 +4,16 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "WasteType-details",
+    id: "WasteType",
     label: "WasteType",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/entities/WasteType/dialog-window/index.html",
-    perspectiveName: "entities",
+    factory: "frame",
+    region: "center",
+    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Waste/WasteType/index.html",
+    perspectiveName: "Waste",
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }

@@ -26,26 +26,42 @@
             </div>
 
             <fd-fieldset ng-form="forms.details">
-                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
+                <fd-form-group dg-header="WasteType Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idName" dg-required="false" dg-colon="true">Name</fd-form-label>
+                        	<fd-form-label for="idName" dg-colon="true">Name</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Name'].$valid }}">
 	                            <fd-input id="idName"
 	                                name="Name"
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
-									ng-required="false"
 	                                ng-model="entity.Name"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Name">
 	                            </fd-input>
-	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idDirection" dg-colon="true">Direction</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Direction'].$valid }}">
+	                            <fd-input id="idDirection"
+	                                name="Direction"
+	                                state="{{ forms.details['Direction'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.Direction"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                type="text"
+	                                placeholder="Enter Direction">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
 	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
@@ -56,7 +72,10 @@
 		<fd-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
 			<fd-bar-right>
 				<fd-bar-element>
-					<fd-button dg-label="{{action === 'create' ? 'Create' : 'Update'}}" dg-type="emphasized" ng-click="action === 'create' ? create() : update()" state="{{ forms.details.$valid ? '' : 'disabled' }}"></fd-button>
+					<fd-button dg-label="Filter" dg-type="emphasized" ng-click="filter()"></fd-button>
+				</fd-bar-element>
+				<fd-bar-element>
+					<fd-button dg-label="Reset" dg-type="transparent" ng-click="resetFilter()"></fd-button>
 				</fd-bar-element>
 				<fd-bar-element>
 					<fd-button dg-label="Cancel" dg-type="transparent" ng-click="cancel()"></fd-button>

@@ -202,7 +202,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsStore = [];
 
 
-		$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/entities/WasteTypeService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts").then(function (response) {
 			$scope.optionsWasteType = response.data.map(e => {
 				return {
 					value: e.Id,

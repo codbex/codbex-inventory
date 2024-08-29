@@ -23,7 +23,7 @@ tags:
   - name: DeliveryNote
   - name: DeliveryNote
   - name: Waste
-  - name: entities
+  - name: Waste
 paths:
   /codbex-inventory/gen/codbex-inventory/api/Settings/StoreStatusService.ts:
     get:
@@ -5665,7 +5665,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-inventory/gen/codbex-inventory/api/entities/WasteTypeService.ts:
+  /codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts:
     get:
       summary: List WasteType
       parameters:
@@ -5686,7 +5686,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Waste
       responses:
         200:
           description: Successful Request
@@ -5717,7 +5717,7 @@ paths:
     post:
       summary: Create WasteType
       tags:
-        - entities
+        - Waste
       requestBody:
         content:
           application/json:
@@ -5749,7 +5749,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-inventory/gen/codbex-inventory/api/entities/WasteTypeService.ts/{id}:
+  /codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts/{id}:
     get:
       summary: Get WasteType by Id
       parameters:
@@ -5760,7 +5760,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Waste
       responses:
         200:
           description: Successful Request
@@ -5798,7 +5798,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Waste
       requestBody:
         content:
           application/json:
@@ -5846,7 +5846,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Waste
       responses:
         204:
           description: Successful Request
@@ -5868,11 +5868,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-inventory/gen/codbex-inventory/api/entities/WasteTypeService.ts/count:
+  /codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts/count:
     get:
       summary: Count the number of WasteType
       tags:
-        - entities
+        - Waste
       responses:
         200:
           description: Successful Request
@@ -5896,7 +5896,7 @@ paths:
     post:
       summary: Count the number of WasteType by WasteTypeFilterOptions
       tags:
-        - entities
+        - Waste
       requestBody:
         content:
           application/json:
@@ -5978,11 +5978,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-inventory/gen/codbex-inventory/api/entities/WasteTypeService.ts/search:
+  /codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts/search:
     post:
       summary: Search WasteType by WasteTypeFilterOptions
       tags:
-        - entities
+        - Waste
       requestBody:
         content:
           application/json:
@@ -10827,6 +10827,9 @@ components:
           type: string
           minLength: 0
           maxLength: 20
+        Direction:
+          type: number
+          format: double
     WasteTypeFilterOptions:
       type: object
       properties:
@@ -10855,6 +10858,14 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
+                Direction:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
             notEquals:
               type: object
               properties:
@@ -10877,6 +10888,14 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
+                Direction:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
             contains:
               type: object
               properties:
@@ -10885,6 +10904,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Direction:
             greaterThan:
               type: object
               properties:
@@ -10895,6 +10915,9 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Direction:
+                  type: number
+                  format: double
             greaterThanOrEqual:
               type: object
               properties:
@@ -10905,6 +10928,9 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Direction:
+                  type: number
+                  format: double
             lessThan:
               type: object
               properties:
@@ -10915,6 +10941,9 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Direction:
+                  type: number
+                  format: double
             lessThanOrEqual:
               type: object
               properties:
@@ -10925,14 +10954,17 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Direction:
+                  type: number
+                  format: double
         $select:
           type: array
-          example: ["Id", "Name"]
+          example: ["Id", "Name", "Direction"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name"
+            example: "Id,Name,Direction"
         $order:
           type: string
           enum: ["asc", "desc"]

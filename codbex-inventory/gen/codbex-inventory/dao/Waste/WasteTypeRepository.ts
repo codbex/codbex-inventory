@@ -6,10 +6,12 @@ import { dao as daoApi } from "sdk/db";
 export interface WasteTypeEntity {
     readonly Id: number;
     Name?: string;
+    Direction?: number;
 }
 
 export interface WasteTypeCreateEntity {
     readonly Name?: string;
+    readonly Direction?: number;
 }
 
 export interface WasteTypeUpdateEntity extends WasteTypeCreateEntity {
@@ -21,30 +23,37 @@ export interface WasteTypeEntityOptions {
         equals?: {
             Id?: number | number[];
             Name?: string | string[];
+            Direction?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Name?: string | string[];
+            Direction?: number | number[];
         };
         contains?: {
             Id?: number;
             Name?: string;
+            Direction?: number;
         };
         greaterThan?: {
             Id?: number;
             Name?: string;
+            Direction?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Name?: string;
+            Direction?: number;
         };
         lessThan?: {
             Id?: number;
             Name?: string;
+            Direction?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Name?: string;
+            Direction?: number;
         };
     },
     $select?: (keyof WasteTypeEntity)[],
@@ -85,6 +94,11 @@ export class WasteTypeRepository {
                 name: "Name",
                 column: "WASTETYPE_NAME",
                 type: "VARCHAR",
+            },
+            {
+                name: "Direction",
+                column: "WASTETYPE_DIRECTION",
+                type: "DECIMAL",
             }
         ]
     };
@@ -182,7 +196,7 @@ export class WasteTypeRepository {
     }
 
     private async triggerEvent(data: WasteTypeEntityEvent | WasteTypeUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-entities-WasteType", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-Waste-WasteType", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -190,6 +204,6 @@ export class WasteTypeRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-inventory-entities-WasteType").send(JSON.stringify(data));
+        producer.topic("codbex-inventory-Waste-WasteType").send(JSON.stringify(data));
     }
 }

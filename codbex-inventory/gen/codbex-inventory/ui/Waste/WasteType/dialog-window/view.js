@@ -4,10 +4,10 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "WasteType-filter",
-    label: "WasteType Filter",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/entities/WasteType/dialog-filter/index.html",
-    perspectiveName: "entities",
+    id: "WasteType-details",
+    label: "WasteType",
+    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Waste/WasteType/dialog-window/index.html",
+    perspectiveName: "Waste",
 };
 
 if (typeof exports !== 'undefined') {

@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-inventory.entities.WasteType';
+		messageHubProvider.eventIdPrefix = 'codbex-inventory.Waste.WasteType';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/codbex-inventory/api/entities/WasteTypeService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', 'entityApi', function ($scope, messageHub, ViewParameters, entityApi) {
 

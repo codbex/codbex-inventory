@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-inventory.entities.WasteType';
+		messageHubProvider.eventIdPrefix = 'codbex-inventory.Waste.WasteType';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/codbex-inventory/api/entities/WasteTypeService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
 
@@ -13,8 +13,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-inventory-custom-action').then(function (response) {
-			$scope.pageActions = response.filter(e => e.perspective === "entities" && e.view === "WasteType" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.filter(e => e.perspective === "entities" && e.view === "WasteType" && e.type === "entity");
+			$scope.pageActions = response.filter(e => e.perspective === "Waste" && e.view === "WasteType" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.filter(e => e.perspective === "Waste" && e.view === "WasteType" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (action) {
