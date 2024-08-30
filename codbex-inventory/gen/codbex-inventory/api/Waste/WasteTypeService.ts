@@ -1,22 +1,20 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { WasteRepository, WasteEntityOptions } from "../../dao/Waste/WasteRepository";
+import { WasteTypeRepository, WasteTypeEntityOptions } from "../../dao/Waste/WasteTypeRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
-// custom imports
-import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-inventory-Waste-Waste", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-inventory-Waste-WasteType", ["validate"]);
 
 @Controller
-class WasteService {
+class WasteTypeService {
 
-    private readonly repository = new WasteRepository();
+    private readonly repository = new WasteTypeRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            const options: WasteEntityOptions = {
+            const options: WasteTypeEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -32,7 +30,7 @@ class WasteService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/codbex-inventory/api/Waste/WasteService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -75,7 +73,7 @@ class WasteService {
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("Waste not found");
+                HttpUtils.sendResponseNotFound("WasteType not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -103,7 +101,7 @@ class WasteService {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("Waste not found");
+                HttpUtils.sendResponseNotFound("WasteType not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -121,26 +119,8 @@ class WasteService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Number?.length > 30) {
-            throw new ValidationError(`The 'Number' exceeds the maximum length of [30] characters`);
-        }
-        if (entity.Date === null || entity.Date === undefined) {
-            throw new ValidationError(`The 'Date' property is required, provide a valid value`);
-        }
-        if (entity.WasteType === null || entity.WasteType === undefined) {
-            throw new ValidationError(`The 'WasteType' property is required, provide a valid value`);
-        }
-        if (entity.Product === null || entity.Product === undefined) {
-            throw new ValidationError(`The 'Product' property is required, provide a valid value`);
-        }
-        if (entity.Quantity === null || entity.Quantity === undefined) {
-            throw new ValidationError(`The 'Quantity' property is required, provide a valid value`);
-        }
-        if (entity.Store === null || entity.Store === undefined) {
-            throw new ValidationError(`The 'Store' property is required, provide a valid value`);
-        }
-        if (entity.Reason?.length > 300) {
-            throw new ValidationError(`The 'Reason' exceeds the maximum length of [300] characters`);
+        if (entity.Name?.length > 20) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

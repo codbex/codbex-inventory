@@ -119,8 +119,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("entitySelected", {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
-				optionsSupplier: $scope.optionsSupplier,
+				optionsWasteType: $scope.optionsWasteType,
+				optionsCustomer: $scope.optionsCustomer,
 				optionsProduct: $scope.optionsProduct,
+				optionsSupplier: $scope.optionsSupplier,
 				optionsStore: $scope.optionsStore,
 			});
 		};
@@ -131,8 +133,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 			messageHub.postMessage("createEntity", {
 				entity: {},
-				optionsSupplier: $scope.optionsSupplier,
+				optionsWasteType: $scope.optionsWasteType,
+				optionsCustomer: $scope.optionsCustomer,
 				optionsProduct: $scope.optionsProduct,
+				optionsSupplier: $scope.optionsSupplier,
 				optionsStore: $scope.optionsStore,
 			});
 		};
@@ -141,8 +145,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.action = "update";
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
-				optionsSupplier: $scope.optionsSupplier,
+				optionsWasteType: $scope.optionsWasteType,
+				optionsCustomer: $scope.optionsCustomer,
 				optionsProduct: $scope.optionsProduct,
+				optionsSupplier: $scope.optionsSupplier,
 				optionsStore: $scope.optionsStore,
 			});
 		};
@@ -180,20 +186,33 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.openFilter = function (entity) {
 			messageHub.showDialogWindow("Waste-filter", {
 				entity: $scope.filterEntity,
-				optionsSupplier: $scope.optionsSupplier,
+				optionsWasteType: $scope.optionsWasteType,
+				optionsCustomer: $scope.optionsCustomer,
 				optionsProduct: $scope.optionsProduct,
+				optionsSupplier: $scope.optionsSupplier,
 				optionsStore: $scope.optionsStore,
 			});
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsSupplier = [];
+		$scope.optionsWasteType = [];
+		$scope.optionsCustomer = [];
 		$scope.optionsProduct = [];
+		$scope.optionsSupplier = [];
 		$scope.optionsStore = [];
 
 
-		$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Suppliers/SupplierService.ts").then(function (response) {
-			$scope.optionsSupplier = response.data.map(e => {
+		$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts").then(function (response) {
+			$scope.optionsWasteType = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts").then(function (response) {
+			$scope.optionsCustomer = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -210,6 +229,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
+		$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Suppliers/SupplierService.ts").then(function (response) {
+			$scope.optionsSupplier = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
 		$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts").then(function (response) {
 			$scope.optionsStore = response.data.map(e => {
 				return {
@@ -219,10 +247,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$scope.optionsSupplierValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsSupplier.length; i++) {
-				if ($scope.optionsSupplier[i].value === optionKey) {
-					return $scope.optionsSupplier[i].text;
+		$scope.optionsWasteTypeValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsWasteType.length; i++) {
+				if ($scope.optionsWasteType[i].value === optionKey) {
+					return $scope.optionsWasteType[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCustomerValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
+				if ($scope.optionsCustomer[i].value === optionKey) {
+					return $scope.optionsCustomer[i].text;
 				}
 			}
 			return null;
@@ -231,6 +267,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsProduct.length; i++) {
 				if ($scope.optionsProduct[i].value === optionKey) {
 					return $scope.optionsProduct[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsSupplierValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsSupplier.length; i++) {
+				if ($scope.optionsSupplier[i].value === optionKey) {
+					return $scope.optionsSupplier[i].text;
 				}
 			}
 			return null;

@@ -10,18 +10,22 @@ export interface WasteEntity {
     readonly Id: number;
     Number?: string;
     Date: Date;
-    Supplier: number;
+    WasteType?: number;
+    Customer?: number;
     Product: number;
     Quantity: number;
+    Supplier?: number;
     Store?: number;
     Reason?: string;
 }
 
 export interface WasteCreateEntity {
     readonly Date: Date;
-    readonly Supplier: number;
+    readonly WasteType?: number;
+    readonly Customer?: number;
     readonly Product: number;
     readonly Quantity: number;
+    readonly Supplier?: number;
     readonly Store?: number;
     readonly Reason?: string;
 }
@@ -36,9 +40,11 @@ export interface WasteEntityOptions {
             Id?: number | number[];
             Number?: string | string[];
             Date?: Date | Date[];
-            Supplier?: number | number[];
+            WasteType?: number | number[];
+            Customer?: number | number[];
             Product?: number | number[];
             Quantity?: number | number[];
+            Supplier?: number | number[];
             Store?: number | number[];
             Reason?: string | string[];
         };
@@ -46,9 +52,11 @@ export interface WasteEntityOptions {
             Id?: number | number[];
             Number?: string | string[];
             Date?: Date | Date[];
-            Supplier?: number | number[];
+            WasteType?: number | number[];
+            Customer?: number | number[];
             Product?: number | number[];
             Quantity?: number | number[];
+            Supplier?: number | number[];
             Store?: number | number[];
             Reason?: string | string[];
         };
@@ -56,9 +64,11 @@ export interface WasteEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Supplier?: number;
+            WasteType?: number;
+            Customer?: number;
             Product?: number;
             Quantity?: number;
+            Supplier?: number;
             Store?: number;
             Reason?: string;
         };
@@ -66,9 +76,11 @@ export interface WasteEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Supplier?: number;
+            WasteType?: number;
+            Customer?: number;
             Product?: number;
             Quantity?: number;
+            Supplier?: number;
             Store?: number;
             Reason?: string;
         };
@@ -76,9 +88,11 @@ export interface WasteEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Supplier?: number;
+            WasteType?: number;
+            Customer?: number;
             Product?: number;
             Quantity?: number;
+            Supplier?: number;
             Store?: number;
             Reason?: string;
         };
@@ -86,9 +100,11 @@ export interface WasteEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Supplier?: number;
+            WasteType?: number;
+            Customer?: number;
             Product?: number;
             Quantity?: number;
+            Supplier?: number;
             Store?: number;
             Reason?: string;
         };
@@ -96,9 +112,11 @@ export interface WasteEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Supplier?: number;
+            WasteType?: number;
+            Customer?: number;
             Product?: number;
             Quantity?: number;
+            Supplier?: number;
             Store?: number;
             Reason?: string;
         };
@@ -149,10 +167,14 @@ export class WasteRepository {
                 required: true
             },
             {
-                name: "Supplier",
-                column: "WASTE_SUPPLIER",
+                name: "WasteType",
+                column: "WASTE_WASTETYPE",
                 type: "INTEGER",
-                required: true
+            },
+            {
+                name: "Customer",
+                column: "WASTE_CUSTOMER",
+                type: "INTEGER",
             },
             {
                 name: "Product",
@@ -165,6 +187,11 @@ export class WasteRepository {
                 column: "WASTE_QUANTITY",
                 type: "DOUBLE",
                 required: true
+            },
+            {
+                name: "Supplier",
+                column: "WASTE_SUPPLIER",
+                type: "INTEGER",
             },
             {
                 name: "Store",
