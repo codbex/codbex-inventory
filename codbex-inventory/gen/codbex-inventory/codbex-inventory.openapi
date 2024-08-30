@@ -10441,8 +10441,10 @@ components:
       type: object
       required:
         - Date
+        - WasteType
         - Product
         - Quantity
+        - Store
       properties:
         Id:
           type: integer

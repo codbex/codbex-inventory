@@ -127,11 +127,17 @@ class WasteService {
         if (entity.Date === null || entity.Date === undefined) {
             throw new ValidationError(`The 'Date' property is required, provide a valid value`);
         }
+        if (entity.WasteType === null || entity.WasteType === undefined) {
+            throw new ValidationError(`The 'WasteType' property is required, provide a valid value`);
+        }
         if (entity.Product === null || entity.Product === undefined) {
             throw new ValidationError(`The 'Product' property is required, provide a valid value`);
         }
         if (entity.Quantity === null || entity.Quantity === undefined) {
             throw new ValidationError(`The 'Quantity' property is required, provide a valid value`);
+        }
+        if (entity.Store === null || entity.Store === undefined) {
+            throw new ValidationError(`The 'Store' property is required, provide a valid value`);
         }
         if (entity.Reason?.length > 300) {
             throw new ValidationError(`The 'Reason' exceeds the maximum length of [300] characters`);

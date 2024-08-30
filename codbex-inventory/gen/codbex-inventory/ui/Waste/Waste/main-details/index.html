@@ -61,13 +61,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idWasteType" dg-required="false" dg-colon="true">WasteType</fd-form-label>
+                        	<fd-form-label for="idWasteType" dg-required="true" dg-colon="true">WasteType</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idWasteType"
 	                            name="WasteType"
 	                            state="{{ forms.details['WasteType'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.WasteType"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsWasteType"
@@ -141,13 +141,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idStore" dg-required="false" dg-colon="true">Store</fd-form-label>
+                        	<fd-form-label for="idStore" dg-required="true" dg-colon="true">Store</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idStore"
 	                            name="Store"
 	                            state="{{ forms.details['Store'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.Store"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsStore"
