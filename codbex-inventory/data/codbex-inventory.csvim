@@ -3,7 +3,7 @@
     {
       "table": "CODBEX_STOCKADJUSTMENTTYPE",
       "schema": "PUBLIC",
-      "file": "/codbex-inventory-data/stock-adjustment-types.csv",
+      "file": "/codbex-inventory/data/stock-adjustment-types.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -14,7 +14,7 @@
     {
       "table": "CODBEX_STORESTATUS",
       "schema": "PUBLIC",
-      "file": "/codbex-inventory-data/store-statuses.csv",
+      "file": "/codbex-inventory/data/store-statuses.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -25,7 +25,7 @@
     {
       "table": "CODBEX_WASTETYPE",
       "schema": "PUBLIC",
-      "file": "/codbex-inventory-data/waste-types.csv",
+      "file": "/codbex-inventory/data/waste-types.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
