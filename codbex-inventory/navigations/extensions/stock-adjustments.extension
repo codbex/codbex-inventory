@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "dashboard-navigations",
+    "module": "codbex-inventory/navigations/services/stock-adjustments.js",
+    "description": "Stock Adjustments Navigation"
+}

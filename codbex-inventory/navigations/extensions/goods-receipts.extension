@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "dashboard-navigations",
+    "module": "codbex-inventory/navigations/services/goods-receipts.js",
+    "description": "Goods Receipts Navigation"
+}

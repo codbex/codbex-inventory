@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "dashboard-navigations",
+    "module": "codbex-inventory/navigations/services/delivery-note.js",
+    "description": "Delivery Note Navigation"
+}
