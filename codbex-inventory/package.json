@@ -10,9 +10,9 @@
     },
     "dependencies": {
         "@codbex/codbex-cities": "0.3.0",
-        "@codbex/codbex-countries": "0.2.0",
-        "@codbex/codbex-companies": "0.3.0",
-        "@codbex/codbex-products": "0.3.0",
-        "@codbex/codbex-currencies": "0.2.0"
+        "@codbex/codbex-countries": "0.3.0",
+        "@codbex/codbex-companies": "0.4.0",
+        "@codbex/codbex-products": "0.4.0",
+        "@codbex/codbex-currencies": "0.3.0"
     }
 }
