@@ -6,15 +6,15 @@ import { dao as daoApi } from "sdk/db";
 export interface DeliveryNoteItemEntity {
     readonly Id: number;
     Product: number;
+    ProductSet?: number;
     Quantity?: number;
-    UoM?: number;
     DeliveryNote?: number;
 }
 
 export interface DeliveryNoteItemCreateEntity {
     readonly Product: number;
+    readonly ProductSet?: number;
     readonly Quantity?: number;
-    readonly UoM?: number;
     readonly DeliveryNote?: number;
 }
 
@@ -27,50 +27,50 @@ export interface DeliveryNoteItemEntityOptions {
         equals?: {
             Id?: number | number[];
             Product?: number | number[];
+            ProductSet?: number | number[];
             Quantity?: number | number[];
-            UoM?: number | number[];
             DeliveryNote?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             Product?: number | number[];
+            ProductSet?: number | number[];
             Quantity?: number | number[];
-            UoM?: number | number[];
             DeliveryNote?: number | number[];
         };
         contains?: {
             Id?: number;
             Product?: number;
+            ProductSet?: number;
             Quantity?: number;
-            UoM?: number;
             DeliveryNote?: number;
         };
         greaterThan?: {
             Id?: number;
             Product?: number;
+            ProductSet?: number;
             Quantity?: number;
-            UoM?: number;
             DeliveryNote?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             Product?: number;
+            ProductSet?: number;
             Quantity?: number;
-            UoM?: number;
             DeliveryNote?: number;
         };
         lessThan?: {
             Id?: number;
             Product?: number;
+            ProductSet?: number;
             Quantity?: number;
-            UoM?: number;
             DeliveryNote?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             Product?: number;
+            ProductSet?: number;
             Quantity?: number;
-            UoM?: number;
             DeliveryNote?: number;
         };
     },
@@ -115,14 +115,14 @@ export class DeliveryNoteItemRepository {
                 required: true
             },
             {
+                name: "ProductSet",
+                column: "DELIVERYNOTEITEM_PRODUCTSET",
+                type: "INTEGER",
+            },
+            {
                 name: "Quantity",
                 column: "DELIVERYNOTEITEM_QUANTITY",
                 type: "DOUBLE",
-            },
-            {
-                name: "UoM",
-                column: "DELIVERYNOTEITEM_UOM",
-                type: "INTEGER",
             },
             {
                 name: "DeliveryNote",

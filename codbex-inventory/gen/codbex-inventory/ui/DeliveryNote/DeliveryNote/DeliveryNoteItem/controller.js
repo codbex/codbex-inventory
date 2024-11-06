@@ -126,7 +126,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action: "select",
 				entity: entity,
 				optionsProduct: $scope.optionsProduct,
-				optionsUoM: $scope.optionsUoM,
+				optionsProductSet: $scope.optionsProductSet,
 			});
 		};
 
@@ -134,7 +134,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("DeliveryNoteItem-filter", {
 				entity: $scope.filterEntity,
 				optionsProduct: $scope.optionsProduct,
-				optionsUoM: $scope.optionsUoM,
+				optionsProductSet: $scope.optionsProductSet,
 			});
 		};
 
@@ -146,7 +146,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				selectedMainEntityKey: "DeliveryNote",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsProduct: $scope.optionsProduct,
-				optionsUoM: $scope.optionsUoM,
+				optionsProductSet: $scope.optionsProductSet,
 			}, null, false);
 		};
 
@@ -157,7 +157,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				selectedMainEntityKey: "DeliveryNote",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsProduct: $scope.optionsProduct,
-				optionsUoM: $scope.optionsUoM,
+				optionsProductSet: $scope.optionsProductSet,
 			}, null, false);
 		};
 
@@ -192,7 +192,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsProduct = [];
-		$scope.optionsUoM = [];
+		$scope.optionsProductSet = [];
 
 
 		$http.get("/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts").then(function (response) {
@@ -204,8 +204,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts").then(function (response) {
-			$scope.optionsUoM = response.data.map(e => {
+		$http.get("/services/ts/codbex-products/gen/codbex-products/api/Products/ProductSetService.ts").then(function (response) {
+			$scope.optionsProductSet = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -221,10 +221,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsUoMValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsUoM.length; i++) {
-				if ($scope.optionsUoM[i].value === optionKey) {
-					return $scope.optionsUoM[i].text;
+		$scope.optionsProductSetValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsProductSet.length; i++) {
+				if ($scope.optionsProductSet[i].value === optionKey) {
+					return $scope.optionsProductSet[i].text;
 				}
 			}
 			return null;

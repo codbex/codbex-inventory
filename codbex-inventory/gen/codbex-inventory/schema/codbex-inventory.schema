@@ -682,14 +682,14 @@
                         "name": "DELIVERYNOTEITEM_PRODUCT"
                     },
                     {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "DELIVERYNOTEITEM_PRODUCTSET"
+                    },
+                    {
                         "type": "DOUBLE",
                         "nullable": true,
                         "name": "DELIVERYNOTEITEM_QUANTITY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "DELIVERYNOTEITEM_UOM"
                     },
                     {
                         "type": "INTEGER",
@@ -1050,13 +1050,13 @@
                 "referencedColumns": "PRODUCT_ID"
             },
             {
-                "name": "DeliveryNoteItem_UoM",
+                "name": "DeliveryNoteItem_ProductSet",
                 "type": "foreignKey",
                 "table": "CODBEX_DELIVERYNOTEITEM",
-                "constraintName": "DeliveryNoteItem_UoM",
-                "columns": "DELIVERYNOTEITEM_UOM",
-                "referencedTable": "CODBEX_UOM",
-                "referencedColumns": "UOM_ID"
+                "constraintName": "DeliveryNoteItem_ProductSet",
+                "columns": "DELIVERYNOTEITEM_PRODUCTSET",
+                "referencedTable": "CODBEX_PRODUCTSET",
+                "referencedColumns": "PRODUCTSET_ID"
             },
             {
                 "name": "DeliveryNoteItem_DeliveryNote",

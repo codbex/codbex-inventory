@@ -10238,12 +10238,12 @@ components:
         Product:
           type: integer
           format: int32
+        ProductSet:
+          type: integer
+          format: int32
         Quantity:
           type: number
           format: double
-        UoM:
-          type: integer
-          format: int32
         DeliveryNote:
           type: integer
           format: int32
@@ -10272,6 +10272,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                ProductSet:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 Quantity:
                   oneOf:
                     - type: number
@@ -10280,14 +10288,6 @@ components:
                       items:
                         type: number
                         format: double
-                UoM:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 DeliveryNote:
                   oneOf:
                     - type: integer
@@ -10315,6 +10315,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                ProductSet:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 Quantity:
                   oneOf:
                     - type: number
@@ -10323,14 +10331,6 @@ components:
                       items:
                         type: number
                         format: double
-                UoM:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 DeliveryNote:
                   oneOf:
                     - type: integer
@@ -10344,8 +10344,8 @@ components:
               properties:
                 Id:
                 Product:
+                ProductSet:
                 Quantity:
-                UoM:
                 DeliveryNote:
             greaterThan:
               type: object
@@ -10356,12 +10356,12 @@ components:
                 Product:
                   type: integer
                   format: int32
+                ProductSet:
+                  type: integer
+                  format: int32
                 Quantity:
                   type: number
                   format: double
-                UoM:
-                  type: integer
-                  format: int32
                 DeliveryNote:
                   type: integer
                   format: int32
@@ -10374,12 +10374,12 @@ components:
                 Product:
                   type: integer
                   format: int32
+                ProductSet:
+                  type: integer
+                  format: int32
                 Quantity:
                   type: number
                   format: double
-                UoM:
-                  type: integer
-                  format: int32
                 DeliveryNote:
                   type: integer
                   format: int32
@@ -10392,12 +10392,12 @@ components:
                 Product:
                   type: integer
                   format: int32
+                ProductSet:
+                  type: integer
+                  format: int32
                 Quantity:
                   type: number
                   format: double
-                UoM:
-                  type: integer
-                  format: int32
                 DeliveryNote:
                   type: integer
                   format: int32
@@ -10410,23 +10410,23 @@ components:
                 Product:
                   type: integer
                   format: int32
+                ProductSet:
+                  type: integer
+                  format: int32
                 Quantity:
                   type: number
                   format: double
-                UoM:
-                  type: integer
-                  format: int32
                 DeliveryNote:
                   type: integer
                   format: int32
         $select:
           type: array
-          example: ["Id", "Product", "Quantity", "UoM", "DeliveryNote"]
+          example: ["Id", "Product", "ProductSet", "Quantity", "DeliveryNote"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Product,Quantity,UoM,DeliveryNote"
+            example: "Id,Product,ProductSet,Quantity,DeliveryNote"
         $order:
           type: string
           enum: ["asc", "desc"]

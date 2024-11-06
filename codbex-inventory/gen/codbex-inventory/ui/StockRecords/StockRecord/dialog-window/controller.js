@@ -58,6 +58,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
+		$scope.serviceProduct = "/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts";
+		$scope.serviceUoM = "/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts";
+		$scope.serviceDirection = "/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StockRecordDirectionService.ts";
+
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
