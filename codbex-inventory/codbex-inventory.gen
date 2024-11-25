@@ -6610,6 +6610,35 @@
           "inputRule": ""
         },
         {
+          "dataName": "DELIVERYNOTEITEM_DELIVERYNOTE",
+          "dataNullable": true,
+          "dataType": "INTEGER",
+          "description": "",
+          "name": "DeliveryNote",
+          "relationshipCardinality": "1_n",
+          "relationshipName": "DeliveryNoteItem_DeliveryNote",
+          "relationshipType": "COMPOSITION",
+          "tooltip": "",
+          "widgetIsMajor": false,
+          "widgetLength": "20",
+          "widgetSize": "",
+          "widgetType": "TEXTBOX",
+          "relationshipEntityName": "DeliveryNote",
+          "relationshipEntityPerspectiveName": "DeliveryNote",
+          "relationshipEntityPerspectiveLabel": "Entities",
+          "dataNotNull": false,
+          "dataAutoIncrement": false,
+          "dataPrimaryKey": false,
+          "dataUnique": false,
+          "isRequiredProperty": false,
+          "isCalculatedProperty": false,
+          "widgetLabel": "DeliveryNote",
+          "widgetDropdownUrl": "",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
+          "inputRule": ""
+        },
+        {
           "dataName": "DELIVERYNOTEITEM_PRODUCT",
           "dataNullable": false,
           "dataType": "INTEGER",
@@ -6689,35 +6718,6 @@
           "dataTypeJava": "double",
           "dataTypeTypescript": "number",
           "inputRule": ""
-        },
-        {
-          "dataName": "DELIVERYNOTEITEM_DELIVERYNOTE",
-          "dataNullable": true,
-          "dataType": "INTEGER",
-          "description": "",
-          "name": "DeliveryNote",
-          "relationshipCardinality": "1_n",
-          "relationshipName": "DeliveryNoteItem_DeliveryNote",
-          "relationshipType": "COMPOSITION",
-          "tooltip": "",
-          "widgetIsMajor": false,
-          "widgetLength": "20",
-          "widgetSize": "",
-          "widgetType": "TEXTBOX",
-          "relationshipEntityName": "DeliveryNote",
-          "relationshipEntityPerspectiveName": "DeliveryNote",
-          "relationshipEntityPerspectiveLabel": "Entities",
-          "dataNotNull": false,
-          "dataAutoIncrement": false,
-          "dataPrimaryKey": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "widgetLabel": "DeliveryNote",
-          "widgetDropdownUrl": "",
-          "dataTypeJava": "int",
-          "dataTypeTypescript": "number",
-          "inputRule": ""
         }
       ],
       "caption": "Manage entity DeliveryNoteItem",
@@ -6758,9 +6758,9 @@
         "Id"
       ],
       "primaryKeysString": "Id",
-      "hasDropdowns": true,
       "masterEntity": "DeliveryNote",
-      "masterEntityId": "DeliveryNote"
+      "masterEntityId": "DeliveryNote",
+      "hasDropdowns": true
     },
     {
       "properties": [

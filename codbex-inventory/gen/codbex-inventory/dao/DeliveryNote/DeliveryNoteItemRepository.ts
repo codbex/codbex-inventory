@@ -5,17 +5,17 @@ import { dao as daoApi } from "sdk/db";
 
 export interface DeliveryNoteItemEntity {
     readonly Id: number;
+    DeliveryNote?: number;
     Product: number;
     ProductSet?: number;
     Quantity?: number;
-    DeliveryNote?: number;
 }
 
 export interface DeliveryNoteItemCreateEntity {
+    readonly DeliveryNote?: number;
     readonly Product: number;
     readonly ProductSet?: number;
     readonly Quantity?: number;
-    readonly DeliveryNote?: number;
 }
 
 export interface DeliveryNoteItemUpdateEntity extends DeliveryNoteItemCreateEntity {
@@ -26,52 +26,52 @@ export interface DeliveryNoteItemEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
+            DeliveryNote?: number | number[];
             Product?: number | number[];
             ProductSet?: number | number[];
             Quantity?: number | number[];
-            DeliveryNote?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
+            DeliveryNote?: number | number[];
             Product?: number | number[];
             ProductSet?: number | number[];
             Quantity?: number | number[];
-            DeliveryNote?: number | number[];
         };
         contains?: {
             Id?: number;
+            DeliveryNote?: number;
             Product?: number;
             ProductSet?: number;
             Quantity?: number;
-            DeliveryNote?: number;
         };
         greaterThan?: {
             Id?: number;
+            DeliveryNote?: number;
             Product?: number;
             ProductSet?: number;
             Quantity?: number;
-            DeliveryNote?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
+            DeliveryNote?: number;
             Product?: number;
             ProductSet?: number;
             Quantity?: number;
-            DeliveryNote?: number;
         };
         lessThan?: {
             Id?: number;
+            DeliveryNote?: number;
             Product?: number;
             ProductSet?: number;
             Quantity?: number;
-            DeliveryNote?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
+            DeliveryNote?: number;
             Product?: number;
             ProductSet?: number;
             Quantity?: number;
-            DeliveryNote?: number;
         };
     },
     $select?: (keyof DeliveryNoteItemEntity)[],
@@ -109,6 +109,11 @@ export class DeliveryNoteItemRepository {
                 autoIncrement: true,
             },
             {
+                name: "DeliveryNote",
+                column: "DELIVERYNOTEITEM_DELIVERYNOTE",
+                type: "INTEGER",
+            },
+            {
                 name: "Product",
                 column: "DELIVERYNOTEITEM_PRODUCT",
                 type: "INTEGER",
@@ -123,11 +128,6 @@ export class DeliveryNoteItemRepository {
                 name: "Quantity",
                 column: "DELIVERYNOTEITEM_QUANTITY",
                 type: "DOUBLE",
-            },
-            {
-                name: "DeliveryNote",
-                column: "DELIVERYNOTEITEM_DELIVERYNOTE",
-                type: "INTEGER",
             }
         ]
     };

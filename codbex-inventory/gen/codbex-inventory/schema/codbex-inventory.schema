@@ -679,6 +679,11 @@
                     },
                     {
                         "type": "INTEGER",
+                        "nullable": true,
+                        "name": "DELIVERYNOTEITEM_DELIVERYNOTE"
+                    },
+                    {
+                        "type": "INTEGER",
                         "name": "DELIVERYNOTEITEM_PRODUCT"
                     },
                     {
@@ -690,11 +695,6 @@
                         "type": "DOUBLE",
                         "nullable": true,
                         "name": "DELIVERYNOTEITEM_QUANTITY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "DELIVERYNOTEITEM_DELIVERYNOTE"
                     }
                 ]
             },
@@ -1041,6 +1041,15 @@
                 "referencedColumns": "CUSTOMER_ID"
             },
             {
+                "name": "DeliveryNoteItem_DeliveryNote",
+                "type": "foreignKey",
+                "table": "CODBEX_DELIVERYNOTEITEM",
+                "constraintName": "DeliveryNoteItem_DeliveryNote",
+                "columns": "DELIVERYNOTEITEM_DELIVERYNOTE",
+                "referencedTable": "CODBEX_DELIVERYNOTE",
+                "referencedColumns": "DELIVERYNOTE_ID"
+            },
+            {
                 "name": "DeliveryNoteItem_Product",
                 "type": "foreignKey",
                 "table": "CODBEX_DELIVERYNOTEITEM",
@@ -1057,15 +1066,6 @@
                 "columns": "DELIVERYNOTEITEM_PRODUCTSET",
                 "referencedTable": "CODBEX_PRODUCTSET",
                 "referencedColumns": "PRODUCTSET_ID"
-            },
-            {
-                "name": "DeliveryNoteItem_DeliveryNote",
-                "type": "foreignKey",
-                "table": "CODBEX_DELIVERYNOTEITEM",
-                "constraintName": "DeliveryNoteItem_DeliveryNote",
-                "columns": "DELIVERYNOTEITEM_DELIVERYNOTE",
-                "referencedTable": "CODBEX_DELIVERYNOTE",
-                "referencedColumns": "DELIVERYNOTE_ID"
             },
             {
                 "name": "Waste_WasteType",

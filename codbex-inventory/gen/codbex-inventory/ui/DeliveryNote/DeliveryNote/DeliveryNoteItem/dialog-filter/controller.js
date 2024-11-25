@@ -41,6 +41,9 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
+			if (entity.DeliveryNote !== undefined) {
+				filter.$filter.equals.DeliveryNote = entity.DeliveryNote;
+			}
 			if (entity.Product !== undefined) {
 				filter.$filter.equals.Product = entity.Product;
 			}
@@ -49,9 +52,6 @@ angular.module('page', ["ideUI", "ideView"])
 			}
 			if (entity.Quantity !== undefined) {
 				filter.$filter.equals.Quantity = entity.Quantity;
-			}
-			if (entity.DeliveryNote !== undefined) {
-				filter.$filter.equals.DeliveryNote = entity.DeliveryNote;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
