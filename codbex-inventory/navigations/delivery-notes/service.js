@@ -1,10 +1,8 @@
 const navigationData = {
     id: 'delivery-note-navigation',
     label: "Delivery Note",
-    view: "delivery-note",
     group: "inventory",
-    orderNumber: 1000,
-    lazyLoad: true,
+    order: 300,
     link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/index.html?embedded"
 };
 

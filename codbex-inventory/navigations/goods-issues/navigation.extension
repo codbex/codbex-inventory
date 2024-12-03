@@ -1,5 +1,5 @@
 {
     "extensionPoint": "dashboard-navigations",
-    "module": "codbex-inventory/navigations/services/goods-issues.js",
+    "module": "codbex-inventory/navigations/goods-issues/service.js",
     "description": "Goods Issues Navigation"
 }
