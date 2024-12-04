@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "codbex-inventory-custom-action",
+    "module": "codbex-inventory/gen/inventory-availability/ui/Reports/InventoryAvailability/dialog-print/print.js",
+    "description": "Print InventoryAvailability Report"
+}

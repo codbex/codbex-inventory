@@ -1,0 +1,96 @@
+{
+    "query": "SELECT Product.PRODUCT_ID as \"Product ID\", Product.PRODUCT_BATCH as \"Product Number\", Product.PRODUCT_NAME as \"Product Name\", Catalogue.CATALOGUE_QUANTITY as \"Quantity Available\", Store.STORE_NAME as \"Store \", Manufacturer.MANUFACTURER_NAME as \"Manufacturer\"\nFROM CODBEX_PRODUCT as Product\n  INNER JOIN CODBEX_CATALOGUE Catalogue ON Catalogue.CATALOGUE_PRODUCT = Product.PRODUCT_ID\n  INNER JOIN CODBEX_STORE Store ON Store.STORE_ID=Catalogue.CATALOGUE_STORE\n  INNER JOIN CODBEX_MANUFACTURER Manufacturer ON Manufacturer.MANUFACTURER_ID = Product.PRODUCT_MANUFACTURER\nWHERE Store.STORE_NAME = :Store",
+    "name": "InventoryAvailability",
+    "alias": "Product",
+    "table": "CODBEX_PRODUCT",
+    "columns": [
+        {
+            "table": "Product",
+            "alias": "Product ID",
+            "name": "PRODUCT_ID",
+            "type": "INTEGER",
+            "aggregate": "NONE",
+            "select": true,
+            "grouping": false
+        },
+        {
+            "table": "Product",
+            "alias": "Product Number",
+            "name": "PRODUCT_BATCH",
+            "type": "CHARACTER VARYING",
+            "aggregate": "NONE",
+            "select": true,
+            "grouping": false
+        },
+        {
+            "table": "Product",
+            "alias": "Product Name",
+            "name": "PRODUCT_NAME",
+            "type": "CHARACTER VARYING",
+            "aggregate": "NONE",
+            "select": true,
+            "grouping": false
+        },
+        {
+            "table": "Catalogue",
+            "alias": "Quantity Available",
+            "name": "CATALOGUE_QUANTITY",
+            "type": "DOUBLE PRECISION",
+            "aggregate": "NONE",
+            "select": true,
+            "grouping": false
+        },
+        {
+            "table": "Store",
+            "alias": "Store ",
+            "name": "STORE_NAME",
+            "type": "CHARACTER VARYING",
+            "aggregate": "NONE",
+            "select": true,
+            "grouping": false
+        },
+        {
+            "table": "Manufacturer",
+            "alias": "Manufacturer",
+            "name": "MANUFACTURER_NAME",
+            "type": "VARCHAR",
+            "aggregate": "NONE",
+            "select": true,
+            "grouping": false
+        }
+    ],
+    "joins": [
+        {
+            "alias": "Catalogue",
+            "name": "CODBEX_CATALOGUE",
+            "type": "INNER",
+            "condition": "Catalogue.CATALOGUE_PRODUCT = Product.PRODUCT_ID"
+        },
+        {
+            "alias": "Store",
+            "name": "CODBEX_STORE",
+            "type": "INNER",
+            "condition": "Store.STORE_ID=Catalogue.CATALOGUE_STORE"
+        },
+        {
+            "alias": "Manufacturer",
+            "name": "CODBEX_MANUFACTURER",
+            "type": "INNER",
+            "condition": "Manufacturer.MANUFACTURER_ID = Product.PRODUCT_MANUFACTURER"
+        }
+    ],
+    "conditions": [
+        {
+            "left": "Store.STORE_NAME",
+            "operation": "=",
+            "right": ":Store"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "Store",
+            "type": "VARCHAR",
+            "initial": "'Mydeo'"
+        }
+    ]
+}
