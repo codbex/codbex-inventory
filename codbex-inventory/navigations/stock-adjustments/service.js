@@ -1,10 +1,8 @@
 const navigationData = {
     id: 'stock-adjustments-navigation',
     label: "Stock Adjustments",
-    view: "stock-adjustments",
     group: "inventory",
-    orderNumber: 1000,
-    lazyLoad: true,
+    order: 400,
     link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/StockAdjustments/index.html?embedded"
 };
 

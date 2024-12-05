@@ -1,0 +1,5 @@
+{
+    "module": "codbex-inventory/gen/inventory-availability/ui/Reports/InventoryAvailability/dialog-filter/view.js",
+    "extensionPoint": "codbex-inventory-dialog-window",
+    "description": "codbex-inventory - Application Dialog Window"
+}

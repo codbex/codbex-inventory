@@ -1,10 +1,8 @@
 const navigationData = {
     id: 'stores-navigation',
     label: "Stores",
-    view: "stores",
-    group: "configurations",
-    orderNumber: 1000,
-    lazyLoad: true,
+    group: "inventory",
+    order: 600,
     link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Stores/index.html?embedded"
 };
 
