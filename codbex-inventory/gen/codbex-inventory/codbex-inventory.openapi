@@ -10235,18 +10235,18 @@ components:
         Id:
           type: integer
           format: int32
+        DeliveryNote:
+          type: integer
+          format: int32
         Product:
+          type: integer
+          format: int32
+        ProductSet:
           type: integer
           format: int32
         Quantity:
           type: number
           format: double
-        UoM:
-          type: integer
-          format: int32
-        DeliveryNote:
-          type: integer
-          format: int32
     DeliveryNoteItemFilterOptions:
       type: object
       properties:
@@ -10264,7 +10264,23 @@ components:
                       items:
                         type: integer
                         format: int32
+                DeliveryNote:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 Product:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                ProductSet:
                   oneOf:
                     - type: integer
                       format: int32
@@ -10280,22 +10296,6 @@ components:
                       items:
                         type: number
                         format: double
-                UoM:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                DeliveryNote:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
             notEquals:
               type: object
               properties:
@@ -10307,7 +10307,23 @@ components:
                       items:
                         type: integer
                         format: int32
+                DeliveryNote:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 Product:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                ProductSet:
                   oneOf:
                     - type: integer
                       format: int32
@@ -10323,110 +10339,94 @@ components:
                       items:
                         type: number
                         format: double
-                UoM:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                DeliveryNote:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
             contains:
               type: object
               properties:
                 Id:
-                Product:
-                Quantity:
-                UoM:
                 DeliveryNote:
+                Product:
+                ProductSet:
+                Quantity:
             greaterThan:
               type: object
               properties:
                 Id:
                   type: integer
                   format: int32
+                DeliveryNote:
+                  type: integer
+                  format: int32
                 Product:
+                  type: integer
+                  format: int32
+                ProductSet:
                   type: integer
                   format: int32
                 Quantity:
                   type: number
                   format: double
-                UoM:
-                  type: integer
-                  format: int32
-                DeliveryNote:
-                  type: integer
-                  format: int32
             greaterThanOrEqual:
               type: object
               properties:
                 Id:
                   type: integer
                   format: int32
+                DeliveryNote:
+                  type: integer
+                  format: int32
                 Product:
+                  type: integer
+                  format: int32
+                ProductSet:
                   type: integer
                   format: int32
                 Quantity:
                   type: number
                   format: double
-                UoM:
-                  type: integer
-                  format: int32
-                DeliveryNote:
-                  type: integer
-                  format: int32
             lessThan:
               type: object
               properties:
                 Id:
                   type: integer
                   format: int32
+                DeliveryNote:
+                  type: integer
+                  format: int32
                 Product:
+                  type: integer
+                  format: int32
+                ProductSet:
                   type: integer
                   format: int32
                 Quantity:
                   type: number
                   format: double
-                UoM:
-                  type: integer
-                  format: int32
-                DeliveryNote:
-                  type: integer
-                  format: int32
             lessThanOrEqual:
               type: object
               properties:
                 Id:
                   type: integer
                   format: int32
+                DeliveryNote:
+                  type: integer
+                  format: int32
                 Product:
+                  type: integer
+                  format: int32
+                ProductSet:
                   type: integer
                   format: int32
                 Quantity:
                   type: number
                   format: double
-                UoM:
-                  type: integer
-                  format: int32
-                DeliveryNote:
-                  type: integer
-                  format: int32
         $select:
           type: array
-          example: ["Id", "Product", "Quantity", "UoM", "DeliveryNote"]
+          example: ["Id", "DeliveryNote", "Product", "ProductSet", "Quantity"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Product,Quantity,UoM,DeliveryNote"
+            example: "Id,DeliveryNote,Product,ProductSet,Quantity"
         $order:
           type: string
           enum: ["asc", "desc"]
