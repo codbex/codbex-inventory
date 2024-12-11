@@ -126,7 +126,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				action: "select",
 				entity: entity,
 				optionsProduct: $scope.optionsProduct,
-				optionsProductSet: $scope.optionsProductSet,
+				optionsProductPackaging: $scope.optionsProductPackaging,
 			});
 		};
 
@@ -134,7 +134,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("DeliveryNoteItem-filter", {
 				entity: $scope.filterEntity,
 				optionsProduct: $scope.optionsProduct,
-				optionsProductSet: $scope.optionsProductSet,
+				optionsProductPackaging: $scope.optionsProductPackaging,
 			});
 		};
 
@@ -146,7 +146,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				selectedMainEntityKey: "DeliveryNote",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsProduct: $scope.optionsProduct,
-				optionsProductSet: $scope.optionsProductSet,
+				optionsProductPackaging: $scope.optionsProductPackaging,
 			}, null, false);
 		};
 
@@ -157,7 +157,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				selectedMainEntityKey: "DeliveryNote",
 				selectedMainEntityId: $scope.selectedMainEntityId,
 				optionsProduct: $scope.optionsProduct,
-				optionsProductSet: $scope.optionsProductSet,
+				optionsProductPackaging: $scope.optionsProductPackaging,
 			}, null, false);
 		};
 
@@ -192,7 +192,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsProduct = [];
-		$scope.optionsProductSet = [];
+		$scope.optionsProductPackaging = [];
 
 
 		$http.get("/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts").then(function (response) {
@@ -204,8 +204,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-products/gen/codbex-products/api/Products/ProductSetService.ts").then(function (response) {
-			$scope.optionsProductSet = response.data.map(e => {
+		$http.get("/services/ts/codbex-products/gen/codbex-products/api/Products/ProductPackagingService.ts").then(function (response) {
+			$scope.optionsProductPackaging = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -221,10 +221,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsProductSetValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsProductSet.length; i++) {
-				if ($scope.optionsProductSet[i].value === optionKey) {
-					return $scope.optionsProductSet[i].text;
+		$scope.optionsProductPackagingValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsProductPackaging.length; i++) {
+				if ($scope.optionsProductPackaging[i].value === optionKey) {
+					return $scope.optionsProductPackaging[i].text;
 				}
 			}
 			return null;

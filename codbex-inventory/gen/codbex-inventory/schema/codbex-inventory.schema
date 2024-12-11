@@ -689,7 +689,7 @@
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "DELIVERYNOTEITEM_PRODUCTSET"
+                        "name": "DELIVERYNOTEITEM_PRODUCTPACKAGING"
                     },
                     {
                         "type": "DOUBLE",
@@ -1059,12 +1059,12 @@
                 "referencedColumns": "PRODUCT_ID"
             },
             {
-                "name": "DeliveryNoteItem_ProductSet",
+                "name": "DeliveryNoteItem_ProductPackaging",
                 "type": "foreignKey",
                 "table": "CODBEX_DELIVERYNOTEITEM",
-                "constraintName": "DeliveryNoteItem_ProductSet",
-                "columns": "DELIVERYNOTEITEM_PRODUCTSET",
-                "referencedTable": "CODBEX_PRODUCTSET",
+                "constraintName": "DeliveryNoteItem_ProductPackaging",
+                "columns": "DELIVERYNOTEITEM_PRODUCTPACKAGING",
+                "referencedTable": "CODBEX_PRODUCTPACKAGING",
                 "referencedColumns": "PRODUCTSET_ID"
             },
             {

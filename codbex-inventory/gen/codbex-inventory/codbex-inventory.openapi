@@ -10241,7 +10241,7 @@ components:
         Product:
           type: integer
           format: int32
-        ProductSet:
+        ProductPackaging:
           type: integer
           format: int32
         Quantity:
@@ -10280,7 +10280,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                ProductSet:
+                ProductPackaging:
                   oneOf:
                     - type: integer
                       format: int32
@@ -10323,7 +10323,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                ProductSet:
+                ProductPackaging:
                   oneOf:
                     - type: integer
                       format: int32
@@ -10345,7 +10345,7 @@ components:
                 Id:
                 DeliveryNote:
                 Product:
-                ProductSet:
+                ProductPackaging:
                 Quantity:
             greaterThan:
               type: object
@@ -10359,7 +10359,7 @@ components:
                 Product:
                   type: integer
                   format: int32
-                ProductSet:
+                ProductPackaging:
                   type: integer
                   format: int32
                 Quantity:
@@ -10377,7 +10377,7 @@ components:
                 Product:
                   type: integer
                   format: int32
-                ProductSet:
+                ProductPackaging:
                   type: integer
                   format: int32
                 Quantity:
@@ -10395,7 +10395,7 @@ components:
                 Product:
                   type: integer
                   format: int32
-                ProductSet:
+                ProductPackaging:
                   type: integer
                   format: int32
                 Quantity:
@@ -10413,7 +10413,7 @@ components:
                 Product:
                   type: integer
                   format: int32
-                ProductSet:
+                ProductPackaging:
                   type: integer
                   format: int32
                 Quantity:
@@ -10421,12 +10421,12 @@ components:
                   format: double
         $select:
           type: array
-          example: ["Id", "DeliveryNote", "Product", "ProductSet", "Quantity"]
+          example: ["Id", "DeliveryNote", "Product", "ProductPackaging", "Quantity"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,DeliveryNote,Product,ProductSet,Quantity"
+            example: "Id,DeliveryNote,Product,ProductPackaging,Quantity"
         $order:
           type: string
           enum: ["asc", "desc"]
