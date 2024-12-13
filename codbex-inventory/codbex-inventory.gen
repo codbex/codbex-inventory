@@ -97,7 +97,7 @@
     "Products": {
       "views": [
         "Product",
-        "ProductSet"
+        "ProductPackaging"
       ],
       "name": "Products",
       "label": "Products",
@@ -6668,11 +6668,11 @@
           "inputRule": ""
         },
         {
-          "dataName": "DELIVERYNOTEITEM_PRODUCTSET",
+          "dataName": "DELIVERYNOTEITEM_PRODUCTPACKAGING",
           "dataNullable": true,
           "dataType": "INTEGER",
           "description": "",
-          "name": "ProductSet",
+          "name": "ProductPackaging",
           "tooltip": "",
           "widgetDropDownKey": "Id",
           "widgetDropDownValue": "Name",
@@ -6680,8 +6680,8 @@
           "widgetLength": "20",
           "widgetSize": "",
           "widgetType": "DROPDOWN",
-          "relationshipName": "DeliveryNoteItem_ProductSet",
-          "relationshipEntityName": "ProductSet",
+          "relationshipName": "DeliveryNoteItem_ProductPackaging",
+          "relationshipEntityName": "ProductPackaging",
           "relationshipEntityPerspectiveName": "Products",
           "relationshipEntityPerspectiveLabel": "Products",
           "dataNotNull": false,
@@ -6690,8 +6690,8 @@
           "dataUnique": false,
           "isRequiredProperty": false,
           "isCalculatedProperty": false,
-          "widgetLabel": "ProductSet",
-          "widgetDropdownUrl": "/services/ts/codbex-products/gen/codbex-products/api/Products/ProductSetService.ts",
+          "widgetLabel": "ProductPackaging",
+          "widgetDropdownUrl": "/services/ts/codbex-products/gen/codbex-products/api/Products/ProductPackagingService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
           "inputRule": ""
@@ -6749,7 +6749,7 @@
           "genFolderName": "codbex-products"
         },
         {
-          "name": "ProductSet",
+          "name": "ProductPackaging",
           "project": "codbex-products",
           "genFolderName": "codbex-products"
         }
@@ -7787,7 +7787,7 @@
           "name": "UoM",
           "relationshipEntityPerspectiveLabel": "Entities",
           "relationshipEntityPerspectiveName": "UnitsOfMeasures",
-          "relationshipName": "ProductSet_UoM",
+          "relationshipName": "ProductPackaging_UoM",
           "tooltip": "",
           "widgetDropDownKey": "Id",
           "widgetDropDownValue": "Name",
@@ -7816,7 +7816,7 @@
           "relationshipCardinality": "1_n",
           "relationshipEntityPerspectiveLabel": "Entities",
           "relationshipEntityPerspectiveName": "Products",
-          "relationshipName": "ProductSet_Product",
+          "relationshipName": "ProductPackaging_Product",
           "relationshipType": "COMPOSITION",
           "tooltip": "",
           "widgetIsMajor": false,
@@ -7835,11 +7835,8 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
           "dataName": "PRODUCTSET_WEIGHT",
           "dataNullable": true,
-          "dataPrecision": "16",
-          "dataScale": "2",
           "dataType": "DECIMAL",
           "description": "",
           "isRequiredProperty": true,
@@ -7861,11 +7858,8 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
           "dataName": "PRODUCTSET_HEIGHT",
           "dataNullable": true,
-          "dataPrecision": "16",
-          "dataScale": "2",
           "dataType": "DECIMAL",
           "description": "",
           "isRequiredProperty": true,
@@ -7887,11 +7881,8 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
           "dataName": "PRODUCTSET_LENGTH",
           "dataNullable": true,
-          "dataPrecision": "16",
-          "dataScale": "2",
           "dataType": "DECIMAL",
           "description": "",
           "isRequiredProperty": true,
@@ -7913,11 +7904,8 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
           "dataName": "PRODUCTSET_WIDTH",
           "dataNullable": true,
-          "dataPrecision": "16",
-          "dataScale": "2",
           "dataType": "DECIMAL",
           "description": "",
           "isRequiredProperty": true,
@@ -7939,11 +7927,8 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
           "dataName": "PRODUCTSET_RATIO",
           "dataNullable": true,
-          "dataPrecision": "16",
-          "dataScale": "2",
           "dataType": "DECIMAL",
           "description": "",
           "isRequiredProperty": true,
@@ -7965,7 +7950,6 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "(entity[\"Title\"] + \"/\" + entity[\"Model\"] + \"/\" + entity[\"Batch\"] + \"-\" + (entity[\"Enabled\"] ? 'enabled' : 'disabled'));",
           "dataLength": "500",
           "dataName": "PRODUCTSET_NAME",
           "dataNullable": true,
@@ -7992,28 +7976,28 @@
           "inputRule": ""
         }
       ],
-      "caption": "Manage entity ProductSet",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_PRODUCTSET\"",
-      "dataName": "PRODUCTSET",
+      "caption": "Manage entity ProductPackaging",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_PRODUCTPACKAGING\"",
+      "dataName": "PRODUCTPACKAGING",
       "dataQuery": "",
-      "description": "Manage entity ProductSet",
+      "description": "Manage entity ProductPackaging",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "layoutType": "MANAGE",
       "menuIndex": "100",
-      "menuKey": "productset",
-      "menuLabel": "ProductSet",
-      "name": "ProductSet",
+      "menuKey": "productpackaging",
+      "menuLabel": "ProductPackaging",
+      "name": "ProductPackaging",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/cube.svg",
       "perspectiveLabel": "Products",
       "perspectiveName": "Products",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
-      "projectionReferencedEntity": "ProductSet",
+      "projectionReferencedEntity": "ProductPackaging",
       "projectionReferencedModel": "/workspace/codbex-products/codbex-products.model",
-      "title": "ProductSet",
-      "tooltip": "ProductSet",
+      "title": "ProductPackaging",
+      "tooltip": "ProductPackaging",
       "type": "PROJECTION",
       "dataSource": "DefaultDB",
       "referencedProjections": [],

@@ -7,14 +7,14 @@ export interface DeliveryNoteItemEntity {
     readonly Id: number;
     DeliveryNote?: number;
     Product: number;
-    ProductSet?: number;
+    ProductPackaging?: number;
     Quantity?: number;
 }
 
 export interface DeliveryNoteItemCreateEntity {
     readonly DeliveryNote?: number;
     readonly Product: number;
-    readonly ProductSet?: number;
+    readonly ProductPackaging?: number;
     readonly Quantity?: number;
 }
 
@@ -28,49 +28,49 @@ export interface DeliveryNoteItemEntityOptions {
             Id?: number | number[];
             DeliveryNote?: number | number[];
             Product?: number | number[];
-            ProductSet?: number | number[];
+            ProductPackaging?: number | number[];
             Quantity?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             DeliveryNote?: number | number[];
             Product?: number | number[];
-            ProductSet?: number | number[];
+            ProductPackaging?: number | number[];
             Quantity?: number | number[];
         };
         contains?: {
             Id?: number;
             DeliveryNote?: number;
             Product?: number;
-            ProductSet?: number;
+            ProductPackaging?: number;
             Quantity?: number;
         };
         greaterThan?: {
             Id?: number;
             DeliveryNote?: number;
             Product?: number;
-            ProductSet?: number;
+            ProductPackaging?: number;
             Quantity?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             DeliveryNote?: number;
             Product?: number;
-            ProductSet?: number;
+            ProductPackaging?: number;
             Quantity?: number;
         };
         lessThan?: {
             Id?: number;
             DeliveryNote?: number;
             Product?: number;
-            ProductSet?: number;
+            ProductPackaging?: number;
             Quantity?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             DeliveryNote?: number;
             Product?: number;
-            ProductSet?: number;
+            ProductPackaging?: number;
             Quantity?: number;
         };
     },
@@ -120,8 +120,8 @@ export class DeliveryNoteItemRepository {
                 required: true
             },
             {
-                name: "ProductSet",
-                column: "DELIVERYNOTEITEM_PRODUCTSET",
+                name: "ProductPackaging",
+                column: "DELIVERYNOTEITEM_PRODUCTPACKAGING",
                 type: "INTEGER",
             },
             {
