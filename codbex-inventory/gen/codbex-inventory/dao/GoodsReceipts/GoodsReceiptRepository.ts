@@ -262,7 +262,7 @@ export class GoodsReceiptRepository {
     public create(entity: GoodsReceiptCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as GoodsReceiptEntity).Number = new NumberGeneratorService().generate(16);
+        (entity as GoodsReceiptEntity).Number = new NumberGeneratorService().generate(14);
         // @ts-ignore
         (entity as GoodsReceiptEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Gross"];
         // @ts-ignore

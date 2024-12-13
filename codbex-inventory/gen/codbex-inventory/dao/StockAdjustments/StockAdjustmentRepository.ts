@@ -248,7 +248,7 @@ export class StockAdjustmentRepository {
     public create(entity: StockAdjustmentCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as StockAdjustmentEntity).Number = new NumberGeneratorService().generate(23);
+        (entity as StockAdjustmentEntity).Number = new NumberGeneratorService().generate(21);
         // @ts-ignore
         (entity as StockAdjustmentEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10);
         // @ts-ignore

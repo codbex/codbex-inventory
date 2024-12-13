@@ -228,7 +228,7 @@ export class WasteRepository {
     public create(entity: WasteCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as WasteEntity).Number = new NumberGeneratorService().generate(27);
+        (entity as WasteEntity).Number = new NumberGeneratorService().generate(25);
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
