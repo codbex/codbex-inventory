@@ -186,7 +186,7 @@ export class DeliveryNoteRepository {
     public create(entity: DeliveryNoteCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as DeliveryNoteEntity).Number = new NumberGeneratorService().generate(26);
+        (entity as DeliveryNoteEntity).Number = new NumberGeneratorService().generate(24);
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

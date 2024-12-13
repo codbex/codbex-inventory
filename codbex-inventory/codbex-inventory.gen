@@ -1401,7 +1401,7 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(16)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(14)",
           "dataLength": "20",
           "dataName": "GOODSRECEIPTS_NUMBER",
           "dataNullable": true,
@@ -1743,7 +1743,7 @@
         },
         "properties": [
           {
-            "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(16)",
+            "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(14)",
             "dataLength": "20",
             "dataName": "GOODSRECEIPTS_NUMBER",
             "dataNullable": true,
@@ -2830,7 +2830,7 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(17)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(15)",
           "dataLength": "20",
           "dataName": "GOODSISSUE_NUMBER",
           "dataNullable": true,
@@ -3172,7 +3172,7 @@
         },
         "properties": [
           {
-            "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(17)",
+            "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(15)",
             "dataLength": "20",
             "dataName": "GOODSISSUE_NUMBER",
             "dataNullable": true,
@@ -4697,7 +4697,7 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(23)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(21)",
           "dataLength": "36",
           "dataName": "STOCKADJUSTMENT_NUMBER",
           "dataNullable": true,
@@ -5005,7 +5005,7 @@
         },
         "properties": [
           {
-            "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(23)",
+            "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(21)",
             "dataLength": "36",
             "dataName": "STOCKADJUSTMENT_NUMBER",
             "dataNullable": true,
@@ -5878,7 +5878,7 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(26)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(24)",
           "dataLength": "30",
           "dataName": "DELIVERYNOTE_NUMBER",
           "dataNullable": true,
@@ -6091,7 +6091,7 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(26)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(24)",
           "dataLength": "30",
           "dataName": "DELIVERYNOTE_NUMBER",
           "dataNullable": true,
@@ -6788,7 +6788,7 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(27)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(25)",
           "dataLength": "30",
           "dataName": "WASTE_NUMBER",
           "dataNullable": true,
@@ -7079,7 +7079,7 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(27)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(25)",
           "dataLength": "30",
           "dataName": "WASTE_NUMBER",
           "dataNullable": true,

@@ -261,7 +261,7 @@ export class GoodsIssueRepository {
     public create(entity: GoodsIssueCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as GoodsIssueEntity).Number = new NumberGeneratorService().generate(17);
+        (entity as GoodsIssueEntity).Number = new NumberGeneratorService().generate(15);
         // @ts-ignore
         (entity as GoodsIssueEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Gross"];
         // @ts-ignore
