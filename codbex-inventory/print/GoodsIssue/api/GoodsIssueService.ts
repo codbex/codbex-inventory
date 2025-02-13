@@ -33,7 +33,7 @@ class GoodsIssueService {
     public purchaseOrderData(_: any, ctx: any) {
         const goodsIssueId = ctx.pathParameters.goodsIssueId;
 
-        let goodsIssue = this.goodsIssueDao.findById(goodsIssueId);
+        const goodsIssue = this.goodsIssueDao.findById(goodsIssueId);
 
         let goodsIssueItems = this.goodsIssueItemDao.findAll({
             $filter: {
@@ -44,7 +44,7 @@ class GoodsIssueService {
         });
 
         goodsIssueItems.forEach((item: any) => {
-            let product = this.productDao.findById(item.Product);
+            const product = this.productDao.findById(item.Product);
             item.Product = product.Name;
         });
 
@@ -52,8 +52,8 @@ class GoodsIssueService {
 
         if (goodsIssue.Company) {
             company = this.companyDao.findById(goodsIssue.Company);
-            let city = this.cityDao.findById(company.City);
-            let country = this.countryDao.findById(company.Country);
+            const city = this.cityDao.findById(company.City);
+            const country = this.countryDao.findById(company.Country);
 
             company.City = city.Name;
             company.Country = country.Name;
@@ -64,7 +64,6 @@ class GoodsIssueService {
         if (goodsIssue.Store) {
             store = this.storeDao.findById(goodsIssue.Store);
         }
-
 
         return {
             goodsIssue: goodsIssue,

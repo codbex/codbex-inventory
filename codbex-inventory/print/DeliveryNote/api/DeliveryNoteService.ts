@@ -8,7 +8,6 @@ import { StoreRepository as StoreDao } from "../../../../codbex-inventory/gen/co
 import { CustomerRepository as CustomerDao } from "../../../../codbex-partners/gen/codbex-partners/dao/Customers/CustomerRepository";
 import { EmployeeRepository as EmployeeDao } from "../../../../codbex-employees/gen/codbex-employees/dao/Employees/EmployeeRepository";
 
-
 import { Controller, Get } from "sdk/http";
 
 @Controller
@@ -40,7 +39,7 @@ class DeliveryNoteService {
     public deliveryNoteData(_: any, ctx: any) {
         const deliveryNoteId = ctx.pathParameters.deliveryNoteId;
 
-        let deliveryNote = this.deliveryNoteDao.findById(deliveryNoteId);
+        const deliveryNote = this.deliveryNoteDao.findById(deliveryNoteId);
 
         let deliveryNoteItems = this.deliveryNoteItemDao.findAll({
             $filter: {
@@ -51,7 +50,7 @@ class DeliveryNoteService {
         });
 
         deliveryNoteItems.forEach((item: any) => {
-            let product = this.productDao.findById(item.Product);
+            const product = this.productDao.findById(item.Product);
             item.Product = product.Name;
         });
 
@@ -59,8 +58,8 @@ class DeliveryNoteService {
 
         if (deliveryNote.Company) {
             company = this.companyDao.findById(deliveryNote.Company);
-            let city = this.cityDao.findById(company.City);
-            let country = this.countryDao.findById(company.Country);
+            const city = this.cityDao.findById(company.City);
+            const country = this.countryDao.findById(company.Country);
 
             company.City = city.Name;
             company.Country = country.Name;
