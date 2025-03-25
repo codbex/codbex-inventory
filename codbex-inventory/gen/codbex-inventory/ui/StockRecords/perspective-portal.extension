@@ -1,1 +1,5 @@
-{"module":"codbex-inventory/gen/codbex-inventory/ui/StockRecords/perspective.js","extensionPoint":"portal","description":"codbex-inventory - Perspective - StockRecords"}
+{
+    "module": "codbex-inventory/gen/codbex-inventory/ui/StockRecords/perspective.js",
+    "extensionPoint": "portal",
+    "description": "codbex-inventory - Perspective - StockRecords"
+}

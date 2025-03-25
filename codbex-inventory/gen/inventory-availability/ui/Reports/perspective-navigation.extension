@@ -1,5 +1,6 @@
 {
     "module": "codbex-inventory/gen/inventory-availability/ui/Reports/perspective-navigation.js",
     "extensionPoint": "dashboard-navigations",
-    "description": "Inventory Availability - Navigation"
+    "description": "Inventory Availability - Navigation",
+    "role": "codbex-inventory.Report.InventoryAvailabilityReadOnly"
 }

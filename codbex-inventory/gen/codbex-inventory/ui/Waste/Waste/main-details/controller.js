@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/codbex-inventory/api/Waste/WasteService.ts";
 	}])
-	.controller('PageController', ['$scope', 'Extensions', 'messageHub', 'entityApi', function ($scope, Extensions, messageHub, entityApi) {
+	.controller('PageController', ['$scope',  '$http', 'Extensions', 'messageHub', 'entityApi', function ($scope,  $http, Extensions, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.forms = {
@@ -126,5 +126,103 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.cancel = function () {
 			messageHub.postMessage("clearDetails");
 		};
+		
+		//-----------------Dialogs-------------------//
+		
+		$scope.createWasteType = function () {
+			messageHub.showDialogWindow("WasteType-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+		$scope.createCustomer = function () {
+			messageHub.showDialogWindow("Customer-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+		$scope.createProduct = function () {
+			messageHub.showDialogWindow("Product-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+		$scope.createSupplier = function () {
+			messageHub.showDialogWindow("Supplier-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+		$scope.createStore = function () {
+			messageHub.showDialogWindow("Store-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+
+		//-----------------Dialogs-------------------//
+
+
+
+		//----------------Dropdowns-----------------//
+
+		$scope.refreshWasteType = function () {
+			$scope.optionsWasteType = [];
+			$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts").then(function (response) {
+				$scope.optionsWasteType = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+		$scope.refreshCustomer = function () {
+			$scope.optionsCustomer = [];
+			$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts").then(function (response) {
+				$scope.optionsCustomer = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+		$scope.refreshProduct = function () {
+			$scope.optionsProduct = [];
+			$http.get("/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts").then(function (response) {
+				$scope.optionsProduct = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+		$scope.refreshSupplier = function () {
+			$scope.optionsSupplier = [];
+			$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Suppliers/SupplierService.ts").then(function (response) {
+				$scope.optionsSupplier = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+		$scope.refreshStore = function () {
+			$scope.optionsStore = [];
+			$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts").then(function (response) {
+				$scope.optionsStore = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+
+		//----------------Dropdowns-----------------//	
+		
 
 	}]);

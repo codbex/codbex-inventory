@@ -7,8 +7,8 @@ const perspectiveData = {
 	id: 'StockRecords',
 	name: 'StockRecords',
 	link: '/services/web/codbex-inventory/gen/codbex-inventory/ui/StockRecords/index.html',
-	order: 600,
-	icon: '/services/web/resources/unicons/align-justify.svg',
+	order: '600',
+	icon: '/services/web/resources/unicons/align-justify.svg'
 };
 
 if (typeof exports !== 'undefined') {

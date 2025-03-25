@@ -1,5 +1,6 @@
 {
     "extensionPoint": "codbex-inventory-custom-action",
     "module": "codbex-inventory/gen/codbex-inventory/ui/Reports/StockRecord/dialog-print/print.js",
-    "description": "Print StockRecord Report"
+    "description": "Print StockRecord Report",
+    "role": "codbex-inventory.StockRecords.StockRecordReadOnly"
 }

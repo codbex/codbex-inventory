@@ -1,1 +1,6 @@
-{"module":"codbex-inventory/gen/codbex-inventory/ui/StockRecords/StockRecord/tile.js","extensionPoint":"portal-tile","description":"codbex-inventory - Application Tile"}
+{
+    "module": "codbex-inventory/gen/codbex-inventory/ui/StockRecords/StockRecord/tile.js",
+    "extensionPoint": "portal-tile",
+    "description": "codbex-inventory - Application Tile",
+    "role": "codbex-inventory.StockRecords.StockRecordReadOnly,codbex-inventory.StockRecords.StockRecordFullAccess"
+}

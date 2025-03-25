@@ -7,7 +7,7 @@ const viewData = {
     id: "InventoryAvailability-Report-details",
     label: "InventoryAvailability Report",
     link: "/services/web/codbex-inventory/gen/inventory-availability/ui/Reports/InventoryAvailability/dialog-window/index.html",
-    perspectiveName: "Reports",
+    perspectiveName: "Reports"
 };
 
 if (typeof exports !== 'undefined') {

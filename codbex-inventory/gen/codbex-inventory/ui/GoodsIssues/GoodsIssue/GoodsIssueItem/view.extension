@@ -1,5 +1,6 @@
 {
     "module": "codbex-inventory/gen/codbex-inventory/ui/GoodsIssues/GoodsIssue/GoodsIssueItem/view.js",
     "extensionPoint": "codbex-inventory-view",
-    "description": "codbex-inventory - Application View - Details"
+    "description": "codbex-inventory - Application View - Details",
+    "role": "codbex-inventory.GoodsIssues.GoodsIssueItemReadOnly,codbex-inventory.GoodsIssues.GoodsIssueItemFullAccess"
 }

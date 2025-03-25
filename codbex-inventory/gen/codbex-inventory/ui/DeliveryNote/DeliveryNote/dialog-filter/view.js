@@ -7,7 +7,7 @@ const viewData = {
     id: "DeliveryNote-filter",
     label: "DeliveryNote Filter",
     link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/dialog-filter/index.html",
-    perspectiveName: "DeliveryNote",
+    perspectiveName: "DeliveryNote"
 };
 
 if (typeof exports !== 'undefined') {

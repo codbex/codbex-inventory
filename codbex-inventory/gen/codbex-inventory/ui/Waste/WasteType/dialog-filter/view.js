@@ -7,7 +7,7 @@ const viewData = {
     id: "WasteType-filter",
     label: "WasteType Filter",
     link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Waste/WasteType/dialog-filter/index.html",
-    perspectiveName: "Waste",
+    perspectiveName: "Waste"
 };
 
 if (typeof exports !== 'undefined') {

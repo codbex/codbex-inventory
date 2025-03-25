@@ -8,6 +8,9 @@ const viewData = {
     label: "StockRecord",
     link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/StockRecords/StockRecord/dialog-window/index.html",
     perspectiveName: "StockRecords",
+    roles: [
+        "codbex-inventory.StockRecords.StockRecordReadOnly",
+    ]
 };
 
 if (typeof exports !== 'undefined') {

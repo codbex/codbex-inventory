@@ -1,5 +1,6 @@
 {
     "extensionPoint": "codbex-inventory-custom-action",
     "module": "codbex-inventory/print/GoodsIssue/view.js",
-    "description": "Print Goods Issue Custom Action"
+    "description": "Print Goods Issue Custom Action",
+    "role": "codbex-inventory.GoodsIssues.GoodsIssueReadOnly,codbex-inventory.GoodsIssues.GoodsIssueFullAccess"
 }

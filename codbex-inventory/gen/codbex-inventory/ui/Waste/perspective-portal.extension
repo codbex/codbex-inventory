@@ -1,1 +1,5 @@
-{"module":"codbex-inventory/gen/codbex-inventory/ui/Waste/perspective.js","extensionPoint":"portal","description":"codbex-inventory - Perspective - Waste"}
+{
+    "module": "codbex-inventory/gen/codbex-inventory/ui/Waste/perspective.js",
+    "extensionPoint": "portal",
+    "description": "codbex-inventory - Perspective - Waste"
+}

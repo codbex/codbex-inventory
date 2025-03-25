@@ -1,4 +1,4 @@
 {
-    "name": "codbex-inventory-dialog-window",
+    "name": "dialog-window",
     "description": "codbex-inventory - Extension Point for the Application Dialog Window Providers"
 }

@@ -7,8 +7,8 @@ const perspectiveData = {
 	id: 'Waste',
 	name: 'Waste',
 	link: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Waste/index.html',
-	order: 750,
-	icon: '/services/web/resources/unicons/trash.svg',
+	order: '750',
+	icon: '/services/web/resources/unicons/trash.svg'
 };
 
 if (typeof exports !== 'undefined') {

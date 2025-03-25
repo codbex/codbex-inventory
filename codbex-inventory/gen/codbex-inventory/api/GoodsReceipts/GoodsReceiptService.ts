@@ -1,6 +1,8 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { GoodsReceiptRepository, GoodsReceiptEntityOptions } from "../../dao/GoodsReceipts/GoodsReceiptRepository";
+import { user } from "sdk/security"
+import { ForbiddenError } from "../utils/ForbiddenError";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 // custom imports
@@ -16,6 +18,7 @@ class GoodsReceiptService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            this.checkPermissions("read");
             const options: GoodsReceiptEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
@@ -30,6 +33,7 @@ class GoodsReceiptService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.checkPermissions("write");
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/codbex-inventory/api/GoodsReceipts/GoodsReceiptService.ts/" + entity.Id);
@@ -43,6 +47,7 @@ class GoodsReceiptService {
     @Get("/count")
     public count() {
         try {
+            this.checkPermissions("read");
             return this.repository.count();
         } catch (error: any) {
             this.handleError(error);
@@ -52,6 +57,7 @@ class GoodsReceiptService {
     @Post("/count")
     public countWithFilter(filter: any) {
         try {
+            this.checkPermissions("read");
             return this.repository.count(filter);
         } catch (error: any) {
             this.handleError(error);
@@ -61,6 +67,7 @@ class GoodsReceiptService {
     @Post("/search")
     public search(filter: any) {
         try {
+            this.checkPermissions("read");
             return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
@@ -70,6 +77,7 @@ class GoodsReceiptService {
     @Get("/:id")
     public getById(_: any, ctx: any) {
         try {
+            this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
@@ -85,6 +93,7 @@ class GoodsReceiptService {
     @Put("/:id")
     public update(entity: any, ctx: any) {
         try {
+            this.checkPermissions("write");
             entity.Id = ctx.pathParameters.id;
             this.validateEntity(entity);
             this.repository.update(entity);
@@ -97,6 +106,7 @@ class GoodsReceiptService {
     @Delete("/:id")
     public deleteById(_: any, ctx: any) {
         try {
+            this.checkPermissions("write");
             const id = ctx.pathParameters.id;
             const entity = this.repository.findById(id);
             if (entity) {
@@ -117,6 +127,15 @@ class GoodsReceiptService {
             HttpUtils.sendResponseBadRequest(error.message);
         } else {
             HttpUtils.sendInternalServerError(error.message);
+        }
+    }
+
+    private checkPermissions(operationType: string) {
+        if (operationType === "read" && !(user.isInRole("codbex-inventory.GoodsReceipts.GoodsReceiptReadOnly") || user.isInRole("codbex-inventory.GoodsReceipts.GoodsReceiptFullAccess"))) {
+            throw new ForbiddenError();
+        }
+        if (operationType === "write" && !user.isInRole("codbex-inventory.GoodsReceipts.GoodsReceiptFullAccess")) {
+            throw new ForbiddenError();
         }
     }
 

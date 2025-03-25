@@ -1,0 +1,6 @@
+[
+    {
+        "name": "codbex-inventory.Report.InventoryAvailabilityReadOnly",
+        "description": "A role that grants read only permission for InventoryAvailability."
+    }
+]

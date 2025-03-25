@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "bottom",
     link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/StockAdjustments/StockAdjustment/StockAdjustmentItem/index.html",
-    perspectiveName: "StockAdjustments",
+    perspectiveName: "StockAdjustments"
 };
 
 if (typeof exports !== 'undefined') {

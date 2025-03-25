@@ -1,1 +1,6 @@
-{"module":"codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/GoodsReceipt/tile.js","extensionPoint":"portal-tile","description":"codbex-inventory - Application Tile"}
+{
+    "module": "codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/GoodsReceipt/tile.js",
+    "extensionPoint": "portal-tile",
+    "description": "codbex-inventory - Application Tile",
+    "role": "codbex-inventory.GoodsReceipts.GoodsReceiptReadOnly,codbex-inventory.GoodsReceipts.GoodsReceiptFullAccess"
+}
