@@ -7,8 +7,8 @@ const perspectiveData = {
 	id: 'DeliveryNote',
 	name: 'Delivery Note',
 	link: '/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/index.html',
-	order: 700,
-	icon: '/services/web/resources/unicons/notes.svg',
+	order: '700',
+	icon: '/services/web/resources/unicons/notes.svg'
 };
 
 if (typeof exports !== 'undefined') {

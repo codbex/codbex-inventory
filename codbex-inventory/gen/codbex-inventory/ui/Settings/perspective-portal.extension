@@ -1,1 +1,5 @@
-{"module":"codbex-inventory/gen/codbex-inventory/ui/Settings/perspective.js","extensionPoint":"portal","description":"codbex-inventory - Perspective - Settings"}
+{
+    "module": "codbex-inventory/gen/codbex-inventory/ui/Settings/perspective.js",
+    "extensionPoint": "portal",
+    "description": "codbex-inventory - Perspective - Settings"
+}

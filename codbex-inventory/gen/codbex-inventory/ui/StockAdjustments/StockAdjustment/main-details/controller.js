@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/codbex-inventory/api/StockAdjustments/StockAdjustmentService.ts";
 	}])
-	.controller('PageController', ['$scope', 'Extensions', 'messageHub', 'entityApi', function ($scope, Extensions, messageHub, entityApi) {
+	.controller('PageController', ['$scope',  '$http', 'Extensions', 'messageHub', 'entityApi', function ($scope,  $http, Extensions, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.forms = {
@@ -116,5 +116,69 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.cancel = function () {
 			messageHub.postMessage("clearDetails");
 		};
+		
+		//-----------------Dialogs-------------------//
+		
+		$scope.createStore = function () {
+			messageHub.showDialogWindow("Store-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+		$scope.createType = function () {
+			messageHub.showDialogWindow("StockAdjustmentType-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+		$scope.createOperator = function () {
+			messageHub.showDialogWindow("Employee-details", {
+				action: "create",
+				entity: {},
+			}, null, false);
+		};
+
+		//-----------------Dialogs-------------------//
+
+
+
+		//----------------Dropdowns-----------------//
+
+		$scope.refreshStore = function () {
+			$scope.optionsStore = [];
+			$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts").then(function (response) {
+				$scope.optionsStore = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+		$scope.refreshType = function () {
+			$scope.optionsType = [];
+			$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StockAdjustmentTypeService.ts").then(function (response) {
+				$scope.optionsType = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.Name
+					}
+				});
+			});
+		};
+		$scope.refreshOperator = function () {
+			$scope.optionsOperator = [];
+			$http.get("/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts").then(function (response) {
+				$scope.optionsOperator = response.data.map(e => {
+					return {
+						value: e.Id,
+						text: e.FirstName
+					}
+				});
+			});
+		};
+
+		//----------------Dropdowns-----------------//	
+		
 
 	}]);

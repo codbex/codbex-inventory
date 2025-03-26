@@ -1,5 +1,6 @@
 {
     "module": "codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/DeliveryNoteItem/view.js",
     "extensionPoint": "codbex-inventory-view",
-    "description": "codbex-inventory - Application View - Details"
+    "description": "codbex-inventory - Application View - Details",
+    "role": "codbex-inventory.DeliveryNote.DeliveryNoteItemReadOnly,codbex-inventory.DeliveryNote.DeliveryNoteItemFullAccess"
 }

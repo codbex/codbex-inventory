@@ -7,7 +7,7 @@ const viewData = {
     id: "StockRecordDirection-details",
     label: "StockRecordDirection",
     link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Settings/StockRecordDirection/dialog-window/index.html",
-    perspectiveName: "Settings",
+    perspectiveName: "Settings"
 };
 
 if (typeof exports !== 'undefined') {

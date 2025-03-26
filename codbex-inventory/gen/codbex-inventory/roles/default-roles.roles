@@ -1,0 +1,122 @@
+[
+    {
+        "name": "codbex-inventory.Settings.StoreStatusReadOnly",
+        "description": "A role that grants read only permission for StoreStatus."
+    },
+    {
+        "name": "codbex-inventory.Settings.StoreStatusFullAccess",
+        "description": "A role that grants full access for StoreStatus."
+    },
+    {
+        "name": "codbex-inventory.Stores.StoreReadOnly",
+        "description": "A role that grants read only permission for Store."
+    },
+    {
+        "name": "codbex-inventory.Stores.StoreFullAccess",
+        "description": "A role that grants full access for Store."
+    },
+    {
+        "name": "codbex-inventory.GoodsReceipts.GoodsReceiptReadOnly",
+        "description": "A role that grants read only permission for GoodsReceipt."
+    },
+    {
+        "name": "codbex-inventory.GoodsReceipts.GoodsReceiptFullAccess",
+        "description": "A role that grants full access for GoodsReceipt."
+    },
+    {
+        "name": "codbex-inventory.GoodsReceipts.GoodsReceiptItemReadOnly",
+        "description": "A role that grants read only permission for GoodsReceiptItem."
+    },
+    {
+        "name": "codbex-inventory.GoodsReceipts.GoodsReceiptItemFullAccess",
+        "description": "A role that grants full access for GoodsReceiptItem."
+    },
+    {
+        "name": "codbex-inventory.GoodsIssues.GoodsIssueReadOnly",
+        "description": "A role that grants read only permission for GoodsIssue."
+    },
+    {
+        "name": "codbex-inventory.GoodsIssues.GoodsIssueFullAccess",
+        "description": "A role that grants full access for GoodsIssue."
+    },
+    {
+        "name": "codbex-inventory.GoodsIssues.GoodsIssueItemReadOnly",
+        "description": "A role that grants read only permission for GoodsIssueItem."
+    },
+    {
+        "name": "codbex-inventory.GoodsIssues.GoodsIssueItemFullAccess",
+        "description": "A role that grants full access for GoodsIssueItem."
+    },
+    {
+        "name": "codbex-inventory.StockRecords.StockRecordReadOnly",
+        "description": "A role that grants read only permission for StockRecord."
+    },
+    {
+        "name": "codbex-inventory.StockRecords.StockRecordFullAccess",
+        "description": "A role that grants full access for StockRecord."
+    },
+    {
+        "name": "codbex-inventory.Settings.StockRecordDirectionReadOnly",
+        "description": "A role that grants read only permission for StockRecordDirection."
+    },
+    {
+        "name": "codbex-inventory.Settings.StockRecordDirectionFullAccess",
+        "description": "A role that grants full access for StockRecordDirection."
+    },
+    {
+        "name": "codbex-inventory.StockAdjustments.StockAdjustmentReadOnly",
+        "description": "A role that grants read only permission for StockAdjustment."
+    },
+    {
+        "name": "codbex-inventory.StockAdjustments.StockAdjustmentFullAccess",
+        "description": "A role that grants full access for StockAdjustment."
+    },
+    {
+        "name": "codbex-inventory.Settings.StockAdjustmentTypeReadOnly",
+        "description": "A role that grants read only permission for StockAdjustmentType."
+    },
+    {
+        "name": "codbex-inventory.Settings.StockAdjustmentTypeFullAccess",
+        "description": "A role that grants full access for StockAdjustmentType."
+    },
+    {
+        "name": "codbex-inventory.StockAdjustments.StockAdjustmentItemReadOnly",
+        "description": "A role that grants read only permission for StockAdjustmentItem."
+    },
+    {
+        "name": "codbex-inventory.StockAdjustments.StockAdjustmentItemFullAccess",
+        "description": "A role that grants full access for StockAdjustmentItem."
+    },
+    {
+        "name": "codbex-inventory.DeliveryNote.DeliveryNoteReadOnly",
+        "description": "A role that grants read only permission for DeliveryNote."
+    },
+    {
+        "name": "codbex-inventory.DeliveryNote.DeliveryNoteFullAccess",
+        "description": "A role that grants full access for DeliveryNote."
+    },
+    {
+        "name": "codbex-inventory.DeliveryNote.DeliveryNoteItemReadOnly",
+        "description": "A role that grants read only permission for DeliveryNoteItem."
+    },
+    {
+        "name": "codbex-inventory.DeliveryNote.DeliveryNoteItemFullAccess",
+        "description": "A role that grants full access for DeliveryNoteItem."
+    },
+    {
+        "name": "codbex-inventory.Waste.WasteReadOnly",
+        "description": "A role that grants read only permission for Waste."
+    },
+    {
+        "name": "codbex-inventory.Waste.WasteFullAccess",
+        "description": "A role that grants full access for Waste."
+    },
+    {
+        "name": "codbex-inventory.Waste.WasteTypeReadOnly",
+        "description": "A role that grants read only permission for WasteType."
+    },
+    {
+        "name": "codbex-inventory.Waste.WasteTypeFullAccess",
+        "description": "A role that grants full access for WasteType."
+    }
+]

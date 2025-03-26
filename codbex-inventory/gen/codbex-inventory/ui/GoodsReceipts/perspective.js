@@ -7,8 +7,8 @@ const perspectiveData = {
 	id: 'GoodsReceipts',
 	name: 'GoodsReceipts',
 	link: '/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/index.html',
-	order: 100,
-	icon: '/services/web/resources/unicons/plus-square.svg',
+	order: '100',
+	icon: '/services/web/resources/unicons/plus-square.svg'
 };
 
 if (typeof exports !== 'undefined') {

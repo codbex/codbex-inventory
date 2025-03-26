@@ -7,7 +7,7 @@ const viewData = {
     id: "Store-filter",
     label: "Store Filter",
     link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Stores/Store/dialog-filter/index.html",
-    perspectiveName: "Stores",
+    perspectiveName: "Stores"
 };
 
 if (typeof exports !== 'undefined') {

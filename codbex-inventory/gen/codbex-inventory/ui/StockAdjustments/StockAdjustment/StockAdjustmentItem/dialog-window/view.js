@@ -7,7 +7,7 @@ const viewData = {
     id: "StockAdjustmentItem-details",
     label: "StockAdjustmentItem",
     link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/StockAdjustments/StockAdjustment/StockAdjustmentItem/dialog-window/index.html",
-    perspectiveName: "StockAdjustments",
+    perspectiveName: "StockAdjustments"
 };
 
 if (typeof exports !== 'undefined') {

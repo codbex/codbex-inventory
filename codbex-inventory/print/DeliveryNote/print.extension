@@ -1,5 +1,6 @@
 {
     "extensionPoint": "codbex-inventory-custom-action",
     "module": "codbex-inventory/print/DeliveryNote/view.js",
-    "description": "Print Delivery Note Custom Action"
+    "description": "Print Delivery Note Custom Action",
+    "role": "codbex-inventory.DeliveryNote.DeliveryNoteReadOnly,codbex-inventory.DeliveryNote.DeliveryNoteFullAccess"
 }

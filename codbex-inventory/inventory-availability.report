@@ -92,5 +92,9 @@
             "type": "VARCHAR",
             "initial": "'Mydeo'"
         }
-    ]
+    ],
+    "security": {
+        "generateDefaultRoles": "true",
+        "roleRead": "codbex-inventory.Report.InventoryAvailabilityReadOnly"
+    }
 }

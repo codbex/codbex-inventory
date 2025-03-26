@@ -1,5 +1,6 @@
 {
     "extensionPoint": "dashboard-navigations",
     "module": "codbex-inventory/navigations/stores/service.js",
-    "description": "Stores Navigation"
+    "description": "Stores Navigation",
+    "role": "codbex-inventory.Stores.StoreReadOnly,codbex-inventory.Stores.StoreFullAccess"
 }

@@ -1,5 +1,6 @@
 {
     "module": "codbex-inventory/gen/codbex-inventory/ui/StockAdjustments/StockAdjustment/StockAdjustmentItem/view.js",
     "extensionPoint": "codbex-inventory-view",
-    "description": "codbex-inventory - Application View - Details"
+    "description": "codbex-inventory - Application View - Details",
+    "role": "codbex-inventory.StockAdjustments.StockAdjustmentItemReadOnly,codbex-inventory.StockAdjustments.StockAdjustmentItemFullAccess"
 }

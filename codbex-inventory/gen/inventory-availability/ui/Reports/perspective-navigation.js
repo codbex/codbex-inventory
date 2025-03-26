@@ -8,7 +8,7 @@ const navigationData = {
 	label: 'Inventory Availability',
 	group: 'reports',
 	link: '/services/web/codbex-inventory/gen/inventory-availability/ui/Reports/InventoryAvailability/index.html',
-	order: 999,
+	order: $navigationOrder
 };
 
 function getNavigation() {

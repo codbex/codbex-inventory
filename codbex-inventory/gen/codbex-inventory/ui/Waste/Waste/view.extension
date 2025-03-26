@@ -1,1 +1,6 @@
-{"module":"codbex-inventory/gen/codbex-inventory/ui/Waste/Waste/view.js","extensionPoint":"codbex-inventory-view","description":"codbex-inventory - Application View"}
+{
+    "module": "codbex-inventory/gen/codbex-inventory/ui/Waste/Waste/view.js",
+    "extensionPoint": "codbex-inventory-view",
+    "description": "codbex-inventory - Application View",
+    "role": "codbex-inventory.Waste.WasteReadOnly,codbex-inventory.Waste.WasteFullAccess"
+}

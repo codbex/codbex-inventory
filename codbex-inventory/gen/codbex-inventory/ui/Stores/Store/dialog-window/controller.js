@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts";
 	}])
-	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', 'entityApi', function ($scope, messageHub, ViewParameters, entityApi) {
+	.controller('PageController', ['$scope',  '$http', 'messageHub', 'ViewParameters', 'entityApi', function ($scope,  $http, messageHub, ViewParameters, entityApi) {
 
 		$scope.entity = {};
 		$scope.forms = {
@@ -60,9 +60,53 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		$scope.serviceCity = "/services/ts/codbex-cities/gen/codbex-cities/api/Cities/CityService.ts";
+		
+		$scope.optionsCity = [];
+		
+		$http.get("/services/ts/codbex-cities/gen/codbex-cities/api/Cities/CityService.ts").then(function (response) {
+			$scope.optionsCity = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
 		$scope.serviceCountry = "/services/ts/codbex-countries/gen/codbex-countries/api/Countries/CountryService.ts";
+		
+		$scope.optionsCountry = [];
+		
+		$http.get("/services/ts/codbex-countries/gen/codbex-countries/api/Countries/CountryService.ts").then(function (response) {
+			$scope.optionsCountry = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
 		$scope.serviceStatus = "/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StoreStatusService.ts";
+		
+		$scope.optionsStatus = [];
+		
+		$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StoreStatusService.ts").then(function (response) {
+			$scope.optionsStatus = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
 		$scope.serviceCompany = "/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts";
+		
+		$scope.optionsCompany = [];
+		
+		$http.get("/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts").then(function (response) {
+			$scope.optionsCompany = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
 
 		$scope.cancel = function () {
 			$scope.entity = {};

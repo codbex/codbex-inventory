@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "bottom",
     link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/DeliveryNoteItem/index.html",
-    perspectiveName: "DeliveryNote",
+    perspectiveName: "DeliveryNote"
 };
 
 if (typeof exports !== 'undefined') {
