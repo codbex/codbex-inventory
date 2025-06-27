@@ -6,15 +6,12 @@
 const viewData = {
     id: "GoodsReceipt-details",
     label: "GoodsReceipt",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/GoodsReceipt/dialog-window/index.html",
+    path: "/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/GoodsReceipt/dialog-window/index.html",
     perspectiveName: "GoodsReceipts",
     roles: [
         "codbex-inventory.GoodsReceipts.GoodsReceiptReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

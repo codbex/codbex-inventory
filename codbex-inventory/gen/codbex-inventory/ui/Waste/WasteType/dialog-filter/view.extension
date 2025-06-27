@@ -1,6 +1,0 @@
-{
-    "module": "codbex-inventory/gen/codbex-inventory/ui/Waste/WasteType/dialog-filter/view.js",
-    "extensionPoint": "dialog-window",
-    "description": "codbex-inventory - Application Dialog Window",
-    "role": "codbex-inventory.Waste.WasteTypeReadOnly,codbex-inventory.Waste.WasteTypeFullAccess"
-}

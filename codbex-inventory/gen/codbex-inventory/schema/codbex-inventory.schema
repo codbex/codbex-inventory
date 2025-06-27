@@ -139,7 +139,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -148,7 +148,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -157,7 +157,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -212,14 +212,14 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "name": "GOODSRECEIPTITEM_PRICE"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -227,7 +227,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -235,7 +235,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -282,7 +282,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -291,7 +291,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -300,7 +300,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -355,14 +355,14 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "name": "GOODSISSUEITEM_PRICE"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -370,7 +370,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -378,7 +378,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -413,7 +413,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -421,7 +421,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -429,7 +429,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -437,7 +437,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,

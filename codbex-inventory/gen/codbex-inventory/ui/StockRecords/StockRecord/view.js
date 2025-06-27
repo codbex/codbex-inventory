@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "StockRecord",
-    label: "StockRecord",
-    factory: "frame",
-    region: "left",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/StockRecords/StockRecord/index.html",
-    perspectiveName: "StockRecords"
+    id: 'StockRecord',
+    label: 'StockRecord',
+    region: 'left',
+    lazyLoad: false,
+	autoFocusTab: false,
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/StockRecords/StockRecord/index.html',
+    perspectiveName: 'StockRecords'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

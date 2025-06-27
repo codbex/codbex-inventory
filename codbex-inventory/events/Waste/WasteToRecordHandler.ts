@@ -1,5 +1,4 @@
-import { WasteRepository } from "../../gen/codbex-inventory/dao/Waste/WasteRepository";
-import { WasteTypeRepository } from "../../gen/codbex-inventory/dao/Waste/WasteTypeRepository";
+import { WasteTypeRepository } from "../../gen/codbex-inventory/dao/Settings/WasteTypeRepository";
 import { CatalogueRepository } from "codbex-products/gen/codbex-products/dao/Catalogues/CatalogueRepository";
 
 export const trigger = (event) => {
@@ -21,10 +20,12 @@ export const trigger = (event) => {
         const wasteType = WasteTypeDao.findById(item.WasteType);
         if (catalogueRecords.length > 0) {
             const catalogueRecord = catalogueRecords[0];
-            catalogueRecord.Quantity = (catalogueRecord.Quantity - (item.Quantity) * (wasteType.Direction)) < 0 ? 0 : (catalogueRecord.Quantity - (item.Quantity) * (wasteType.Direction));
+            catalogueRecord.Quantity = (catalogueRecord.Quantity -
+                (item.Quantity) * (wasteType.Direction)) < 0
+                ? 0
+                : (catalogueRecord.Quantity - (item.Quantity) * (wasteType.Direction));
             CatalogueDao.update(catalogueRecord);
         } else {
-            //No item has been found
             const newCatalogueRecord = {
                 Store: item.Store,
                 Product: item.Product,

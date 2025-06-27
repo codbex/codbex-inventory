@@ -6,15 +6,12 @@
 const viewData = {
     id: "Store-details",
     label: "Store",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Stores/Store/dialog-window/index.html",
+    path: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Stores/Store/dialog-window/index.html",
     perspectiveName: "Stores",
     roles: [
         "codbex-inventory.Stores.StoreReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

@@ -1,6 +1,0 @@
-{
-    "extensionPoint": "dashboard-navigations",
-    "module": "codbex-inventory/navigations/goods-receipts/service.js",
-    "description": "Goods Receipts Navigation",
-    "role": "codbex-inventory.GoodsReceipts.GoodsReceiptReadOnly,codbex-inventory.GoodsReceipts.GoodsReceiptFullAccess"
-}

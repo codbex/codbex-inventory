@@ -1,6 +1,0 @@
-{
-    "module": "codbex-inventory/gen/codbex-inventory/ui/Settings/StoreStatus/tile.js",
-    "extensionPoint": "codbex-inventory-tile",
-    "description": "codbex-inventory - Application Tile",
-    "role": "codbex-inventory.Settings.StoreStatusReadOnly,codbex-inventory.Settings.StoreStatusFullAccess"
-}

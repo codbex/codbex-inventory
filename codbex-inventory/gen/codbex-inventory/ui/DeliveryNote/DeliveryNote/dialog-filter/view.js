@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "DeliveryNote-filter",
-    label: "DeliveryNote Filter",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/dialog-filter/index.html",
-    perspectiveName: "DeliveryNote"
+    id: 'DeliveryNote-filter',
+    label: 'DeliveryNote Filter',
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/dialog-filter/index.html',
+    perspectiveName: 'DeliveryNote'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

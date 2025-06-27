@@ -1,6 +1,6 @@
 {
     "module": "codbex-inventory/gen/codbex-inventory/ui/Settings/StockRecordDirection/dialog-filter/view.js",
-    "extensionPoint": "dialog-window",
+    "extensionPoint": "application-windows",
     "description": "codbex-inventory - Application Dialog Window",
     "role": "codbex-inventory.Settings.StockRecordDirectionReadOnly,codbex-inventory.Settings.StockRecordDirectionFullAccess"
 }

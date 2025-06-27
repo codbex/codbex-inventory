@@ -123,7 +123,7 @@ export interface WasteEntityOptions {
     },
     $select?: (keyof WasteEntity)[],
     $sort?: string | (keyof WasteEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -209,10 +209,10 @@ export class WasteRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(WasteRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(WasteRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: WasteEntityOptions): WasteEntity[] {
+    public findAll(options: WasteEntityOptions = {}): WasteEntity[] {
         return this.dao.list(options).map((e: WasteEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;

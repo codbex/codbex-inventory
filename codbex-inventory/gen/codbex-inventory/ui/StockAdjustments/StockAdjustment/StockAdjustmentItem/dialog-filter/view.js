@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "StockAdjustmentItem-filter",
-    label: "StockAdjustmentItem Filter",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/StockAdjustments/StockAdjustment/StockAdjustmentItem/dialog-filter/index.html",
-    perspectiveName: "StockAdjustments"
+    id: 'StockAdjustmentItem-filter',
+    label: 'StockAdjustmentItem Filter',
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/StockAdjustments/StockAdjustment/StockAdjustmentItem/dialog-filter/index.html',
+    perspectiveName: 'StockAdjustments'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

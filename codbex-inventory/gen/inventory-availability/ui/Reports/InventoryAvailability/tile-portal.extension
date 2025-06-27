@@ -1,6 +1,0 @@
-{
-    "module": "codbex-inventory/gen/inventory-availability/ui/Reports/InventoryAvailability/tile.js",
-    "extensionPoint": "portal-tile",
-    "description": "codbex-inventory - Application Tile",
-    "role": "codbex-inventory.Report.InventoryAvailabilityReadOnly"
-}

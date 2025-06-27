@@ -148,7 +148,7 @@ export interface StoreEntityOptions {
     },
     $select?: (keyof StoreEntity)[],
     $sort?: string | (keyof StoreEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -246,10 +246,10 @@ export class StoreRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(StoreRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(StoreRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: StoreEntityOptions): StoreEntity[] {
+    public findAll(options: StoreEntityOptions = {}): StoreEntity[] {
         return this.dao.list(options);
     }
 

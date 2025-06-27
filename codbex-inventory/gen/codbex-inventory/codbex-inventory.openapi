@@ -23,7 +23,7 @@ tags:
   - name: DeliveryNote
   - name: DeliveryNote
   - name: Waste
-  - name: Waste
+  - name: Settings
 paths:
   /codbex-inventory/gen/codbex-inventory/api/Settings/StoreStatusService.ts:
     get:
@@ -5665,7 +5665,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts:
+  /codbex-inventory/gen/codbex-inventory/api/Settings/WasteTypeService.ts:
     get:
       summary: List WasteType
       parameters:
@@ -5686,7 +5686,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - Waste
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -5717,7 +5717,7 @@ paths:
     post:
       summary: Create WasteType
       tags:
-        - Waste
+        - Settings
       requestBody:
         content:
           application/json:
@@ -5749,7 +5749,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts/{id}:
+  /codbex-inventory/gen/codbex-inventory/api/Settings/WasteTypeService.ts/{id}:
     get:
       summary: Get WasteType by Id
       parameters:
@@ -5760,7 +5760,7 @@ paths:
           schema:
             type: string
       tags:
-        - Waste
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -5798,7 +5798,7 @@ paths:
           schema:
             type: string
       tags:
-        - Waste
+        - Settings
       requestBody:
         content:
           application/json:
@@ -5846,7 +5846,7 @@ paths:
           schema:
             type: string
       tags:
-        - Waste
+        - Settings
       responses:
         204:
           description: Successful Request
@@ -5868,11 +5868,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts/count:
+  /codbex-inventory/gen/codbex-inventory/api/Settings/WasteTypeService.ts/count:
     get:
       summary: Count the number of WasteType
       tags:
-        - Waste
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -5896,7 +5896,7 @@ paths:
     post:
       summary: Count the number of WasteType by WasteTypeFilterOptions
       tags:
-        - Waste
+        - Settings
       requestBody:
         content:
           application/json:
@@ -5978,11 +5978,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-inventory/gen/codbex-inventory/api/Waste/WasteTypeService.ts/search:
+  /codbex-inventory/gen/codbex-inventory/api/Settings/WasteTypeService.ts/search:
     post:
       summary: Search WasteType by WasteTypeFilterOptions
       tags:
-        - Waste
+        - Settings
       requestBody:
         content:
           application/json:

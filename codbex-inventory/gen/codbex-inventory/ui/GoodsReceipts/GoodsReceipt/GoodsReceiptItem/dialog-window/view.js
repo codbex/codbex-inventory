@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "GoodsReceiptItem-details",
-    label: "GoodsReceiptItem",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/GoodsReceipt/GoodsReceiptItem/dialog-window/index.html",
-    perspectiveName: "GoodsReceipts"
+    id: 'GoodsReceiptItem-details',
+    label: 'GoodsReceiptItem',
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/GoodsReceipt/GoodsReceiptItem/dialog-window/index.html',
+    perspectiveName: 'GoodsReceipts'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

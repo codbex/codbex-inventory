@@ -1,5 +1,4 @@
 import { GoodsReceiptRepository } from "../../gen/codbex-inventory/dao/GoodsReceipts/GoodsReceiptRepository";
-//import { GoodsReceiptItemRepository, GoodsReceiptItemEntity } from "../../gen/dao/GoodsReceipts/GoodsReceiptItemRepository";
 import { StockRecordRepository } from "../../gen/codbex-inventory/dao/StockRecords/StockRecordRepository";
 import { CatalogueRepository } from "codbex-products/gen/codbex-products/dao/Catalogues/CatalogueRepository"
 
@@ -53,9 +52,7 @@ export const trigger = (event) => {
         }
 
     } else if (operation === "update") {
-        // TODO find by Item Id and update
     } else if (operation === "delete") {
-        // TODO find by Item Id and mark as deleted
     } else {
         throw new Error("Unknown operation: " + operation);
     }

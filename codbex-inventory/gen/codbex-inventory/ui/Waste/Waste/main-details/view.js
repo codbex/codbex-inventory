@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "Waste-details",
-    label: "Waste",
-    factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Waste/Waste/main-details/index.html",
-    perspectiveName: "Waste"
+    id: 'Waste-details',
+    label: 'Waste',
+    region: 'center',
+    lazyLoad: false,
+	autoFocusTab: true,
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Waste/Waste/main-details/index.html',
+    perspectiveName: 'Waste'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

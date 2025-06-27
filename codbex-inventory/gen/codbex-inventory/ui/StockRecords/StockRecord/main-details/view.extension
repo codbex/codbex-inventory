@@ -1,6 +1,6 @@
 {
     "module": "codbex-inventory/gen/codbex-inventory/ui/StockRecords/StockRecord/main-details/view.js",
-    "extensionPoint": "codbex-inventory-view",
+    "extensionPoint": "application-views",
     "description": "codbex-inventory - Application View - Main Details",
     "role": "codbex-inventory.StockRecords.StockRecordReadOnly,codbex-inventory.StockRecords.StockRecordFullAccess"
 }

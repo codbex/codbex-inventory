@@ -2,12 +2,11 @@ import { DeliveryNoteRepository as DeliveryNoteDao } from "../../../../codbex-in
 import { DeliveryNoteItemRepository as DeliveryNoteItemDao } from "../../../../codbex-inventory/gen/codbex-inventory/dao/DeliveryNote/DeliveryNoteItemRepository";
 import { ProductRepository as ProductDao } from "../../../../codbex-products/gen/codbex-products/dao/Products/ProductRepository";
 import { CompanyRepository as CompanyDao } from "../../../../codbex-companies/gen/codbex-companies/dao/Companies/CompanyRepository";
-import { CityRepository as CityDao } from "../../../../codbex-cities/gen/codbex-cities/dao/Cities/CityRepository";
-import { CountryRepository as CountryDao } from "../../../../codbex-countries/gen/codbex-countries/dao/Countries/CountryRepository";
+import { CityRepository as CityDao } from "../../../../codbex-cities/gen/codbex-cities/dao/Settings/CityRepository";
+import { CountryRepository as CountryDao } from "../../../../codbex-countries/gen/codbex-countries/dao/Settings/CountryRepository";
 import { StoreRepository as StoreDao } from "../../../../codbex-inventory/gen/codbex-inventory/dao/Stores/StoreRepository";
 import { CustomerRepository as CustomerDao } from "../../../../codbex-partners/gen/codbex-partners/dao/Customers/CustomerRepository";
 import { EmployeeRepository as EmployeeDao } from "../../../../codbex-employees/gen/codbex-employees/dao/Employees/EmployeeRepository";
-
 import { Controller, Get } from "sdk/http";
 
 @Controller

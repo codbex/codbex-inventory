@@ -6,15 +6,12 @@
 const viewData = {
     id: "DeliveryNote-details",
     label: "DeliveryNote",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/dialog-window/index.html",
+    path: "/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/dialog-window/index.html",
     perspectiveName: "DeliveryNote",
     roles: [
         "codbex-inventory.DeliveryNote.DeliveryNoteReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

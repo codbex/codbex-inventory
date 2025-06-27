@@ -1,5 +1,0 @@
-{
-    "module": "codbex-inventory/gen/codbex-inventory/ui/Settings/perspective.js",
-    "extensionPoint": "codbex-inventory",
-    "description": "codbex-inventory - Perspective - Settings"
-}

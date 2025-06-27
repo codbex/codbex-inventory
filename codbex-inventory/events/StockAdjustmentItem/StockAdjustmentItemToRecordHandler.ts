@@ -36,9 +36,7 @@ export const trigger = (event) => {
         }
 
     } else if (operation === "update") {
-        // TODO: Implement update logic
     } else if (operation === "delete") {
-        // TODO: Implement delete logic
     } else {
         throw new Error("Unknown operation: " + operation);
     }

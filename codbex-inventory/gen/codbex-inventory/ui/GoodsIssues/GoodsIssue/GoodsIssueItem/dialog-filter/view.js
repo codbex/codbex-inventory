@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "GoodsIssueItem-filter",
-    label: "GoodsIssueItem Filter",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsIssues/GoodsIssue/GoodsIssueItem/dialog-filter/index.html",
-    perspectiveName: "GoodsIssues"
+    id: 'GoodsIssueItem-filter',
+    label: 'GoodsIssueItem Filter',
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsIssues/GoodsIssue/GoodsIssueItem/dialog-filter/index.html',
+    perspectiveName: 'GoodsIssues'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

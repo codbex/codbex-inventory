@@ -1,7 +1,7 @@
 const viewData = {
     id: 'delivery-note-print',
     label: 'Print',
-    link: '/services/ts/codbex-templates/print/delivery-note-print-template.ts',
+    path: '/services/ts/codbex-templates/print/delivery-note-print-template.ts',
     perspective: 'DeliveryNote',
     view: 'DeliveryNote',
     type: 'entity',
@@ -9,7 +9,5 @@ const viewData = {
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

@@ -1,7 +1,7 @@
 const viewData = {
     id: 'goods-issue-print',
     label: 'Print',
-    link: '/services/ts/codbex-templates/print/goods-issue-print-template.ts',
+    path: '/services/ts/codbex-templates/print/goods-issue-print-template.ts',
     perspective: 'GoodsIssues',
     view: 'GoodsIssue',
     type: 'entity',
@@ -9,7 +9,5 @@ const viewData = {
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

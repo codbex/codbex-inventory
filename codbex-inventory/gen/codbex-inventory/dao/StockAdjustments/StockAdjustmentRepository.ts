@@ -130,7 +130,7 @@ export interface StockAdjustmentEntityOptions {
     },
     $select?: (keyof StockAdjustmentEntity)[],
     $sort?: string | (keyof StockAdjustmentEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -220,19 +220,14 @@ export class StockAdjustmentRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(StockAdjustmentRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(StockAdjustmentRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: StockAdjustmentEntityOptions): StockAdjustmentEntity[] {
-        // @ts-ignore
-        if (options.$sort === undefined) {
-            // @ts-ignore
-            options.$sort = "";
+    public findAll(options: StockAdjustmentEntityOptions = {}): StockAdjustmentEntity[] {
+        if (options.$sort === undefined && options.$order === undefined) {
+            options.$sort = "Number";
+            options.$order = "DESC";
         }
-        // @ts-ignore
-        options.$sort += "Number,";
-        // @ts-ignore
-        options.$order = "DESC";
         return this.dao.list(options).map((e: StockAdjustmentEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;

@@ -49,7 +49,7 @@ export interface StockRecordDirectionEntityOptions {
     },
     $select?: (keyof StockRecordDirectionEntity)[],
     $sort?: string | (keyof StockRecordDirectionEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -92,10 +92,10 @@ export class StockRecordDirectionRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(StockRecordDirectionRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(StockRecordDirectionRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: StockRecordDirectionEntityOptions): StockRecordDirectionEntity[] {
+    public findAll(options: StockRecordDirectionEntityOptions = {}): StockRecordDirectionEntity[] {
         return this.dao.list(options);
     }
 

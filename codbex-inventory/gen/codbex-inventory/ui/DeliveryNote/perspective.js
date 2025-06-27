@@ -5,14 +5,11 @@
  */
 const perspectiveData = {
 	id: 'DeliveryNote',
-	name: 'Delivery Note',
-	link: '/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/index.html',
-	order: '700',
+	label: 'Delivery Note',
+	path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/index.html',
+	order: 700,
 	icon: '/services/web/resources/unicons/notes.svg'
 };
-
 if (typeof exports !== 'undefined') {
-	exports.getPerspective = function () {
-		return perspectiveData;
-	}
+	exports.getPerspective = () => perspectiveData;
 }

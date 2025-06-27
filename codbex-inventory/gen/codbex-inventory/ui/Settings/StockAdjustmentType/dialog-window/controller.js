@@ -1,20 +1,19 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-inventory.Settings.StockAdjustmentType';
+angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+	.config(['EntityServiceProvider', (EntityServiceProvider) => {
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StockAdjustmentTypeService.ts';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StockAdjustmentTypeService.ts";
-	}])
-	.controller('PageController', ['$scope',  'messageHub', 'ViewParameters', 'entityApi', function ($scope,  messageHub, ViewParameters, entityApi) {
+	.controller('PageController', ($scope, $http, ViewParameters, EntityService) => {
+		const Dialogs = new DialogHub();
+		const Notifications = new NotificationHub();
 
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
 		};
 		$scope.formHeaders = {
-			select: "StockAdjustmentType Details",
-			create: "Create StockAdjustmentType",
-			update: "Update StockAdjustmentType"
+			select: 'StockAdjustmentType Details',
+			create: 'Create StockAdjustmentType',
+			update: 'Update StockAdjustmentType'
 		};
 		$scope.action = 'select';
 
@@ -26,44 +25,64 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 		}
 
-		$scope.create = function () {
+		$scope.create = () => {
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
-			entityApi.create(entity).then(function (response) {
-				if (response.status != 201) {
-					$scope.errorMessage = `Unable to create StockAdjustmentType: '${response.message}'`;
-					return;
-				}
-				messageHub.postMessage("entityCreated", response.data);
+			EntityService.create(entity).then((response) => {
+				Dialogs.postMessage({ topic: 'codbex-inventory.Settings.StockAdjustmentType.entityCreated', data: response.data });
+				Notifications.show({
+					title: 'StockAdjustmentType',
+					description: 'StockAdjustmentType successfully created',
+					type: 'positive'
+				});
 				$scope.cancel();
-				messageHub.showAlertSuccess("StockAdjustmentType", "StockAdjustmentType successfully created");
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				$scope.$evalAsync(() => {
+					$scope.errorMessage = `Unable to create StockAdjustmentType: '${message}'`;
+				});
+				console.error('EntityService:', error);
 			});
 		};
 
-		$scope.update = function () {
+		$scope.update = () => {
 			let id = $scope.entity.Id;
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
-			entityApi.update(id, entity).then(function (response) {
-				if (response.status != 200) {
-					$scope.errorMessage = `Unable to update StockAdjustmentType: '${response.message}'`;
-					return;
-				}
-				messageHub.postMessage("entityUpdated", response.data);
+			EntityService.update(id, entity).then((response) => {
+				Dialogs.postMessage({ topic: 'codbex-inventory.Settings.StockAdjustmentType.entityUpdated', data: response.data });
+				Notifications.show({
+					title: 'StockAdjustmentType',
+					description: 'StockAdjustmentType successfully updated',
+					type: 'positive'
+				});
 				$scope.cancel();
-				messageHub.showAlertSuccess("StockAdjustmentType", "StockAdjustmentType successfully updated");
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				$scope.$evalAsync(() => {
+					$scope.errorMessage = `Unable to update StockAdjustmentType: '${message}'`;
+				});
+				console.error('EntityService:', error);
 			});
 		};
 
 
-		$scope.cancel = function () {
+		$scope.alert = (message) => {
+			if (message) Dialogs.showAlert({
+				title: 'Description',
+				message: message,
+				type: AlertTypes.Information,
+				preformatted: true,
+			});
+		};
+
+		$scope.cancel = () => {
 			$scope.entity = {};
 			$scope.action = 'select';
-			messageHub.closeDialogWindow("StockAdjustmentType-details");
+			Dialogs.closeWindow({ id: 'StockAdjustmentType-details' });
 		};
 
-		$scope.clearErrorMessage = function () {
+		$scope.clearErrorMessage = () => {
 			$scope.errorMessage = null;
 		};
-
-	}]);
+	});
