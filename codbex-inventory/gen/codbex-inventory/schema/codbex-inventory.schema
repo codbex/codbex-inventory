@@ -780,6 +780,39 @@
                 ]
             },
             {
+                "name": "CODBEX_PRODUCTAVAILABILITY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "PRODUCTAVAILABILITY_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "PRODUCTAVAILABILITY_PRODUCT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "PRODUCTAVAILABILITY_STORE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "PRODUCTAVAILABILITY_QUANTITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "PRODUCTAVAILABILITY_BASEUNIT"
+                    }
+                ]
+            },
+            {
                 "name": "Store_City",
                 "type": "foreignKey",
                 "table": "CODBEX_STORE",
@@ -1111,6 +1144,33 @@
                 "columns": "WASTE_STORE",
                 "referencedTable": "CODBEX_STORE",
                 "referencedColumns": "STORE_ID"
+            },
+            {
+                "name": "ProductAvailability_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTAVAILABILITY",
+                "constraintName": "ProductAvailability_Product",
+                "columns": "PRODUCTAVAILABILITY_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
+            },
+            {
+                "name": "ProductAvailability_Store",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTAVAILABILITY",
+                "constraintName": "ProductAvailability_Store",
+                "columns": "PRODUCTAVAILABILITY_STORE",
+                "referencedTable": "CODBEX_STORE",
+                "referencedColumns": "STORE_ID"
+            },
+            {
+                "name": "ProductAvailability_UoM",
+                "type": "foreignKey",
+                "table": "CODBEX_PRODUCTAVAILABILITY",
+                "constraintName": "ProductAvailability_UoM",
+                "columns": "PRODUCTAVAILABILITY_BASEUNIT",
+                "referencedTable": "CODBEX_UOM",
+                "referencedColumns": "UOM_ID"
             }
         ]
     },

@@ -1,0 +1,5 @@
+{
+    "module": "codbex-inventory/gen/codbex-inventory/ui/ProductAvailability/perspective.js",
+    "extensionPoint": "application-perspectives",
+    "description": "codbex-inventory - Perspective - ProductAvailability"
+}
