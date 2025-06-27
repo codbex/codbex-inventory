@@ -1,5 +1,5 @@
 import { Controller, Get, Post } from "sdk/http"
-import { InventoryAvailabilityRepository, InventoryAvailabilityFilter, InventoryAvailabilityPaginatedFilter } from "../../dao/InventoryAvailability/InventoryAvailabilityRepository";
+import { InventoryAvailabilityRepository, InventoryAvailabilityFilter, InventoryAvailabilityPaginatedFilter } from "../../dao/Reports/InventoryAvailabilityRepository";
 import { user } from "sdk/security"
 import { ForbiddenError } from "../utils/ForbiddenError";
 import { HttpUtils } from "../utils/HttpUtils";
@@ -34,7 +34,7 @@ class InventoryAvailabilityService {
             const filter: InventoryAvailabilityFilter = {
                 Store: ctx.queryParameters.Store ? ctx.queryParameters.Store : undefined,
             };
-            return this.repository.count(filter);
+            return { count: this.repository.count(filter) };
         } catch (error: any) {
             this.handleError(error);
         }
@@ -45,7 +45,7 @@ class InventoryAvailabilityService {
         try {
             this.checkPermissions("read");
 
-            return this.repository.count(filter);
+            return { count: this.repository.count(filter) };
         } catch (error: any) {
             this.handleError(error);
         }

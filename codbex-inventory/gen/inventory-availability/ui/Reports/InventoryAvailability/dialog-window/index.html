@@ -2,119 +2,108 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="page" ng-controller="PageController">
 
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="data:;base64,iVBORw0KGgo=" dg-brand-icon />
-        <title dg-brand-title></title>
-        <theme></theme>
-        <script type="text/javascript"
-            src="/services/js/resources-core/services/loader.js?id=application-view-js"></script>
-        <link type="text/css" rel="stylesheet"
-            href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+        <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+        <title config-title></title>
+        <script type="text/javascript" src="view.js"></script>
+        <script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
+        <link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=view-css" />
         <script type="text/javascript" src="controller.js"></script>
     </head>
 
-    <body class="dg-vbox">
-        <fd-scrollbar class="dg-full-height">
-            <div class="fd-margin--md fd-message-strip fd-message-strip--error fd-message-strip--dismissible"
-                role="alert" ng-show="errorMessage">
-                <p class="fd-message-strip__text">{{ errorMessage }}</p>
-                <fd-button glyph="sap-icon--decline" compact="true" dg-type="transparent" aria-label="Close" in-msg-strip="true" ng-click="clearErrorMessage()">
-		        </fd-button>
-            </div>
-
-            <fd-fieldset ng-form="formFieldset">
-                <fd-form-group dg-header="InventoryAvailability Details" name="entityForm" class="fd-container fd-form-layout-grid-container">
-                    <fd-form-item class="fd-row">
+    <body class="bk-vbox">
+        <bk-scrollbar class="bk-full-height">
+            <bk-fieldset class="fd-padding-begin-end--sm" ng-form="formFieldset">
+                <bk-form-group label="InventoryAvailability Details" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idProduct ID" dg-colon="true">Product ID</fd-form-label>
+                        	<bk-form-label for="idProduct ID" colon="true">Product ID</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
-	                        <fd-step-input dg-id="idProduct ID"
+	                        <bk-step-input input-id="idProduct ID"
 								class="right-align"
 								name="Product ID"
 								ng-model="entity['Product ID']"
 								is-readonly="true"
-								placeholder="Enter Product ID"
-								>
-							</fd-step-input>
+								placeholder="Enter Product ID">
+							</bk-step-input>
 	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idProduct Number" dg-colon="true">Product Number</fd-form-label>
+                        	<bk-form-label for="idProduct Number" colon="true">Product Number</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-input id="idProduct Number"
+	                        <bk-input id="idProduct Number"
 	                            name="Product Number"
 	                            ng-model="entity['Product Number']"
 	                            ng-readonly="true"
 	                            type="text"
 	                            placeholder="Enter Product Number">
-	                        </fd-input>
+	                        </bk-input>
 	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idProduct Name" dg-colon="true">Product Name</fd-form-label>
+                        	<bk-form-label for="idProduct Name" colon="true">Product Name</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-input id="idProduct Name"
+	                        <bk-input id="idProduct Name"
 	                            name="Product Name"
 	                            ng-model="entity['Product Name']"
 	                            ng-readonly="true"
 	                            type="text"
 	                            placeholder="Enter Product Name">
-	                        </fd-input>
+	                        </bk-input>
 	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idQuantity Available" dg-colon="true">Quantity Available</fd-form-label>
+                        	<bk-form-label for="idQuantity Available" colon="true">Quantity Available</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
-	                        <fd-step-input dg-id="idQuantity Available"
+	                        <bk-step-input input-id="idQuantity Available"
 								class="right-align"
 								name="Quantity Available"
 								ng-model="entity['Quantity Available']"
 								is-readonly="true"
-								placeholder="Enter Quantity Available"
-								>
-							</fd-step-input>
+								placeholder="Enter Quantity Available">
+							</bk-step-input>
 	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idStore " dg-colon="true">Store </fd-form-label>
+                        	<bk-form-label for="idStore " colon="true">Store </bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-input id="idStore "
+	                        <bk-input id="idStore "
 	                            name="Store "
 	                            ng-model="entity['Store ']"
 	                            ng-readonly="true"
 	                            type="text"
 	                            placeholder="Enter Store ">
-	                        </fd-input>
+	                        </bk-input>
 	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idManufacturer" dg-colon="true">Manufacturer</fd-form-label>
+                        	<bk-form-label for="idManufacturer" colon="true">Manufacturer</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-input id="idManufacturer"
+	                        <bk-input id="idManufacturer"
 	                            name="Manufacturer"
 	                            ng-model="entity['Manufacturer']"
 	                            ng-readonly="true"
 	                            type="text"
 	                            placeholder="Enter Manufacturer">
-	                        </fd-input>
+	                        </bk-input>
 	                    </div>
-                    </fd-form-item>
-				</fd-form-group>
-            </fd-fieldset>
-        </fd-scrollbar>
+                    </bk-form-item>
+				</bk-form-group>
+            </bk-fieldset>
+        </bk-scrollbar>
+		<theme></theme>
     </body>
 
 </html>

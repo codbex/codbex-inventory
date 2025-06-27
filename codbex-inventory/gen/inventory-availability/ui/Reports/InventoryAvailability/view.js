@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "InventoryAvailabilityReport",
-    label: "InventoryAvailability Report",
-    factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-inventory/gen/inventory-availability/ui/Reports/InventoryAvailability/index.html",
-    perspectiveName: "Reports"
+    id: 'InventoryAvailabilityReport',
+    label: 'InventoryAvailability Report',
+    region: 'center',
+    lazyLoad: true,
+	autoFocusTab: false,
+    path: '/services/web/codbex-inventory/gen/inventory-availability/ui/Reports/InventoryAvailability/index.html',
+    perspectiveName: 'Reports'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

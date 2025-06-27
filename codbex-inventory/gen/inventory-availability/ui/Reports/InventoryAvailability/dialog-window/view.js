@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "InventoryAvailability-Report-details",
-    label: "InventoryAvailability Report",
-    link: "/services/web/codbex-inventory/gen/inventory-availability/ui/Reports/InventoryAvailability/dialog-window/index.html",
-    perspectiveName: "Reports"
+    id: 'InventoryAvailability-Report-details',
+    label: 'InventoryAvailability Report',
+    path: '/services/web/codbex-inventory/gen/inventory-availability/ui/Reports/InventoryAvailability/dialog-window/index.html',
+    perspectiveName: 'Reports'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }
