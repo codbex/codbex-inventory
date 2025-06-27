@@ -1,6 +1,0 @@
-{
-    "extensionPoint": "dashboard-navigations",
-    "module": "codbex-inventory/navigations/delivery-notes/service.js",
-    "description": "Delivery Note Navigation",
-    "role": "codbex-inventory.DeliveryNote.DeliveryNoteReadOnly,codbex-inventory.DeliveryNote.DeliveryNoteFullAccess"
-}

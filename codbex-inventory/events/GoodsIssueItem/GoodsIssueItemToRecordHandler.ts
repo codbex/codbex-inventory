@@ -1,5 +1,4 @@
 import { GoodsIssueRepository } from "../../gen/codbex-inventory/dao/GoodsIssues/GoodsIssueRepository";
-//import { GoodsIssueItemRepository, GoodsIssueItemEntity } from "../../gen/dao/GoodsIssues/GoodsIssueItemRepository";
 import { StockRecordRepository } from "../../gen/codbex-inventory/dao/StockRecords/StockRecordRepository";
 import { CatalogueRepository } from "codbex-products/gen/codbex-products/dao/Catalogues/CatalogueRepository"
 
