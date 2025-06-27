@@ -1,31 +1,29 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-inventory.DeliveryNote.DeliveryNote';
+angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+	.config(['EntityServiceProvider', (EntityServiceProvider) => {
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/DeliveryNote/DeliveryNoteService.ts';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/codbex-inventory/api/DeliveryNote/DeliveryNoteService.ts";
-	}])
-	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
-
+	.controller('PageController', ($scope, $http, EntityService, Extensions, ButtonStates) => {
+		const Dialogs = new DialogHub();
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
 		$scope.dataOffset = 0;
 		$scope.dataLimit = 10;
-		$scope.action = "select";
+		$scope.action = 'select';
 
 		//-----------------Custom Actions-------------------//
-		Extensions.get('dialogWindow', 'codbex-inventory-custom-action').then(function (response) {
-			$scope.pageActions = response.filter(e => e.perspective === "DeliveryNote" && e.view === "DeliveryNote" && (e.type === "page" || e.type === undefined));
+		Extensions.getWindows(['codbex-inventory-custom-action']).then((response) => {
+			$scope.pageActions = response.data.filter(e => e.perspective === 'DeliveryNote' && e.view === 'DeliveryNote' && (e.type === 'page' || e.type === undefined));
 		});
 
-		$scope.triggerPageAction = function (action) {
-			messageHub.showDialogWindow(
-				action.id,
-				{},
-				null,
-				true,
-				action
-			);
+		$scope.triggerPageAction = (action) => {
+			Dialogs.showWindow({
+				hasHeader: true,
+        		title: action.label,
+				path: action.path,
+				maxWidth: action.maxWidth,
+				maxHeight: action.maxHeight,
+				closeButton: true
+			});
 		};
 		//-----------------Custom Actions-------------------//
 
@@ -42,32 +40,29 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		}
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
-			$scope.$apply(function () {
+		Dialogs.addMessageListener({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.clearDetails', handler: () => {
+			$scope.$evalAsync(() => {
 				$scope.selectedEntity = null;
-				$scope.action = "select";
+				$scope.action = 'select';
 			});
-		});
-
-		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.entityCreated', handler: () => {
 			refreshData();
 			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
-
-		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.entityUpdated', handler: () => {
 			refreshData();
 			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
-
-		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.entitySearch', handler: (data) => {
 			resetPagination();
-			$scope.filter = msg.data.filter;
-			$scope.filterEntity = msg.data.entity;
+			$scope.filter = data.filter;
+			$scope.filterEntity = data.entity;
 			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
+		}});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber, filter) {
+		$scope.loadPage = (pageNumber, filter) => {
 			if (!filter && $scope.filter) {
 				filter = $scope.filter;
 			}
@@ -75,13 +70,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				filter = {};
 			}
 			$scope.selectedEntity = null;
-			entityApi.count(filter).then(function (response) {
-				if (response.status != 200) {
-					messageHub.showAlertError("DeliveryNote", `Unable to count DeliveryNote: '${response.message}'`);
-					return;
-				}
-				if (response.data) {
-					$scope.dataCount = response.data;
+			EntityService.count(filter).then((resp) => {
+				if (resp.data) {
+					$scope.dataCount = resp.data.count;
 				}
 				$scope.dataPages = Math.ceil($scope.dataCount / $scope.dataLimit);
 				filter.$offset = ($scope.dataPage - 1) * $scope.dataLimit;
@@ -91,16 +82,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					filter.$limit = $scope.dataPage * $scope.dataLimit;
 				}
 
-				entityApi.search(filter).then(function (response) {
-					if (response.status != 200) {
-						messageHub.showAlertError("DeliveryNote", `Unable to list/filter DeliveryNote: '${response.message}'`);
-						return;
-					}
+				EntityService.search(filter).then((response) => {
 					if ($scope.data == null || $scope.dataReset) {
 						$scope.data = [];
 						$scope.dataReset = false;
 					}
-
 					response.data.forEach(e => {
 						if (e.Date) {
 							e.Date = new Date(e.Date);
@@ -109,84 +95,106 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 					$scope.data = $scope.data.concat(response.data);
 					$scope.dataPage++;
+				}, (error) => {
+					const message = error.data ? error.data.message : '';
+					Dialogs.showAlert({
+						title: 'DeliveryNote',
+						message: `Unable to list/filter DeliveryNote: '${message}'`,
+						type: AlertTypes.Error
+					});
+					console.error('EntityService:', error);
 				});
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'DeliveryNote',
+					message: `Unable to count DeliveryNote: '${message}'`,
+					type: AlertTypes.Error
+				});
+				console.error('EntityService:', error);
 			});
 		};
 		$scope.loadPage($scope.dataPage, $scope.filter);
 
-		$scope.selectEntity = function (entity) {
+		$scope.selectEntity = (entity) => {
 			$scope.selectedEntity = entity;
-			messageHub.postMessage("entitySelected", {
+			Dialogs.postMessage({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.entitySelected', data: {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
 				optionsStore: $scope.optionsStore,
 				optionsEmployee: $scope.optionsEmployee,
 				optionsCompany: $scope.optionsCompany,
 				optionsCustomer: $scope.optionsCustomer,
-			});
+			}});
 		};
 
-		$scope.createEntity = function () {
+		$scope.createEntity = () => {
 			$scope.selectedEntity = null;
-			$scope.action = "create";
+			$scope.action = 'create';
 
-			messageHub.postMessage("createEntity", {
+			Dialogs.postMessage({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.createEntity', data: {
 				entity: {},
 				optionsStore: $scope.optionsStore,
 				optionsEmployee: $scope.optionsEmployee,
 				optionsCompany: $scope.optionsCompany,
 				optionsCustomer: $scope.optionsCustomer,
-			});
+			}});
 		};
 
-		$scope.updateEntity = function () {
-			$scope.action = "update";
-			messageHub.postMessage("updateEntity", {
+		$scope.updateEntity = () => {
+			$scope.action = 'update';
+			Dialogs.postMessage({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.updateEntity', data: {
 				entity: $scope.selectedEntity,
 				optionsStore: $scope.optionsStore,
 				optionsEmployee: $scope.optionsEmployee,
 				optionsCompany: $scope.optionsCompany,
 				optionsCustomer: $scope.optionsCustomer,
-			});
+			}});
 		};
 
-		$scope.deleteEntity = function () {
+		$scope.deleteEntity = () => {
 			let id = $scope.selectedEntity.Id;
-			messageHub.showDialogAsync(
-				'Delete DeliveryNote?',
-				`Are you sure you want to delete DeliveryNote? This action cannot be undone.`,
-				[{
-					id: "delete-btn-yes",
-					type: "emphasized",
-					label: "Yes",
-				},
-				{
-					id: "delete-btn-no",
-					type: "normal",
-					label: "No",
+			Dialogs.showDialog({
+				title: 'Delete DeliveryNote?',
+				message: `Are you sure you want to delete DeliveryNote? This action cannot be undone.`,
+				buttons: [{
+					id: 'delete-btn-yes',
+					state: ButtonStates.Emphasized,
+					label: 'Yes',
+				}, {
+					id: 'delete-btn-no',
+					label: 'No',
 				}],
-			).then(function (msg) {
-				if (msg.data === "delete-btn-yes") {
-					entityApi.delete(id).then(function (response) {
-						if (response.status != 204) {
-							messageHub.showAlertError("DeliveryNote", `Unable to delete DeliveryNote: '${response.message}'`);
-							return;
-						}
+				closeButton: false
+			}).then((buttonId) => {
+				if (buttonId === 'delete-btn-yes') {
+					EntityService.delete(id).then(() => {
 						refreshData();
 						$scope.loadPage($scope.dataPage, $scope.filter);
-						messageHub.postMessage("clearDetails");
+						Dialogs.triggerEvent('codbex-inventory.DeliveryNote.DeliveryNote.clearDetails');
+					}, (error) => {
+						const message = error.data ? error.data.message : '';
+						Dialogs.showAlert({
+							title: 'DeliveryNote',
+							message: `Unable to delete DeliveryNote: '${message}'`,
+							type: AlertTypes.Error
+						});
+						console.error('EntityService:', error);
 					});
 				}
 			});
 		};
 
-		$scope.openFilter = function (entity) {
-			messageHub.showDialogWindow("DeliveryNote-filter", {
-				entity: $scope.filterEntity,
-				optionsStore: $scope.optionsStore,
-				optionsEmployee: $scope.optionsEmployee,
-				optionsCompany: $scope.optionsCompany,
-				optionsCustomer: $scope.optionsCustomer,
+		$scope.openFilter = () => {
+			Dialogs.showWindow({
+				id: 'DeliveryNote-filter',
+				params: {
+					entity: $scope.filterEntity,
+					optionsStore: $scope.optionsStore,
+					optionsEmployee: $scope.optionsEmployee,
+					optionsCompany: $scope.optionsCompany,
+					optionsCustomer: $scope.optionsCustomer,
+				},
 			});
 		};
 
@@ -197,43 +205,67 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsCustomer = [];
 
 
-		$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts").then(function (response) {
-			$scope.optionsStore = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
+		$http.get('/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts').then((response) => {
+			$scope.optionsStore = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Store',
+				message: `Unable to load data: '${message}'`,
+				type: AlertTypes.Error
 			});
 		});
 
-		$http.get("/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts").then(function (response) {
-			$scope.optionsEmployee = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.FirstName
-				}
+		$http.get('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts').then((response) => {
+			$scope.optionsEmployee = response.data.map(e => ({
+				value: e.Id,
+				text: e.FirstName
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Employee',
+				message: `Unable to load data: '${message}'`,
+				type: AlertTypes.Error
 			});
 		});
 
-		$http.get("/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts").then(function (response) {
-			$scope.optionsCompany = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
+		$http.get('/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts').then((response) => {
+			$scope.optionsCompany = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Company',
+				message: `Unable to load data: '${message}'`,
+				type: AlertTypes.Error
 			});
 		});
 
-		$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts").then(function (response) {
-			$scope.optionsCustomer = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
+		$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts').then((response) => {
+			$scope.optionsCustomer = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Customer',
+				message: `Unable to load data: '${message}'`,
+				type: AlertTypes.Error
 			});
 		});
 
-		$scope.optionsStoreValue = function (optionKey) {
+		$scope.optionsStoreValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsStore.length; i++) {
 				if ($scope.optionsStore[i].value === optionKey) {
 					return $scope.optionsStore[i].text;
@@ -241,7 +273,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsEmployeeValue = function (optionKey) {
+		$scope.optionsEmployeeValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsEmployee.length; i++) {
 				if ($scope.optionsEmployee[i].value === optionKey) {
 					return $scope.optionsEmployee[i].text;
@@ -249,7 +281,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsCompanyValue = function (optionKey) {
+		$scope.optionsCompanyValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsCompany.length; i++) {
 				if ($scope.optionsCompany[i].value === optionKey) {
 					return $scope.optionsCompany[i].text;
@@ -257,7 +289,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsCustomerValue = function (optionKey) {
+		$scope.optionsCustomerValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
 				if ($scope.optionsCustomer[i].value === optionKey) {
 					return $scope.optionsCustomer[i].text;
@@ -266,5 +298,4 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			return null;
 		};
 		//----------------Dropdowns-----------------//
-
-	}]);
+	});

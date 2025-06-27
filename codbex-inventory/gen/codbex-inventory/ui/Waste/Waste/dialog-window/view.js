@@ -6,15 +6,12 @@
 const viewData = {
     id: "Waste-details",
     label: "Waste",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Waste/Waste/dialog-window/index.html",
+    path: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Waste/Waste/dialog-window/index.html",
     perspectiveName: "Waste",
     roles: [
         "codbex-inventory.Waste.WasteReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

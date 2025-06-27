@@ -1,20 +1,18 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-inventory.DeliveryNote.DeliveryNote';
+angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+	.config(['EntityServiceProvider', (EntityServiceProvider) => {
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/DeliveryNote/DeliveryNoteService.ts';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/codbex-inventory/api/DeliveryNote/DeliveryNoteService.ts";
-	}])
-	.controller('PageController', ['$scope',  '$http', 'messageHub', 'ViewParameters', 'entityApi', function ($scope,  $http, messageHub, ViewParameters, entityApi) {
-
+	.controller('PageController', ($scope, $http, ViewParameters, EntityService) => {
+		const Dialogs = new DialogHub();
+		const Notifications = new NotificationHub();
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
 		};
 		$scope.formHeaders = {
-			select: "DeliveryNote Details",
-			create: "Create DeliveryNote",
-			update: "Update DeliveryNote"
+			select: 'DeliveryNote Details',
+			create: 'Create DeliveryNote',
+			update: 'Update DeliveryNote'
 		};
 		$scope.action = 'select';
 
@@ -33,92 +31,136 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.optionsCustomer = params.optionsCustomer;
 		}
 
-		$scope.create = function () {
+		$scope.create = () => {
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
-			entityApi.create(entity).then(function (response) {
-				if (response.status != 201) {
-					$scope.errorMessage = `Unable to create DeliveryNote: '${response.message}'`;
-					return;
-				}
-				messageHub.postMessage("entityCreated", response.data);
+			EntityService.create(entity).then((response) => {
+				Dialogs.postMessage({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.entityCreated', data: response.data });
+				Notifications.show({
+					title: 'DeliveryNote',
+					description: 'DeliveryNote successfully created',
+					type: 'positive'
+				});
 				$scope.cancel();
-				messageHub.showAlertSuccess("DeliveryNote", "DeliveryNote successfully created");
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				$scope.$evalAsync(() => {
+					$scope.errorMessage = `Unable to create DeliveryNote: '${message}'`;
+				});
+				console.error('EntityService:', error);
 			});
 		};
 
-		$scope.update = function () {
+		$scope.update = () => {
 			let id = $scope.entity.Id;
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
-			entityApi.update(id, entity).then(function (response) {
-				if (response.status != 200) {
-					$scope.errorMessage = `Unable to update DeliveryNote: '${response.message}'`;
-					return;
-				}
-				messageHub.postMessage("entityUpdated", response.data);
+			EntityService.update(id, entity).then((response) => {
+				Dialogs.postMessage({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.entityUpdated', data: response.data });
 				$scope.cancel();
-				messageHub.showAlertSuccess("DeliveryNote", "DeliveryNote successfully updated");
+				Notifications.show({
+					title: 'DeliveryNote',
+					description: 'DeliveryNote successfully updated',
+					type: 'positive'
+				});
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				$scope.$evalAsync(() => {
+					$scope.errorMessage = `Unable to update DeliveryNote: '${message}'`;
+				});
+				console.error('EntityService:', error);
 			});
 		};
 
-		$scope.serviceStore = "/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts";
+		$scope.serviceStore = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts';
 		
 		$scope.optionsStore = [];
 		
-		$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts").then(function (response) {
-			$scope.optionsStore = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
+		$http.get('/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts').then((response) => {
+			$scope.optionsStore = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Store',
+				message: `Unable to load data: '${message}'`,
+				type: AlertTypes.Error
 			});
 		});
-		$scope.serviceEmployee = "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts";
+		$scope.serviceEmployee = '/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts';
 		
 		$scope.optionsEmployee = [];
 		
-		$http.get("/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts").then(function (response) {
-			$scope.optionsEmployee = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.FirstName
-				}
+		$http.get('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts').then((response) => {
+			$scope.optionsEmployee = response.data.map(e => ({
+				value: e.Id,
+				text: e.FirstName
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Employee',
+				message: `Unable to load data: '${message}'`,
+				type: AlertTypes.Error
 			});
 		});
-		$scope.serviceCompany = "/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts";
+		$scope.serviceCompany = '/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts';
 		
 		$scope.optionsCompany = [];
 		
-		$http.get("/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts").then(function (response) {
-			$scope.optionsCompany = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
+		$http.get('/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts').then((response) => {
+			$scope.optionsCompany = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Company',
+				message: `Unable to load data: '${message}'`,
+				type: AlertTypes.Error
 			});
 		});
-		$scope.serviceCustomer = "/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts";
+		$scope.serviceCustomer = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts';
 		
 		$scope.optionsCustomer = [];
 		
-		$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts").then(function (response) {
-			$scope.optionsCustomer = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
+		$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts').then((response) => {
+			$scope.optionsCustomer = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Customer',
+				message: `Unable to load data: '${message}'`,
+				type: AlertTypes.Error
 			});
 		});
 
-		$scope.cancel = function () {
+		$scope.alert = (message) => {
+			if (message) Dialogs.showAlert({
+				title: 'Description',
+				message: message,
+				type: AlertTypes.Information,
+				preformatted: true,
+			});
+		};
+
+		$scope.cancel = () => {
 			$scope.entity = {};
 			$scope.action = 'select';
-			messageHub.closeDialogWindow("DeliveryNote-details");
+			Dialogs.closeWindow({ id: 'DeliveryNote-details' });
 		};
 
-		$scope.clearErrorMessage = function () {
+		$scope.clearErrorMessage = () => {
 			$scope.errorMessage = null;
 		};
-
-	}]);
+	});

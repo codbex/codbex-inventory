@@ -140,7 +140,7 @@ export interface StockRecordEntityOptions {
     },
     $select?: (keyof StockRecordEntity)[],
     $sort?: string | (keyof StockRecordEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -234,10 +234,10 @@ export class StockRecordRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(StockRecordRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(StockRecordRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: StockRecordEntityOptions): StockRecordEntity[] {
+    public findAll(options: StockRecordEntityOptions = {}): StockRecordEntity[] {
         return this.dao.list(options).map((e: StockRecordEntity) => {
             EntityUtils.setBoolean(e, "Deleted");
             return e;

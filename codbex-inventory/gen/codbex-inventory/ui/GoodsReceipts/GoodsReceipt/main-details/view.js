@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "GoodsReceipt-details",
-    label: "GoodsReceipt",
-    factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/GoodsReceipt/main-details/index.html",
-    perspectiveName: "GoodsReceipts"
+    id: 'GoodsReceipt-details',
+    label: 'GoodsReceipt',
+    region: 'center',
+    lazyLoad: false,
+	autoFocusTab: true,
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/GoodsReceipt/main-details/index.html',
+    perspectiveName: 'GoodsReceipts'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

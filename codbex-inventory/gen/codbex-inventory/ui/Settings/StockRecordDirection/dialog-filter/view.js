@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "StockRecordDirection-filter",
-    label: "StockRecordDirection Filter",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Settings/StockRecordDirection/dialog-filter/index.html",
-    perspectiveName: "Settings"
+    id: 'StockRecordDirection-filter',
+    label: 'StockRecordDirection Filter',
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Settings/StockRecordDirection/dialog-filter/index.html',
+    perspectiveName: 'Settings'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

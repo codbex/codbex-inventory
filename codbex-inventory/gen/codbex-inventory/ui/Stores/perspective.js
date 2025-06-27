@@ -5,14 +5,11 @@
  */
 const perspectiveData = {
 	id: 'Stores',
-	name: 'Stores',
-	link: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Stores/index.html',
-	order: '900',
+	label: 'Stores',
+	path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Stores/index.html',
+	order: 900,
 	icon: '/services/web/resources/unicons/store.svg'
 };
-
 if (typeof exports !== 'undefined') {
-	exports.getPerspective = function () {
-		return perspectiveData;
-	}
+	exports.getPerspective = () => perspectiveData;
 }

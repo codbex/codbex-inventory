@@ -1,5 +1,6 @@
 {
     "module": "codbex-inventory/gen/codbex-inventory/ui/Stores/perspective.js",
-    "extensionPoint": "codbex-inventory",
-    "description": "codbex-inventory - Perspective - Stores"
+    "extensionPoint": "application-perspectives",
+    "description": "codbex-inventory - Perspective - Stores",
+    "role": "codbex-inventory.Stores.StoreReadOnly,codbex-inventory.Stores.StoreFullAccess"
 }

@@ -49,7 +49,7 @@ export interface StoreStatusEntityOptions {
     },
     $select?: (keyof StoreStatusEntity)[],
     $sort?: string | (keyof StoreStatusEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -92,10 +92,10 @@ export class StoreStatusRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(StoreStatusRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(StoreStatusRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: StoreStatusEntityOptions): StoreStatusEntity[] {
+    public findAll(options: StoreStatusEntityOptions = {}): StoreStatusEntity[] {
         return this.dao.list(options);
     }
 

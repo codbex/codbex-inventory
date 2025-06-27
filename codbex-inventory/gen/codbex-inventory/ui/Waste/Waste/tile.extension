@@ -1,6 +1,0 @@
-{
-    "module": "codbex-inventory/gen/codbex-inventory/ui/Waste/Waste/tile.js",
-    "extensionPoint": "codbex-inventory-tile",
-    "description": "codbex-inventory - Application Tile",
-    "role": "codbex-inventory.Waste.WasteReadOnly,codbex-inventory.Waste.WasteFullAccess"
-}

@@ -109,7 +109,7 @@ export interface GoodsReceiptItemEntityOptions {
     },
     $select?: (keyof GoodsReceiptItemEntity)[],
     $sort?: string | (keyof GoodsReceiptItemEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -192,10 +192,10 @@ export class GoodsReceiptItemRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(GoodsReceiptItemRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(GoodsReceiptItemRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: GoodsReceiptItemEntityOptions): GoodsReceiptItemEntity[] {
+    public findAll(options: GoodsReceiptItemEntityOptions = {}): GoodsReceiptItemEntity[] {
         return this.dao.list(options);
     }
 

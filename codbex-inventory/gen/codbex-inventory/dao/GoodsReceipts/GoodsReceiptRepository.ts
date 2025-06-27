@@ -139,7 +139,7 @@ export interface GoodsReceiptEntityOptions {
     },
     $select?: (keyof GoodsReceiptEntity)[],
     $sort?: string | (keyof GoodsReceiptEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -234,19 +234,14 @@ export class GoodsReceiptRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(GoodsReceiptRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(GoodsReceiptRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: GoodsReceiptEntityOptions): GoodsReceiptEntity[] {
-        // @ts-ignore
-        if (options.$sort === undefined) {
-            // @ts-ignore
-            options.$sort = "";
+    public findAll(options: GoodsReceiptEntityOptions = {}): GoodsReceiptEntity[] {
+        if (options.$sort === undefined && options.$order === undefined) {
+            options.$sort = "Number";
+            options.$order = "DESC";
         }
-        // @ts-ignore
-        options.$sort += "Number,";
-        // @ts-ignore
-        options.$order = "DESC";
         return this.dao.list(options).map((e: GoodsReceiptEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;

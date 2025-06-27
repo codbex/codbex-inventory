@@ -1,6 +1,6 @@
 {
     "module": "codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/DeliveryNoteItem/dialog-filter/view.js",
-    "extensionPoint": "dialog-window",
+    "extensionPoint": "application-windows",
     "description": "codbex-inventory - Application Dialog Window",
     "role": "codbex-inventory.DeliveryNote.DeliveryNoteItemReadOnly,codbex-inventory.DeliveryNote.DeliveryNoteItemFullAccess"
 }

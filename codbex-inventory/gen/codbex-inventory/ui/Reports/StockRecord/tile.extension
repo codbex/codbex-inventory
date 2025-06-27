@@ -1,6 +1,0 @@
-{
-    "module": "codbex-inventory/gen/codbex-inventory/ui/Reports/StockRecord/tile.js",
-    "extensionPoint": "codbex-inventory-tile",
-    "description": "codbex-inventory - Application Tile",
-    "role": "codbex-inventory.StockRecords.StockRecordReadOnly"
-}

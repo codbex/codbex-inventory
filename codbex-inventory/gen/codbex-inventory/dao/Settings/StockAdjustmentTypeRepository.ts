@@ -58,7 +58,7 @@ export interface StockAdjustmentTypeEntityOptions {
     },
     $select?: (keyof StockAdjustmentTypeEntity)[],
     $sort?: string | (keyof StockAdjustmentTypeEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -106,10 +106,10 @@ export class StockAdjustmentTypeRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(StockAdjustmentTypeRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(StockAdjustmentTypeRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: StockAdjustmentTypeEntityOptions): StockAdjustmentTypeEntity[] {
+    public findAll(options: StockAdjustmentTypeEntityOptions = {}): StockAdjustmentTypeEntity[] {
         return this.dao.list(options);
     }
 

@@ -109,7 +109,7 @@ export interface GoodsIssueItemEntityOptions {
     },
     $select?: (keyof GoodsIssueItemEntity)[],
     $sort?: string | (keyof GoodsIssueItemEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -192,10 +192,10 @@ export class GoodsIssueItemRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(GoodsIssueItemRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(GoodsIssueItemRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: GoodsIssueItemEntityOptions): GoodsIssueItemEntity[] {
+    public findAll(options: GoodsIssueItemEntityOptions = {}): GoodsIssueItemEntity[] {
         return this.dao.list(options);
     }
 

@@ -139,7 +139,7 @@ export interface GoodsIssueEntityOptions {
     },
     $select?: (keyof GoodsIssueEntity)[],
     $sort?: string | (keyof GoodsIssueEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -233,19 +233,14 @@ export class GoodsIssueRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(GoodsIssueRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(GoodsIssueRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: GoodsIssueEntityOptions): GoodsIssueEntity[] {
-        // @ts-ignore
-        if (options.$sort === undefined) {
-            // @ts-ignore
-            options.$sort = "";
+    public findAll(options: GoodsIssueEntityOptions = {}): GoodsIssueEntity[] {
+        if (options.$sort === undefined && options.$order === undefined) {
+            options.$sort = "Number";
+            options.$order = "DESC";
         }
-        // @ts-ignore
-        options.$sort += "Number,";
-        // @ts-ignore
-        options.$order = "DESC";
         return this.dao.list(options).map((e: GoodsIssueEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;

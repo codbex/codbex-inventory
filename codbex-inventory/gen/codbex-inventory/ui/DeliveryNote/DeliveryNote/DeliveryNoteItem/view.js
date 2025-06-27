@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "DeliveryNoteItem",
-    label: "DeliveryNoteItem",
-    factory: "frame",
-    region: "bottom",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/DeliveryNoteItem/index.html",
-    perspectiveName: "DeliveryNote"
+    id: 'DeliveryNoteItem',
+    label: 'DeliveryNoteItem',
+    region: 'bottom',
+    lazyLoad: false,
+	autoFocusTab: true,
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/DeliveryNoteItem/index.html',
+    perspectiveName: 'DeliveryNote'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "StockRecord-Report-details",
-    label: "StockRecord Report",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Reports/StockRecord/dialog-window/index.html",
-    perspectiveName: "Reports"
+    id: 'StockRecord-Report-details',
+    label: 'StockRecord Report',
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Reports/StockRecord/dialog-window/index.html',
+    perspectiveName: 'Reports'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

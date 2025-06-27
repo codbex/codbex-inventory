@@ -1,6 +1,6 @@
 {
     "module": "codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/GoodsReceipt/main-details/view.js",
-    "extensionPoint": "codbex-inventory-view",
+    "extensionPoint": "application-views",
     "description": "codbex-inventory - Application View - Main Details",
     "role": "codbex-inventory.GoodsReceipts.GoodsReceiptReadOnly,codbex-inventory.GoodsReceipts.GoodsReceiptFullAccess"
 }

@@ -1,6 +1,0 @@
-{
-    "module": "codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/tile.js",
-    "extensionPoint": "portal-tile",
-    "description": "codbex-inventory - Application Tile",
-    "role": "codbex-inventory.DeliveryNote.DeliveryNoteReadOnly,codbex-inventory.DeliveryNote.DeliveryNoteFullAccess"
-}

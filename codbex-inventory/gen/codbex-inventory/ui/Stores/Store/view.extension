@@ -1,6 +1,6 @@
 {
     "module": "codbex-inventory/gen/codbex-inventory/ui/Stores/Store/view.js",
-    "extensionPoint": "codbex-inventory-view",
+    "extensionPoint": "application-views",
     "description": "codbex-inventory - Application View",
     "role": "codbex-inventory.Stores.StoreReadOnly,codbex-inventory.Stores.StoreFullAccess"
 }

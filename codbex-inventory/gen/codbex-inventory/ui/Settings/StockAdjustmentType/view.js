@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "StockAdjustmentType",
-    label: "StockAdjustmentType",
-    factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Settings/StockAdjustmentType/index.html",
-    perspectiveName: "Settings"
+    id: 'StockAdjustmentType',
+    label: 'StockAdjustmentType',
+    region: 'center',
+    lazyLoad: true,
+	autoFocusTab: false,
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Settings/StockAdjustmentType/index.html',
+    perspectiveName: 'Settings'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

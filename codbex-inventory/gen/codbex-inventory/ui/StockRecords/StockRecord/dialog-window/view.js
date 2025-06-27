@@ -6,15 +6,12 @@
 const viewData = {
     id: "StockRecord-details",
     label: "StockRecord",
-    link: "/services/web/codbex-inventory/gen/codbex-inventory/ui/StockRecords/StockRecord/dialog-window/index.html",
+    path: "/services/web/codbex-inventory/gen/codbex-inventory/ui/StockRecords/StockRecord/dialog-window/index.html",
     perspectiveName: "StockRecords",
     roles: [
         "codbex-inventory.StockRecords.StockRecordReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

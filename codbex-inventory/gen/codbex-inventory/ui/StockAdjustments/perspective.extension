@@ -1,5 +1,6 @@
 {
     "module": "codbex-inventory/gen/codbex-inventory/ui/StockAdjustments/perspective.js",
-    "extensionPoint": "codbex-inventory",
-    "description": "codbex-inventory - Perspective - StockAdjustments"
+    "extensionPoint": "application-perspectives",
+    "description": "codbex-inventory - Perspective - StockAdjustments",
+    "role": "codbex-inventory.StockAdjustments.StockAdjustmentReadOnly,codbex-inventory.StockAdjustments.StockAdjustmentFullAccess"
 }

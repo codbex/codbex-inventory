@@ -76,7 +76,7 @@ export interface DeliveryNoteItemEntityOptions {
     },
     $select?: (keyof DeliveryNoteItemEntity)[],
     $sort?: string | (keyof DeliveryNoteItemEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -135,10 +135,10 @@ export class DeliveryNoteItemRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(DeliveryNoteItemRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(DeliveryNoteItemRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: DeliveryNoteItemEntityOptions): DeliveryNoteItemEntity[] {
+    public findAll(options: DeliveryNoteItemEntityOptions = {}): DeliveryNoteItemEntity[] {
         return this.dao.list(options);
     }
 

@@ -1,141 +1,172 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-inventory.StockAdjustments.StockAdjustment';
+angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+	.config(["EntityServiceProvider", (EntityServiceProvider) => {
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/StockAdjustments/StockAdjustmentService.ts';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-inventory/gen/codbex-inventory/api/StockAdjustments/StockAdjustmentService.ts";
-	}])
-	.controller('PageController', ['$scope',  '$http', 'Extensions', 'messageHub', 'entityApi', function ($scope,  $http, Extensions, messageHub, entityApi) {
-
+	.controller('PageController', ($scope, $http, Extensions, EntityService) => {
+		const Dialogs = new DialogHub();
+		const Notifications = new NotificationHub();
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
 		};
 		$scope.formHeaders = {
-			select: "StockAdjustment Details",
-			create: "Create StockAdjustment",
-			update: "Update StockAdjustment"
+			select: 'StockAdjustment Details',
+			create: 'Create StockAdjustment',
+			update: 'Update StockAdjustment'
 		};
 		$scope.action = 'select';
 
 		//-----------------Custom Actions-------------------//
-		Extensions.get('dialogWindow', 'codbex-inventory-custom-action').then(function (response) {
-			$scope.entityActions = response.filter(e => e.perspective === "StockAdjustments" && e.view === "StockAdjustment" && e.type === "entity");
+		Extensions.getWindows(['codbex-inventory-custom-action']).then((response) => {
+			$scope.entityActions = response.data.filter(e => e.perspective === 'StockAdjustments' && e.view === 'StockAdjustment' && e.type === 'entity');
 		});
 
-		$scope.triggerEntityAction = function (action) {
-			messageHub.showDialogWindow(
-				action.id,
-				{
+		$scope.triggerEntityAction = (action) => {
+			Dialogs.showWindow({
+				hasHeader: true,
+        		title: action.label,
+				path: action.path,
+				params: {
 					id: $scope.entity.Id
 				},
-				null,
-				true,
-				action
-			);
+				closeButton: true
+			});
 		};
 		//-----------------Custom Actions-------------------//
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
-			$scope.$apply(function () {
+		Dialogs.addMessageListener({ topic: 'codbex-inventory.StockAdjustments.StockAdjustment.clearDetails', handler: () => {
+			$scope.$evalAsync(() => {
 				$scope.entity = {};
 				$scope.optionsStore = [];
 				$scope.optionsType = [];
 				$scope.optionsOperator = [];
 				$scope.action = 'select';
 			});
-		});
-
-		messageHub.onDidReceiveMessage("entitySelected", function (msg) {
-			$scope.$apply(function () {
-				if (msg.data.entity.Date) {
-					msg.data.entity.Date = new Date(msg.data.entity.Date);
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-inventory.StockAdjustments.StockAdjustment.entitySelected', handler: (data) => {
+			$scope.$evalAsync(() => {
+				if (data.entity.Date) {
+					data.entity.Date = new Date(data.entity.Date);
 				}
-				$scope.entity = msg.data.entity;
-				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsType = msg.data.optionsType;
-				$scope.optionsOperator = msg.data.optionsOperator;
+				$scope.entity = data.entity;
+				$scope.optionsStore = data.optionsStore;
+				$scope.optionsType = data.optionsType;
+				$scope.optionsOperator = data.optionsOperator;
 				$scope.action = 'select';
 			});
-		});
-
-		messageHub.onDidReceiveMessage("createEntity", function (msg) {
-			$scope.$apply(function () {
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-inventory.StockAdjustments.StockAdjustment.createEntity', handler: (data) => {
+			$scope.$evalAsync(() => {
 				$scope.entity = {};
-				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsType = msg.data.optionsType;
-				$scope.optionsOperator = msg.data.optionsOperator;
+				$scope.optionsStore = data.optionsStore;
+				$scope.optionsType = data.optionsType;
+				$scope.optionsOperator = data.optionsOperator;
 				$scope.action = 'create';
 			});
-		});
-
-		messageHub.onDidReceiveMessage("updateEntity", function (msg) {
-			$scope.$apply(function () {
-				if (msg.data.entity.Date) {
-					msg.data.entity.Date = new Date(msg.data.entity.Date);
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-inventory.StockAdjustments.StockAdjustment.updateEntity', handler: (data) => {
+			$scope.$evalAsync(() => {
+				if (data.entity.Date) {
+					data.entity.Date = new Date(data.entity.Date);
 				}
-				$scope.entity = msg.data.entity;
-				$scope.optionsStore = msg.data.optionsStore;
-				$scope.optionsType = msg.data.optionsType;
-				$scope.optionsOperator = msg.data.optionsOperator;
+				$scope.entity = data.entity;
+				$scope.optionsStore = data.optionsStore;
+				$scope.optionsType = data.optionsType;
+				$scope.optionsOperator = data.optionsOperator;
 				$scope.action = 'update';
 			});
-		});
+		}});
 
-		$scope.serviceStore = "/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts";
-		$scope.serviceType = "/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StockAdjustmentTypeService.ts";
-		$scope.serviceOperator = "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts";
+		$scope.serviceStore = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts';
+		$scope.serviceType = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StockAdjustmentTypeService.ts';
+		$scope.serviceOperator = '/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts';
 
 		//-----------------Events-------------------//
 
-		$scope.create = function () {
-			entityApi.create($scope.entity).then(function (response) {
-				if (response.status != 201) {
-					messageHub.showAlertError("StockAdjustment", `Unable to create StockAdjustment: '${response.message}'`);
-					return;
-				}
-				messageHub.postMessage("entityCreated", response.data);
-				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("StockAdjustment", "StockAdjustment successfully created");
+		$scope.create = () => {
+			EntityService.create($scope.entity).then((response) => {
+				Dialogs.postMessage({ topic: 'codbex-inventory.StockAdjustments.StockAdjustment.entityCreated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-inventory.StockAdjustments.StockAdjustment.clearDetails' , data: response.data });
+				Notifications.show({
+					title: 'StockAdjustment',
+					description: 'StockAdjustment successfully created',
+					type: 'positive'
+				});
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'StockAdjustment',
+					message: `Unable to create StockAdjustment: '${message}'`,
+					type: AlertTypes.Error
+				});
+				console.error('EntityService:', error);
 			});
 		};
 
-		$scope.update = function () {
-			entityApi.update($scope.entity.Id, $scope.entity).then(function (response) {
-				if (response.status != 200) {
-					messageHub.showAlertError("StockAdjustment", `Unable to update StockAdjustment: '${response.message}'`);
-					return;
-				}
-				messageHub.postMessage("entityUpdated", response.data);
-				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("StockAdjustment", "StockAdjustment successfully updated");
+		$scope.update = () => {
+			EntityService.update($scope.entity.Id, $scope.entity).then((response) => {
+				Dialogs.postMessage({ topic: 'codbex-inventory.StockAdjustments.StockAdjustment.entityUpdated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-inventory.StockAdjustments.StockAdjustment.clearDetails', data: response.data });
+				Notifications.show({
+					title: 'StockAdjustment',
+					description: 'StockAdjustment successfully updated',
+					type: 'positive'
+				});
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'StockAdjustment',
+					message: `Unable to create StockAdjustment: '${message}'`,
+					type: AlertTypes.Error
+				});
+				console.error('EntityService:', error);
 			});
 		};
 
-		$scope.cancel = function () {
-			messageHub.postMessage("clearDetails");
+		$scope.cancel = () => {
+			Dialogs.triggerEvent('codbex-inventory.StockAdjustments.StockAdjustment.clearDetails');
 		};
 		
 		//-----------------Dialogs-------------------//
+		$scope.alert = (message) => {
+			if (message) Dialogs.showAlert({
+				title: 'Description',
+				message: message,
+				type: AlertTypes.Information,
+				preformatted: true,
+			});
+		};
 		
-		$scope.createStore = function () {
-			messageHub.showDialogWindow("Store-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.createStore = () => {
+			Dialogs.showWindow({
+				id: 'Store-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
-		$scope.createType = function () {
-			messageHub.showDialogWindow("StockAdjustmentType-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.createType = () => {
+			Dialogs.showWindow({
+				id: 'StockAdjustmentType-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
-		$scope.createOperator = function () {
-			messageHub.showDialogWindow("Employee-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.createOperator = () => {
+			Dialogs.showWindow({
+				id: 'Employee-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
 
 		//-----------------Dialogs-------------------//
@@ -144,41 +175,57 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//----------------Dropdowns-----------------//
 
-		$scope.refreshStore = function () {
+		$scope.refreshStore = () => {
 			$scope.optionsStore = [];
-			$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts").then(function (response) {
-				$scope.optionsStore = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.Name
-					}
+			$http.get('/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts').then((response) => {
+				$scope.optionsStore = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Store',
+					message: `Unable to load data: '${message}'`,
+					type: AlertTypes.Error
 				});
 			});
 		};
-		$scope.refreshType = function () {
+		$scope.refreshType = () => {
 			$scope.optionsType = [];
-			$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StockAdjustmentTypeService.ts").then(function (response) {
-				$scope.optionsType = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.Name
-					}
+			$http.get('/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StockAdjustmentTypeService.ts').then((response) => {
+				$scope.optionsType = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Type',
+					message: `Unable to load data: '${message}'`,
+					type: AlertTypes.Error
 				});
 			});
 		};
-		$scope.refreshOperator = function () {
+		$scope.refreshOperator = () => {
 			$scope.optionsOperator = [];
-			$http.get("/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts").then(function (response) {
-				$scope.optionsOperator = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.FirstName
-					}
+			$http.get('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts').then((response) => {
+				$scope.optionsOperator = response.data.map(e => ({
+					value: e.Id,
+					text: e.FirstName
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Operator',
+					message: `Unable to load data: '${message}'`,
+					type: AlertTypes.Error
 				});
 			});
 		};
 
 		//----------------Dropdowns-----------------//	
-		
-
-	}]);
+	});

@@ -5,14 +5,11 @@
  */
 const perspectiveData = {
 	id: 'StockRecords',
-	name: 'StockRecords',
-	link: '/services/web/codbex-inventory/gen/codbex-inventory/ui/StockRecords/index.html',
-	order: '600',
+	label: 'StockRecords',
+	path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/StockRecords/index.html',
+	order: 600,
 	icon: '/services/web/resources/unicons/align-justify.svg'
 };
-
 if (typeof exports !== 'undefined') {
-	exports.getPerspective = function () {
-		return perspectiveData;
-	}
+	exports.getPerspective = () => perspectiveData;
 }

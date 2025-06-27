@@ -1,0 +1,6 @@
+{
+    "module": "codbex-inventory/gen/codbex-inventory/ui/Settings/WasteType/view.js",
+    "extensionPoint": "application-settings",
+    "description": "codbex-inventory - Application View",
+    "role": "codbex-inventory.Waste.WasteTypeReadOnly,codbex-inventory.Waste.WasteTypeFullAccess"
+}

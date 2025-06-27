@@ -2,251 +2,216 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="page" ng-controller="PageController">
 
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="data:;base64,iVBORw0KGgo=" dg-brand-icon />
-        <title dg-brand-title></title>
-        <theme></theme>
-        <script type="text/javascript"
-            src="/services/js/resources-core/services/loader.js?id=application-view-js"></script>
-        <link type="text/css" rel="stylesheet"
-            href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+        <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+        <title config-title></title>
+        <script type="text/javascript" src="view.js"></script>
+        <script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
+		<script type="text/javascript" src="/services/web/dashboard/services/entity.js"></script>
+        <link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=view-css" />
         <script type="text/javascript" src="controller.js"></script>
     </head>
 
-    <body class="dg-vbox">
-        <fd-scrollbar class="dg-full-height">
-            <fd-fieldset ng-form="forms.details">
-                <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
-                    <fd-form-item class="fd-row">
+    <body class="bk-vbox">
+        <bk-scrollbar class="bk-full-height">
+            <bk-fieldset class="fd-padding-begin-end--sm" ng-form="forms.details">
+                <bk-form-group label="{{formHeaders[action]}}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idNumber" dg-required="false" dg-colon="true">Number</fd-form-label>
+                        	<bk-form-label for="idNumber" ng-required="false" colon="true">Number</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Number'].$valid }}">
-	                            <fd-input id="idNumber"
+							<bk-form-input-message>
+								<bk-input id="idNumber"
 	                                name="Number"
-	                                state="{{ forms.details['Number'].$valid ? '' : 'error' }}"
-									ng-required="false"
 	                                ng-model="entity.Number"
 	                                ng-readonly="true"
-	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="30.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Number">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
-	                        </fd-form-input-message-group>
-	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+	                            </bk-input>
+							</bk-form-input-message>
 	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDate" dg-required="true" dg-colon="true">Date</fd-form-label>
+                        	<bk-form-label for="idDate" ng-required="true" colon="true">Date</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--2 ">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Date'].$valid }}">
-	                            <fd-input id="idDate"
+							<bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" message="'Incorrect Input'">
+								<bk-input id="idDate"
 	                                name="Date"
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
 									ng-required="true"
 	                                ng-model="entity.Date"
 	                                ng-readonly="action === 'select'"
 	                                type="date">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
-	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+	                            </bk-input>
+							</bk-form-input-message>
 	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idWasteType" dg-required="true" dg-colon="true">WasteType</fd-form-label>
+                        	<bk-form-label for="idWasteType" ng-required="true" colon="true">WasteType</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
-	                        <fd-combobox-input id="idWasteType"
+	                        <bk-combobox-input input-id="idWasteType"
 	                            name="WasteType"
 	                            state="{{ forms.details['WasteType'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
 	                            ng-model="entity.WasteType"
-	                            dg-disabled="action === 'select'"
+	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsWasteType"
-	                            dg-placeholder="Search WasteType ...">
-	                        </fd-combobox-input>
+	                            placeholder="Search WasteType ..."
+								btn-aria-label="show/hide WasteType options" list-aria-label="WasteType options">
+	                        </bk-combobox-input>
 	                    </div>
-	                    <div class="fd-col fd-col-md--1">
-							<button class="fd-button" ng-click="createWasteType()" ng-hide="action === 'select'">
-								<i class="sap-icon--add" role="presentation"></i>
-							</button>
-							<button class="fd-button" ng-click="refreshWasteType()" ng-hide="action === 'select'">
-								<i class="sap-icon--refresh" role="presentation"></i>
-							</button>
-							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+	                    <div class="fd-col fd-col--full">
+							<bk-button glyph="sap-icon--add" aria-label="Add" ng-click="createWasteType()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="Refresh" ng-click="refreshWasteType()" ng-hide="action === 'select'"></bk-button>
 						</div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idCustomer" dg-required="false" dg-colon="true">Customer</fd-form-label>
+                        	<bk-form-label for="idCustomer" ng-required="false" colon="true">Customer</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
-	                        <fd-combobox-input id="idCustomer"
+	                        <bk-combobox-input input-id="idCustomer"
 	                            name="Customer"
 	                            state="{{ forms.details['Customer'].$valid ? '' : 'error' }}"
 	                            ng-required="false"
 	                            ng-model="entity.Customer"
-	                            dg-disabled="action === 'select'"
+	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsCustomer"
-	                            dg-placeholder="Search Customer ...">
-	                        </fd-combobox-input>
+	                            placeholder="Search Customer ..."
+								btn-aria-label="show/hide Customer options" list-aria-label="Customer options">
+	                        </bk-combobox-input>
 	                    </div>
-	                    <div class="fd-col fd-col-md--1">
-							<button class="fd-button" ng-click="createCustomer()" ng-hide="action === 'select'">
-								<i class="sap-icon--add" role="presentation"></i>
-							</button>
-							<button class="fd-button" ng-click="refreshCustomer()" ng-hide="action === 'select'">
-								<i class="sap-icon--refresh" role="presentation"></i>
-							</button>
-							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+	                    <div class="fd-col fd-col--full">
+							<bk-button glyph="sap-icon--add" aria-label="Add" ng-click="createCustomer()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="Refresh" ng-click="refreshCustomer()" ng-hide="action === 'select'"></bk-button>
 						</div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idProduct" dg-required="true" dg-colon="true">Product</fd-form-label>
+                        	<bk-form-label for="idProduct" ng-required="true" colon="true">Product</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
-	                        <fd-combobox-input id="idProduct"
+	                        <bk-combobox-input input-id="idProduct"
 	                            name="Product"
 	                            state="{{ forms.details['Product'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
 	                            ng-model="entity.Product"
-	                            dg-disabled="action === 'select'"
+	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsProduct"
-	                            dg-placeholder="Search Product ...">
-	                        </fd-combobox-input>
+	                            placeholder="Search Product ..."
+								btn-aria-label="show/hide Product options" list-aria-label="Product options">
+	                        </bk-combobox-input>
 	                    </div>
-	                    <div class="fd-col fd-col-md--1">
-							<button class="fd-button" ng-click="createProduct()" ng-hide="action === 'select'">
-								<i class="sap-icon--add" role="presentation"></i>
-							</button>
-							<button class="fd-button" ng-click="refreshProduct()" ng-hide="action === 'select'">
-								<i class="sap-icon--refresh" role="presentation"></i>
-							</button>
-							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+	                    <div class="fd-col fd-col--full">
+							<bk-button glyph="sap-icon--add" aria-label="Add" ng-click="createProduct()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="Refresh" ng-click="refreshProduct()" ng-hide="action === 'select'"></bk-button>
 						</div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idQuantity" dg-required="true" dg-colon="true">Quantity</fd-form-label>
+                        	<bk-form-label for="idQuantity" ng-required="true" colon="true">Quantity</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
-							<fd-step-input dg-id="idQuantity"
+							<bk-step-input input-id="idQuantity"
 								name="Quantity"
 								state="{{ forms.details['Quantity'].$valid ? '' : 'error' }}"
-								dg-required="true"
+								is-required="true"
 								ng-model="entity.Quantity"
 								is-readonly="action === 'select'"
-								placeholder="Enter Quantity"
-								>
-							</fd-step-input>
-							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+								placeholder="Enter Quantity">
+							</bk-step-input>
 	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idSupplier" dg-required="false" dg-colon="true">Supplier</fd-form-label>
+                        	<bk-form-label for="idSupplier" ng-required="false" colon="true">Supplier</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
-	                        <fd-combobox-input id="idSupplier"
+	                        <bk-combobox-input input-id="idSupplier"
 	                            name="Supplier"
 	                            state="{{ forms.details['Supplier'].$valid ? '' : 'error' }}"
 	                            ng-required="false"
 	                            ng-model="entity.Supplier"
-	                            dg-disabled="action === 'select'"
+	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsSupplier"
-	                            dg-placeholder="Search Supplier ...">
-	                        </fd-combobox-input>
+	                            placeholder="Search Supplier ..."
+								btn-aria-label="show/hide Supplier options" list-aria-label="Supplier options">
+	                        </bk-combobox-input>
 	                    </div>
-	                    <div class="fd-col fd-col-md--1">
-							<button class="fd-button" ng-click="createSupplier()" ng-hide="action === 'select'">
-								<i class="sap-icon--add" role="presentation"></i>
-							</button>
-							<button class="fd-button" ng-click="refreshSupplier()" ng-hide="action === 'select'">
-								<i class="sap-icon--refresh" role="presentation"></i>
-							</button>
-							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+	                    <div class="fd-col fd-col--full">
+							<bk-button glyph="sap-icon--add" aria-label="Add" ng-click="createSupplier()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="Refresh" ng-click="refreshSupplier()" ng-hide="action === 'select'"></bk-button>
 						</div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idStore" dg-required="true" dg-colon="true">Store</fd-form-label>
+                        	<bk-form-label for="idStore" ng-required="true" colon="true">Store</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
-	                        <fd-combobox-input id="idStore"
+	                        <bk-combobox-input input-id="idStore"
 	                            name="Store"
 	                            state="{{ forms.details['Store'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
 	                            ng-model="entity.Store"
-	                            dg-disabled="action === 'select'"
+	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsStore"
-	                            dg-placeholder="Search Store ...">
-	                        </fd-combobox-input>
+	                            placeholder="Search Store ..."
+								btn-aria-label="show/hide Store options" list-aria-label="Store options">
+	                        </bk-combobox-input>
 	                    </div>
-	                    <div class="fd-col fd-col-md--1">
-							<button class="fd-button" ng-click="createStore()" ng-hide="action === 'select'">
-								<i class="sap-icon--add" role="presentation"></i>
-							</button>
-							<button class="fd-button" ng-click="refreshStore()" ng-hide="action === 'select'">
-								<i class="sap-icon--refresh" role="presentation"></i>
-							</button>
-							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+	                    <div class="fd-col fd-col--full">
+							<bk-button glyph="sap-icon--add" aria-label="Add" ng-click="createStore()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="Refresh" ng-click="refreshStore()" ng-hide="action === 'select'"></bk-button>
 						</div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idReason" dg-required="false" dg-colon="true">Reason</fd-form-label>
+                        	<bk-form-label for="idReason" ng-required="false" colon="true">Reason</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Reason'].$valid }}">
-	                            <fd-input id="idReason"
+							<bk-form-input-message state="{{ forms.details['Reason'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
+								<bk-input id="idReason"
 	                                name="Reason"
 	                                state="{{ forms.details['Reason'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Reason"
 	                                ng-readonly="action === 'select'"
-	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="300.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
+									ng-maxlength="300.0"
+	                                input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Reason">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
-	                        </fd-form-input-message-group>
-	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+	                            </bk-input>
+							</bk-form-input-message>
 	                    </div>
-                    </fd-form-item>
-                </fd-form-group>
-            </fd-fieldset>
-        </fd-scrollbar>
+                    </bk-form-item>
+                </bk-form-group>
+            </bk-fieldset>
+        </bk-scrollbar>
 
-		<fd-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
-			<fd-bar-right>
-				<fd-bar-element>
-					<fd-button dg-label="{{action === 'create' ? 'Create' : 'Update'}}" dg-type="emphasized" ng-click="action === 'create' ? create() : update()" state="{{ forms.details.$valid ? '' : 'disabled' }}"></fd-button>
-				</fd-bar-element>
-				<fd-bar-element>
-					<fd-button dg-label="Cancel" ng-click="cancel()"></fd-button>
-				</fd-bar-element>
-			</fd-bar-right>
-		</fd-bar>
-		<fd-bar bar-design="footer" ng-show="action === 'select' && entityActions.length && entity.Id">
-			<fd-bar-right>
-				<fd-bar-element ng-repeat="action in entityActions">
-					<fd-button dg-label="{{action.label}}" compact="true" ng-click="triggerEntityAction(action)"></fd-button>
-				</fd-bar-element>
-			</fd-bar-right>
-		</fd-bar>
+		<bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
+			<bk-bar-right>
+				<bk-bar-element>
+					<bk-button label="{{action === 'create' ? 'Create' : 'Update'}}" state="emphasized" ng-click="action === 'create' ? create() : update()" ng-disabled="!forms.details.$valid"></bk-button>
+				</bk-bar-element>
+				<bk-bar-element>
+					<bk-button label="Cancel" ng-click="cancel()"></bk-button>
+				</bk-bar-element>
+			</bk-bar-right>
+		</bk-bar>
+		<bk-bar bar-design="footer" compact="true" ng-show="action === 'select' && entityActions.length && entity.Id">
+			<bk-bar-right>
+				<bk-bar-element ng-repeat="action in entityActions track by $index">
+					<bk-button label="{{action.label}}" ng-click="triggerEntityAction(action)"></bk-button>
+				</bk-bar-element>
+			</bk-bar-right>
+		</bk-bar>
+		<theme></theme>
     </body>
 
 </html>
