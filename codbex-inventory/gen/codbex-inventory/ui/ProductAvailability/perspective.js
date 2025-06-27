@@ -7,6 +7,7 @@ const perspectiveData = {
 	id: 'ProductAvailability',
 	label: 'ProductAvailability',
 	path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/ProductAvailability/index.html',
+	groupId: 'products-navigation-group',
 	order: 1000,
 	icon: '/services/web/resources/unicons/book-open.svg'
 };

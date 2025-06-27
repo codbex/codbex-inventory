@@ -461,7 +461,7 @@
       "label": "ProductAvailability",
       "header": "",
       "order": "1000",
-      "navId": "",
+      "navId": "products-navigation-group",
       "icon": "/services/web/resources/unicons/book-open.svg",
       "role": ""
     }
@@ -9037,7 +9037,7 @@
       "perspectiveIcon": "/services/web/resources/unicons/book-open.svg",
       "perspectiveLabel": "ProductAvailability",
       "perspectiveName": "ProductAvailability",
-      "perspectiveNavId": "",
+      "perspectiveNavId": "products-navigation-group",
       "perspectiveOrder": "1000",
       "perspectiveRole": "",
       "title": "ProductAvailability",
