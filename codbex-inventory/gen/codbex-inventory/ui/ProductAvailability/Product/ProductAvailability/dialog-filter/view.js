@@ -6,7 +6,7 @@
 const viewData = {
     id: 'ProductAvailability-filter',
     label: 'ProductAvailability Filter',
-    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/ProductAvailability/ProductAvailability/dialog-filter/index.html',
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/ProductAvailability/Product/ProductAvailability/dialog-filter/index.html',
     perspectiveName: 'ProductAvailability'
 };
 if (typeof exports !== 'undefined') {

@@ -19,6 +19,17 @@ class ProductAvailabilityService {
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
 
+            let Product = parseInt(ctx.queryParameters.Product);
+            Product = isNaN(Product) ? ctx.queryParameters.Product : Product;
+
+            if (Product !== undefined) {
+                options.$filter = {
+                    equals: {
+                        Product: Product
+                    }
+                };
+            }
+
             return this.repository.findAll(options);
         } catch (error: any) {
             this.handleError(error);
@@ -121,9 +132,6 @@ class ProductAvailabilityService {
     private validateEntity(entity: any): void {
         if (entity.Product === null || entity.Product === undefined) {
             throw new ValidationError(`The 'Product' property is required, provide a valid value`);
-        }
-        if (entity.Store === null || entity.Store === undefined) {
-            throw new ValidationError(`The 'Store' property is required, provide a valid value`);
         }
         if (entity.Quantity === null || entity.Quantity === undefined) {
             throw new ValidationError(`The 'Quantity' property is required, provide a valid value`);

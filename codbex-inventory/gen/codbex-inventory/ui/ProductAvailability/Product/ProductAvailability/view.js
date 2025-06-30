@@ -6,11 +6,11 @@
 const viewData = {
     id: 'ProductAvailability',
     label: 'ProductAvailability',
-    region: 'left',
+    region: 'bottom',
     lazyLoad: false,
-	autoFocusTab: false,
-    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/ProductAvailability/ProductAvailability/index.html',
-    perspectiveName: 'ProductAvailability'
+	autoFocusTab: true,
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/ProductAvailability/Product/ProductAvailability/index.html',
+    perspectiveName: 'Products'
 };
 if (typeof exports !== 'undefined') {
 	exports.getView = () => viewData;

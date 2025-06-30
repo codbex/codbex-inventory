@@ -1,5 +1,0 @@
-{
-    "module": "codbex-inventory/gen/codbex-inventory/ui/ProductAvailability/ProductAvailability/main-details/view.js",
-    "extensionPoint": "application-views",
-    "description": "codbex-inventory - Application View - Main Details"
-}

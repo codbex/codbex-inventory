@@ -23,7 +23,6 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsProduct = params.optionsProduct;
-			$scope.optionsStore = params.optionsStore;
 			$scope.optionsBaseUnit = params.optionsBaseUnit;
 		}
 
@@ -40,8 +39,10 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				$scope.cancel();
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
-				$scope.$evalAsync(() => {
-					$scope.errorMessage = `Unable to create ProductAvailability: '${message}'`;
+				Dialogs.showAlert({
+					title: 'ProductAvailability',
+					message: `Unable to create ProductAvailability: '${message}'`,
+					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
 			});
@@ -53,75 +54,25 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.update(id, entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.entityUpdated', data: response.data });
-				$scope.cancel();
 				Notifications.show({
 					title: 'ProductAvailability',
 					description: 'ProductAvailability successfully updated',
 					type: 'positive'
 				});
+				$scope.cancel();
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
-				$scope.$evalAsync(() => {
-					$scope.errorMessage = `Unable to update ProductAvailability: '${message}'`;
+				Dialogs.showAlert({
+					title: 'ProductAvailability',
+					message: `Unable to update ProductAvailability: '${message}'`,
+					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
 			});
 		};
 
 		$scope.serviceProduct = '/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts';
-		
-		$scope.optionsProduct = [];
-		
-		$http.get('/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts').then((response) => {
-			$scope.optionsProduct = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'Product',
-				message: `Unable to load data: '${message}'`,
-				type: AlertTypes.Error
-			});
-		});
-		$scope.serviceStore = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts';
-		
-		$scope.optionsStore = [];
-		
-		$http.get('/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts').then((response) => {
-			$scope.optionsStore = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'Store',
-				message: `Unable to load data: '${message}'`,
-				type: AlertTypes.Error
-			});
-		});
 		$scope.serviceBaseUnit = '/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts';
-		
-		$scope.optionsBaseUnit = [];
-		
-		$http.get('/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts').then((response) => {
-			$scope.optionsBaseUnit = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'BaseUnit',
-				message: `Unable to load data: '${message}'`,
-				type: AlertTypes.Error
-			});
-		});
 
 		$scope.alert = (message) => {
 			if (message) Dialogs.showAlert({
@@ -136,9 +87,5 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			$scope.entity = {};
 			$scope.action = 'select';
 			Dialogs.closeWindow({ id: 'ProductAvailability-details' });
-		};
-
-		$scope.clearErrorMessage = () => {
-			$scope.errorMessage = null;
 		};
 	});

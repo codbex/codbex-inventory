@@ -11366,7 +11366,6 @@ components:
       type: object
       required:
         - Product
-        - Store
         - Quantity
         - BaseUnit
       properties:

@@ -11,7 +11,6 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
 		$scope.optionsProduct = params.optionsProduct;
-		$scope.optionsStore = params.optionsStore;
 		$scope.optionsBaseUnit = params.optionsBaseUnit;
 	}
 
@@ -54,7 +53,6 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 			entity: entity,
 			filter: filter
 		}});
-		Dialogs.triggerEvent('codbex-inventory.ProductAvailability.ProductAvailability.clearDetails');
 		$scope.cancel();
 	};
 

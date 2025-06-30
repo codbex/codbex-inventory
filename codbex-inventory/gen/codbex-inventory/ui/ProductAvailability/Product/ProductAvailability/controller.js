@@ -4,15 +4,10 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 	}])
 	.controller('PageController', ($scope, $http, EntityService, Extensions, ButtonStates) => {
 		const Dialogs = new DialogHub();
-		$scope.dataPage = 1;
-		$scope.dataCount = 0;
-		$scope.dataOffset = 0;
-		$scope.dataLimit = 10;
-		$scope.action = 'select';
-
 		//-----------------Custom Actions-------------------//
 		Extensions.getWindows(['codbex-inventory-custom-action']).then((response) => {
 			$scope.pageActions = response.data.filter(e => e.perspective === 'ProductAvailability' && e.view === 'ProductAvailability' && (e.type === 'page' || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === 'ProductAvailability' && e.view === 'ProductAvailability' && e.type === 'entity');
 		});
 
 		$scope.triggerPageAction = (action) => {
@@ -20,38 +15,61 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				hasHeader: true,
         		title: action.label,
 				path: action.path,
+				params: {
+					selectedMainEntityKey: 'Product',
+					selectedMainEntityId: $scope.selectedMainEntityId,
+				},
 				maxWidth: action.maxWidth,
 				maxHeight: action.maxHeight,
 				closeButton: true
 			});
 		};
+
+		$scope.triggerEntityAction = (action) => {
+			Dialogs.showWindow({
+				hasHeader: true,
+        		title: action.label,
+				path: action.path,
+				params: {
+					id: $scope.entity.Id,
+					selectedMainEntityKey: 'Product',
+					selectedMainEntityId: $scope.selectedMainEntityId,
+				},
+				closeButton: true
+			});
+		};
 		//-----------------Custom Actions-------------------//
 
-		function refreshData() {
-			$scope.dataReset = true;
-			$scope.dataPage--;
-		}
-
 		function resetPagination() {
-			$scope.dataReset = true;
 			$scope.dataPage = 1;
 			$scope.dataCount = 0;
 			$scope.dataLimit = 10;
 		}
+		resetPagination();
 
 		//-----------------Events-------------------//
+		Dialogs.addMessageListener({ topic: 'codbex-products.Products.Product.entitySelected', handler: (data) => {
+			resetPagination();
+			$scope.selectedMainEntityId = data.selectedMainEntityId;
+			$scope.loadPage($scope.dataPage);
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-products.Products.Product.clearDetails', handler: () => {
+			$scope.$evalAsync(() => {
+				resetPagination();
+				$scope.selectedMainEntityId = null;
+				$scope.data = null;
+			});
+		}});
 		Dialogs.addMessageListener({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.clearDetails', handler: () => {
 			$scope.$evalAsync(() => {
-				$scope.selectedEntity = null;
+				$scope.entity = {};
 				$scope.action = 'select';
 			});
 		}});
 		Dialogs.addMessageListener({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.entityCreated', handler: () => {
-			refreshData();
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		}});
 		Dialogs.addMessageListener({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.entityUpdated', handler: () => {
-			refreshData();
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		}});
 		Dialogs.addMessageListener({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.entitySearch', handler: (data) => {
@@ -63,32 +81,29 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		//-----------------Events-------------------//
 
 		$scope.loadPage = (pageNumber, filter) => {
+			let Product = $scope.selectedMainEntityId;
+			$scope.dataPage = pageNumber;
 			if (!filter && $scope.filter) {
 				filter = $scope.filter;
 			}
 			if (!filter) {
 				filter = {};
 			}
-			$scope.selectedEntity = null;
+			if (!filter.$filter) {
+				filter.$filter = {};
+			}
+			if (!filter.$filter.equals) {
+				filter.$filter.equals = {};
+			}
+			filter.$filter.equals.Product = Product;
 			EntityService.count(filter).then((resp) => {
 				if (resp.data) {
 					$scope.dataCount = resp.data.count;
 				}
-				$scope.dataPages = Math.ceil($scope.dataCount / $scope.dataLimit);
-				filter.$offset = ($scope.dataPage - 1) * $scope.dataLimit;
+				filter.$offset = (pageNumber - 1) * $scope.dataLimit;
 				filter.$limit = $scope.dataLimit;
-				if ($scope.dataReset) {
-					filter.$offset = 0;
-					filter.$limit = $scope.dataPage * $scope.dataLimit;
-				}
-
 				EntityService.search(filter).then((response) => {
-					if ($scope.data == null || $scope.dataReset) {
-						$scope.data = [];
-						$scope.dataReset = false;
-					}
-					$scope.data = $scope.data.concat(response.data);
-					$scope.dataPage++;
+					$scope.data = response.data;
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
@@ -108,43 +123,68 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				console.error('EntityService:', error);
 			});
 		};
-		$scope.loadPage($scope.dataPage, $scope.filter);
 
 		$scope.selectEntity = (entity) => {
 			$scope.selectedEntity = entity;
-			Dialogs.postMessage({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.entitySelected', data: {
-				entity: entity,
-				selectedMainEntityId: entity.Id,
-				optionsProduct: $scope.optionsProduct,
-				optionsStore: $scope.optionsStore,
-				optionsBaseUnit: $scope.optionsBaseUnit,
-			}});
+		};
+
+		$scope.openDetails = (entity) => {
+			$scope.selectedEntity = entity;
+			Dialogs.showWindow({
+				id: 'ProductAvailability-details',
+				params: {
+					action: 'select',
+					entity: entity,
+					optionsProduct: $scope.optionsProduct,
+					optionsBaseUnit: $scope.optionsBaseUnit,
+				},
+			});
+		};
+
+		$scope.openFilter = () => {
+			Dialogs.showWindow({
+				id: 'ProductAvailability-filter',
+				params: {
+					entity: $scope.filterEntity,
+					optionsProduct: $scope.optionsProduct,
+					optionsBaseUnit: $scope.optionsBaseUnit,
+				},
+			});
 		};
 
 		$scope.createEntity = () => {
 			$scope.selectedEntity = null;
-			$scope.action = 'create';
-
-			Dialogs.postMessage({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.createEntity', data: {
-				entity: {},
-				optionsProduct: $scope.optionsProduct,
-				optionsStore: $scope.optionsStore,
-				optionsBaseUnit: $scope.optionsBaseUnit,
-			}});
+			Dialogs.showWindow({
+				id: 'ProductAvailability-details',
+				params: {
+					action: 'create',
+					entity: {},
+					selectedMainEntityKey: 'Product',
+					selectedMainEntityId: $scope.selectedMainEntityId,
+					optionsProduct: $scope.optionsProduct,
+					optionsBaseUnit: $scope.optionsBaseUnit,
+				},
+				closeButton: false
+			});
 		};
 
-		$scope.updateEntity = () => {
-			$scope.action = 'update';
-			Dialogs.postMessage({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.updateEntity', data: {
-				entity: $scope.selectedEntity,
-				optionsProduct: $scope.optionsProduct,
-				optionsStore: $scope.optionsStore,
-				optionsBaseUnit: $scope.optionsBaseUnit,
-			}});
+		$scope.updateEntity = (entity) => {
+			Dialogs.showWindow({
+				id: 'ProductAvailability-details',
+				params: {
+					action: 'update',
+					entity: entity,
+					selectedMainEntityKey: 'Product',
+					selectedMainEntityId: $scope.selectedMainEntityId,
+					optionsProduct: $scope.optionsProduct,
+					optionsBaseUnit: $scope.optionsBaseUnit,
+			},
+				closeButton: false
+			});
 		};
 
-		$scope.deleteEntity = () => {
-			let id = $scope.selectedEntity.Id;
+		$scope.deleteEntity = (entity) => {
+			let id = entity.Id;
 			Dialogs.showDialog({
 				title: 'Delete ProductAvailability?',
 				message: `Are you sure you want to delete ProductAvailability? This action cannot be undone.`,
@@ -160,7 +200,6 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			}).then((buttonId) => {
 				if (buttonId === 'delete-btn-yes') {
 					EntityService.delete(id).then(() => {
-						refreshData();
 						$scope.loadPage($scope.dataPage, $scope.filter);
 						Dialogs.triggerEvent('codbex-inventory.ProductAvailability.ProductAvailability.clearDetails');
 					}, (error) => {
@@ -168,7 +207,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 						Dialogs.showAlert({
 							title: 'ProductAvailability',
 							message: `Unable to delete ProductAvailability: '${message}'`,
-							type: AlertTypes.Error
+							type: AlertTypes.Error,
 						});
 						console.error('EntityService:', error);
 					});
@@ -176,21 +215,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			});
 		};
 
-		$scope.openFilter = () => {
-			Dialogs.showWindow({
-				id: 'ProductAvailability-filter',
-				params: {
-					entity: $scope.filterEntity,
-					optionsProduct: $scope.optionsProduct,
-					optionsStore: $scope.optionsStore,
-					optionsBaseUnit: $scope.optionsBaseUnit,
-				},
-			});
-		};
-
 		//----------------Dropdowns-----------------//
 		$scope.optionsProduct = [];
-		$scope.optionsStore = [];
 		$scope.optionsBaseUnit = [];
 
 
@@ -204,21 +230,6 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Product',
-				message: `Unable to load data: '${message}'`,
-				type: AlertTypes.Error
-			});
-		});
-
-		$http.get('/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts').then((response) => {
-			$scope.optionsStore = response.data.map(e => ({
-				value: e.Id,
-				text: e.Name
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'Store',
 				message: `Unable to load data: '${message}'`,
 				type: AlertTypes.Error
 			});
@@ -239,7 +250,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			});
 		});
 
-		$scope.optionsProductValue = (optionKey) => {
+		$scope.optionsProductValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsProduct.length; i++) {
 				if ($scope.optionsProduct[i].value === optionKey) {
 					return $scope.optionsProduct[i].text;
@@ -247,15 +258,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			}
 			return null;
 		};
-		$scope.optionsStoreValue = (optionKey) => {
-			for (let i = 0; i < $scope.optionsStore.length; i++) {
-				if ($scope.optionsStore[i].value === optionKey) {
-					return $scope.optionsStore[i].text;
-				}
-			}
-			return null;
-		};
-		$scope.optionsBaseUnitValue = (optionKey) => {
+		$scope.optionsBaseUnitValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsBaseUnit.length; i++) {
 				if ($scope.optionsBaseUnit[i].value === optionKey) {
 					return $scope.optionsBaseUnit[i].text;
