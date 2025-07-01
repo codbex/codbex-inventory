@@ -205,13 +205,14 @@
     "Products": {
       "views": [
         "Product",
-        "ProductPackaging"
+        "ProductPackaging",
+        "ProductAvailability"
       ],
       "name": "Products",
       "label": "Products",
       "header": "",
       "order": "100",
-      "navId": "",
+      "navId": "products-navigation-group",
       "icon": "/services/web/resources/unicons/cube.svg",
       "role": ""
     },
@@ -432,18 +433,6 @@
       "order": "200",
       "navId": "",
       "icon": "/services/web/resources/unicons/user-minus.svg",
-      "role": ""
-    },
-    "ProductAvailability": {
-      "views": [
-        "ProductAvailability"
-      ],
-      "name": "ProductAvailability",
-      "label": "ProductAvailability",
-      "header": "",
-      "order": "100",
-      "navId": "",
-      "icon": "/services/web/resources/unicons/copy.svg",
       "role": ""
     }
   },
@@ -3275,9 +3264,9 @@
       "name": "Product",
       "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/cube.svg",
-      "perspectiveLabel": "Entities",
+      "perspectiveLabel": "Products",
       "perspectiveName": "Products",
-      "perspectiveNavId": "",
+      "perspectiveNavId": "products-navigation-group",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Product",
@@ -8848,7 +8837,7 @@
       "perspectiveIcon": "/services/web/resources/unicons/cube.svg",
       "perspectiveLabel": "Products",
       "perspectiveName": "Products",
-      "perspectiveNavId": "",
+      "perspectiveNavId": "products-navigation-group",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "projectionReferencedEntity": "ProductPackaging",
@@ -9017,10 +9006,10 @@
       "menuLabel": "ProductAvailability",
       "name": "ProductAvailability",
       "perspectiveHeader": "",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveLabel": "Entities",
-      "perspectiveName": "ProductAvailability",
-      "perspectiveNavId": "",
+      "perspectiveIcon": "/services/web/resources/unicons/cube.svg",
+      "perspectiveLabel": "Products",
+      "perspectiveName": "Products",
+      "perspectiveNavId": "products-navigation-group",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "title": "ProductAvailability",

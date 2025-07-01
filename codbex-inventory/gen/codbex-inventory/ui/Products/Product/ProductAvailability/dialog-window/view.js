@@ -4,14 +4,11 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: 'ProductAvailability',
+    id: 'ProductAvailability-details',
     label: 'ProductAvailability',
-    region: 'bottom',
-    lazyLoad: false,
-	autoFocusTab: true,
-    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/ProductAvailability/Product/ProductAvailability/index.html',
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Products/Product/ProductAvailability/dialog-window/index.html',
     perspectiveName: 'Products'
 };
 if (typeof exports !== 'undefined') {
-	exports.getView = () => viewData;
+    exports.getView = () => viewData;
 }

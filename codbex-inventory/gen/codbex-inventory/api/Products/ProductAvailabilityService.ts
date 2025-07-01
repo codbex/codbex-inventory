@@ -1,10 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { ProductAvailabilityRepository, ProductAvailabilityEntityOptions } from "../../dao/ProductAvailability/ProductAvailabilityRepository";
+import { ProductAvailabilityRepository, ProductAvailabilityEntityOptions } from "../../dao/Products/ProductAvailabilityRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-inventory-ProductAvailability-ProductAvailability", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-inventory-Products-ProductAvailability", ["validate"]);
 
 @Controller
 class ProductAvailabilityService {
@@ -41,7 +41,7 @@ class ProductAvailabilityService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/codbex-inventory/api/ProductAvailability/ProductAvailabilityService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-inventory/gen/codbex-inventory/api/Products/ProductAvailabilityService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

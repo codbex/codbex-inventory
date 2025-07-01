@@ -24,7 +24,7 @@ tags:
   - name: DeliveryNote
   - name: Waste
   - name: Settings
-  - name: ProductAvailability
+  - name: Products
 paths:
   /codbex-inventory/gen/codbex-inventory/api/Settings/StoreStatusService.ts:
     get:
@@ -6066,7 +6066,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-inventory/gen/codbex-inventory/api/ProductAvailability/ProductAvailabilityService.ts:
+  /codbex-inventory/gen/codbex-inventory/api/Products/ProductAvailabilityService.ts:
     get:
       summary: List ProductAvailability
       parameters:
@@ -6087,7 +6087,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - ProductAvailability
+        - Products
       responses:
         200:
           description: Successful Request
@@ -6118,7 +6118,7 @@ paths:
     post:
       summary: Create ProductAvailability
       tags:
-        - ProductAvailability
+        - Products
       requestBody:
         content:
           application/json:
@@ -6150,7 +6150,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-inventory/gen/codbex-inventory/api/ProductAvailability/ProductAvailabilityService.ts/{id}:
+  /codbex-inventory/gen/codbex-inventory/api/Products/ProductAvailabilityService.ts/{id}:
     get:
       summary: Get ProductAvailability by Id
       parameters:
@@ -6161,7 +6161,7 @@ paths:
           schema:
             type: string
       tags:
-        - ProductAvailability
+        - Products
       responses:
         200:
           description: Successful Request
@@ -6199,7 +6199,7 @@ paths:
           schema:
             type: string
       tags:
-        - ProductAvailability
+        - Products
       requestBody:
         content:
           application/json:
@@ -6247,7 +6247,7 @@ paths:
           schema:
             type: string
       tags:
-        - ProductAvailability
+        - Products
       responses:
         204:
           description: Successful Request
@@ -6269,11 +6269,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-inventory/gen/codbex-inventory/api/ProductAvailability/ProductAvailabilityService.ts/count:
+  /codbex-inventory/gen/codbex-inventory/api/Products/ProductAvailabilityService.ts/count:
     get:
       summary: Count the number of ProductAvailability
       tags:
-        - ProductAvailability
+        - Products
       responses:
         200:
           description: Successful Request
@@ -6297,7 +6297,7 @@ paths:
     post:
       summary: Count the number of ProductAvailability by ProductAvailabilityFilterOptions
       tags:
-        - ProductAvailability
+        - Products
       requestBody:
         content:
           application/json:
@@ -6371,11 +6371,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-inventory/gen/codbex-inventory/api/ProductAvailability/ProductAvailabilityService.ts/search:
+  /codbex-inventory/gen/codbex-inventory/api/Products/ProductAvailabilityService.ts/search:
     post:
       summary: Search ProductAvailability by ProductAvailabilityFilterOptions
       tags:
-        - ProductAvailability
+        - Products
       requestBody:
         content:
           application/json:

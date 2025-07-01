@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/ProductAvailability/ProductAvailabilityService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Products/ProductAvailabilityService.ts';
 	}])
 	.controller('PageController', ($scope, $http, ViewParameters, EntityService) => {
 		const Dialogs = new DialogHub();
@@ -30,7 +30,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.create(entity).then((response) => {
-				Dialogs.postMessage({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.entityCreated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-inventory.Products.ProductAvailability.entityCreated', data: response.data });
 				Notifications.show({
 					title: 'ProductAvailability',
 					description: 'ProductAvailability successfully created',
@@ -53,7 +53,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.update(id, entity).then((response) => {
-				Dialogs.postMessage({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.entityUpdated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-inventory.Products.ProductAvailability.entityUpdated', data: response.data });
 				Notifications.show({
 					title: 'ProductAvailability',
 					description: 'ProductAvailability successfully updated',

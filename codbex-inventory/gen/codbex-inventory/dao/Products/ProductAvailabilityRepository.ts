@@ -224,7 +224,7 @@ export class ProductAvailabilityRepository {
     }
 
     private async triggerEvent(data: ProductAvailabilityEntityEvent | ProductAvailabilityUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-ProductAvailability-ProductAvailability", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-inventory-Products-ProductAvailability", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -232,6 +232,6 @@ export class ProductAvailabilityRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-inventory-ProductAvailability-ProductAvailability").send(JSON.stringify(data));
+        producer.topic("codbex-inventory-Products-ProductAvailability").send(JSON.stringify(data));
     }
 }

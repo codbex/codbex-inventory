@@ -4,9 +4,9 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: 'ProductAvailability-details',
-    label: 'ProductAvailability',
-    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/ProductAvailability/Product/ProductAvailability/dialog-window/index.html',
+    id: 'ProductAvailability-filter',
+    label: 'ProductAvailability Filter',
+    path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Products/Product/ProductAvailability/dialog-filter/index.html',
     perspectiveName: 'Products'
 };
 if (typeof exports !== 'undefined') {

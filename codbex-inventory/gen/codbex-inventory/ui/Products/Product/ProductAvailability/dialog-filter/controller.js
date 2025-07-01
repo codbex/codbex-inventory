@@ -49,7 +49,7 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		if (entity.BaseUnit !== undefined) {
 			filter.$filter.equals.BaseUnit = entity.BaseUnit;
 		}
-		Dialogs.postMessage({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.entitySearch', data: {
+		Dialogs.postMessage({ topic: 'codbex-inventory.Products.ProductAvailability.entitySearch', data: {
 			entity: entity,
 			filter: filter
 		}});

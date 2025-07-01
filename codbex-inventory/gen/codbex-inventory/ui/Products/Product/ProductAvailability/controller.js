@@ -1,13 +1,13 @@
 angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/ProductAvailability/ProductAvailabilityService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Products/ProductAvailabilityService.ts';
 	}])
 	.controller('PageController', ($scope, $http, EntityService, Extensions, ButtonStates) => {
 		const Dialogs = new DialogHub();
 		//-----------------Custom Actions-------------------//
 		Extensions.getWindows(['codbex-inventory-custom-action']).then((response) => {
-			$scope.pageActions = response.data.filter(e => e.perspective === 'ProductAvailability' && e.view === 'ProductAvailability' && (e.type === 'page' || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === 'ProductAvailability' && e.view === 'ProductAvailability' && e.type === 'entity');
+			$scope.pageActions = response.data.filter(e => e.perspective === 'Products' && e.view === 'ProductAvailability' && (e.type === 'page' || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === 'Products' && e.view === 'ProductAvailability' && e.type === 'entity');
 		});
 
 		$scope.triggerPageAction = (action) => {
@@ -60,19 +60,19 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				$scope.data = null;
 			});
 		}});
-		Dialogs.addMessageListener({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.clearDetails', handler: () => {
+		Dialogs.addMessageListener({ topic: 'codbex-inventory.Products.ProductAvailability.clearDetails', handler: () => {
 			$scope.$evalAsync(() => {
 				$scope.entity = {};
 				$scope.action = 'select';
 			});
 		}});
-		Dialogs.addMessageListener({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.entityCreated', handler: () => {
+		Dialogs.addMessageListener({ topic: 'codbex-inventory.Products.ProductAvailability.entityCreated', handler: () => {
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		}});
-		Dialogs.addMessageListener({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.entityUpdated', handler: () => {
+		Dialogs.addMessageListener({ topic: 'codbex-inventory.Products.ProductAvailability.entityUpdated', handler: () => {
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		}});
-		Dialogs.addMessageListener({ topic: 'codbex-inventory.ProductAvailability.ProductAvailability.entitySearch', handler: (data) => {
+		Dialogs.addMessageListener({ topic: 'codbex-inventory.Products.ProductAvailability.entitySearch', handler: (data) => {
 			resetPagination();
 			$scope.filter = data.filter;
 			$scope.filterEntity = data.entity;
@@ -201,7 +201,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				if (buttonId === 'delete-btn-yes') {
 					EntityService.delete(id).then(() => {
 						$scope.loadPage($scope.dataPage, $scope.filter);
-						Dialogs.triggerEvent('codbex-inventory.ProductAvailability.ProductAvailability.clearDetails');
+						Dialogs.triggerEvent('codbex-inventory.Products.ProductAvailability.clearDetails');
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
