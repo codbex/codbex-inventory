@@ -1,9 +1,9 @@
 import { StockAdjustmentRepository } from "../../gen/codbex-inventory/dao/StockAdjustments/StockAdjustmentRepository";
-import { CatalogueRepository } from "codbex-products/gen/codbex-products/dao/Catalogues/CatalogueRepository";
+import { ProductAvailabilityRepository } from "codbex-inventory/gen/codbex-inventory/dao/Products/ProductAvailabilityRepository";
 
 export const trigger = (event) => {
     const StockAdjustmentDao = new StockAdjustmentRepository();
-    const CatalogueDao = new CatalogueRepository();
+    const ProductAvailabilityDao = new ProductAvailabilityRepository();
     const item = event.entity;
     const operation = event.operation;
     const header = StockAdjustmentDao.findById(item.StockAdjustment);
@@ -13,7 +13,7 @@ export const trigger = (event) => {
     }
 
     if (operation === "create") {
-        const catalogueRecords = CatalogueDao.findAll({
+        const catalogueRecords = ProductAvailabilityDao.findAll({
             $filter: {
                 equals: {
                     Store: header.Store,
@@ -25,14 +25,14 @@ export const trigger = (event) => {
         if (catalogueRecords.length > 0) {
             const catalogueRecord = catalogueRecords[0];
             catalogueRecord.Quantity = item.AdjustedQuantity;
-            CatalogueDao.update(catalogueRecord);
+            ProductAvailabilityDao.update(catalogueRecord);
         } else {
             const newCatalogueRecord = {
                 Store: header.Store,
                 Product: item.Product,
                 Quantity: item.AdjustedQuantity,
             };
-            CatalogueDao.create(newCatalogueRecord);
+            ProductAvailabilityDao.create(newCatalogueRecord);
         }
 
     } else if (operation === "update") {
