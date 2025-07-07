@@ -40,7 +40,9 @@
 						<td bk-table-cell no-data="true">No data available.</td>
 					</tr>
 					<tr bk-table-row hoverable="true" ng-repeat="next in data track by $index" selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Store}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
+							{{optionsStoreValue(next.Store)}}
+						</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsBaseUnitValue(next.BaseUnit)}}
