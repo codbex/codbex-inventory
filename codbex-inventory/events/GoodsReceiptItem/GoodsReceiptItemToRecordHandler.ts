@@ -1,11 +1,11 @@
 import { GoodsReceiptRepository } from "../../gen/codbex-inventory/dao/GoodsReceipts/GoodsReceiptRepository";
 import { StockRecordRepository } from "../../gen/codbex-inventory/dao/StockRecords/StockRecordRepository";
-import { CatalogueRepository } from "codbex-products/gen/codbex-products/dao/Catalogues/CatalogueRepository"
+import { ProductAvailabilityRepository } from "codbex-inventory/gen/codbex-inventory/dao/Products/ProductAvailabilityRepository";
 
 export const trigger = (event) => {
     const GoodsReceiptDao = new GoodsReceiptRepository();
     const StockRecordDao = new StockRecordRepository();
-    const CatalogueDao = new CatalogueRepository();
+    const CatalogueDao = new ProductAvailabilityRepository();
     const item = event.entity;
     const operation = event.operation;
     const header = GoodsReceiptDao.findById(item.GoodsReceipt);
