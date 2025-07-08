@@ -136,6 +136,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 					action: 'select',
 					entity: entity,
 					optionsProduct: $scope.optionsProduct,
+					optionsStore: $scope.optionsStore,
 					optionsBaseUnit: $scope.optionsBaseUnit,
 				},
 			});
@@ -147,6 +148,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				params: {
 					entity: $scope.filterEntity,
 					optionsProduct: $scope.optionsProduct,
+					optionsStore: $scope.optionsStore,
 					optionsBaseUnit: $scope.optionsBaseUnit,
 				},
 			});
@@ -162,6 +164,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 					selectedMainEntityKey: 'Product',
 					selectedMainEntityId: $scope.selectedMainEntityId,
 					optionsProduct: $scope.optionsProduct,
+					optionsStore: $scope.optionsStore,
 					optionsBaseUnit: $scope.optionsBaseUnit,
 				},
 				closeButton: false
@@ -177,6 +180,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 					selectedMainEntityKey: 'Product',
 					selectedMainEntityId: $scope.selectedMainEntityId,
 					optionsProduct: $scope.optionsProduct,
+					optionsStore: $scope.optionsStore,
 					optionsBaseUnit: $scope.optionsBaseUnit,
 			},
 				closeButton: false
@@ -217,6 +221,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsProduct = [];
+		$scope.optionsStore = [];
 		$scope.optionsBaseUnit = [];
 
 
@@ -230,6 +235,21 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Product',
+				message: `Unable to load data: '${message}'`,
+				type: AlertTypes.Error
+			});
+		});
+
+		$http.get('/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts').then((response) => {
+			$scope.optionsStore = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Store',
 				message: `Unable to load data: '${message}'`,
 				type: AlertTypes.Error
 			});
@@ -254,6 +274,14 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			for (let i = 0; i < $scope.optionsProduct.length; i++) {
 				if ($scope.optionsProduct[i].value === optionKey) {
 					return $scope.optionsProduct[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsStoreValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStore.length; i++) {
+				if ($scope.optionsStore[i].value === optionKey) {
+					return $scope.optionsStore[i].text;
 				}
 			}
 			return null;

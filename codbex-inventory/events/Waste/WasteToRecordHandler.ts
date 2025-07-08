@@ -1,14 +1,15 @@
 import { WasteTypeRepository } from "../../gen/codbex-inventory/dao/Settings/WasteTypeRepository";
-import { CatalogueRepository } from "codbex-products/gen/codbex-products/dao/Catalogues/CatalogueRepository";
+import { ProductAvailabilityRepository } from "codbex-inventory/gen/codbex-inventory/dao/Products/ProductAvailabilityRepository";
+
 
 export const trigger = (event) => {
     const WasteTypeDao = new WasteTypeRepository();
-    const CatalogueDao = new CatalogueRepository();
+    const ProductAvailabilityDao = new ProductAvailabilityRepository();
     const item = event.entity;
     const operation = event.operation;
 
     if (operation === "create") {
-        const catalogueRecords = CatalogueDao.findAll({
+        const catalogueRecords = ProductAvailabilityDao.findAll({
             $filter: {
                 equals: {
                     Store: item.Store,
@@ -24,14 +25,14 @@ export const trigger = (event) => {
                 (item.Quantity) * (wasteType.Direction)) < 0
                 ? 0
                 : (catalogueRecord.Quantity - (item.Quantity) * (wasteType.Direction));
-            CatalogueDao.update(catalogueRecord);
+            ProductAvailabilityDao.update(catalogueRecord);
         } else {
             const newCatalogueRecord = {
                 Store: item.Store,
                 Product: item.Product,
                 Quantity: 0,
             };
-            CatalogueDao.create(newCatalogueRecord);
+            ProductAvailabilityDao.create(newCatalogueRecord);
         }
 
     } else if (operation === "update") {

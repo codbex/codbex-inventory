@@ -23,6 +23,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsProduct = params.optionsProduct;
+			$scope.optionsStore = params.optionsStore;
 			$scope.optionsBaseUnit = params.optionsBaseUnit;
 		}
 
@@ -72,6 +73,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		};
 
 		$scope.serviceProduct = '/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts';
+		$scope.serviceStore = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts';
 		$scope.serviceBaseUnit = '/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts';
 
 		$scope.alert = (message) => {
