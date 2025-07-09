@@ -199,7 +199,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.optionsCompany = [];
 
 
-		$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Cities/CityService.ts').then((response) => {
+		$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts').then((response) => {
 			$scope.optionsCity = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name

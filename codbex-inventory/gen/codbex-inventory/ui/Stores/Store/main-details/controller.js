@@ -76,7 +76,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			});
 		}});
 
-		$scope.serviceCity = '/services/ts/codbex-cities/gen/codbex-cities/api/Cities/CityService.ts';
+		$scope.serviceCity = '/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts';
 		$scope.serviceCountry = '/services/ts/codbex-countries/gen/codbex-countries/api/Countries/CountryService.ts';
 		$scope.serviceStatus = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StoreStatusService.ts';
 		$scope.serviceCompany = '/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts';
@@ -186,7 +186,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		$scope.refreshCity = () => {
 			$scope.optionsCity = [];
-			$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Cities/CityService.ts').then((response) => {
+			$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts').then((response) => {
 				$scope.optionsCity = response.data.map(e => ({
 					value: e.Id,
 					text: e.Name
