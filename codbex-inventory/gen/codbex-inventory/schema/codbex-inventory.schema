@@ -208,6 +208,7 @@
                     },
                     {
                         "type": "INTEGER",
+                        "nullable": true,
                         "name": "GOODSRECEIPTITEM_UOM"
                     },
                     {
@@ -351,6 +352,7 @@
                     },
                     {
                         "type": "INTEGER",
+                        "nullable": true,
                         "name": "GOODSISSUEITEM_UOM"
                     },
                     {
@@ -408,10 +410,6 @@
                         "name": "STOCKRECORD_QUANTITY"
                     },
                     {
-                        "type": "INTEGER",
-                        "name": "STOCKRECORD_UOM"
-                    },
-                    {
                         "type": "DECIMAL",
                         "length": 16,
                         "precision": "16",
@@ -426,6 +424,11 @@
                         "scale": "2",
                         "nullable": true,
                         "name": "STOCKRECORD_NET"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "STOCKRECORD_UOM"
                     },
                     {
                         "type": "DECIMAL",
@@ -599,11 +602,12 @@
                     },
                     {
                         "type": "INTEGER",
-                        "name": "STOCKADJUSTMENTITEM_ADJUSTEDQUANTITY"
+                        "nullable": true,
+                        "name": "STOCKADJUSTMENTITEM_UOM"
                     },
                     {
                         "type": "INTEGER",
-                        "name": "STOCKADJUSTMENTITEM_UOM"
+                        "name": "STOCKADJUSTMENTITEM_ADJUSTEDQUANTITY"
                     },
                     {
                         "type": "VARCHAR",

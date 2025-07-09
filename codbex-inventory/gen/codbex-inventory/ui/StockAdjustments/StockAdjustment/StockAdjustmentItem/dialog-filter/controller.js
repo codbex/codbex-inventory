@@ -43,11 +43,11 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		if (entity.Product !== undefined) {
 			filter.$filter.equals.Product = entity.Product;
 		}
-		if (entity.AdjustedQuantity !== undefined) {
-			filter.$filter.equals.AdjustedQuantity = entity.AdjustedQuantity;
-		}
 		if (entity.UoM !== undefined) {
 			filter.$filter.equals.UoM = entity.UoM;
+		}
+		if (entity.AdjustedQuantity !== undefined) {
+			filter.$filter.equals.AdjustedQuantity = entity.AdjustedQuantity;
 		}
 		if (entity.Batch) {
 			filter.$filter.contains.Batch = entity.Batch;

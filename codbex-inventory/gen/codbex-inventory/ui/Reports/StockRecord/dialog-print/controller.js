@@ -28,14 +28,14 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			if (filterEntity.Quantity) {
 				filter.$filter.equals.Quantity = filterEntity.Quantity;
 			}
-			if (filterEntity.UoM) {
-				filter.$filter.equals.UoM = filterEntity.UoM;
-			}
 			if (filterEntity.Price) {
 				filter.$filter.equals.Price = filterEntity.Price;
 			}
 			if (filterEntity.Net) {
 				filter.$filter.equals.Net = filterEntity.Net;
+			}
+			if (filterEntity.UoM) {
+				filter.$filter.equals.UoM = filterEntity.UoM;
 			}
 			if (filterEntity.VAT) {
 				filter.$filter.equals.VAT = filterEntity.VAT;

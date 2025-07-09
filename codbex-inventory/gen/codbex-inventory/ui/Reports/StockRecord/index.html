@@ -27,9 +27,9 @@
 					<tr bk-table-row>
 						<th bk-table-header-cell>Product</th>
 						<th bk-table-header-cell>Quantity</th>
-						<th bk-table-header-cell>UoM</th>
 						<th bk-table-header-cell>Price</th>
 						<th bk-table-header-cell>Net</th>
+						<th bk-table-header-cell>UoM</th>
 						<th bk-table-header-cell>VAT</th>
 						<th bk-table-header-cell>Gross</th>
 						<th bk-table-header-cell>Direction</th>
@@ -49,11 +49,11 @@
 							{{optionsProductValue(next.Product)}}
 						</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Price}}</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Net}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsUoMValue(next.UoM)}}
 						</td>
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Price}}</td>
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Net}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.VAT}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Gross}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">

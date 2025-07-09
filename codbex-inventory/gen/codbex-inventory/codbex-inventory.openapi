@@ -7633,7 +7633,6 @@ components:
         - GoodsReceipt
         - Product
         - Quantity
-        - UoM
         - Price
       properties:
         Id:
@@ -8449,7 +8448,6 @@ components:
         - GoodsIssue
         - Product
         - Quantity
-        - UoM
         - Price
       properties:
         Id:
@@ -8791,7 +8789,6 @@ components:
     StockRecord:
       type: object
       required:
-        - UoM
       properties:
         Id:
           type: integer
@@ -8802,15 +8799,15 @@ components:
         Quantity:
           type: number
           format: double
-        UoM:
-          type: integer
-          format: int32
         Price:
           type: number
           format: double
         Net:
           type: number
           format: double
+        UoM:
+          type: integer
+          format: int32
         VAT:
           type: number
           format: double
@@ -8862,14 +8859,6 @@ components:
                       items:
                         type: number
                         format: double
-                UoM:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Price:
                   oneOf:
                     - type: number
@@ -8886,6 +8875,14 @@ components:
                       items:
                         type: number
                         format: double
+                UoM:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 VAT:
                   oneOf:
                     - type: number
@@ -8962,14 +8959,6 @@ components:
                       items:
                         type: number
                         format: double
-                UoM:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Price:
                   oneOf:
                     - type: number
@@ -8986,6 +8975,14 @@ components:
                       items:
                         type: number
                         format: double
+                UoM:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 VAT:
                   oneOf:
                     - type: number
@@ -9041,9 +9038,9 @@ components:
                 Id:
                 Product:
                 Quantity:
-                UoM:
                 Price:
                 Net:
+                UoM:
                 VAT:
                 Gross:
                 Direction:
@@ -9065,15 +9062,15 @@ components:
                 Quantity:
                   type: number
                   format: double
-                UoM:
-                  type: integer
-                  format: int32
                 Price:
                   type: number
                   format: double
                 Net:
                   type: number
                   format: double
+                UoM:
+                  type: integer
+                  format: int32
                 VAT:
                   type: number
                   format: double
@@ -9103,15 +9100,15 @@ components:
                 Quantity:
                   type: number
                   format: double
-                UoM:
-                  type: integer
-                  format: int32
                 Price:
                   type: number
                   format: double
                 Net:
                   type: number
                   format: double
+                UoM:
+                  type: integer
+                  format: int32
                 VAT:
                   type: number
                   format: double
@@ -9141,15 +9138,15 @@ components:
                 Quantity:
                   type: number
                   format: double
-                UoM:
-                  type: integer
-                  format: int32
                 Price:
                   type: number
                   format: double
                 Net:
                   type: number
                   format: double
+                UoM:
+                  type: integer
+                  format: int32
                 VAT:
                   type: number
                   format: double
@@ -9179,15 +9176,15 @@ components:
                 Quantity:
                   type: number
                   format: double
-                UoM:
-                  type: integer
-                  format: int32
                 Price:
                   type: number
                   format: double
                 Net:
                   type: number
                   format: double
+                UoM:
+                  type: integer
+                  format: int32
                 VAT:
                   type: number
                   format: double
@@ -9207,12 +9204,12 @@ components:
                   maxLength: 36
         $select:
           type: array
-          example: ["Id", "Product", "Quantity", "UoM", "Price", "Net", "VAT", "Gross", "Direction", "ItemId", "Deleted", "Reference"]
+          example: ["Id", "Product", "Quantity", "Price", "Net", "UoM", "VAT", "Gross", "Direction", "ItemId", "Deleted", "Reference"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Product,Quantity,UoM,Price,Net,VAT,Gross,Direction,ItemId,Deleted,Reference"
+            example: "Id,Product,Quantity,Price,Net,UoM,VAT,Gross,Direction,ItemId,Deleted,Reference"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -9996,7 +9993,6 @@ components:
       required:
         - Product
         - AdjustedQuantity
-        - UoM
       properties:
         Id:
           type: integer
@@ -10007,10 +10003,10 @@ components:
         Product:
           type: integer
           format: int32
-        AdjustedQuantity:
+        UoM:
           type: integer
           format: int32
-        UoM:
+        AdjustedQuantity:
           type: integer
           format: int32
         Batch:
@@ -10058,7 +10054,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                AdjustedQuantity:
+                UoM:
                   oneOf:
                     - type: integer
                       format: int32
@@ -10066,7 +10062,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                UoM:
+                AdjustedQuantity:
                   oneOf:
                     - type: integer
                       format: int32
@@ -10134,7 +10130,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                AdjustedQuantity:
+                UoM:
                   oneOf:
                     - type: integer
                       format: int32
@@ -10142,7 +10138,7 @@ components:
                       items:
                         type: integer
                         format: int32
-                UoM:
+                AdjustedQuantity:
                   oneOf:
                     - type: integer
                       format: int32
@@ -10189,8 +10185,8 @@ components:
                 Id:
                 StockAdjustment:
                 Product:
-                AdjustedQuantity:
                 UoM:
+                AdjustedQuantity:
                 Batch:
                   type: string
                   minLength: 0
@@ -10215,10 +10211,10 @@ components:
                 Product:
                   type: integer
                   format: int32
-                AdjustedQuantity:
+                UoM:
                   type: integer
                   format: int32
-                UoM:
+                AdjustedQuantity:
                   type: integer
                   format: int32
                 Batch:
@@ -10245,10 +10241,10 @@ components:
                 Product:
                   type: integer
                   format: int32
-                AdjustedQuantity:
+                UoM:
                   type: integer
                   format: int32
-                UoM:
+                AdjustedQuantity:
                   type: integer
                   format: int32
                 Batch:
@@ -10275,10 +10271,10 @@ components:
                 Product:
                   type: integer
                   format: int32
-                AdjustedQuantity:
+                UoM:
                   type: integer
                   format: int32
-                UoM:
+                AdjustedQuantity:
                   type: integer
                   format: int32
                 Batch:
@@ -10305,10 +10301,10 @@ components:
                 Product:
                   type: integer
                   format: int32
-                AdjustedQuantity:
+                UoM:
                   type: integer
                   format: int32
-                UoM:
+                AdjustedQuantity:
                   type: integer
                   format: int32
                 Batch:
@@ -10325,12 +10321,12 @@ components:
                   maxLength: 200
         $select:
           type: array
-          example: ["Id", "StockAdjustment", "Product", "AdjustedQuantity", "UoM", "Batch", "Serial", "Description"]
+          example: ["Id", "StockAdjustment", "Product", "UoM", "AdjustedQuantity", "Batch", "Serial", "Description"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,StockAdjustment,Product,AdjustedQuantity,UoM,Batch,Serial,Description"
+            example: "Id,StockAdjustment,Product,UoM,AdjustedQuantity,Batch,Serial,Description"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -11367,7 +11363,6 @@ components:
       required:
         - Product
         - Quantity
-        - BaseUnit
       properties:
         Id:
           type: integer

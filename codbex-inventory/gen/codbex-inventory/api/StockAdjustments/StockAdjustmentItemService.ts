@@ -155,9 +155,6 @@ class StockAdjustmentItemService {
         if (entity.AdjustedQuantity === null || entity.AdjustedQuantity === undefined) {
             throw new ValidationError(`The 'AdjustedQuantity' property is required, provide a valid value`);
         }
-        if (entity.UoM === null || entity.UoM === undefined) {
-            throw new ValidationError(`The 'UoM' property is required, provide a valid value`);
-        }
         if (entity.Batch?.length > 30) {
             throw new ValidationError(`The 'Batch' exceeds the maximum length of [30] characters`);
         }
