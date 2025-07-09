@@ -107,14 +107,14 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				type: AlertTypes.Error
 			});
 		});
-		$scope.serviceCurrency = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts';
+		$scope.serviceCurrency = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts';
 		
 		$scope.optionsCurrency = [];
 		
-		$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts').then((response) => {
+		$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts').then((response) => {
 			$scope.optionsCurrency = response.data.map(e => ({
 				value: e.Id,
-				text: e.Name
+				text: e.Code
 			}));
 		}, (error) => {
 			console.error(error);

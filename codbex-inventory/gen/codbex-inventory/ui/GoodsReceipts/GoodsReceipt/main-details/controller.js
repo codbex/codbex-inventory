@@ -80,7 +80,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		$scope.serviceStore = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts';
 		$scope.serviceCompany = '/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts';
-		$scope.serviceCurrency = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts';
+		$scope.serviceCurrency = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts';
 
 		//-----------------Events-------------------//
 
@@ -211,10 +211,10 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		};
 		$scope.refreshCurrency = () => {
 			$scope.optionsCurrency = [];
-			$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts').then((response) => {
+			$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts').then((response) => {
 				$scope.optionsCurrency = response.data.map(e => ({
 					value: e.Id,
-					text: e.Name
+					text: e.Code
 				}));
 			}, (error) => {
 				console.error(error);
