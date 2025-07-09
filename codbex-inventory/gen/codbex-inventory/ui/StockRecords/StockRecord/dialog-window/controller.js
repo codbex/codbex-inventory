@@ -86,11 +86,11 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				type: AlertTypes.Error
 			});
 		});
-		$scope.serviceUoM = '/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts';
+		$scope.serviceUoM = '/services/ts/codbex-uoms/gen/codbex-uoms/api/Settings/UoMService.ts';
 		
 		$scope.optionsUoM = [];
 		
-		$http.get('/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts').then((response) => {
+		$http.get('/services/ts/codbex-uoms/gen/codbex-uoms/api/Settings/UoMService.ts').then((response) => {
 			$scope.optionsUoM = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name

@@ -160,7 +160,9 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				id: 'ProductAvailability-details',
 				params: {
 					action: 'create',
-					entity: {},
+					entity: {
+						'Product': $scope.selectedMainEntityId
+					},
 					selectedMainEntityKey: 'Product',
 					selectedMainEntityId: $scope.selectedMainEntityId,
 					optionsProduct: $scope.optionsProduct,
@@ -255,7 +257,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			});
 		});
 
-		$http.get('/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts').then((response) => {
+		$http.get('/services/ts/codbex-uoms/gen/codbex-uoms/api/Settings/UoMService.ts').then((response) => {
 			$scope.optionsBaseUnit = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name

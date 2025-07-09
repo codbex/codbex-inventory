@@ -136,9 +136,6 @@ class ProductAvailabilityService {
         if (entity.Quantity === null || entity.Quantity === undefined) {
             throw new ValidationError(`The 'Quantity' property is required, provide a valid value`);
         }
-        if (entity.BaseUnit === null || entity.BaseUnit === undefined) {
-            throw new ValidationError(`The 'BaseUnit' property is required, provide a valid value`);
-        }
         for (const next of validationModules) {
             next.validate(entity);
         }

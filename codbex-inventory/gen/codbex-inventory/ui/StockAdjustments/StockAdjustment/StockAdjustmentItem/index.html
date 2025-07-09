@@ -30,8 +30,8 @@
 				<thead bk-table-header sticky="true">
 					<tr bk-table-row>
 						<th bk-table-header-cell>Product</th>
-						<th bk-table-header-cell>AdjustedQuantity</th>
 						<th bk-table-header-cell>UoM</th>
+						<th bk-table-header-cell>AdjustedQuantity</th>
 						<th bk-table-header-cell>Batch</th>
 						<th bk-table-header-cell>Serial</th>
 						<th bk-table-header-cell>Description</th>
@@ -46,10 +46,10 @@
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsProductValue(next.Product)}}
 						</td>
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.AdjustedQuantity}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsUoMValue(next.UoM)}}
 						</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.AdjustedQuantity}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Batch}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Serial}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Description}}</td>

@@ -8,7 +8,7 @@ export interface GoodsReceiptItemEntity {
     GoodsReceipt: number;
     Product: number;
     Quantity: number;
-    UoM: number;
+    UoM?: number;
     Price: number;
     Net?: number;
     VAT?: number;
@@ -19,7 +19,7 @@ export interface GoodsReceiptItemCreateEntity {
     readonly GoodsReceipt: number;
     readonly Product: number;
     readonly Quantity: number;
-    readonly UoM: number;
+    readonly UoM?: number;
     readonly Price: number;
 }
 
@@ -163,7 +163,6 @@ export class GoodsReceiptItemRepository {
                 name: "UoM",
                 column: "GOODSRECEIPTITEM_UOM",
                 type: "INTEGER",
-                required: true
             },
             {
                 name: "Price",

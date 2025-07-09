@@ -158,7 +158,9 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				id: 'GoodsReceiptItem-details',
 				params: {
 					action: 'create',
-					entity: {},
+					entity: {
+						'GoodsReceipt': $scope.selectedMainEntityId
+					},
 					selectedMainEntityKey: 'GoodsReceipt',
 					selectedMainEntityId: $scope.selectedMainEntityId,
 					optionsProduct: $scope.optionsProduct,
@@ -235,7 +237,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			});
 		});
 
-		$http.get('/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts').then((response) => {
+		$http.get('/services/ts/codbex-uoms/gen/codbex-uoms/api/Settings/UoMService.ts').then((response) => {
 			$scope.optionsUoM = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name

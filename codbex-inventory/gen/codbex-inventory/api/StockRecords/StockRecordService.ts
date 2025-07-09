@@ -138,9 +138,6 @@ class StockRecordService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.UoM === null || entity.UoM === undefined) {
-            throw new ValidationError(`The 'UoM' property is required, provide a valid value`);
-        }
         if (entity.Reference?.length > 36) {
             throw new ValidationError(`The 'Reference' exceeds the maximum length of [36] characters`);
         }

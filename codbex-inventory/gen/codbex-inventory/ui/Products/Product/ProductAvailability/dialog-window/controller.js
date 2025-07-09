@@ -74,7 +74,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		$scope.serviceProduct = '/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts';
 		$scope.serviceStore = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts';
-		$scope.serviceBaseUnit = '/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts';
+		$scope.serviceBaseUnit = '/services/ts/codbex-uoms/gen/codbex-uoms/api/Settings/UoMService.ts';
 
 		$scope.alert = (message) => {
 			if (message) Dialogs.showAlert({

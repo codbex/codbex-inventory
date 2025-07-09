@@ -8,9 +8,9 @@ export interface StockRecordEntity {
     readonly Id: number;
     Product?: number;
     Quantity?: number;
-    UoM: number;
     Price?: number;
     Net?: number;
+    UoM?: number;
     VAT?: number;
     Gross?: number;
     Direction?: number;
@@ -22,9 +22,9 @@ export interface StockRecordEntity {
 export interface StockRecordCreateEntity {
     readonly Product?: number;
     readonly Quantity?: number;
-    readonly UoM: number;
     readonly Price?: number;
     readonly Net?: number;
+    readonly UoM?: number;
     readonly VAT?: number;
     readonly Gross?: number;
     readonly Direction?: number;
@@ -43,9 +43,9 @@ export interface StockRecordEntityOptions {
             Id?: number | number[];
             Product?: number | number[];
             Quantity?: number | number[];
-            UoM?: number | number[];
             Price?: number | number[];
             Net?: number | number[];
+            UoM?: number | number[];
             VAT?: number | number[];
             Gross?: number | number[];
             Direction?: number | number[];
@@ -57,9 +57,9 @@ export interface StockRecordEntityOptions {
             Id?: number | number[];
             Product?: number | number[];
             Quantity?: number | number[];
-            UoM?: number | number[];
             Price?: number | number[];
             Net?: number | number[];
+            UoM?: number | number[];
             VAT?: number | number[];
             Gross?: number | number[];
             Direction?: number | number[];
@@ -71,9 +71,9 @@ export interface StockRecordEntityOptions {
             Id?: number;
             Product?: number;
             Quantity?: number;
-            UoM?: number;
             Price?: number;
             Net?: number;
+            UoM?: number;
             VAT?: number;
             Gross?: number;
             Direction?: number;
@@ -85,9 +85,9 @@ export interface StockRecordEntityOptions {
             Id?: number;
             Product?: number;
             Quantity?: number;
-            UoM?: number;
             Price?: number;
             Net?: number;
+            UoM?: number;
             VAT?: number;
             Gross?: number;
             Direction?: number;
@@ -99,9 +99,9 @@ export interface StockRecordEntityOptions {
             Id?: number;
             Product?: number;
             Quantity?: number;
-            UoM?: number;
             Price?: number;
             Net?: number;
+            UoM?: number;
             VAT?: number;
             Gross?: number;
             Direction?: number;
@@ -113,9 +113,9 @@ export interface StockRecordEntityOptions {
             Id?: number;
             Product?: number;
             Quantity?: number;
-            UoM?: number;
             Price?: number;
             Net?: number;
+            UoM?: number;
             VAT?: number;
             Gross?: number;
             Direction?: number;
@@ -127,9 +127,9 @@ export interface StockRecordEntityOptions {
             Id?: number;
             Product?: number;
             Quantity?: number;
-            UoM?: number;
             Price?: number;
             Net?: number;
+            UoM?: number;
             VAT?: number;
             Gross?: number;
             Direction?: number;
@@ -183,12 +183,6 @@ export class StockRecordRepository {
                 type: "DOUBLE",
             },
             {
-                name: "UoM",
-                column: "STOCKRECORD_UOM",
-                type: "INTEGER",
-                required: true
-            },
-            {
                 name: "Price",
                 column: "STOCKRECORD_PRICE",
                 type: "DECIMAL",
@@ -197,6 +191,11 @@ export class StockRecordRepository {
                 name: "Net",
                 column: "STOCKRECORD_NET",
                 type: "DECIMAL",
+            },
+            {
+                name: "UoM",
+                column: "STOCKRECORD_UOM",
+                type: "INTEGER",
             },
             {
                 name: "VAT",
