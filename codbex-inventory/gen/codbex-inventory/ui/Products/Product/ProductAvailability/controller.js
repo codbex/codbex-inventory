@@ -160,7 +160,9 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				id: 'ProductAvailability-details',
 				params: {
 					action: 'create',
-					entity: {},
+					entity: {
+						'Product': $scope.selectedMainEntityId
+					},
 					selectedMainEntityKey: 'Product',
 					selectedMainEntityId: $scope.selectedMainEntityId,
 					optionsProduct: $scope.optionsProduct,

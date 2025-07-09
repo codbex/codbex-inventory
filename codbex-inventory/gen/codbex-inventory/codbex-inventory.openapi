@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
-  title: Inventory Management Application - OpenAPI 3.0
+  title: Inventory Management - OpenAPI 3.0
   version: 1.0.0
-  description: Managing inventory data
+  description: Managing Inventory Data
 externalDocs:
   description: Find out more about Eclipse Dirigible
   url: https://dirigible.io

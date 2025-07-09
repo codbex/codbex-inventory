@@ -158,7 +158,9 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				id: 'DeliveryNoteItem-details',
 				params: {
 					action: 'create',
-					entity: {},
+					entity: {
+						'DeliveryNote': $scope.selectedMainEntityId
+					},
 					selectedMainEntityKey: 'DeliveryNote',
 					selectedMainEntityId: $scope.selectedMainEntityId,
 					optionsProduct: $scope.optionsProduct,

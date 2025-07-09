@@ -1,93 +1,16 @@
 {
   "tablePrefix": "CODBEX_",
   "brand": "codbex",
-  "brandUrl": "https://codbex.com",
-  "title": "Inventory Management Application",
-  "description": "Managing inventory data",
-  "dataSource": "DefaultDB",
-  "fileName": "codbex-inventory",
-  "genFolderName": "codbex-inventory",
-  "roles": [
-    {
-      "entityName": "StoreStatus",
-      "roleRead": "codbex-inventory.Settings.StoreStatusReadOnly",
-      "roleWrite": "codbex-inventory.Settings.StoreStatusFullAccess"
-    },
-    {
-      "entityName": "Store",
-      "roleRead": "codbex-inventory.Stores.StoreReadOnly",
-      "roleWrite": "codbex-inventory.Stores.StoreFullAccess"
-    },
-    {
-      "entityName": "GoodsReceipt",
-      "roleRead": "codbex-inventory.GoodsReceipts.GoodsReceiptReadOnly",
-      "roleWrite": "codbex-inventory.GoodsReceipts.GoodsReceiptFullAccess"
-    },
-    {
-      "entityName": "GoodsReceiptItem",
-      "roleRead": "codbex-inventory.GoodsReceipts.GoodsReceiptItemReadOnly",
-      "roleWrite": "codbex-inventory.GoodsReceipts.GoodsReceiptItemFullAccess"
-    },
-    {
-      "entityName": "GoodsIssue",
-      "roleRead": "codbex-inventory.GoodsIssues.GoodsIssueReadOnly",
-      "roleWrite": "codbex-inventory.GoodsIssues.GoodsIssueFullAccess"
-    },
-    {
-      "entityName": "GoodsIssueItem",
-      "roleRead": "codbex-inventory.GoodsIssues.GoodsIssueItemReadOnly",
-      "roleWrite": "codbex-inventory.GoodsIssues.GoodsIssueItemFullAccess"
-    },
-    {
-      "entityName": "StockRecord",
-      "roleRead": "codbex-inventory.StockRecords.StockRecordReadOnly",
-      "roleWrite": "codbex-inventory.StockRecords.StockRecordFullAccess"
-    },
-    {
-      "entityName": "StockRecordDirection",
-      "roleRead": "codbex-inventory.Settings.StockRecordDirectionReadOnly",
-      "roleWrite": "codbex-inventory.Settings.StockRecordDirectionFullAccess"
-    },
-    {
-      "entityName": "StockAdjustment",
-      "roleRead": "codbex-inventory.StockAdjustments.StockAdjustmentReadOnly",
-      "roleWrite": "codbex-inventory.StockAdjustments.StockAdjustmentFullAccess"
-    },
-    {
-      "entityName": "StockAdjustmentType",
-      "roleRead": "codbex-inventory.Settings.StockAdjustmentTypeReadOnly",
-      "roleWrite": "codbex-inventory.Settings.StockAdjustmentTypeFullAccess"
-    },
-    {
-      "entityName": "StockAdjustmentItem",
-      "roleRead": "codbex-inventory.StockAdjustments.StockAdjustmentItemReadOnly",
-      "roleWrite": "codbex-inventory.StockAdjustments.StockAdjustmentItemFullAccess"
-    },
-    {
-      "entityName": "DeliveryNote",
-      "roleRead": "codbex-inventory.DeliveryNote.DeliveryNoteReadOnly",
-      "roleWrite": "codbex-inventory.DeliveryNote.DeliveryNoteFullAccess"
-    },
-    {
-      "entityName": "DeliveryNoteItem",
-      "roleRead": "codbex-inventory.DeliveryNote.DeliveryNoteItemReadOnly",
-      "roleWrite": "codbex-inventory.DeliveryNote.DeliveryNoteItemFullAccess"
-    },
-    {
-      "entityName": "Waste",
-      "roleRead": "codbex-inventory.Waste.WasteReadOnly",
-      "roleWrite": "codbex-inventory.Waste.WasteFullAccess"
-    },
-    {
-      "entityName": "WasteType",
-      "roleRead": "codbex-inventory.Waste.WasteTypeReadOnly",
-      "roleWrite": "codbex-inventory.Waste.WasteTypeFullAccess"
-    }
-  ],
+  "brandUrl": "https://www.codbex.com/",
+  "title": "Inventory Management",
+  "description": "Managing Inventory Data",
   "projectName": "codbex-inventory",
   "workspaceName": "workspace",
   "filePath": "codbex-inventory.model",
   "templateId": "template-application-angular/template/template.js",
+  "fileName": "codbex-inventory",
+  "genFolderName": "codbex-inventory",
+  "dataSource": "DefaultDB",
   "perspectives": {
     "Settings": {
       "views": [
@@ -436,6 +359,83 @@
       "role": ""
     }
   },
+  "roles": [
+    {
+      "entityName": "StoreStatus",
+      "roleRead": "codbex-inventory.Settings.StoreStatusReadOnly",
+      "roleWrite": "codbex-inventory.Settings.StoreStatusFullAccess"
+    },
+    {
+      "entityName": "Store",
+      "roleRead": "codbex-inventory.Stores.StoreReadOnly",
+      "roleWrite": "codbex-inventory.Stores.StoreFullAccess"
+    },
+    {
+      "entityName": "GoodsReceipt",
+      "roleRead": "codbex-inventory.GoodsReceipts.GoodsReceiptReadOnly",
+      "roleWrite": "codbex-inventory.GoodsReceipts.GoodsReceiptFullAccess"
+    },
+    {
+      "entityName": "GoodsReceiptItem",
+      "roleRead": "codbex-inventory.GoodsReceipts.GoodsReceiptItemReadOnly",
+      "roleWrite": "codbex-inventory.GoodsReceipts.GoodsReceiptItemFullAccess"
+    },
+    {
+      "entityName": "GoodsIssue",
+      "roleRead": "codbex-inventory.GoodsIssues.GoodsIssueReadOnly",
+      "roleWrite": "codbex-inventory.GoodsIssues.GoodsIssueFullAccess"
+    },
+    {
+      "entityName": "GoodsIssueItem",
+      "roleRead": "codbex-inventory.GoodsIssues.GoodsIssueItemReadOnly",
+      "roleWrite": "codbex-inventory.GoodsIssues.GoodsIssueItemFullAccess"
+    },
+    {
+      "entityName": "StockRecord",
+      "roleRead": "codbex-inventory.StockRecords.StockRecordReadOnly",
+      "roleWrite": "codbex-inventory.StockRecords.StockRecordFullAccess"
+    },
+    {
+      "entityName": "StockRecordDirection",
+      "roleRead": "codbex-inventory.Settings.StockRecordDirectionReadOnly",
+      "roleWrite": "codbex-inventory.Settings.StockRecordDirectionFullAccess"
+    },
+    {
+      "entityName": "StockAdjustment",
+      "roleRead": "codbex-inventory.StockAdjustments.StockAdjustmentReadOnly",
+      "roleWrite": "codbex-inventory.StockAdjustments.StockAdjustmentFullAccess"
+    },
+    {
+      "entityName": "StockAdjustmentType",
+      "roleRead": "codbex-inventory.Settings.StockAdjustmentTypeReadOnly",
+      "roleWrite": "codbex-inventory.Settings.StockAdjustmentTypeFullAccess"
+    },
+    {
+      "entityName": "StockAdjustmentItem",
+      "roleRead": "codbex-inventory.StockAdjustments.StockAdjustmentItemReadOnly",
+      "roleWrite": "codbex-inventory.StockAdjustments.StockAdjustmentItemFullAccess"
+    },
+    {
+      "entityName": "DeliveryNote",
+      "roleRead": "codbex-inventory.DeliveryNote.DeliveryNoteReadOnly",
+      "roleWrite": "codbex-inventory.DeliveryNote.DeliveryNoteFullAccess"
+    },
+    {
+      "entityName": "DeliveryNoteItem",
+      "roleRead": "codbex-inventory.DeliveryNote.DeliveryNoteItemReadOnly",
+      "roleWrite": "codbex-inventory.DeliveryNote.DeliveryNoteItemFullAccess"
+    },
+    {
+      "entityName": "Waste",
+      "roleRead": "codbex-inventory.Waste.WasteReadOnly",
+      "roleWrite": "codbex-inventory.Waste.WasteFullAccess"
+    },
+    {
+      "entityName": "WasteType",
+      "roleRead": "codbex-inventory.Waste.WasteTypeReadOnly",
+      "roleWrite": "codbex-inventory.Waste.WasteTypeFullAccess"
+    }
+  ],
   "models": [
     {
       "properties": [

@@ -158,7 +158,9 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				id: 'StockAdjustmentItem-details',
 				params: {
 					action: 'create',
-					entity: {},
+					entity: {
+						'StockAdjustment': $scope.selectedMainEntityId
+					},
 					selectedMainEntityKey: 'StockAdjustment',
 					selectedMainEntityId: $scope.selectedMainEntityId,
 					optionsProduct: $scope.optionsProduct,
