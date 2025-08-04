@@ -6,6 +6,9 @@
 const viewData = {
     id: 'StockRecord-details',
     label: 'StockRecord',
+    translation: {
+        key: 'codbex-inventory:t.STOCKRECORD',
+    },
     region: 'center',
     lazyLoad: false,
 	autoFocusTab: true,

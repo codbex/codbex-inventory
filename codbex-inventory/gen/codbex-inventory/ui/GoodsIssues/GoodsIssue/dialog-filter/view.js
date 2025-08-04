@@ -6,6 +6,12 @@
 const viewData = {
     id: 'GoodsIssue-filter',
     label: 'GoodsIssue Filter',
+    translation: {
+        key: 'codbex-inventory:extName',
+        options: {
+            content: '$t(codbex-inventory:t.GOODSISSUE) $t(codbex-inventory:defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsIssues/GoodsIssue/dialog-filter/index.html',
     perspectiveName: 'GoodsIssues'
 };

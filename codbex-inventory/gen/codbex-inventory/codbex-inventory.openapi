@@ -6598,6 +6598,12 @@ components:
           type: string
           minLength: 0
           maxLength: 20
+        Country:
+          type: integer
+          format: int32
+        City:
+          type: integer
+          format: int32
         Address:
           type: string
           minLength: 0
@@ -6606,12 +6612,6 @@ components:
           type: string
           minLength: 0
           maxLength: 20
-        City:
-          type: integer
-          format: int32
-        Country:
-          type: integer
-          format: int32
         Location:
           type: string
           minLength: 0
@@ -6680,6 +6680,22 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
+                Country:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                City:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 Address:
                   oneOf:
                     - type: string
@@ -6702,22 +6718,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                City:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Country:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Location:
                   oneOf:
                     - type: string
@@ -6811,6 +6811,22 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
+                Country:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                City:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 Address:
                   oneOf:
                     - type: string
@@ -6833,22 +6849,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                City:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Country:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Location:
                   oneOf:
                     - type: string
@@ -6914,6 +6914,8 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Country:
+                City:
                 Address:
                   type: string
                   minLength: 0
@@ -6922,8 +6924,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
-                Country:
                 Location:
                   type: string
                   minLength: 0
@@ -6956,6 +6956,12 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Country:
+                  type: integer
+                  format: int32
+                City:
+                  type: integer
+                  format: int32
                 Address:
                   type: string
                   minLength: 0
@@ -6964,12 +6970,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
-                  type: integer
-                  format: int32
-                Country:
-                  type: integer
-                  format: int32
                 Location:
                   type: string
                   minLength: 0
@@ -7006,6 +7006,12 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Country:
+                  type: integer
+                  format: int32
+                City:
+                  type: integer
+                  format: int32
                 Address:
                   type: string
                   minLength: 0
@@ -7014,12 +7020,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
-                  type: integer
-                  format: int32
-                Country:
-                  type: integer
-                  format: int32
                 Location:
                   type: string
                   minLength: 0
@@ -7056,6 +7056,12 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Country:
+                  type: integer
+                  format: int32
+                City:
+                  type: integer
+                  format: int32
                 Address:
                   type: string
                   minLength: 0
@@ -7064,12 +7070,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
-                  type: integer
-                  format: int32
-                Country:
-                  type: integer
-                  format: int32
                 Location:
                   type: string
                   minLength: 0
@@ -7106,6 +7106,12 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
+                Country:
+                  type: integer
+                  format: int32
+                City:
+                  type: integer
+                  format: int32
                 Address:
                   type: string
                   minLength: 0
@@ -7114,12 +7120,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                City:
-                  type: integer
-                  format: int32
-                Country:
-                  type: integer
-                  format: int32
                 Location:
                   type: string
                   minLength: 0
@@ -7140,12 +7140,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Name", "Email", "Phone", "Address", "PostCode", "City", "Country", "Location", "Contact", "Manager", "Status", "Company"]
+          example: ["Id", "Name", "Email", "Phone", "Country", "City", "Address", "PostCode", "Location", "Contact", "Manager", "Status", "Company"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Name,Email,Phone,Address,PostCode,City,Country,Location,Contact,Manager,Status,Company"
+            example: "Id,Name,Email,Phone,Country,City,Address,PostCode,Location,Contact,Manager,Status,Company"
         $order:
           type: string
           enum: ["asc", "desc"]

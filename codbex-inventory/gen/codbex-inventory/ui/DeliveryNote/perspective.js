@@ -6,6 +6,9 @@
 const perspectiveData = {
 	id: 'DeliveryNote',
 	label: 'Delivery Note',
+	translation: {
+        key: 'codbex-inventory:t.DELIVERYNOTE',
+    },
 	path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/index.html',
 	order: 700,
 	icon: '/services/web/resources/unicons/notes.svg'

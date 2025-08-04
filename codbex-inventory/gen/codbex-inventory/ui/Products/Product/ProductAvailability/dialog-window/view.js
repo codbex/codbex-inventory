@@ -6,6 +6,9 @@
 const viewData = {
     id: 'ProductAvailability-details',
     label: 'ProductAvailability',
+    translation: {
+        key: 'codbex-inventory:t.PRODUCTAVAILABILITY',
+    },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Products/Product/ProductAvailability/dialog-window/index.html',
     perspectiveName: 'Products'
 };

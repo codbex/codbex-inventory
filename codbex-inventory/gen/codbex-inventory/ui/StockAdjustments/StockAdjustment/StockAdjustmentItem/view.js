@@ -6,6 +6,9 @@
 const viewData = {
     id: 'StockAdjustmentItem',
     label: 'StockAdjustmentItem',
+    translation: {
+        key: 'codbex-inventory:t.STOCKADJUSTMENTITEM',
+    },
     region: 'bottom',
     lazyLoad: false,
 	autoFocusTab: true,

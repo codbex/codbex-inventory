@@ -6,6 +6,12 @@
 const viewData = {
     id: 'StockAdjustmentType-filter',
     label: 'StockAdjustmentType Filter',
+    translation: {
+        key: 'codbex-inventory:extName',
+        options: {
+            content: '$t(codbex-inventory:t.STOCKADJUSTMENTTYPE) $t(codbex-inventory:defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Settings/StockAdjustmentType/dialog-filter/index.html',
     perspectiveName: 'Settings'
 };

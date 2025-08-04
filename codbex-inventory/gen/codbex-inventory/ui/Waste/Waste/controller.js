@@ -1,9 +1,22 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Waste/WasteService.ts';
 	}])
-	.controller('PageController', ($scope, $http, EntityService, Extensions, ButtonStates) => {
+	.controller('PageController', ($scope, $http, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
+		let translated = {
+			yes: 'Yes',
+			no: 'No',
+			deleteConfirm: 'Are you sure you want to delete Waste? This action cannot be undone.',
+			deleteTitle: 'Delete Waste?'
+		};
+
+		LocaleService.onInit(() => {
+			translated.yes = LocaleService.t('codbex-inventory:defaults.yes');
+			translated.no = LocaleService.t('codbex-inventory:defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-inventory:defaults.deleteTitle', { name: '$t(codbex-inventory:t.WASTE)' });
+			translated.deleteConfirm = LocaleService.t('codbex-inventory:messages.deleteConfirm', { name: '$t(codbex-inventory:t.WASTE)' });
+		});
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
 		$scope.dataOffset = 0;
@@ -18,7 +31,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerPageAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				maxWidth: action.maxWidth,
 				maxHeight: action.maxHeight,
@@ -98,8 +111,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: 'Waste',
-						message: `Unable to list/filter Waste: '${message}'`,
+						title: LocaleService.t('codbex-inventory:t.WASTE'),
+						message: LocaleService.t('codbex-inventory:messages.error.unableToLF', { name: '$t(codbex-inventory:t.WASTE)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
@@ -107,8 +120,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'Waste',
-					message: `Unable to count Waste: '${message}'`,
+					title: LocaleService.t('codbex-inventory:t.WASTE'),
+					message: LocaleService.t('codbex-inventory:messages.error.unableToCount', { name: '$t(codbex-inventory:t.WASTE)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -158,15 +171,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.deleteEntity = () => {
 			let id = $scope.selectedEntity.Id;
 			Dialogs.showDialog({
-				title: 'Delete Waste?',
-				message: `Are you sure you want to delete Waste? This action cannot be undone.`,
+				title: translated.deleteTitle,
+				message: translated.deleteConfirm,
 				buttons: [{
 					id: 'delete-btn-yes',
 					state: ButtonStates.Emphasized,
-					label: 'Yes',
+					label: translated.yes,
 				}, {
 					id: 'delete-btn-no',
-					label: 'No',
+					label: translated.no,
 				}],
 				closeButton: false
 			}).then((buttonId) => {
@@ -178,8 +191,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
-							title: 'Waste',
-							message: `Unable to delete Waste: '${message}'`,
+							title: LocaleService.t('codbex-inventory:t.WASTE'),
+							message: LocaleService.t('codbex-inventory:messages.error.unableToDelete', { name: '$t(codbex-inventory:t.WASTE)', message: message }),
 							type: AlertTypes.Error
 						});
 						console.error('EntityService:', error);
@@ -220,7 +233,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'WasteType',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -235,7 +248,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Customer',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -250,7 +263,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Product',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -265,7 +278,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Supplier',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -280,7 +293,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Store',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});

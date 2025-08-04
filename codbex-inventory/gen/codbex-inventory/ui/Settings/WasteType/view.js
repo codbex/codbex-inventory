@@ -6,6 +6,9 @@
 const viewData = {
     id: 'WasteType',
     label: 'WasteType',
+    translation: {
+        key: 'codbex-inventory:t.WASTETYPE',
+    },
     region: 'center',
     lazyLoad: true,
 	autoFocusTab: false,

@@ -1,9 +1,23 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StoreStatusService.ts';
 	}])
-	.controller('PageController', ($scope, EntityService, Extensions, ButtonStates) => {
+	.controller('PageController', ($scope, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
+		let translated = {
+			yes: 'Yes',
+			no: 'No',
+			deleteConfirm: 'Are you sure you want to delete StoreStatus? This action cannot be undone.',
+			deleteTitle: 'Delete StoreStatus?'
+		};
+
+		LocaleService.onInit(() => {
+			translated.yes = LocaleService.t('codbex-inventory:defaults.yes');
+			translated.no = LocaleService.t('codbex-inventory:defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-inventory:defaults.deleteTitle', { name: '$t(codbex-inventory:t.STORESTATUS)' });
+			translated.deleteConfirm = LocaleService.t('codbex-inventory:messages.deleteConfirm', { name: '$t(codbex-inventory:t.STORESTATUS)' });
+		});
+
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
 		$scope.dataLimit = 20;
@@ -17,7 +31,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerPageAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				maxWidth: action.maxWidth,
 				maxHeight: action.maxHeight,
@@ -28,7 +42,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerEntityAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
 					id: $scope.entity.Id
@@ -82,17 +96,19 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				request.then((response) => {
 					$scope.data = response.data;
 				}, (error) => {
+					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: 'StoreStatus',
-						message: `Unable to list/filter StoreStatus: '${error.message}'`,
+						title: LocaleService.t('codbex-inventory:t.STORESTATUS'),
+						message: LocaleService.t('codbex-inventory:messages.error.unableToLF', { name: '$t(codbex-inventory:t.STORESTATUS)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
 				});
 			}, (error) => {
+				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'StoreStatus',
-					message: `Unable to count StoreStatus: '${error.message}'`,
+					title: LocaleService.t('codbex-inventory:t.STORESTATUS'),
+					message: LocaleService.t('codbex-inventory:messages.error.unableToCount', { name: '$t(codbex-inventory:t.STORESTATUS)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -152,15 +168,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.deleteEntity = (entity) => {
 			let id = entity.Id;
 			Dialogs.showDialog({
-				title: 'Delete StoreStatus?',
-				message: `Are you sure you want to delete StoreStatus? This action cannot be undone.`,
+				title: translated.deleteTitle,
+				message: translated.deleteConfirm,
 				buttons: [{
 					id: 'delete-btn-yes',
 					state: ButtonStates.Emphasized,
-					label: 'Yes',
+					label: translated.yes,
 				}, {
 					id: 'delete-btn-no',
-					label: 'No',
+					label: translated.no,
 				}]
 			}).then((buttonId) => {
 				if (buttonId === 'delete-btn-yes') {
@@ -170,8 +186,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
-							title: 'StoreStatus',
-							message: `Unable to delete StoreStatus: '${message}'`,
+							title: LocaleService.t('codbex-inventory:t.STORESTATUS'),
+							message: LocaleService.t('codbex-inventory:messages.error.unableToDelete', { name: '$t(codbex-inventory:t.STORESTATUS)', message: message }),
 							type: AlertTypes.Error
 						});
 						console.error('EntityService:', error);

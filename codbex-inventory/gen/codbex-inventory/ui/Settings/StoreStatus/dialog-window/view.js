@@ -6,6 +6,9 @@
 const viewData = {
     id: 'StoreStatus-details',
     label: 'StoreStatus',
+    translation: {
+        key: 'codbex-inventory:t.STORESTATUS',
+    },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Settings/StoreStatus/dialog-window/index.html',
     perspectiveName: 'Settings'
 };

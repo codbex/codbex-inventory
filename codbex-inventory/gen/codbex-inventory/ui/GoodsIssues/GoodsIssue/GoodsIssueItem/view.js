@@ -6,6 +6,9 @@
 const viewData = {
     id: 'GoodsIssueItem',
     label: 'GoodsIssueItem',
+    translation: {
+        key: 'codbex-inventory:t.GOODSISSUEITEM',
+    },
     region: 'bottom',
     lazyLoad: false,
 	autoFocusTab: true,

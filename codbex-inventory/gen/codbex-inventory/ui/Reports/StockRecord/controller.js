@@ -1,8 +1,8 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/StockRecords/StockRecordService.ts';
 	}])
-	.controller('PageController', ($scope, $http, EntityService, Extensions) => {
+	.controller('PageController', ($scope, $http, EntityService, LocaleService, Extensions) => {
 		const Dialogs = new DialogHub();
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
@@ -17,7 +17,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerPageAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
 					filterEntity: $scope.filterEntity,
@@ -34,7 +34,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerEntityAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
 					id: $scope.entity.Id
@@ -84,8 +84,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: "StockRecord",
-						message: `Unable to list/filter StockRecord: '${message}'`,
+						title: LocaleService.t('codbex-inventory:t.STOCKRECORD'),
+						message: LocaleService.t('codbex-inventory:messages.error.unableToLF', { name: '$t(codbex-inventory:t.STOCKRECORD)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
@@ -93,8 +93,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: "StockRecord",
-					message: `Unable to count StockRecord: '${message}'`,
+					title: LocaleService.t('codbex-inventory:t.STOCKRECORD'),
+					message: LocaleService.t('codbex-inventory:messages.error.unableToCount', { name: '$t(codbex-inventory:t.STOCKRECORD)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -147,7 +147,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Product',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -162,7 +162,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'UoM',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -177,7 +177,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Direction',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});

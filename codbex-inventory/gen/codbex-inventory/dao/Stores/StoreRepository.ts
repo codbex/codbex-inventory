@@ -8,10 +8,10 @@ export interface StoreEntity {
     Name?: string;
     Email?: string;
     Phone?: string;
+    Country?: number;
+    City?: number;
     Address?: string;
     PostCode?: string;
-    City?: number;
-    Country?: number;
     Location?: string;
     Contact?: string;
     Manager?: string;
@@ -23,10 +23,10 @@ export interface StoreCreateEntity {
     readonly Name?: string;
     readonly Email?: string;
     readonly Phone?: string;
+    readonly Country?: number;
+    readonly City?: number;
     readonly Address?: string;
     readonly PostCode?: string;
-    readonly City?: number;
-    readonly Country?: number;
     readonly Location?: string;
     readonly Contact?: string;
     readonly Manager?: string;
@@ -45,10 +45,10 @@ export interface StoreEntityOptions {
             Name?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
+            Country?: number | number[];
+            City?: number | number[];
             Address?: string | string[];
             PostCode?: string | string[];
-            City?: number | number[];
-            Country?: number | number[];
             Location?: string | string[];
             Contact?: string | string[];
             Manager?: string | string[];
@@ -60,10 +60,10 @@ export interface StoreEntityOptions {
             Name?: string | string[];
             Email?: string | string[];
             Phone?: string | string[];
+            Country?: number | number[];
+            City?: number | number[];
             Address?: string | string[];
             PostCode?: string | string[];
-            City?: number | number[];
-            Country?: number | number[];
             Location?: string | string[];
             Contact?: string | string[];
             Manager?: string | string[];
@@ -75,10 +75,10 @@ export interface StoreEntityOptions {
             Name?: string;
             Email?: string;
             Phone?: string;
+            Country?: number;
+            City?: number;
             Address?: string;
             PostCode?: string;
-            City?: number;
-            Country?: number;
             Location?: string;
             Contact?: string;
             Manager?: string;
@@ -90,10 +90,10 @@ export interface StoreEntityOptions {
             Name?: string;
             Email?: string;
             Phone?: string;
+            Country?: number;
+            City?: number;
             Address?: string;
             PostCode?: string;
-            City?: number;
-            Country?: number;
             Location?: string;
             Contact?: string;
             Manager?: string;
@@ -105,10 +105,10 @@ export interface StoreEntityOptions {
             Name?: string;
             Email?: string;
             Phone?: string;
+            Country?: number;
+            City?: number;
             Address?: string;
             PostCode?: string;
-            City?: number;
-            Country?: number;
             Location?: string;
             Contact?: string;
             Manager?: string;
@@ -120,10 +120,10 @@ export interface StoreEntityOptions {
             Name?: string;
             Email?: string;
             Phone?: string;
+            Country?: number;
+            City?: number;
             Address?: string;
             PostCode?: string;
-            City?: number;
-            Country?: number;
             Location?: string;
             Contact?: string;
             Manager?: string;
@@ -135,10 +135,10 @@ export interface StoreEntityOptions {
             Name?: string;
             Email?: string;
             Phone?: string;
+            Country?: number;
+            City?: number;
             Address?: string;
             PostCode?: string;
-            City?: number;
-            Country?: number;
             Location?: string;
             Contact?: string;
             Manager?: string;
@@ -196,6 +196,16 @@ export class StoreRepository {
                 type: "VARCHAR",
             },
             {
+                name: "Country",
+                column: "STORE_COUNTRY",
+                type: "INTEGER",
+            },
+            {
+                name: "City",
+                column: "STORE_CITY",
+                type: "INTEGER",
+            },
+            {
                 name: "Address",
                 column: "STORE_ADDRESS",
                 type: "VARCHAR",
@@ -204,16 +214,6 @@ export class StoreRepository {
                 name: "PostCode",
                 column: "STORE_POSTCODE",
                 type: "VARCHAR",
-            },
-            {
-                name: "City",
-                column: "STORE_CITY",
-                type: "INTEGER",
-            },
-            {
-                name: "Country",
-                column: "STORE_COUNTRY",
-                type: "INTEGER",
             },
             {
                 name: "Location",

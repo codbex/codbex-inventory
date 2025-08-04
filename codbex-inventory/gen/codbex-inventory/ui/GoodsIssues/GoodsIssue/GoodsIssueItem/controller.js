@@ -1,9 +1,22 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/GoodsIssues/GoodsIssueItemService.ts';
 	}])
-	.controller('PageController', ($scope, $http, EntityService, Extensions, ButtonStates) => {
+	.controller('PageController', ($scope, $http, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
+		let translated = {
+			yes: 'Yes',
+			no: 'No',
+			deleteConfirm: 'Are you sure you want to delete GoodsIssueItem? This action cannot be undone.',
+			deleteTitle: 'Delete GoodsIssueItem?'
+		};
+
+		LocaleService.onInit(() => {
+			translated.yes = LocaleService.t('codbex-inventory:defaults.yes');
+			translated.no = LocaleService.t('codbex-inventory:defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-inventory:defaults.deleteTitle', { name: '$t(codbex-inventory:t.GOODSISSUEITEM)' });
+			translated.deleteConfirm = LocaleService.t('codbex-inventory:messages.deleteConfirm', { name: '$t(codbex-inventory:t.GOODSISSUEITEM)' });
+		});
 		//-----------------Custom Actions-------------------//
 		Extensions.getWindows(['codbex-inventory-custom-action']).then((response) => {
 			$scope.pageActions = response.data.filter(e => e.perspective === 'GoodsIssues' && e.view === 'GoodsIssueItem' && (e.type === 'page' || e.type === undefined));
@@ -13,7 +26,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerPageAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
 					selectedMainEntityKey: 'GoodsIssue',
@@ -28,7 +41,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerEntityAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
 					id: $scope.entity.Id,
@@ -107,8 +120,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: 'GoodsIssueItem',
-						message: `Unable to list/filter GoodsIssueItem: '${message}'`,
+						title: LocaleService.t('codbex-inventory:t.GOODSISSUEITEM'),
+						message: LocaleService.t('codbex-inventory:messages.error.unableToLF', { name: '$t(codbex-inventory:t.GOODSISSUEITEM)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
@@ -116,8 +129,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'GoodsIssueItem',
-					message: `Unable to count GoodsIssueItem: '${message}'`,
+					title: LocaleService.t('codbex-inventory:t.GOODSISSUEITEM'),
+					message: LocaleService.t('codbex-inventory:messages.error.unableToCount', { name: '$t(codbex-inventory:t.GOODSISSUEITEM)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -188,15 +201,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.deleteEntity = (entity) => {
 			let id = entity.Id;
 			Dialogs.showDialog({
-				title: 'Delete GoodsIssueItem?',
-				message: `Are you sure you want to delete GoodsIssueItem? This action cannot be undone.`,
+				title: translated.deleteTitle,
+				message: translated.deleteConfirm,
 				buttons: [{
 					id: 'delete-btn-yes',
 					state: ButtonStates.Emphasized,
-					label: 'Yes',
+					label: translated.yes,
 				}, {
 					id: 'delete-btn-no',
-					label: 'No',
+					label: translated.no,
 				}],
 				closeButton: false
 			}).then((buttonId) => {
@@ -207,8 +220,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
-							title: 'GoodsIssueItem',
-							message: `Unable to delete GoodsIssueItem: '${message}'`,
+							title: LocaleService.t('codbex-inventory:t.GOODSISSUEITEM'),
+							message: LocaleService.t('codbex-inventory:messages.error.unableToDelete', { name: '$t(codbex-inventory:t.GOODSISSUEITEM)', message: message }),
 							type: AlertTypes.Error,
 						});
 						console.error('EntityService:', error);
@@ -232,7 +245,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Product',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -247,7 +260,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'UoM',
-				message: `Unable to load data: '${message}'`,
+				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});

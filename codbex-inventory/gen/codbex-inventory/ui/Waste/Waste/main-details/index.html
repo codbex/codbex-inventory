@@ -19,26 +19,24 @@
                 <bk-form-group label="{{formHeaders[action]}}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idNumber" ng-required="false" colon="true">Number</bk-form-label>
+                        	<bk-form-label for="idNumber" ng-required="false" colon="true">{{ 'codbex-inventory:t.WASTE_NUMBER' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-							<bk-form-input-message>
 								<bk-input id="idNumber"
 	                                name="Number"
 	                                ng-model="entity.Number"
 	                                ng-readonly="true"
 	                                type="text"
-	                                placeholder="Enter Number">
+	                                placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.WASTE_NUMBER)'} }}">
 	                            </bk-input>
-							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idDate" ng-required="true" colon="true">Date</bk-form-label>
+                        	<bk-form-label for="idDate" ng-required="true" colon="true">{{ 'codbex-inventory:t.WASTE_DATE' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--2 ">
-							<bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" message="'Incorrect Input'">
+							<bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" text="{{'codbex-inventory:messages.error.incorrectInput' | t}}">
 								<bk-input id="idDate"
 	                                name="Date"
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
@@ -52,7 +50,7 @@
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idWasteType" ng-required="true" colon="true">WasteType</bk-form-label>
+                        	<bk-form-label for="idWasteType" ng-required="true" colon="true">{{ 'codbex-inventory:t.WASTE_WASTETYPE' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
 	                        <bk-combobox-input input-id="idWasteType"
@@ -62,18 +60,18 @@
 	                            ng-model="entity.WasteType"
 	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsWasteType"
-	                            placeholder="Search WasteType ..."
-								btn-aria-label="show/hide WasteType options" list-aria-label="WasteType options">
+	                            placeholder="{{ 'codbex-inventory:messages.inputSearch' | t:{'name':'$t(codbex-inventory:t.WASTE_WASTETYPE)'} }}"
+								btn-aria-label="{{ 'codbex-inventory:aria.showHide' | t:{'name':'WasteType'} }}" list-aria-label="{{ 'codbex-inventory:aria.options' | t:{'name':'WasteType'} }}">
 	                        </bk-combobox-input>
 	                    </div>
 	                    <div class="fd-col fd-col--full">
-							<bk-button glyph="sap-icon--add" aria-label="Add" ng-click="createWasteType()" ng-hide="action === 'select'"></bk-button>
-							<bk-button glyph="sap-icon--refresh" aria-label="Refresh" ng-click="refreshWasteType()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--add" aria-label="{{ 'codbex-inventory:defaults.add' | t }}" ng-click="createWasteType()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="{{ 'codbex-inventory:defaults.refresh' | t }}" ng-click="refreshWasteType()" ng-hide="action === 'select'"></bk-button>
 						</div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCustomer" ng-required="false" colon="true">Customer</bk-form-label>
+                        	<bk-form-label for="idCustomer" ng-required="false" colon="true">{{ 'codbex-inventory:t.WASTE_CUSTOMER' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
 	                        <bk-combobox-input input-id="idCustomer"
@@ -83,18 +81,18 @@
 	                            ng-model="entity.Customer"
 	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsCustomer"
-	                            placeholder="Search Customer ..."
-								btn-aria-label="show/hide Customer options" list-aria-label="Customer options">
+	                            placeholder="{{ 'codbex-inventory:messages.inputSearch' | t:{'name':'$t(codbex-inventory:t.WASTE_CUSTOMER)'} }}"
+								btn-aria-label="{{ 'codbex-inventory:aria.showHide' | t:{'name':'Customer'} }}" list-aria-label="{{ 'codbex-inventory:aria.options' | t:{'name':'Customer'} }}">
 	                        </bk-combobox-input>
 	                    </div>
 	                    <div class="fd-col fd-col--full">
-							<bk-button glyph="sap-icon--add" aria-label="Add" ng-click="createCustomer()" ng-hide="action === 'select'"></bk-button>
-							<bk-button glyph="sap-icon--refresh" aria-label="Refresh" ng-click="refreshCustomer()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--add" aria-label="{{ 'codbex-inventory:defaults.add' | t }}" ng-click="createCustomer()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="{{ 'codbex-inventory:defaults.refresh' | t }}" ng-click="refreshCustomer()" ng-hide="action === 'select'"></bk-button>
 						</div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idProduct" ng-required="true" colon="true">Product</bk-form-label>
+                        	<bk-form-label for="idProduct" ng-required="true" colon="true">{{ 'codbex-inventory:t.WASTE_PRODUCT' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
 	                        <bk-combobox-input input-id="idProduct"
@@ -104,18 +102,18 @@
 	                            ng-model="entity.Product"
 	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsProduct"
-	                            placeholder="Search Product ..."
-								btn-aria-label="show/hide Product options" list-aria-label="Product options">
+	                            placeholder="{{ 'codbex-inventory:messages.inputSearch' | t:{'name':'$t(codbex-inventory:t.WASTE_PRODUCT)'} }}"
+								btn-aria-label="{{ 'codbex-inventory:aria.showHide' | t:{'name':'Product'} }}" list-aria-label="{{ 'codbex-inventory:aria.options' | t:{'name':'Product'} }}">
 	                        </bk-combobox-input>
 	                    </div>
 	                    <div class="fd-col fd-col--full">
-							<bk-button glyph="sap-icon--add" aria-label="Add" ng-click="createProduct()" ng-hide="action === 'select'"></bk-button>
-							<bk-button glyph="sap-icon--refresh" aria-label="Refresh" ng-click="refreshProduct()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--add" aria-label="{{ 'codbex-inventory:defaults.add' | t }}" ng-click="createProduct()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="{{ 'codbex-inventory:defaults.refresh' | t }}" ng-click="refreshProduct()" ng-hide="action === 'select'"></bk-button>
 						</div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idQuantity" ng-required="true" colon="true">Quantity</bk-form-label>
+                        	<bk-form-label for="idQuantity" ng-required="true" colon="true">{{ 'codbex-inventory:t.WASTE_QUANTITY' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 							<bk-step-input input-id="idQuantity"
@@ -124,13 +122,13 @@
 								is-required="true"
 								ng-model="entity.Quantity"
 								is-readonly="action === 'select'"
-								placeholder="Enter Quantity">
+								placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.WASTE_QUANTITY)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idSupplier" ng-required="false" colon="true">Supplier</bk-form-label>
+                        	<bk-form-label for="idSupplier" ng-required="false" colon="true">{{ 'codbex-inventory:t.WASTE_SUPPLIER' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
 	                        <bk-combobox-input input-id="idSupplier"
@@ -140,18 +138,18 @@
 	                            ng-model="entity.Supplier"
 	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsSupplier"
-	                            placeholder="Search Supplier ..."
-								btn-aria-label="show/hide Supplier options" list-aria-label="Supplier options">
+	                            placeholder="{{ 'codbex-inventory:messages.inputSearch' | t:{'name':'$t(codbex-inventory:t.WASTE_SUPPLIER)'} }}"
+								btn-aria-label="{{ 'codbex-inventory:aria.showHide' | t:{'name':'Supplier'} }}" list-aria-label="{{ 'codbex-inventory:aria.options' | t:{'name':'Supplier'} }}">
 	                        </bk-combobox-input>
 	                    </div>
 	                    <div class="fd-col fd-col--full">
-							<bk-button glyph="sap-icon--add" aria-label="Add" ng-click="createSupplier()" ng-hide="action === 'select'"></bk-button>
-							<bk-button glyph="sap-icon--refresh" aria-label="Refresh" ng-click="refreshSupplier()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--add" aria-label="{{ 'codbex-inventory:defaults.add' | t }}" ng-click="createSupplier()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="{{ 'codbex-inventory:defaults.refresh' | t }}" ng-click="refreshSupplier()" ng-hide="action === 'select'"></bk-button>
 						</div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idStore" ng-required="true" colon="true">Store</bk-form-label>
+                        	<bk-form-label for="idStore" ng-required="true" colon="true">{{ 'codbex-inventory:t.WASTE_STORE' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
 	                        <bk-combobox-input input-id="idStore"
@@ -161,21 +159,21 @@
 	                            ng-model="entity.Store"
 	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsStore"
-	                            placeholder="Search Store ..."
-								btn-aria-label="show/hide Store options" list-aria-label="Store options">
+	                            placeholder="{{ 'codbex-inventory:messages.inputSearch' | t:{'name':'$t(codbex-inventory:t.WASTE_STORE)'} }}"
+								btn-aria-label="{{ 'codbex-inventory:aria.showHide' | t:{'name':'Store'} }}" list-aria-label="{{ 'codbex-inventory:aria.options' | t:{'name':'Store'} }}">
 	                        </bk-combobox-input>
 	                    </div>
 	                    <div class="fd-col fd-col--full">
-							<bk-button glyph="sap-icon--add" aria-label="Add" ng-click="createStore()" ng-hide="action === 'select'"></bk-button>
-							<bk-button glyph="sap-icon--refresh" aria-label="Refresh" ng-click="refreshStore()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--add" aria-label="{{ 'codbex-inventory:defaults.add' | t }}" ng-click="createStore()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="{{ 'codbex-inventory:defaults.refresh' | t }}" ng-click="refreshStore()" ng-hide="action === 'select'"></bk-button>
 						</div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idReason" ng-required="false" colon="true">Reason</bk-form-label>
+                        	<bk-form-label for="idReason" ng-required="false" colon="true">{{ 'codbex-inventory:t.WASTE_REASON' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-							<bk-form-input-message state="{{ forms.details['Reason'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
+							<bk-form-input-message state="{{ forms.details['Reason'].$valid ? '' : 'error' }}" text="{{ 'codbex-inventory:messages.error.pattern' | t:{'rule':''} }}">
 								<bk-input id="idReason"
 	                                name="Reason"
 	                                state="{{ forms.details['Reason'].$valid ? '' : 'error' }}"
@@ -185,7 +183,7 @@
 									ng-maxlength="300.0"
 	                                input-rules="{ patterns: [''] }"
 	                                type="text"
-	                                placeholder="Enter Reason">
+	                                placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.WASTE_REASON)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
@@ -197,17 +195,18 @@
 		<bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
 			<bk-bar-right>
 				<bk-bar-element>
-					<bk-button label="{{action === 'create' ? 'Create' : 'Update'}}" state="emphasized" ng-click="action === 'create' ? create() : update()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action === 'create'" label="{{'codbex-inventory:defaults.create' | t}}" state="emphasized" ng-click="create()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action !== 'create'" label="{{'codbex-inventory:defaults.update' | t}}" state="emphasized" ng-click="update()" ng-disabled="!forms.details.$valid"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="Cancel" ng-click="cancel()"></bk-button>
+					<bk-button label="{{ 'codbex-inventory:defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
 				</bk-bar-element>
 			</bk-bar-right>
 		</bk-bar>
 		<bk-bar bar-design="footer" compact="true" ng-show="action === 'select' && entityActions.length && entity.Id">
 			<bk-bar-right>
 				<bk-bar-element ng-repeat="action in entityActions track by $index">
-					<bk-button label="{{action.label}}" ng-click="triggerEntityAction(action)"></bk-button>
+					<bk-button label="{{action.translation.key | t:action.translation.options:action.label}}" ng-click="triggerEntityAction(action)"></bk-button>
 				</bk-bar-element>
 			</bk-bar-right>
 		</bk-bar>
