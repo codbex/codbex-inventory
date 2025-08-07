@@ -1,10 +1,13 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(["EntityServiceProvider", (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/DeliveryNote/DeliveryNoteService.ts';
 	}])
-	.controller('PageController', ($scope, $http, Extensions, EntityService) => {
+	.controller('PageController', ($scope, $http, Extensions, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
 		const Notifications = new NotificationHub();
+		let description = 'Description';
+		let propertySuccessfullyCreated = 'DeliveryNote successfully created';
+		let propertySuccessfullyUpdated = 'DeliveryNote successfully updated';
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
@@ -16,6 +19,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		};
 		$scope.action = 'select';
 
+		LocaleService.onInit(() => {
+			description = LocaleService.t('codbex-inventory:defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-inventory:defaults.formHeadSelect', { name: '$t(codbex-inventory:t.DELIVERYNOTE)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-inventory:defaults.formHeadCreate', { name: '$t(codbex-inventory:t.DELIVERYNOTE)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-inventory:defaults.formHeadUpdate', { name: '$t(codbex-inventory:t.DELIVERYNOTE)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyCreated', { name: '$t(codbex-inventory:t.DELIVERYNOTE)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyUpdated', { name: '$t(codbex-inventory:t.DELIVERYNOTE)' });
+		});
+
 		//-----------------Custom Actions-------------------//
 		Extensions.getWindows(['codbex-inventory-custom-action']).then((response) => {
 			$scope.entityActions = response.data.filter(e => e.perspective === 'DeliveryNote' && e.view === 'DeliveryNote' && e.type === 'entity');
@@ -24,7 +36,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerEntityAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
 					id: $scope.entity.Id
@@ -94,15 +106,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				Dialogs.postMessage({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.entityCreated', data: response.data });
 				Dialogs.postMessage({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.clearDetails' , data: response.data });
 				Notifications.show({
-					title: 'DeliveryNote',
-					description: 'DeliveryNote successfully created',
+					title: LocaleService.t('codbex-inventory:t.DELIVERYNOTE'),
+					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'DeliveryNote',
-					message: `Unable to create DeliveryNote: '${message}'`,
+					title: LocaleService.t('codbex-inventory:t.DELIVERYNOTE'),
+					message: LocaleService.t('codbex-inventory:messages.error.unableToCreate', { name: '$t(codbex-inventory:t.DELIVERYNOTE)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -114,15 +126,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				Dialogs.postMessage({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.entityUpdated', data: response.data });
 				Dialogs.postMessage({ topic: 'codbex-inventory.DeliveryNote.DeliveryNote.clearDetails', data: response.data });
 				Notifications.show({
-					title: 'DeliveryNote',
-					description: 'DeliveryNote successfully updated',
+					title: LocaleService.t('codbex-inventory:t.DELIVERYNOTE'),
+					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'DeliveryNote',
-					message: `Unable to create DeliveryNote: '${message}'`,
+					title: LocaleService.t('codbex-inventory:t.DELIVERYNOTE'),
+					message: LocaleService.t('codbex-inventory:messages.error.unableToCreate', { name: '$t(codbex-inventory:t.DELIVERYNOTE)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -136,7 +148,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		//-----------------Dialogs-------------------//
 		$scope.alert = (message) => {
 			if (message) Dialogs.showAlert({
-				title: 'Description',
+				title: description,
 				message: message,
 				type: AlertTypes.Information,
 				preformatted: true,
@@ -202,7 +214,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Store',
-					message: `Unable to load data: '${message}'`,
+					message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});
@@ -219,7 +231,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Employee',
-					message: `Unable to load data: '${message}'`,
+					message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});
@@ -236,7 +248,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Company',
-					message: `Unable to load data: '${message}'`,
+					message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});
@@ -253,7 +265,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Customer',
-					message: `Unable to load data: '${message}'`,
+					message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});

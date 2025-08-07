@@ -6,6 +6,9 @@
 const viewData = {
     id: 'Waste',
     label: 'Waste',
+    translation: {
+        key: 'codbex-inventory:t.WASTE',
+    },
     region: 'left',
     lazyLoad: false,
 	autoFocusTab: false,

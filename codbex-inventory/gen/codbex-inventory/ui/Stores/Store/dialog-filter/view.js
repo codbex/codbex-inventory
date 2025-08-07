@@ -6,6 +6,12 @@
 const viewData = {
     id: 'Store-filter',
     label: 'Store Filter',
+    translation: {
+        key: 'codbex-inventory:extName',
+        options: {
+            content: '$t(codbex-inventory:t.STORE) $t(codbex-inventory:defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Stores/Store/dialog-filter/index.html',
     perspectiveName: 'Stores'
 };

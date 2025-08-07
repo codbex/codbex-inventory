@@ -6,6 +6,12 @@
 const viewData = {
     id: 'WasteType-filter',
     label: 'WasteType Filter',
+    translation: {
+        key: 'codbex-inventory:extName',
+        options: {
+            content: '$t(codbex-inventory:t.WASTETYPE) $t(codbex-inventory:defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Settings/WasteType/dialog-filter/index.html',
     perspectiveName: 'Settings'
 };

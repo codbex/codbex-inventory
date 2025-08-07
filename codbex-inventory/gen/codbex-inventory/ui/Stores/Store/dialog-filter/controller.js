@@ -1,4 +1,4 @@
-angular.module('page', ['blimpKit', 'platformView']).controller('PageController', ($scope, ViewParameters) => {
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controller('PageController', ($scope, ViewParameters) => {
 	const Dialogs = new DialogHub();
 	$scope.entity = {};
 	$scope.forms = {
@@ -10,8 +10,8 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		$scope.entity = params.entity ?? {};
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
-		$scope.optionsCity = params.optionsCity;
 		$scope.optionsCountry = params.optionsCountry;
+		$scope.optionsCity = params.optionsCity;
 		$scope.optionsStatus = params.optionsStatus;
 		$scope.optionsCompany = params.optionsCompany;
 	}
@@ -48,17 +48,17 @@ angular.module('page', ['blimpKit', 'platformView']).controller('PageController'
 		if (entity.Phone) {
 			filter.$filter.contains.Phone = entity.Phone;
 		}
+		if (entity.Country !== undefined) {
+			filter.$filter.equals.Country = entity.Country;
+		}
+		if (entity.City !== undefined) {
+			filter.$filter.equals.City = entity.City;
+		}
 		if (entity.Address) {
 			filter.$filter.contains.Address = entity.Address;
 		}
 		if (entity.PostCode) {
 			filter.$filter.contains.PostCode = entity.PostCode;
-		}
-		if (entity.City !== undefined) {
-			filter.$filter.equals.City = entity.City;
-		}
-		if (entity.Country !== undefined) {
-			filter.$filter.equals.Country = entity.Country;
 		}
 		if (entity.Location) {
 			filter.$filter.contains.Location = entity.Location;

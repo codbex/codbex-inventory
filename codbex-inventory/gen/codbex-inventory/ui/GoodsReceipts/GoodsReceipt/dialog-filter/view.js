@@ -6,6 +6,12 @@
 const viewData = {
     id: 'GoodsReceipt-filter',
     label: 'GoodsReceipt Filter',
+    translation: {
+        key: 'codbex-inventory:extName',
+        options: {
+            content: '$t(codbex-inventory:t.GOODSRECEIPT) $t(codbex-inventory:defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/GoodsReceipt/dialog-filter/index.html',
     perspectiveName: 'GoodsReceipts'
 };

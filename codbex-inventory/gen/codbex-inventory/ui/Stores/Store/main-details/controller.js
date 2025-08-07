@@ -1,10 +1,13 @@
-angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(["EntityServiceProvider", (EntityServiceProvider) => {
 		EntityServiceProvider.baseUrl = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts';
 	}])
-	.controller('PageController', ($scope, $http, Extensions, EntityService) => {
+	.controller('PageController', ($scope, $http, Extensions, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
 		const Notifications = new NotificationHub();
+		let description = 'Description';
+		let propertySuccessfullyCreated = 'Store successfully created';
+		let propertySuccessfullyUpdated = 'Store successfully updated';
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
@@ -16,6 +19,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		};
 		$scope.action = 'select';
 
+		LocaleService.onInit(() => {
+			description = LocaleService.t('codbex-inventory:defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-inventory:defaults.formHeadSelect', { name: '$t(codbex-inventory:t.STORE)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-inventory:defaults.formHeadCreate', { name: '$t(codbex-inventory:t.STORE)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-inventory:defaults.formHeadUpdate', { name: '$t(codbex-inventory:t.STORE)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyCreated', { name: '$t(codbex-inventory:t.STORE)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyUpdated', { name: '$t(codbex-inventory:t.STORE)' });
+		});
+
 		//-----------------Custom Actions-------------------//
 		Extensions.getWindows(['codbex-inventory-custom-action']).then((response) => {
 			$scope.entityActions = response.data.filter(e => e.perspective === 'Stores' && e.view === 'Store' && e.type === 'entity');
@@ -24,7 +36,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		$scope.triggerEntityAction = (action) => {
 			Dialogs.showWindow({
 				hasHeader: true,
-        		title: action.label,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
 				path: action.path,
 				params: {
 					id: $scope.entity.Id
@@ -38,8 +50,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		Dialogs.addMessageListener({ topic: 'codbex-inventory.Stores.Store.clearDetails', handler: () => {
 			$scope.$evalAsync(() => {
 				$scope.entity = {};
-				$scope.optionsCity = [];
 				$scope.optionsCountry = [];
+				$scope.optionsCity = [];
 				$scope.optionsStatus = [];
 				$scope.optionsCompany = [];
 				$scope.action = 'select';
@@ -48,8 +60,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		Dialogs.addMessageListener({ topic: 'codbex-inventory.Stores.Store.entitySelected', handler: (data) => {
 			$scope.$evalAsync(() => {
 				$scope.entity = data.entity;
-				$scope.optionsCity = data.optionsCity;
 				$scope.optionsCountry = data.optionsCountry;
+				$scope.optionsCity = data.optionsCity;
 				$scope.optionsStatus = data.optionsStatus;
 				$scope.optionsCompany = data.optionsCompany;
 				$scope.action = 'select';
@@ -58,8 +70,8 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		Dialogs.addMessageListener({ topic: 'codbex-inventory.Stores.Store.createEntity', handler: (data) => {
 			$scope.$evalAsync(() => {
 				$scope.entity = {};
-				$scope.optionsCity = data.optionsCity;
 				$scope.optionsCountry = data.optionsCountry;
+				$scope.optionsCity = data.optionsCity;
 				$scope.optionsStatus = data.optionsStatus;
 				$scope.optionsCompany = data.optionsCompany;
 				$scope.action = 'create';
@@ -68,19 +80,50 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		Dialogs.addMessageListener({ topic: 'codbex-inventory.Stores.Store.updateEntity', handler: (data) => {
 			$scope.$evalAsync(() => {
 				$scope.entity = data.entity;
-				$scope.optionsCity = data.optionsCity;
 				$scope.optionsCountry = data.optionsCountry;
+				$scope.optionsCity = data.optionsCity;
 				$scope.optionsStatus = data.optionsStatus;
 				$scope.optionsCompany = data.optionsCompany;
 				$scope.action = 'update';
 			});
 		}});
 
-		$scope.serviceCity = '/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts';
 		$scope.serviceCountry = '/services/ts/codbex-countries/gen/codbex-countries/api/Countries/CountryService.ts';
+		$scope.serviceCity = '/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts';
 		$scope.serviceStatus = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Settings/StoreStatusService.ts';
 		$scope.serviceCompany = '/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts';
 
+
+		$scope.$watch('entity.Country', (newValue, oldValue) => {
+			if (newValue !== undefined && newValue !== null) {
+				$http.get($scope.serviceCountry + '/' + newValue).then((response) => {
+					let valueFrom = response.data.Id;
+					$http.post('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts/search', {
+						$filter: {
+							equals: {
+								Country: valueFrom
+							}
+						}
+					}).then((response) => {
+						$scope.optionsCity = response.data.map(e => ({
+							value: e.Id,
+							text: e.Name
+						}));
+						if ($scope.action !== 'select' && newValue !== oldValue) {
+							if ($scope.optionsCity.length == 1) {
+								$scope.entity.City = $scope.optionsCity[0].value;
+							} else {
+								$scope.entity.City = undefined;
+							}
+						}
+					}, (error) => {
+						console.error(error);
+					});
+				}, (error) => {
+					console.error(error);
+				});
+			}
+		});
 		//-----------------Events-------------------//
 
 		$scope.create = () => {
@@ -88,15 +131,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				Dialogs.postMessage({ topic: 'codbex-inventory.Stores.Store.entityCreated', data: response.data });
 				Dialogs.postMessage({ topic: 'codbex-inventory.Stores.Store.clearDetails' , data: response.data });
 				Notifications.show({
-					title: 'Store',
-					description: 'Store successfully created',
+					title: LocaleService.t('codbex-inventory:t.STORE'),
+					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'Store',
-					message: `Unable to create Store: '${message}'`,
+					title: LocaleService.t('codbex-inventory:t.STORE'),
+					message: LocaleService.t('codbex-inventory:messages.error.unableToCreate', { name: '$t(codbex-inventory:t.STORE)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -108,15 +151,15 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				Dialogs.postMessage({ topic: 'codbex-inventory.Stores.Store.entityUpdated', data: response.data });
 				Dialogs.postMessage({ topic: 'codbex-inventory.Stores.Store.clearDetails', data: response.data });
 				Notifications.show({
-					title: 'Store',
-					description: 'Store successfully updated',
+					title: LocaleService.t('codbex-inventory:t.STORE'),
+					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: 'Store',
-					message: `Unable to create Store: '${message}'`,
+					title: LocaleService.t('codbex-inventory:t.STORE'),
+					message: LocaleService.t('codbex-inventory:messages.error.unableToCreate', { name: '$t(codbex-inventory:t.STORE)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -130,16 +173,16 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 		//-----------------Dialogs-------------------//
 		$scope.alert = (message) => {
 			if (message) Dialogs.showAlert({
-				title: 'Description',
+				title: description,
 				message: message,
 				type: AlertTypes.Information,
 				preformatted: true,
 			});
 		};
 		
-		$scope.createCity = () => {
+		$scope.createCountry = () => {
 			Dialogs.showWindow({
-				id: 'City-details',
+				id: 'Country-details',
 				params: {
 					action: 'create',
 					entity: {},
@@ -147,9 +190,9 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				closeButton: false
 			});
 		};
-		$scope.createCountry = () => {
+		$scope.createCity = () => {
 			Dialogs.showWindow({
-				id: 'Country-details',
+				id: 'City-details',
 				params: {
 					action: 'create',
 					entity: {},
@@ -184,23 +227,6 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 
 		//----------------Dropdowns-----------------//
 
-		$scope.refreshCity = () => {
-			$scope.optionsCity = [];
-			$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts').then((response) => {
-				$scope.optionsCity = response.data.map(e => ({
-					value: e.Id,
-					text: e.Name
-				}));
-			}, (error) => {
-				console.error(error);
-				const message = error.data ? error.data.message : '';
-				Dialogs.showAlert({
-					title: 'City',
-					message: `Unable to load data: '${message}'`,
-					type: AlertTypes.Error
-				});
-			});
-		};
 		$scope.refreshCountry = () => {
 			$scope.optionsCountry = [];
 			$http.get('/services/ts/codbex-countries/gen/codbex-countries/api/Countries/CountryService.ts').then((response) => {
@@ -213,7 +239,24 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Country',
-					message: `Unable to load data: '${message}'`,
+					message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
+				});
+			});
+		};
+		$scope.refreshCity = () => {
+			$scope.optionsCity = [];
+			$http.get('/services/ts/codbex-cities/gen/codbex-cities/api/Settings/CityService.ts').then((response) => {
+				$scope.optionsCity = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'City',
+					message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});
@@ -230,7 +273,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Status',
-					message: `Unable to load data: '${message}'`,
+					message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});
@@ -247,7 +290,7 @@ angular.module('page', ['blimpKit', 'platformView', 'EntityService'])
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Company',
-					message: `Unable to load data: '${message}'`,
+					message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});

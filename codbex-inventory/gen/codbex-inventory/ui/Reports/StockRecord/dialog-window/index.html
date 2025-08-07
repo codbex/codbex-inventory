@@ -15,10 +15,10 @@
     <body class="bk-vbox">
         <bk-scrollbar class="bk-full-height">
             <bk-fieldset class="fd-padding-begin-end--sm" ng-form="formFieldset">
-                <bk-form-group label="StockRecord Details" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
+                <bk-form-group label="{{ 'codbex-inventory:defaults.formHeadSelect' | t:{'name':'$t(codbex-inventory:t.STOCKRECORD)'} }}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idProduct" ng-required="false" colon="true">Product</bk-form-label>
+                        	<bk-form-label for="idProduct" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKRECORD_PRODUCT' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <bk-combobox-input input-id="idProduct"
@@ -27,14 +27,14 @@
 	                            ng-model="entity.Product"
 	                            is-readonly="true"
 	                            dropdown-items="optionsProduct"
-	                            placeholder="Search Product ..."
-								btn-aria-label="show/hide Product options" list-aria-label="Product options">
+	                            placeholder="{{ 'codbex-inventory:messages.inputSearch' | t:{'name':'$t(codbex-inventory:t.STOCKRECORD_PRODUCT)'} }}"
+								btn-aria-label="{{ 'codbex-inventory:aria.showHide' | t:{'name':'Product'} }}" list-aria-label="{{ 'codbex-inventory:aria.options' | t:{'name':'Product'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idQuantity" ng-required="false" colon="true">Quantity</bk-form-label>
+                        	<bk-form-label for="idQuantity" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKRECORD_QUANTITY' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <bk-step-input input-id="idQuantity"
@@ -43,13 +43,13 @@
 								ng-required="false"
 								ng-model="entity.Quantity"
 								is-readonly="true"
-								placeholder="Enter Quantity">
+								placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.STOCKRECORD_QUANTITY)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idPrice" ng-required="false" colon="true">Price</bk-form-label>
+                        	<bk-form-label for="idPrice" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKRECORD_PRICE' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <bk-step-input input-id="idPrice"
@@ -58,13 +58,13 @@
 								ng-required="false"
 								ng-model="entity.Price"
 								is-readonly="true"
-								placeholder="Enter Price">
+								placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.STOCKRECORD_PRICE)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idNet" ng-required="false" colon="true">Net</bk-form-label>
+                        	<bk-form-label for="idNet" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKRECORD_NET' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <bk-step-input input-id="idNet"
@@ -73,13 +73,13 @@
 								ng-required="false"
 								ng-model="entity.Net"
 								is-readonly="true"
-								placeholder="Enter Net">
+								placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.STOCKRECORD_NET)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idUoM" ng-required="false" colon="true">UoM</bk-form-label>
+                        	<bk-form-label for="idUoM" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKRECORD_UOM' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <bk-combobox-input input-id="idUoM"
@@ -88,14 +88,14 @@
 	                            ng-model="entity.UoM"
 	                            is-readonly="true"
 	                            dropdown-items="optionsUoM"
-	                            placeholder="Search UoM ..."
-								btn-aria-label="show/hide UoM options" list-aria-label="UoM options">
+	                            placeholder="{{ 'codbex-inventory:messages.inputSearch' | t:{'name':'$t(codbex-inventory:t.STOCKRECORD_UOM)'} }}"
+								btn-aria-label="{{ 'codbex-inventory:aria.showHide' | t:{'name':'UoM'} }}" list-aria-label="{{ 'codbex-inventory:aria.options' | t:{'name':'UoM'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idVAT" ng-required="false" colon="true">VAT</bk-form-label>
+                        	<bk-form-label for="idVAT" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKRECORD_VAT' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <bk-step-input input-id="idVAT"
@@ -104,13 +104,13 @@
 								ng-required="false"
 								ng-model="entity.VAT"
 								is-readonly="true"
-								placeholder="Enter VAT">
+								placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.STOCKRECORD_VAT)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idGross" ng-required="false" colon="true">Gross</bk-form-label>
+                        	<bk-form-label for="idGross" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKRECORD_GROSS' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <bk-step-input input-id="idGross"
@@ -119,13 +119,13 @@
 								ng-required="false"
 								ng-model="entity.Gross"
 								is-readonly="true"
-								placeholder="Enter Gross">
+								placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.STOCKRECORD_GROSS)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idDirection" ng-required="false" colon="true">Direction</bk-form-label>
+                        	<bk-form-label for="idDirection" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKRECORD_DIRECTION' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <bk-combobox-input input-id="idDirection"
@@ -134,14 +134,14 @@
 	                            ng-model="entity.Direction"
 	                            is-readonly="true"
 	                            dropdown-items="optionsDirection"
-	                            placeholder="Search Direction ..."
-								btn-aria-label="show/hide Direction options" list-aria-label="Direction options">
+	                            placeholder="{{ 'codbex-inventory:messages.inputSearch' | t:{'name':'$t(codbex-inventory:t.STOCKRECORD_DIRECTION)'} }}"
+								btn-aria-label="{{ 'codbex-inventory:aria.showHide' | t:{'name':'Direction'} }}" list-aria-label="{{ 'codbex-inventory:aria.options' | t:{'name':'Direction'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idItemId" ng-required="false" colon="true">ItemId</bk-form-label>
+                        	<bk-form-label for="idItemId" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKRECORD_ITEMID' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2 fd-col--3">
 	                        <bk-step-input input-id="idItemId"
@@ -150,7 +150,7 @@
 								ng-required="false"
 								ng-model="entity.ItemId"
 								is-readonly="true"
-								placeholder="Enter ItemId">
+								placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.STOCKRECORD_ITEMID)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
@@ -158,12 +158,12 @@
                     	<div class="fd-col fd-col-md--2"></div>
                         <div class="fd-col  fd-col-md--8 ">
 							<bk-checkbox id="idDeleted" compact="false" ng-required="false" ng-readonly="true" ng-model="entity.Deleted"></bk-checkbox>
-                        	<bk-checkbox-label for="idDeleted" ng-required="false">Deleted</bk-checkbox-label>
+                        	<bk-checkbox-label for="idDeleted" ng-required="false">{{ 'codbex-inventory:t.STOCKRECORD_DELETED' | t }}</bk-checkbox-label>
                         </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idReference" ng-required="false" colon="true">Reference</bk-form-label>
+                        	<bk-form-label for="idReference" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKRECORD_REFERENCE' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <bk-input id="idReference"
@@ -172,7 +172,7 @@
 	                            ng-model="entity.Reference"
 	                            ng-readonly="true"
 	                            type="text"
-	                            placeholder="Enter Reference">
+	                            placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.STOCKRECORD_REFERENCE)'} }}">
 	                        </bk-input>
 	                    </div>
                     </bk-form-item>

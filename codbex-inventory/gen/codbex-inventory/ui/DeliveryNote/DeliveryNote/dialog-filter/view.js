@@ -6,6 +6,12 @@
 const viewData = {
     id: 'DeliveryNote-filter',
     label: 'DeliveryNote Filter',
+    translation: {
+        key: 'codbex-inventory:extName',
+        options: {
+            content: '$t(codbex-inventory:t.DELIVERYNOTE) $t(codbex-inventory:defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/dialog-filter/index.html',
     perspectiveName: 'DeliveryNote'
 };

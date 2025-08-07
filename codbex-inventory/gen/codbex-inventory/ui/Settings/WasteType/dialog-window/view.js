@@ -6,6 +6,9 @@
 const viewData = {
     id: 'WasteType-details',
     label: 'WasteType',
+    translation: {
+        key: 'codbex-inventory:t.WASTETYPE',
+    },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Settings/WasteType/dialog-window/index.html',
     perspectiveName: 'Settings'
 };

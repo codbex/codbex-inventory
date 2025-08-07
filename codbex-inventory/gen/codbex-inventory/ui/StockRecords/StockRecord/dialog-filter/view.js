@@ -6,6 +6,12 @@
 const viewData = {
     id: 'StockRecord-filter',
     label: 'StockRecord Filter',
+    translation: {
+        key: 'codbex-inventory:extName',
+        options: {
+            content: '$t(codbex-inventory:t.STOCKRECORD) $t(codbex-inventory:defaults.filter)',
+        }
+    },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/StockRecords/StockRecord/dialog-filter/index.html',
     perspectiveName: 'StockRecords'
 };

@@ -15,9 +15,9 @@
 
 	<body class="bk-vbox">
 		<bk-toolbar has-title="true">
-			<bk-toolbar-title>Items <span bk-object-status text="{{dataCount}}" inverted="true"></bk-toolbar-title>
-			<bk-button compact="true" state="transparent" label="Filter" ng-click="openFilter()"></bk-button>
-			<bk-button ng-repeat="action in pageActions track by $index" compact="true" state="transparent" label="{{action.label}}" ng-click="triggerPageAction(action)"></bk-button>
+			<bk-toolbar-title>{{'codbex-inventory:defaults.items' | t}} <span bk-object-status text="{{dataCount}}" inverted="true"></bk-toolbar-title>
+			<bk-button compact="true" state="transparent" label="{{ 'codbex-inventory:defaults.filter' | t }}" ng-click="openFilter()"></bk-button>
+			<bk-button ng-repeat="action in pageActions track by $index" compact="true" state="transparent" label="{{action.translation.key | t:action.translation.options:action.label}}" ng-click="triggerPageAction(action)"></bk-button>
 			<bk-toolbar-spacer></bk-toolbar-spacer>
 		</bk-toolbar>
 
@@ -25,23 +25,23 @@
 			<table bk-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead bk-table-header sticky="true">
 					<tr bk-table-row>
-						<th bk-table-header-cell>Product</th>
-						<th bk-table-header-cell>Quantity</th>
-						<th bk-table-header-cell>Price</th>
-						<th bk-table-header-cell>Net</th>
-						<th bk-table-header-cell>UoM</th>
-						<th bk-table-header-cell>VAT</th>
-						<th bk-table-header-cell>Gross</th>
-						<th bk-table-header-cell>Direction</th>
-						<th bk-table-header-cell>ItemId</th>
-						<th bk-table-header-cell>Deleted</th>
-						<th bk-table-header-cell>Reference</th>
+						<th bk-table-header-cell>{{ 'codbex-inventory:t.STOCKRECORD_PRODUCT' | t:'Product' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-inventory:t.STOCKRECORD_QUANTITY' | t:'Quantity' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-inventory:t.STOCKRECORD_PRICE' | t:'Price' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-inventory:t.STOCKRECORD_NET' | t:'Net' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-inventory:t.STOCKRECORD_UOM' | t:'UoM' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-inventory:t.STOCKRECORD_VAT' | t:'VAT' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-inventory:t.STOCKRECORD_GROSS' | t:'Gross' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-inventory:t.STOCKRECORD_DIRECTION' | t:'Direction' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-inventory:t.STOCKRECORD_ITEMID' | t:'ItemId' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-inventory:t.STOCKRECORD_DELETED' | t:'Deleted' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-inventory:t.STOCKRECORD_REFERENCE' | t:'Reference' }}</th>
 						<th bk-table-header-cell></th>
 					</tr>
 				</thead>
 				<tbody bk-table-body>
 					<tr bk-table-row hoverable="true" ng-show="data.length == 0">
-						<td bk-table-cell no-data="true">No data available.</td>
+						<td bk-table-cell no-data="true">{{'codbex-inventory:messages.noData' | t}}</td>
 					</tr>
 					<tr bk-table-row hoverable="true" ng-repeat="next in data track by $index"
 						selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
@@ -68,12 +68,12 @@
 						<td bk-table-cell fit-content="true">
 							<bk-popover>
 								<bk-popover-control>
-									<bk-button compact="true" glyph="sap-icon--overflow" state="transparent" aria-label="Table Row Menu Button" ng-click="setTristate()"></bk-button>
+									<bk-button compact="true" glyph="sap-icon--overflow" state="transparent" aria-label="{{'codbex-inventory:aria.tableRowMenuBtn' | t}}" ng-click="setTristate()"></bk-button>
 								</bk-popover-control>
 								<bk-popover-body align="bottom-right">
-									<bk-menu aria-label="Table Row Menu" no-backdrop="true" no-shadow="true">
-										<bk-menu-item ng-repeat="action in entityActions track by $index" title="{{action.label}}" ng-click="triggerEntityAction(action)"></bk-menu-item>
-										<bk-menu-item title="View Details" ng-click="openDetails(next)"></bk-menu-item>
+									<bk-menu aria-label="{{'codbex-inventory:aria.tableRowMenu' | t}}" no-backdrop="true" no-shadow="true">
+										<bk-menu-item ng-repeat="action in entityActions track by $index" title="{{action.translation.key | t:action.translation.options:action.label}}" ng-click="triggerEntityAction(action)"></bk-menu-item>
+										<bk-menu-item title="{{ 'codbex-inventory:defaults.viewDetails' | t }}" ng-click="openDetails(next)"></bk-menu-item>
 									</bk-menu>
 								</bk-popover-body>
 							</bk-popover>

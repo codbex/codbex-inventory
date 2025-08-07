@@ -6,6 +6,9 @@
 const viewData = {
     id: "Waste-details",
     label: "Waste",
+    translation: {
+        key: 'codbex-inventory:t.WASTE',
+    },
     path: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Waste/Waste/dialog-window/index.html",
     perspectiveName: "Waste",
     roles: [

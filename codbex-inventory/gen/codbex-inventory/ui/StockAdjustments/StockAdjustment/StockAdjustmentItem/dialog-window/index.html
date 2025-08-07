@@ -19,7 +19,7 @@
                 <bk-form-group label="{{formHeaders[action]}}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idProduct" ng-required="true" colon="true">Product</bk-form-label>
+                        	<bk-form-label for="idProduct" ng-required="true" colon="true">{{ 'codbex-inventory:t.STOCKADJUSTMENTITEM_PRODUCT' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <bk-combobox-input input-id="idProduct"
@@ -29,14 +29,14 @@
 	                            ng-model="entity.Product"
 	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsProduct"
-	                            placeholder="Search Product ..."
-								btn-aria-label="show/hide Product options" list-aria-label="Product options">
+	                            placeholder="{{ 'codbex-inventory:messages.inputSearch' | t:{'name':'$t(codbex-inventory:t.STOCKADJUSTMENTITEM_PRODUCT)'} }}"
+								btn-aria-label="{{ 'codbex-inventory:aria.showHide' | t:{'name':'Product'} }}" list-aria-label="{{ 'codbex-inventory:aria.options' | t:{'name':'Product'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idUoM" ng-required="false" colon="true">UoM</bk-form-label>
+                        	<bk-form-label for="idUoM" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKADJUSTMENTITEM_UOM' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <bk-combobox-input input-id="idUoM"
@@ -46,17 +46,17 @@
 	                            ng-model="entity.UoM"
 	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsUoM"
-	                            placeholder="Search UoM ..."
-								btn-aria-label="show/hide UoM options" list-aria-label="UoM options">
+	                            placeholder="{{ 'codbex-inventory:messages.inputSearch' | t:{'name':'$t(codbex-inventory:t.STOCKADJUSTMENTITEM_UOM)'} }}"
+								btn-aria-label="{{ 'codbex-inventory:aria.showHide' | t:{'name':'UoM'} }}" list-aria-label="{{ 'codbex-inventory:aria.options' | t:{'name':'UoM'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idAdjustedQuantity" ng-required="true" colon="true">AdjustedQuantity</bk-form-label>
+                        	<bk-form-label for="idAdjustedQuantity" ng-required="true" colon="true">{{ 'codbex-inventory:t.STOCKADJUSTMENTITEM_ADJUSTEDQUANTITY' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-							<bk-form-input-message state="{{ forms.details['AdjustedQuantity'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
+							<bk-form-input-message state="{{ forms.details['AdjustedQuantity'].$valid ? '' : 'error' }}" text="{{ 'codbex-inventory:messages.error.pattern' | t:{'rule':''} }}">
 								<bk-input id="idAdjustedQuantity"
 	                                name="AdjustedQuantity"
 	                                state="{{ forms.details['AdjustedQuantity'].$valid ? '' : 'error' }}"
@@ -65,17 +65,17 @@
 	                                ng-readonly="action === 'select'"
 	                                input-rules="{ patterns: [''] }"
 	                                type="text"
-	                                placeholder="Enter AdjustedQuantity">
+	                                placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.STOCKADJUSTMENTITEM_ADJUSTEDQUANTITY)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idBatch" ng-required="false" colon="true">Batch</bk-form-label>
+                        	<bk-form-label for="idBatch" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKADJUSTMENTITEM_BATCH' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-							<bk-form-input-message state="{{ forms.details['Batch'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
+							<bk-form-input-message state="{{ forms.details['Batch'].$valid ? '' : 'error' }}" text="{{ 'codbex-inventory:messages.error.pattern' | t:{'rule':''} }}">
 								<bk-input id="idBatch"
 	                                name="Batch"
 	                                state="{{ forms.details['Batch'].$valid ? '' : 'error' }}"
@@ -85,17 +85,17 @@
 									ng-maxlength="30.0"
 	                                input-rules="{ patterns: [''] }"
 	                                type="text"
-	                                placeholder="Enter Batch">
+	                                placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.STOCKADJUSTMENTITEM_BATCH)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idSerial" ng-required="false" colon="true">Serial</bk-form-label>
+                        	<bk-form-label for="idSerial" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKADJUSTMENTITEM_SERIAL' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-							<bk-form-input-message state="{{ forms.details['Serial'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
+							<bk-form-input-message state="{{ forms.details['Serial'].$valid ? '' : 'error' }}" text="{{ 'codbex-inventory:messages.error.pattern' | t:{'rule':''} }}">
 								<bk-input id="idSerial"
 	                                name="Serial"
 	                                state="{{ forms.details['Serial'].$valid ? '' : 'error' }}"
@@ -105,17 +105,17 @@
 									ng-maxlength="30.0"
 	                                input-rules="{ patterns: [''] }"
 	                                type="text"
-	                                placeholder="Enter Serial">
+	                                placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.STOCKADJUSTMENTITEM_SERIAL)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
 					<bk-form-item class="fd-row">
 						<div class="fd-col fd-col-md--2">
-							<bk-form-label for="idDescription" ng-required="false" colon="true">Description</bk-form-label>
+							<bk-form-label for="idDescription" ng-required="false" colon="true">{{ 'codbex-inventory:t.STOCKADJUSTMENTITEM_DESCRIPTION' | t }}</bk-form-label>
 						</div>
 						<div class="fd-col  fd-col-md--8 ">
-							<bk-form-input-message state="{{ forms.details['Description'].$valid ? '' : 'error' }}" message="'The value doesn\'t match the required pattern: '">
+							<bk-form-input-message state="{{ forms.details['Description'].$valid ? '' : 'error' }}" text="{{ 'codbex-inventory:messages.error.pattern' | t:{'rule':''} }}">
 								<bk-textarea id="idDescription"
 									name="Description"
 									state="{{ forms.details['Description'].$valid ? '' : 'error' }}"
@@ -124,7 +124,7 @@
 	                            	ng-readonly="action === 'select'"
 									ng-maxlength="200.0"
 									input-rules="{ patterns: [''] }"
-									placeholder="Enter Description">
+									placeholder="{{ 'codbex-inventory:messages.inputEnter' | t:{'name':'$t(codbex-inventory:t.STOCKADJUSTMENTITEM_DESCRIPTION)'} }}">
 								</bk-textarea>
 							</bk-form-input-message>
 						</div>
@@ -136,10 +136,11 @@
 		<bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
 			<bk-bar-right>
 				<bk-bar-element>
-					<bk-button label="{{action === 'create' ? 'Create' : 'Update'}}" state="emphasized" ng-click="action === 'create' ? create() : update()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action === 'create'" label="{{'codbex-inventory:defaults.create' | t}}" state="emphasized" ng-click="create()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action !== 'create'" label="{{'codbex-inventory:defaults.update' | t}}" state="emphasized" ng-click="update()" ng-disabled="!forms.details.$valid"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="Cancel" ng-click="cancel()"></bk-button>
+					<bk-button label="{{ 'codbex-inventory:defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
 				</bk-bar-element>
 			</bk-bar-right>
 		</bk-bar>
