@@ -12,7 +12,7 @@
         "@codbex/codbex-cities": "0.6.0",
         "@codbex/codbex-countries": "1.0.0",
         "@codbex/codbex-companies": "0.6.0",
-        "@codbex/codbex-products": "0.14.0",
+        "@codbex/codbex-products": "0.14.1",
         "@codbex/codbex-currencies": "0.6.0",
         "@codbex/codbex-number-generator": "0.4.0",
         "@codbex/codbex-number-generator-data": "0.4.1"
