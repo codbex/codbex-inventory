@@ -1,6 +1,6 @@
 {
     "name": "@codbex/codbex-inventory",
-    "version": "0.12.4",
+    "version": "0.12.5",
     "repository": {
         "url": "https://github.com/codbex/codbex-inventory.git",
         "type": "git"
