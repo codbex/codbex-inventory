@@ -7,7 +7,7 @@ const viewData = {
     id: "StockAdjustment-details",
     label: "StockAdjustment",
     translation: {
-        key: 'codbex-inventory:t.STOCKADJUSTMENT',
+        key: 'codbex-inventory:codbex-inventory-model.t.STOCKADJUSTMENT',
     },
     path: "/services/web/codbex-inventory/gen/codbex-inventory/ui/StockAdjustments/StockAdjustment/dialog-window/index.html",
     perspectiveName: "StockAdjustments",

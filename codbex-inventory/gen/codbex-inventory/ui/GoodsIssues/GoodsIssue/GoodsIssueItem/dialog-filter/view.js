@@ -7,9 +7,9 @@ const viewData = {
     id: 'GoodsIssueItem-filter',
     label: 'GoodsIssueItem Filter',
     translation: {
-        key: 'codbex-inventory:extName',
+        key: 'codbex-inventory:codbex-inventory-model.extName',
         options: {
-            content: '$t(codbex-inventory:t.GOODSISSUEITEM) $t(codbex-inventory:defaults.filter)',
+            content: '$t(codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM) $t(codbex-inventory:codbex-inventory-model.defaults.filter)',
         }
     },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsIssues/GoodsIssue/GoodsIssueItem/dialog-filter/index.html',

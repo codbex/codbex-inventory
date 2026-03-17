@@ -20,12 +20,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.action = 'select';
 
 		LocaleService.onInit(() => {
-			description = LocaleService.t('codbex-inventory:defaults.description');
-			$scope.formHeaders.select = LocaleService.t('codbex-inventory:defaults.formHeadSelect', { name: '$t(codbex-inventory:t.STOCKADJUSTMENT)' });
-			$scope.formHeaders.create = LocaleService.t('codbex-inventory:defaults.formHeadCreate', { name: '$t(codbex-inventory:t.STOCKADJUSTMENT)' });
-			$scope.formHeaders.update = LocaleService.t('codbex-inventory:defaults.formHeadUpdate', { name: '$t(codbex-inventory:t.STOCKADJUSTMENT)' });
-			propertySuccessfullyCreated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyCreated', { name: '$t(codbex-inventory:t.STOCKADJUSTMENT)' });
-			propertySuccessfullyUpdated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyUpdated', { name: '$t(codbex-inventory:t.STOCKADJUSTMENT)' });
+			description = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadSelect', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKADJUSTMENT)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadCreate', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKADJUSTMENT)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadUpdate', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKADJUSTMENT)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.propertySuccessfullyCreated', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKADJUSTMENT)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.propertySuccessfullyUpdated', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKADJUSTMENT)' });
 		});
 
 		let params = ViewParameters.get();
@@ -48,7 +48,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			EntityService.create(entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-inventory.StockAdjustments.StockAdjustment.entityCreated', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-inventory:t.STOCKADJUSTMENT'),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STOCKADJUSTMENT'),
 					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
@@ -56,7 +56,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = LocaleService.t('codbex-inventory:messages.error.unableToCreate', { name: '$t(codbex-inventory:t.STOCKADJUSTMENT)', message: message });
+					$scope.errorMessage = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToCreate', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKADJUSTMENT)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -70,14 +70,14 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				Dialogs.postMessage({ topic: 'codbex-inventory.StockAdjustments.StockAdjustment.entityUpdated', data: response.data });
 				$scope.cancel();
 				Notifications.show({
-					title: LocaleService.t('codbex-inventory:t.STOCKADJUSTMENT'),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STOCKADJUSTMENT'),
 					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = LocaleService.t('codbex-inventory:messages.error.unableToUpdate', { name: '$t(codbex-inventory:t.STOCKADJUSTMENT)', message: message });
+					$scope.errorMessage = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToUpdate', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKADJUSTMENT)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -97,7 +97,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Store',
-				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -115,7 +115,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Type',
-				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -133,7 +133,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Operator',
-				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});

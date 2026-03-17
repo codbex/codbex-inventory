@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
@@ -133,9 +133,10 @@ export interface StockAdjustmentEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface StockAdjustmentEntityEvent {
+export interface StockAdjustmentEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<StockAdjustmentEntity>;
@@ -146,7 +147,7 @@ interface StockAdjustmentEntityEvent {
     }
 }
 
-interface StockAdjustmentUpdateEntityEvent extends StockAdjustmentEntityEvent {
+export interface StockAdjustmentUpdateEntityEvent extends StockAdjustmentEntityEvent {
     readonly previousEntity: StockAdjustmentEntity;
 }
 
@@ -228,13 +229,14 @@ export class StockAdjustmentRepository {
             options.$sort = "Number";
             options.$order = "DESC";
         }
-        return this.dao.list(options).map((e: StockAdjustmentEntity) => {
+        let list = this.dao.list(options).map((e: StockAdjustmentEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): StockAdjustmentEntity | undefined {
+    public findById(id: number, options: StockAdjustmentEntityOptions = {}): StockAdjustmentEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "Date");
         return entity ?? undefined;
@@ -243,7 +245,7 @@ export class StockAdjustmentRepository {
     public create(entity: StockAdjustmentCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as StockAdjustmentEntity).Number = new NumberGeneratorService().generate(21);
+        (entity as StockAdjustmentEntity).Number = new NumberGeneratorService().generateByType('Stock Adjustment');
         // @ts-ignore
         (entity as StockAdjustmentEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10);
         // @ts-ignore

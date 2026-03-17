@@ -12,10 +12,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		};
 
 		LocaleService.onInit(() => {
-			translated.yes = LocaleService.t('codbex-inventory:defaults.yes');
-			translated.no = LocaleService.t('codbex-inventory:defaults.no');
-			translated.deleteTitle = LocaleService.t('codbex-inventory:defaults.deleteTitle', { name: '$t(codbex-inventory:t.STOCKRECORDDIRECTION)' });
-			translated.deleteConfirm = LocaleService.t('codbex-inventory:messages.deleteConfirm', { name: '$t(codbex-inventory:t.STOCKRECORDDIRECTION)' });
+			translated.yes = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.yes');
+			translated.no = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.deleteTitle', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION)' });
+			translated.deleteConfirm = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.deleteConfirm', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION)' });
 		});
 
 		$scope.dataPage = 1;
@@ -98,8 +98,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: LocaleService.t('codbex-inventory:t.STOCKRECORDDIRECTION'),
-						message: LocaleService.t('codbex-inventory:messages.error.unableToLF', { name: '$t(codbex-inventory:t.STOCKRECORDDIRECTION)', message: message }),
+						title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION'),
+						message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToLF', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
@@ -107,8 +107,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-inventory:t.STOCKRECORDDIRECTION'),
-					message: LocaleService.t('codbex-inventory:messages.error.unableToCount', { name: '$t(codbex-inventory:t.STOCKRECORDDIRECTION)', message: message }),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION'),
+					message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToCount', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -186,8 +186,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
-							title: LocaleService.t('codbex-inventory:t.STOCKRECORDDIRECTION'),
-							message: LocaleService.t('codbex-inventory:messages.error.unableToDelete', { name: '$t(codbex-inventory:t.STOCKRECORDDIRECTION)', message: message }),
+							title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION'),
+							message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToDelete', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION)', message: message }),
 							type: AlertTypes.Error
 						});
 						console.error('EntityService:', error);

@@ -7,9 +7,9 @@ const viewData = {
     id: 'StockRecordDirection-filter',
     label: 'StockRecordDirection Filter',
     translation: {
-        key: 'codbex-inventory:extName',
+        key: 'codbex-inventory:codbex-inventory-model.extName',
         options: {
-            content: '$t(codbex-inventory:t.STOCKRECORDDIRECTION) $t(codbex-inventory:defaults.filter)',
+            content: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION) $t(codbex-inventory:codbex-inventory-model.defaults.filter)',
         }
     },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Settings/StockRecordDirection/dialog-filter/index.html',

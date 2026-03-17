@@ -7,7 +7,7 @@ const viewData = {
     id: "GoodsReceipt-details",
     label: "GoodsReceipt",
     translation: {
-        key: 'codbex-inventory:t.GOODSRECEIPT',
+        key: 'codbex-inventory:codbex-inventory-model.t.GOODSRECEIPT',
     },
     path: "/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/GoodsReceipt/dialog-window/index.html",
     perspectiveName: "GoodsReceipts",

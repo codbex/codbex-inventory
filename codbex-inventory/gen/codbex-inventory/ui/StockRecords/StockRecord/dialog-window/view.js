@@ -7,7 +7,7 @@ const viewData = {
     id: "StockRecord-details",
     label: "StockRecord",
     translation: {
-        key: 'codbex-inventory:t.STOCKRECORD',
+        key: 'codbex-inventory:codbex-inventory-model.t.STOCKRECORD',
     },
     path: "/services/web/codbex-inventory/gen/codbex-inventory/ui/StockRecords/StockRecord/dialog-window/index.html",
     perspectiveName: "StockRecords",

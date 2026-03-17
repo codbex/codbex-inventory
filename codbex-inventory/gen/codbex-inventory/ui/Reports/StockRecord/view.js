@@ -7,9 +7,9 @@ const viewData = {
     id: 'StockRecordReport',
     label: 'StockRecord Report',
     translation: {
-        key: 'codbex-inventory:reportTitle',
+        key: 'codbex-inventory:codbex-inventory-model.defaults.reportTitle',
         options: {
-            name: '$t(codbex-inventory:t.STOCKRECORD)',
+            name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORD)',
         }
     },
     region: 'center',

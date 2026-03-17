@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
@@ -99,9 +99,10 @@ export interface DeliveryNoteEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface DeliveryNoteEntityEvent {
+export interface DeliveryNoteEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<DeliveryNoteEntity>;
@@ -112,7 +113,7 @@ interface DeliveryNoteEntityEvent {
     }
 }
 
-interface DeliveryNoteUpdateEntityEvent extends DeliveryNoteEntityEvent {
+export interface DeliveryNoteUpdateEntityEvent extends DeliveryNoteEntityEvent {
     readonly previousEntity: DeliveryNoteEntity;
 }
 
@@ -171,13 +172,14 @@ export class DeliveryNoteRepository {
     }
 
     public findAll(options: DeliveryNoteEntityOptions = {}): DeliveryNoteEntity[] {
-        return this.dao.list(options).map((e: DeliveryNoteEntity) => {
+        let list = this.dao.list(options).map((e: DeliveryNoteEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): DeliveryNoteEntity | undefined {
+    public findById(id: number, options: DeliveryNoteEntityOptions = {}): DeliveryNoteEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "Date");
         return entity ?? undefined;
@@ -186,7 +188,7 @@ export class DeliveryNoteRepository {
     public create(entity: DeliveryNoteCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as DeliveryNoteEntity).Number = new NumberGeneratorService().generate(24);
+        (entity as DeliveryNoteEntity).Number = new NumberGeneratorService().generateByType('Delivery Note');
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface StoreStatusEntity {
     readonly Id: number;
@@ -52,9 +52,10 @@ export interface StoreStatusEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface StoreStatusEntityEvent {
+export interface StoreStatusEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<StoreStatusEntity>;
@@ -65,7 +66,7 @@ interface StoreStatusEntityEvent {
     }
 }
 
-interface StoreStatusUpdateEntityEvent extends StoreStatusEntityEvent {
+export interface StoreStatusUpdateEntityEvent extends StoreStatusEntityEvent {
     readonly previousEntity: StoreStatusEntity;
 }
 
@@ -96,10 +97,11 @@ export class StoreStatusRepository {
     }
 
     public findAll(options: StoreStatusEntityOptions = {}): StoreStatusEntity[] {
-        return this.dao.list(options);
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): StoreStatusEntity | undefined {
+    public findById(id: number, options: StoreStatusEntityOptions = {}): StoreStatusEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

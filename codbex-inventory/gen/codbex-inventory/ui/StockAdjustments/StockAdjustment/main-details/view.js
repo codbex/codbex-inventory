@@ -7,7 +7,7 @@ const viewData = {
     id: 'StockAdjustment-details',
     label: 'StockAdjustment',
     translation: {
-        key: 'codbex-inventory:t.STOCKADJUSTMENT',
+        key: 'codbex-inventory:codbex-inventory-model.t.STOCKADJUSTMENT',
     },
     region: 'center',
     lazyLoad: false,

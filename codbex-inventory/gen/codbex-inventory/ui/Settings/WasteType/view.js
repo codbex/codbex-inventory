@@ -7,7 +7,7 @@ const viewData = {
     id: 'WasteType',
     label: 'WasteType',
     translation: {
-        key: 'codbex-inventory:t.WASTETYPE',
+        key: 'codbex-inventory:codbex-inventory-model.t.WASTETYPE',
     },
     region: 'center',
     lazyLoad: true,

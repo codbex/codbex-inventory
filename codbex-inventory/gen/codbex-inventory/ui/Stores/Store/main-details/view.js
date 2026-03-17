@@ -7,7 +7,7 @@ const viewData = {
     id: 'Store-details',
     label: 'Store',
     translation: {
-        key: 'codbex-inventory:t.STORE',
+        key: 'codbex-inventory:codbex-inventory-model.t.STORE',
     },
     region: 'center',
     lazyLoad: false,

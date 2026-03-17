@@ -7,9 +7,9 @@ const viewData = {
     id: 'DeliveryNote-filter',
     label: 'DeliveryNote Filter',
     translation: {
-        key: 'codbex-inventory:extName',
+        key: 'codbex-inventory:codbex-inventory-model.extName',
         options: {
-            content: '$t(codbex-inventory:t.DELIVERYNOTE) $t(codbex-inventory:defaults.filter)',
+            content: '$t(codbex-inventory:codbex-inventory-model.t.DELIVERYNOTE) $t(codbex-inventory:codbex-inventory-model.defaults.filter)',
         }
     },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/dialog-filter/index.html',

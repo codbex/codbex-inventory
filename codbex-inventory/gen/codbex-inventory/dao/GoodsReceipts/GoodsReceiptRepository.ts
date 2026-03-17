@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
@@ -142,9 +142,10 @@ export interface GoodsReceiptEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface GoodsReceiptEntityEvent {
+export interface GoodsReceiptEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<GoodsReceiptEntity>;
@@ -155,7 +156,7 @@ interface GoodsReceiptEntityEvent {
     }
 }
 
-interface GoodsReceiptUpdateEntityEvent extends GoodsReceiptEntityEvent {
+export interface GoodsReceiptUpdateEntityEvent extends GoodsReceiptEntityEvent {
     readonly previousEntity: GoodsReceiptEntity;
 }
 
@@ -242,13 +243,14 @@ export class GoodsReceiptRepository {
             options.$sort = "Number";
             options.$order = "DESC";
         }
-        return this.dao.list(options).map((e: GoodsReceiptEntity) => {
+        let list = this.dao.list(options).map((e: GoodsReceiptEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): GoodsReceiptEntity | undefined {
+    public findById(id: number, options: GoodsReceiptEntityOptions = {}): GoodsReceiptEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "Date");
         return entity ?? undefined;
@@ -257,7 +259,7 @@ export class GoodsReceiptRepository {
     public create(entity: GoodsReceiptCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as GoodsReceiptEntity).Number = new NumberGeneratorService().generate(14);
+        (entity as GoodsReceiptEntity).Number = new NumberGeneratorService().generateByType('Goods Receipt');
         // @ts-ignore
         (entity as GoodsReceiptEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Gross"];
         // @ts-ignore

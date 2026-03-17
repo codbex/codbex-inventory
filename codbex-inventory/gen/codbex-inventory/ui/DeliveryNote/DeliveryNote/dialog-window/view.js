@@ -7,7 +7,7 @@ const viewData = {
     id: "DeliveryNote-details",
     label: "DeliveryNote",
     translation: {
-        key: 'codbex-inventory:t.DELIVERYNOTE',
+        key: 'codbex-inventory:codbex-inventory-model.t.DELIVERYNOTE',
     },
     path: "/services/web/codbex-inventory/gen/codbex-inventory/ui/DeliveryNote/DeliveryNote/dialog-window/index.html",
     perspectiveName: "DeliveryNote",

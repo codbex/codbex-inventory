@@ -20,12 +20,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.action = 'select';
 
 		LocaleService.onInit(() => {
-			description = LocaleService.t('codbex-inventory:defaults.description');
-			$scope.formHeaders.select = LocaleService.t('codbex-inventory:defaults.formHeadSelect', { name: '$t(codbex-inventory:t.GOODSISSUEITEM)' });
-			$scope.formHeaders.create = LocaleService.t('codbex-inventory:defaults.formHeadCreate', { name: '$t(codbex-inventory:t.GOODSISSUEITEM)' });
-			$scope.formHeaders.update = LocaleService.t('codbex-inventory:defaults.formHeadUpdate', { name: '$t(codbex-inventory:t.GOODSISSUEITEM)' });
-			propertySuccessfullyCreated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyCreated', { name: '$t(codbex-inventory:t.GOODSISSUEITEM)' });
-			propertySuccessfullyUpdated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyUpdated', { name: '$t(codbex-inventory:t.GOODSISSUEITEM)' });
+			description = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadSelect', { name: '$t(codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadCreate', { name: '$t(codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadUpdate', { name: '$t(codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.propertySuccessfullyCreated', { name: '$t(codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.propertySuccessfullyUpdated', { name: '$t(codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM)' });
 		});
 
 		let params = ViewParameters.get();
@@ -44,7 +44,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			EntityService.create(entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-inventory.GoodsIssues.GoodsIssueItem.entityCreated', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-inventory:t.GOODSISSUEITEM'),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM'),
 					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
@@ -52,8 +52,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-inventory:t.GOODSISSUEITEM'),
-					message: LocaleService.t('codbex-inventory:messages.error.unableToCreate', { name: '$t(codbex-inventory:t.GOODSISSUEITEM)', message: message }),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM'),
+					message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToCreate', { name: '$t(codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -67,7 +67,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			EntityService.update(id, entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-inventory.GoodsIssues.GoodsIssueItem.entityUpdated', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-inventory:t.GOODSISSUEITEM'),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM'),
 					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
@@ -75,8 +75,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-inventory:t.GOODSISSUEITEM'),
-					message: LocaleService.t('codbex-inventory:messages.error.unableToUpdate', { name: '$t(codbex-inventory:t.GOODSISSUEITEM)', message: message }),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM'),
+					message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToUpdate', { name: '$t(codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
