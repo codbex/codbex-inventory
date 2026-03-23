@@ -9,12 +9,12 @@
         "registry": "https://npm.pkg.github.com"
     },
     "dependencies": {
-        "@codbex/codbex-cities": "0.6.0",
-        "@codbex/codbex-countries": "1.0.0",
-        "@codbex/codbex-companies": "0.6.0",
-        "@codbex/codbex-products": "0.14.8",
-        "@codbex/codbex-currencies": "1.0.0",
-        "@codbex/codbex-number-generator": "0.4.0",
-        "@codbex/codbex-number-generator-data": "0.4.1"
+        "@codbex/codbex-cities": "^1.1.0",
+        "@codbex/codbex-countries": "^1.2.0",
+        "@codbex/codbex-companies": "^1.1.0",
+        "@codbex/codbex-products": "^0.14.8",
+        "@codbex/codbex-currencies": "^1.2.0",
+        "@codbex/codbex-number-generator": "^1.1.0",
+        "@codbex/codbex-number-generator-data": "^1.0.0"
     }
 }
