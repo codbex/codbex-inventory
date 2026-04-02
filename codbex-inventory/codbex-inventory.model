@@ -4,6 +4,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "STORESTATUS_ID",
                         "dataNullable": "true",
@@ -18,6 +19,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "STORESTATUS_NAME",
                         "dataNullable": "true",
@@ -43,6 +45,7 @@
                 "menuIndex": "100",
                 "menuKey": "storestatus",
                 "menuLabel": "StoreStatus",
+                "multilingual": "false",
                 "name": "StoreStatus",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
@@ -60,6 +63,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "COMPANY_ID",
                         "dataNullable": "true",
@@ -74,6 +78,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "100",
                         "dataName": "COMPANY_NAME",
                         "dataNullable": "true",
@@ -87,6 +92,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "50",
                         "dataName": "COMPANY_MANAGER",
                         "dataNullable": "true",
@@ -100,6 +106,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "100",
                         "dataName": "COMPANY_EMAIL",
                         "dataNullable": "true",
@@ -113,6 +120,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "COMPANY_PHONE",
                         "dataNullable": "true",
@@ -126,6 +134,7 @@
                         "widgetType": "TEL"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "200",
                         "dataName": "COMPANY_ADDRESS",
                         "dataNullable": "true",
@@ -139,6 +148,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "COMPANY_POSTCODE",
                         "dataNullable": "true",
@@ -152,6 +162,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "COMPANY_CITY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -168,6 +179,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "COMPANY_COUNTRY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -184,6 +196,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "COMPANY_TIN",
                         "dataNullable": "true",
@@ -197,6 +210,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "22",
                         "dataName": "COMPANY_IBAN",
                         "dataNullable": "true",
@@ -222,6 +236,7 @@
                 "menuIndex": "100",
                 "menuKey": "company",
                 "menuLabel": "Company",
+                "multilingual": "false",
                 "name": "Company",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/university.svg",
@@ -239,6 +254,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "STORE_ID",
                         "dataNullable": "true",
@@ -253,6 +269,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "100",
                         "dataName": "STORE_NAME",
                         "dataNullable": "true",
@@ -266,6 +283,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "50",
                         "dataName": "STORE_EMAIL",
                         "dataNullable": "true",
@@ -279,6 +297,7 @@
                         "widgetType": "EMAIL"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "STORE_PHONE",
                         "dataNullable": "true",
@@ -292,6 +311,7 @@
                         "widgetType": "TEL"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STORE_COUNTRY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -310,6 +330,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STORE_CITY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -332,6 +353,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "STORE_ADDRESS",
                         "dataNullable": "true",
@@ -345,6 +367,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "STORE_POSTCODE",
                         "dataNullable": "true",
@@ -358,6 +381,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "2000",
                         "dataName": "STORE_LOCATION",
                         "dataNullable": "true",
@@ -371,6 +395,7 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "2000",
                         "dataName": "STORE_CONTACT",
                         "dataNullable": "true",
@@ -384,6 +409,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "STORE_MANAGER",
                         "dataNullable": "true",
@@ -397,6 +423,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STORE_STORESTATUSID",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -415,6 +442,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STORE_COMPANY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -445,6 +473,7 @@
                 "menuIndex": "100",
                 "menuKey": "store",
                 "menuLabel": "Store",
+                "multilingual": "false",
                 "name": "Store",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/store.svg",
@@ -462,6 +491,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "GOODSRECEIPT_ID",
                         "dataNullable": "true",
@@ -476,6 +506,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSRECEIPT_DATE",
                         "dataNullable": "false",
                         "dataType": "DATE",
@@ -489,7 +520,8 @@
                         "widgetType": "DATE"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(14)",
+                        "auditType": "NONE",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generateByType('Goods Receipt')",
                         "dataLength": "20",
                         "dataName": "GOODSRECEIPTS_NUMBER",
                         "dataNullable": "true",
@@ -505,6 +537,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSRECEIPTS_STORE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -523,6 +556,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSRECEIPTS_COMPANY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -541,6 +575,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSRECEIPT_CURRENCY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -559,6 +594,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataDefaultValue": "0",
                         "dataLength": "16",
                         "dataName": "GOODSRECEIPT_NET",
@@ -575,6 +611,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataDefaultValue": "0",
                         "dataLength": "16",
                         "dataName": "GOODSRECEIPT_VAT",
@@ -591,6 +628,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataDefaultValue": "0",
                         "dataLength": "16",
                         "dataName": "GOODSRECEIPT_GROSS",
@@ -607,6 +645,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "entity[\"Number\"] + \"/\" + new Date(entity[\"Date\"]).toISOString().slice(0, 10) + \"/\" + entity[\"Gross\"]",
                         "dataLength": "200",
                         "dataName": "GOODSRECEIPTS_NAME",
@@ -622,6 +661,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "require(\"sdk/utils/uuid\").random()",
                         "dataLength": "36",
                         "dataName": "GOODSRECEIPTS_UUID",
@@ -637,6 +677,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "36",
                         "dataName": "GOODSRECEIPTS_REFERENCE",
                         "dataNullable": "true",
@@ -663,6 +704,7 @@
                 "menuIndex": "100",
                 "menuKey": "goodsreceipt",
                 "menuLabel": "GoodsReceipt",
+                "multilingual": "false",
                 "name": "GoodsReceipt",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/plus-square.svg",
@@ -680,6 +722,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "GOODSRECEIPTITEM_ID",
                         "dataNullable": "true",
@@ -694,6 +737,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSRECEIPTITEM_GOODSRECEIPT",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -713,6 +757,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSRECEIPTITEM_PRODUCT",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -732,6 +777,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSRECEIPTITEM_QUANTITY",
                         "dataNullable": "false",
                         "dataType": "DOUBLE",
@@ -745,6 +791,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSRECEIPTITEM_UOM",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -763,6 +810,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "16",
                         "dataName": "GOODSRECEIPTITEM_PRICE",
                         "dataNullable": "false",
@@ -779,6 +827,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "entity[\"Quantity\"] * entity[\"Price\"]",
                         "calculatedPropertyExpressionUpdate": "entity[\"Quantity\"] * entity[\"Price\"]",
                         "dataLength": "16",
@@ -797,6 +846,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "entity[\"Net\"] * 0.2",
                         "calculatedPropertyExpressionUpdate": "entity[\"Net\"] * 0.2",
                         "dataLength": "16",
@@ -815,6 +865,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "entity[\"Net\"] + entity[\"VAT\"]",
                         "calculatedPropertyExpressionUpdate": "entity[\"Net\"] + entity[\"VAT\"]",
                         "dataLength": "16",
@@ -845,6 +896,7 @@
                 "menuIndex": "100",
                 "menuKey": "goodsreceiptitem",
                 "menuLabel": "GoodsReceiptItem",
+                "multilingual": "false",
                 "name": "GoodsReceiptItem",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/plus-square.svg",
@@ -862,6 +914,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "PRODUCT_ID",
                         "dataNullable": "true",
@@ -876,6 +929,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "500",
                         "dataName": "PRODUCT_NAME",
                         "dataNullable": "true",
@@ -889,6 +943,7 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCT_TYPE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -905,6 +960,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCT_CATEGORY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -921,6 +977,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCT_BASEUNIT",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -937,6 +994,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "200",
                         "dataName": "PRODUCT_MODEL",
                         "dataNullable": "true",
@@ -950,6 +1008,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCT_COMPANY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -966,6 +1025,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "64",
                         "dataName": "PRODUCT_SKU",
                         "dataNullable": "true",
@@ -979,6 +1039,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "PRODUCT_UPC",
                         "dataNullable": "true",
@@ -992,6 +1053,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "PRODUCT_EAN",
                         "dataNullable": "true",
@@ -1005,6 +1067,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "PRODUCT_JAN",
                         "dataNullable": "true",
@@ -1018,6 +1081,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "PRODUCT_ISBN",
                         "dataNullable": "true",
@@ -1031,6 +1095,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "40",
                         "dataName": "PRODUCT_MPN",
                         "dataNullable": "true",
@@ -1044,6 +1109,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCT_MANUFACTURER",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1060,6 +1126,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCT_WEIGHT",
                         "dataNullable": "true",
                         "dataType": "DOUBLE",
@@ -1072,6 +1139,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCT_HEIGHT",
                         "dataNullable": "true",
                         "dataType": "DOUBLE",
@@ -1084,6 +1152,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCT_LENGTH",
                         "dataNullable": "true",
                         "dataType": "DOUBLE",
@@ -1108,6 +1177,7 @@
                 "menuIndex": "100",
                 "menuKey": "product",
                 "menuLabel": "Product",
+                "multilingual": "false",
                 "name": "Product",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/cube.svg",
@@ -1125,6 +1195,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "GOODSISSUE_ID",
                         "dataNullable": "true",
@@ -1139,6 +1210,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSISSUE_DATE",
                         "dataNullable": "true",
                         "dataType": "DATE",
@@ -1152,7 +1224,8 @@
                         "widgetType": "DATE"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(15)",
+                        "auditType": "NONE",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generateByType('Goods Issue')",
                         "dataLength": "20",
                         "dataName": "GOODSISSUE_NUMBER",
                         "dataNullable": "true",
@@ -1168,6 +1241,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSISSUE_STORE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1186,6 +1260,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSISSUE_COMPANY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1204,6 +1279,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSISSUE_CURRENCY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1222,6 +1298,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataDefaultValue": "0",
                         "dataLength": "16",
                         "dataName": "GOODSISSUE_NET",
@@ -1238,6 +1315,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataDefaultValue": "0",
                         "dataLength": "16",
                         "dataName": "GOODSISSUE_VAT",
@@ -1254,6 +1332,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataDefaultValue": "0",
                         "dataLength": "16",
                         "dataName": "GOODSISSUE_GROSS",
@@ -1270,6 +1349,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "entity[\"Number\"] + \"/\" + new Date(entity[\"Date\"]).toISOString().slice(0, 10) + \"/\" + entity[\"Gross\"]",
                         "dataLength": "200",
                         "dataName": "GOODSISSUE_NAME",
@@ -1285,6 +1365,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "require(\"sdk/utils/uuid\").random()",
                         "dataLength": "36",
                         "dataName": "GOODSISSUE_UUID",
@@ -1300,6 +1381,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "36",
                         "dataName": "GOODSISSUE_REFERENCE",
                         "dataNullable": "true",
@@ -1326,6 +1408,7 @@
                 "menuIndex": "100",
                 "menuKey": "goodsissue",
                 "menuLabel": "GoodsIssue",
+                "multilingual": "false",
                 "name": "GoodsIssue",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/minus-square.svg",
@@ -1343,6 +1426,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "GOODSISSUEITEM_ID",
                         "dataNullable": "true",
@@ -1357,6 +1441,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSISSUEITEM_GOODSISSUE",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -1376,6 +1461,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSISSUEITEM_PRODUCT",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -1395,6 +1481,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSISSUEITEM_QUANTITY",
                         "dataNullable": "false",
                         "dataType": "DOUBLE",
@@ -1408,6 +1495,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "GOODSISSUEITEM_UOM",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1426,6 +1514,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "16",
                         "dataName": "GOODSISSUEITEM_PRICE",
                         "dataNullable": "false",
@@ -1442,6 +1531,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "entity[\"Quantity\"] * entity[\"Price\"]",
                         "calculatedPropertyExpressionUpdate": "entity[\"Quantity\"] * entity[\"Price\"]",
                         "dataLength": "16",
@@ -1460,6 +1550,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "entity[\"Net\"] * 0.2",
                         "calculatedPropertyExpressionUpdate": "entity[\"Net\"] * 0.2",
                         "dataLength": "16",
@@ -1478,6 +1569,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "entity[\"Net\"] + entity[\"VAT\"]",
                         "calculatedPropertyExpressionUpdate": "entity[\"Net\"] + entity[\"VAT\"]",
                         "dataLength": "16",
@@ -1508,6 +1600,7 @@
                 "menuIndex": "100",
                 "menuKey": "goodsissueitem",
                 "menuLabel": "GoodsIssueItem",
+                "multilingual": "false",
                 "name": "GoodsIssueItem",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/minus-square.svg",
@@ -1525,6 +1618,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "STOCKRECORD_ID",
                         "dataNullable": "true",
@@ -1539,6 +1633,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKRECORD_PRODUCT",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1557,6 +1652,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKRECORD_QUANTITY",
                         "dataNullable": "true",
                         "dataType": "DOUBLE",
@@ -1569,6 +1665,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "16",
                         "dataName": "STOCKRECORD_PRICE",
                         "dataNullable": "true",
@@ -1584,6 +1681,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "16",
                         "dataName": "STOCKRECORD_NET",
                         "dataNullable": "true",
@@ -1599,6 +1697,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKRECORD_UOM",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1617,6 +1716,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "16",
                         "dataName": "STOCKRECORD_VAT",
                         "dataNullable": "true",
@@ -1632,6 +1732,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "16",
                         "dataName": "STOCKRECORD_GROSS",
                         "dataNullable": "true",
@@ -1647,6 +1748,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKRECORD_DIRECTION",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1665,6 +1767,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKRECORD_ITEMID",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1677,6 +1780,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKRECORD_DELETED",
                         "dataNullable": "true",
                         "dataType": "BOOLEAN",
@@ -1689,6 +1793,7 @@
                         "widgetType": "CHECKBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "36",
                         "dataName": "STOCKRECORD_REFERENCE",
                         "dataNullable": "true",
@@ -1714,6 +1819,7 @@
                 "menuIndex": "100",
                 "menuKey": "stockrecord",
                 "menuLabel": "StockRecord",
+                "multilingual": "false",
                 "name": "StockRecord",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/align-justify.svg",
@@ -1731,6 +1837,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "STOCKRECORDDIRECTION_ID",
                         "dataNullable": "true",
@@ -1745,6 +1852,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "STOCKRECORDDIRECTION_NAME",
                         "dataNullable": "true",
@@ -1770,6 +1878,7 @@
                 "menuIndex": "100",
                 "menuKey": "stockrecorddirection",
                 "menuLabel": "StockRecordDirection",
+                "multilingual": "false",
                 "name": "StockRecordDirection",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
@@ -1787,6 +1896,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "STOCKADJUSTMENT_ID",
                         "dataNullable": "true",
@@ -1801,6 +1911,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKADJUSTMENT_DATE",
                         "dataNullable": "false",
                         "dataType": "DATE",
@@ -1814,7 +1925,8 @@
                         "widgetType": "DATE"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(21)",
+                        "auditType": "NONE",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generateByType('Stock Adjustment')",
                         "dataLength": "36",
                         "dataName": "STOCKADJUSTMENT_NUMBER",
                         "dataNullable": "true",
@@ -1830,6 +1942,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKADJUSTMENT_STORE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1848,6 +1961,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "100",
                         "dataName": "STOCKADJUSTMENT_PURPOSE",
                         "dataNullable": "true",
@@ -1861,6 +1975,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKADJUSTMENT_TYPE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -1879,6 +1994,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKADJUSTMENT_OPERATOR",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -1898,6 +2014,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "500",
                         "dataName": "STOCKADJUSTMENT_DESCRIPTION",
                         "dataNullable": "true",
@@ -1911,6 +2028,7 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "entity[\"Number\"] + \"/\" + new Date(entity[\"Date\"]).toISOString().slice(0, 10)",
                         "dataLength": "100",
                         "dataName": "STOCKADJUSTMENT_NAME",
@@ -1926,6 +2044,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "require(\"sdk/utils/uuid\").random()",
                         "dataLength": "36",
                         "dataName": "STOCKADJUSTMENT_UUID",
@@ -1941,6 +2060,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "36",
                         "dataName": "STOCKADJUSTMENT_REFERENCE",
                         "dataNullable": "true",
@@ -1967,6 +2087,7 @@
                 "menuIndex": "100",
                 "menuKey": "stockadjustment",
                 "menuLabel": "StockAdjustment",
+                "multilingual": "false",
                 "name": "StockAdjustment",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/adjust-circle.svg",
@@ -1984,6 +2105,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "true",
@@ -2000,6 +2122,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataLength": "50",
@@ -2018,6 +2141,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataLength": "50",
@@ -2035,6 +2159,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataLength": "50",
@@ -2053,6 +2178,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataLength": "100",
@@ -2071,6 +2197,7 @@
                         "widgetType": "EMAIL"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataLength": "20",
@@ -2089,6 +2216,7 @@
                         "widgetType": "TEL"
                     },
                     {
+                        "auditType": "NONE",
                         "calculatedPropertyExpressionCreate": "",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataName": "EMPLOYEE_ORGANISATION",
@@ -2121,6 +2249,7 @@
                 "menuIndex": "100",
                 "menuKey": "employee",
                 "menuLabel": "Employee",
+                "multilingual": "false",
                 "name": "Employee",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
@@ -2138,6 +2267,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "STOCKADJUSTMENTTYPE_ID",
                         "dataNullable": "true",
@@ -2152,6 +2282,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "36",
                         "dataName": "STOCKADJUSTMENTTYPE_NAME",
                         "dataNullable": "true",
@@ -2165,6 +2296,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "200",
                         "dataName": "STOCKADJUSTMENTTYPE_DESCRIPTION",
                         "dataNullable": "true",
@@ -2190,6 +2322,7 @@
                 "menuIndex": "100",
                 "menuKey": "stockadjustmenttype",
                 "menuLabel": "StockAdjustmentType",
+                "multilingual": "false",
                 "name": "StockAdjustmentType",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
@@ -2207,6 +2340,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "STOCKADJUSTMENTITEM_ID",
                         "dataNullable": "true",
@@ -2221,6 +2355,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKADJUSTMENTITEM_STOCKADJUSTMENT",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2239,6 +2374,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKADJUSTMENTITEM_PRODUCT",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -2258,6 +2394,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKADJUSTMENTITEM_UOM",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2276,6 +2413,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "STOCKADJUSTMENTITEM_ADJUSTEDQUANTITY",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -2289,6 +2427,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "30",
                         "dataName": "STOCKADJUSTMENTITEM_BATCH",
                         "dataNullable": "true",
@@ -2302,6 +2441,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "30",
                         "dataName": "STOCKADJUSTMENTITEM_SERIAL",
                         "dataNullable": "true",
@@ -2315,6 +2455,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "200",
                         "dataName": "STOCKADJUSTMENTITEM_DESCRIPTION",
                         "dataNullable": "true",
@@ -2340,6 +2481,7 @@
                 "menuIndex": "100",
                 "menuKey": "stockadjustmentitem",
                 "menuLabel": "StockAdjustmentItem",
+                "multilingual": "false",
                 "name": "StockAdjustmentItem",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/adjust-circle.svg",
@@ -2357,6 +2499,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "DELIVERYNOTE_ID",
                         "dataNullable": "true",
@@ -2371,7 +2514,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(24)",
+                        "auditType": "NONE",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generateByType('Delivery Note')",
                         "dataLength": "30",
                         "dataName": "DELIVERYNOTE_NUMBER",
                         "dataNullable": "true",
@@ -2386,6 +2530,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "DELIVERYNOTE_DATE",
                         "dataNullable": "false",
                         "dataType": "DATE",
@@ -2399,6 +2544,7 @@
                         "widgetType": "DATE"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "DELIVERYNOTE_STORE",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -2418,6 +2564,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "DELIVERYNOTE_EMPLOYEE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2437,6 +2584,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "DELIVERYNOTE_COMPANY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2455,6 +2603,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "DELIVERYNOTE_CUSTOMER",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -2487,6 +2636,7 @@
                 "menuIndex": "100",
                 "menuKey": "deliverynote",
                 "menuLabel": "DeliveryNote",
+                "multilingual": "false",
                 "name": "DeliveryNote",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/notes.svg",
@@ -2504,6 +2654,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "CUSTOMER_ID",
                         "dataNullable": "true",
@@ -2518,6 +2669,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "100",
                         "dataName": "CUSTOMER_NAME",
                         "dataNullable": "true",
@@ -2532,6 +2684,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "200",
                         "dataName": "CUSTOMER_ADDRESS",
                         "dataNullable": "true",
@@ -2546,6 +2699,7 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "CUSTOMER_POSTALCODE",
                         "dataNullable": "true",
@@ -2559,6 +2713,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "100",
                         "dataName": "CUSTOMER_EMAIL",
                         "dataNullable": "true",
@@ -2573,6 +2728,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "CUSTOMER_PHONE",
                         "dataNullable": "true",
@@ -2586,6 +2742,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "CUSTOMER_FAX",
                         "dataNullable": "true",
@@ -2599,6 +2756,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "CUSTOMER_CITY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2617,6 +2775,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "CUSTOMER_COUNTRY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2635,6 +2794,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "CUSTOMER_TIN",
                         "dataNullable": "true",
@@ -2648,6 +2808,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "36",
                         "dataName": "CUSTOMER_IBAN",
                         "dataNullable": "true",
@@ -2673,6 +2834,7 @@
                 "menuIndex": "100",
                 "menuKey": "customer",
                 "menuLabel": "Customer",
+                "multilingual": "false",
                 "name": "Customer",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/user-plus.svg",
@@ -2690,6 +2852,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "DELIVERYNOTEITEM_ID",
                         "dataNullable": "true",
@@ -2704,6 +2867,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "DELIVERYNOTEITEM_DELIVERYNOTE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2722,6 +2886,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "DELIVERYNOTEITEM_PRODUCT",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -2741,6 +2906,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "DELIVERYNOTEITEM_PRODUCTPACKAGING",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2759,6 +2925,7 @@
                         "relationshipEntityPerspectiveLabel": "Products"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "DELIVERYNOTEITEM_QUANTITY",
                         "dataNullable": "true",
                         "dataType": "DOUBLE",
@@ -2784,6 +2951,7 @@
                 "menuIndex": "100",
                 "menuKey": "deliverynoteitem",
                 "menuLabel": "DeliveryNoteItem",
+                "multilingual": "false",
                 "name": "DeliveryNoteItem",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/notes.svg",
@@ -2801,6 +2969,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "WASTE_ID",
                         "dataNullable": "true",
@@ -2815,7 +2984,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(25)",
+                        "auditType": "NONE",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generateByType('Waste')",
                         "dataLength": "30",
                         "dataName": "WASTE_NUMBER",
                         "dataNullable": "true",
@@ -2830,6 +3000,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "WASTE_DATE",
                         "dataNullable": "false",
                         "dataType": "DATE",
@@ -2843,6 +3014,7 @@
                         "widgetType": "DATE"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "WASTE_WASTETYPE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2862,6 +3034,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "WASTE_CUSTOMER",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2880,6 +3053,7 @@
                         "relationshipEntityPerspectiveLabel": "Customers"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "WASTE_PRODUCT",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
@@ -2899,6 +3073,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "WASTE_QUANTITY",
                         "dataNullable": "false",
                         "dataType": "DOUBLE",
@@ -2912,6 +3087,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "WASTE_SUPPLIER",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2930,6 +3106,7 @@
                         "relationshipEntityPerspectiveLabel": "Suppliers"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "WASTE_STORE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -2949,6 +3126,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "300",
                         "dataName": "WASTE_REASON",
                         "dataNullable": "true",
@@ -2975,6 +3153,7 @@
                 "menuIndex": "100",
                 "menuKey": "waste",
                 "menuLabel": "Waste",
+                "multilingual": "false",
                 "name": "Waste",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/trash.svg",
@@ -2992,6 +3171,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "SUPPLIER_ID",
                         "dataNullable": "true",
@@ -3006,6 +3186,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "100",
                         "dataName": "SUPPLIER_NAME",
                         "dataNullable": "true",
@@ -3020,6 +3201,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "200",
                         "dataName": "SUPPLIER_ADDRESS",
                         "dataNullable": "true",
@@ -3034,6 +3216,7 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "SUPPLIER_POSTALCODE",
                         "dataNullable": "true",
@@ -3047,6 +3230,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "100",
                         "dataName": "SUPPLIER_EMAIL",
                         "dataNullable": "true",
@@ -3061,6 +3245,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "SUPPLIER_PHONE",
                         "dataNullable": "true",
@@ -3074,6 +3259,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "SUPPLIER_FAX",
                         "dataNullable": "true",
@@ -3087,6 +3273,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "SUPPLIER_CITY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -3105,6 +3292,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "SUPPLIER_COUNTRY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -3123,6 +3311,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "SUPPLIER_TIN",
                         "dataNullable": "true",
@@ -3136,6 +3325,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "36",
                         "dataName": "SUPPLIER_IBAN",
                         "dataNullable": "true",
@@ -3161,6 +3351,7 @@
                 "menuIndex": "100",
                 "menuKey": "supplier",
                 "menuLabel": "Supplier",
+                "multilingual": "false",
                 "name": "Supplier",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/user-minus.svg",
@@ -3178,6 +3369,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "WASTETYPE_ID",
                         "dataNullable": "true",
@@ -3192,6 +3384,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "WASTETYPE_NAME",
                         "dataNullable": "true",
@@ -3205,6 +3398,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "NaN",
                         "dataName": "WASTETYPE_DIRECTION",
                         "dataNullable": "true",
@@ -3232,6 +3426,7 @@
                 "menuIndex": "100",
                 "menuKey": "wastetype",
                 "menuLabel": "WasteType",
+                "multilingual": "false",
                 "name": "WasteType",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/trash.svg",
@@ -3249,6 +3444,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "PRODUCTSET_ID",
                         "dataNullable": "true",
@@ -3263,6 +3459,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCTSET_UOM",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -3281,6 +3478,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCTSET_PRODUCT",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -3299,6 +3497,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "NaN",
                         "dataName": "PRODUCTSET_WEIGHT",
                         "dataNullable": "true",
@@ -3315,6 +3514,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "NaN",
                         "dataName": "PRODUCTSET_HEIGHT",
                         "dataNullable": "true",
@@ -3331,6 +3531,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "NaN",
                         "dataName": "PRODUCTSET_LENGTH",
                         "dataNullable": "true",
@@ -3347,6 +3548,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "NaN",
                         "dataName": "PRODUCTSET_WIDTH",
                         "dataNullable": "true",
@@ -3363,6 +3565,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "NaN",
                         "dataName": "PRODUCTSET_RATIO",
                         "dataNullable": "true",
@@ -3379,6 +3582,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "500",
                         "dataName": "PRODUCTSET_NAME",
                         "dataNullable": "true",
@@ -3404,6 +3608,7 @@
                 "menuIndex": "100",
                 "menuKey": "productpackaging",
                 "menuLabel": "ProductPackaging",
+                "multilingual": "false",
                 "name": "ProductPackaging",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/cube.svg",
@@ -3421,6 +3626,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "PRODUCTAVAILABILITY_ID",
                         "dataNullable": "true",
@@ -3435,6 +3641,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCTAVAILABILITY_PRODUCT",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -3456,6 +3663,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCTAVAILABILITY_STORE",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -3474,6 +3682,7 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCTAVAILABILITY_QUANTITY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -3487,6 +3696,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "PRODUCTAVAILABILITY_BASEUNIT",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -3519,6 +3729,7 @@
                 "menuIndex": "100",
                 "menuKey": "productavailability",
                 "menuLabel": "ProductAvailability",
+                "multilingual": "false",
                 "name": "ProductAvailability",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/cube.svg",
@@ -3534,6 +3745,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "UOM_ID",
                         "dataNullable": "true",
@@ -3548,6 +3760,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "100",
                         "dataName": "UOM_NAME",
                         "dataNullable": "true",
@@ -3561,6 +3774,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "UOM_ISO",
                         "dataNullable": "true",
@@ -3574,6 +3788,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "UOM_DIMENSION",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -3591,6 +3806,7 @@
                         "widgetType": "DROPDOWN"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "20",
                         "dataName": "UOM_SAP",
                         "dataNullable": "true",
@@ -3608,6 +3824,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "UOM_NUMERATOR",
                         "dataNullable": "true",
                         "dataType": "BIGINT",
@@ -3620,6 +3837,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "UOM_DENOMINATOR",
                         "dataNullable": "true",
                         "dataType": "BIGINT",
@@ -3632,6 +3850,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "UOM_ROUNDING",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -3644,6 +3863,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "UOM_BASE",
                         "dataNullable": "true",
                         "dataType": "BOOLEAN",
@@ -3668,6 +3888,7 @@
                 "menuIndex": "100",
                 "menuKey": "uom",
                 "menuLabel": "UoM",
+                "multilingual": "false",
                 "name": "UoM",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
@@ -3685,6 +3906,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "CURRENCY_ID",
                         "dataNullable": "true",
@@ -3699,6 +3921,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "3",
                         "dataName": "CURRENCY_CODE",
                         "dataNullable": "true",
@@ -3712,6 +3935,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "127",
                         "dataName": "CURRENCY_NAME",
                         "dataNullable": "true",
@@ -3725,6 +3949,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "3",
                         "dataName": "CURRENCY_NUMERIC",
                         "dataNullable": "true",
@@ -3738,6 +3963,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "CURRENCY_ROUNDING",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -3750,6 +3976,7 @@
                         "widgetType": "NUMBER"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "CURRENCY_BASE",
                         "dataNullable": "true",
                         "dataType": "BOOLEAN",
@@ -3762,6 +3989,7 @@
                         "widgetType": "CHECKBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "CURRENCY_RATE",
                         "dataNullable": "true",
                         "dataType": "DOUBLE",
@@ -3786,6 +4014,7 @@
                 "menuIndex": "100",
                 "menuKey": "currency",
                 "menuLabel": "Currency",
+                "multilingual": "false",
                 "name": "Currency",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
@@ -3803,6 +4032,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "COUNTRY_ID",
                         "dataNullable": "true",
@@ -3817,6 +4047,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "255",
                         "dataName": "COUNTRY_NAME",
                         "dataNullable": "true",
@@ -3831,6 +4062,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "2",
                         "dataName": "COUNTRY_CODE2",
                         "dataNullable": "true",
@@ -3845,6 +4077,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "3",
                         "dataName": "COUNTRY_CODE3",
                         "dataNullable": "true",
@@ -3859,6 +4092,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "3",
                         "dataName": "COUNTRY_NUMERIC",
                         "dataNullable": "true",
@@ -3885,6 +4119,7 @@
                 "menuIndex": "100",
                 "menuKey": "country",
                 "menuLabel": "Country",
+                "multilingual": "false",
                 "name": "Country",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "globe",
@@ -3902,6 +4137,7 @@
             {
                 "properties": [
                     {
+                        "auditType": "NONE",
                         "dataAutoIncrement": "true",
                         "dataName": "CITY_ID",
                         "dataNullable": "true",
@@ -3916,6 +4152,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataLength": "100",
                         "dataName": "CITY_NAME",
                         "dataNullable": "true",
@@ -3930,6 +4167,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "auditType": "NONE",
                         "dataName": "CITY_COUNTRY",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
@@ -3960,6 +4198,7 @@
                 "menuIndex": "100",
                 "menuKey": "city",
                 "menuLabel": "City",
+                "multilingual": "false",
                 "name": "City",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",

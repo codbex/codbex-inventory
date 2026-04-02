@@ -7,7 +7,7 @@ const viewData = {
     id: 'GoodsReceipt-details',
     label: 'GoodsReceipt',
     translation: {
-        key: 'codbex-inventory:t.GOODSRECEIPT',
+        key: 'codbex-inventory:codbex-inventory-model.t.GOODSRECEIPT',
     },
     region: 'center',
     lazyLoad: false,

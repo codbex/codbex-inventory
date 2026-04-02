@@ -20,12 +20,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.action = 'select';
 
 		LocaleService.onInit(() => {
-			description = LocaleService.t('codbex-inventory:defaults.description');
-			$scope.formHeaders.select = LocaleService.t('codbex-inventory:defaults.formHeadSelect', { name: '$t(codbex-inventory:t.STORE)' });
-			$scope.formHeaders.create = LocaleService.t('codbex-inventory:defaults.formHeadCreate', { name: '$t(codbex-inventory:t.STORE)' });
-			$scope.formHeaders.update = LocaleService.t('codbex-inventory:defaults.formHeadUpdate', { name: '$t(codbex-inventory:t.STORE)' });
-			propertySuccessfullyCreated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyCreated', { name: '$t(codbex-inventory:t.STORE)' });
-			propertySuccessfullyUpdated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyUpdated', { name: '$t(codbex-inventory:t.STORE)' });
+			description = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadSelect', { name: '$t(codbex-inventory:codbex-inventory-model.t.STORE)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadCreate', { name: '$t(codbex-inventory:codbex-inventory-model.t.STORE)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadUpdate', { name: '$t(codbex-inventory:codbex-inventory-model.t.STORE)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.propertySuccessfullyCreated', { name: '$t(codbex-inventory:codbex-inventory-model.t.STORE)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.propertySuccessfullyUpdated', { name: '$t(codbex-inventory:codbex-inventory-model.t.STORE)' });
 		});
 
 		//-----------------Custom Actions-------------------//
@@ -131,15 +131,15 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				Dialogs.postMessage({ topic: 'codbex-inventory.Stores.Store.entityCreated', data: response.data });
 				Dialogs.postMessage({ topic: 'codbex-inventory.Stores.Store.clearDetails' , data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-inventory:t.STORE'),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STORE'),
 					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-inventory:t.STORE'),
-					message: LocaleService.t('codbex-inventory:messages.error.unableToCreate', { name: '$t(codbex-inventory:t.STORE)', message: message }),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STORE'),
+					message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToCreate', { name: '$t(codbex-inventory:codbex-inventory-model.t.STORE)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -151,15 +151,15 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				Dialogs.postMessage({ topic: 'codbex-inventory.Stores.Store.entityUpdated', data: response.data });
 				Dialogs.postMessage({ topic: 'codbex-inventory.Stores.Store.clearDetails', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-inventory:t.STORE'),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STORE'),
 					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-inventory:t.STORE'),
-					message: LocaleService.t('codbex-inventory:messages.error.unableToCreate', { name: '$t(codbex-inventory:t.STORE)', message: message }),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STORE'),
+					message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToCreate', { name: '$t(codbex-inventory:codbex-inventory-model.t.STORE)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -239,7 +239,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Country',
-					message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
+					message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});
@@ -256,7 +256,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'City',
-					message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
+					message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});
@@ -273,7 +273,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Status',
-					message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
+					message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});
@@ -290,7 +290,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Company',
-					message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
+					message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});
 			});

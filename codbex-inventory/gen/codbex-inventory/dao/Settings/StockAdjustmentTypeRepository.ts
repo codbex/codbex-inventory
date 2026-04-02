@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface StockAdjustmentTypeEntity {
     readonly Id: number;
@@ -61,9 +61,10 @@ export interface StockAdjustmentTypeEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface StockAdjustmentTypeEntityEvent {
+export interface StockAdjustmentTypeEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<StockAdjustmentTypeEntity>;
@@ -74,7 +75,7 @@ interface StockAdjustmentTypeEntityEvent {
     }
 }
 
-interface StockAdjustmentTypeUpdateEntityEvent extends StockAdjustmentTypeEntityEvent {
+export interface StockAdjustmentTypeUpdateEntityEvent extends StockAdjustmentTypeEntityEvent {
     readonly previousEntity: StockAdjustmentTypeEntity;
 }
 
@@ -110,10 +111,11 @@ export class StockAdjustmentTypeRepository {
     }
 
     public findAll(options: StockAdjustmentTypeEntityOptions = {}): StockAdjustmentTypeEntity[] {
-        return this.dao.list(options);
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): StockAdjustmentTypeEntity | undefined {
+    public findById(id: number, options: StockAdjustmentTypeEntityOptions = {}): StockAdjustmentTypeEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

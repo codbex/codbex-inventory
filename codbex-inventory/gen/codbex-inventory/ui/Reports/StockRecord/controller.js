@@ -84,8 +84,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: LocaleService.t('codbex-inventory:t.STOCKRECORD'),
-						message: LocaleService.t('codbex-inventory:messages.error.unableToLF', { name: '$t(codbex-inventory:t.STOCKRECORD)', message: message }),
+						title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STOCKRECORD'),
+						message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToLF', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORD)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
@@ -93,8 +93,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-inventory:t.STOCKRECORD'),
-					message: LocaleService.t('codbex-inventory:messages.error.unableToCount', { name: '$t(codbex-inventory:t.STOCKRECORD)', message: message }),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STOCKRECORD'),
+					message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToCount', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORD)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -147,7 +147,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Product',
-				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -162,7 +162,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'UoM',
-				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -177,7 +177,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Direction',
-				message: LocaleService.t('codbex-inventory:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});

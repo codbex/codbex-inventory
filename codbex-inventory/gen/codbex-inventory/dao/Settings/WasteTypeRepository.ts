@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface WasteTypeEntity {
     readonly Id: number;
@@ -61,9 +61,10 @@ export interface WasteTypeEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface WasteTypeEntityEvent {
+export interface WasteTypeEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<WasteTypeEntity>;
@@ -74,7 +75,7 @@ interface WasteTypeEntityEvent {
     }
 }
 
-interface WasteTypeUpdateEntityEvent extends WasteTypeEntityEvent {
+export interface WasteTypeUpdateEntityEvent extends WasteTypeEntityEvent {
     readonly previousEntity: WasteTypeEntity;
 }
 
@@ -110,10 +111,11 @@ export class WasteTypeRepository {
     }
 
     public findAll(options: WasteTypeEntityOptions = {}): WasteTypeEntity[] {
-        return this.dao.list(options);
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): WasteTypeEntity | undefined {
+    public findById(id: number, options: WasteTypeEntityOptions = {}): WasteTypeEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

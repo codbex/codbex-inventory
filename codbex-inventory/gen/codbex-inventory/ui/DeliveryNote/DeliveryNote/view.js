@@ -7,7 +7,7 @@ const viewData = {
     id: 'DeliveryNote',
     label: 'DeliveryNote',
     translation: {
-        key: 'codbex-inventory:t.DELIVERYNOTE',
+        key: 'codbex-inventory:codbex-inventory-model.t.DELIVERYNOTE',
     },
     region: 'left',
     lazyLoad: false,

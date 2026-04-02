@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
@@ -142,9 +142,10 @@ export interface GoodsIssueEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface GoodsIssueEntityEvent {
+export interface GoodsIssueEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<GoodsIssueEntity>;
@@ -155,7 +156,7 @@ interface GoodsIssueEntityEvent {
     }
 }
 
-interface GoodsIssueUpdateEntityEvent extends GoodsIssueEntityEvent {
+export interface GoodsIssueUpdateEntityEvent extends GoodsIssueEntityEvent {
     readonly previousEntity: GoodsIssueEntity;
 }
 
@@ -241,13 +242,14 @@ export class GoodsIssueRepository {
             options.$sort = "Number";
             options.$order = "DESC";
         }
-        return this.dao.list(options).map((e: GoodsIssueEntity) => {
+        let list = this.dao.list(options).map((e: GoodsIssueEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): GoodsIssueEntity | undefined {
+    public findById(id: number, options: GoodsIssueEntityOptions = {}): GoodsIssueEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "Date");
         return entity ?? undefined;
@@ -256,7 +258,7 @@ export class GoodsIssueRepository {
     public create(entity: GoodsIssueCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as GoodsIssueEntity).Number = new NumberGeneratorService().generate(15);
+        (entity as GoodsIssueEntity).Number = new NumberGeneratorService().generateByType('Goods Issue');
         // @ts-ignore
         (entity as GoodsIssueEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Gross"];
         // @ts-ignore

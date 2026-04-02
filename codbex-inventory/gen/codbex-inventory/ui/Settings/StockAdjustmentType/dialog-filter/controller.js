@@ -7,7 +7,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 	};
 
 	LocaleService.onInit(() => {
-		description = LocaleService.t('codbex-inventory:defaults.description');
+		description = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.description');
 	});
 
 	let params = ViewParameters.get();

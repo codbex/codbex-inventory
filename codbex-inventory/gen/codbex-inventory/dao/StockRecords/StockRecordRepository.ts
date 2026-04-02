@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 
 export interface StockRecordEntity {
@@ -143,9 +143,10 @@ export interface StockRecordEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface StockRecordEntityEvent {
+export interface StockRecordEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<StockRecordEntity>;
@@ -156,7 +157,7 @@ interface StockRecordEntityEvent {
     }
 }
 
-interface StockRecordUpdateEntityEvent extends StockRecordEntityEvent {
+export interface StockRecordUpdateEntityEvent extends StockRecordEntityEvent {
     readonly previousEntity: StockRecordEntity;
 }
 
@@ -237,13 +238,14 @@ export class StockRecordRepository {
     }
 
     public findAll(options: StockRecordEntityOptions = {}): StockRecordEntity[] {
-        return this.dao.list(options).map((e: StockRecordEntity) => {
+        let list = this.dao.list(options).map((e: StockRecordEntity) => {
             EntityUtils.setBoolean(e, "Deleted");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): StockRecordEntity | undefined {
+    public findById(id: number, options: StockRecordEntityOptions = {}): StockRecordEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setBoolean(entity, "Deleted");
         return entity ?? undefined;

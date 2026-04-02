@@ -7,7 +7,7 @@ const viewData = {
     id: 'GoodsIssueItem-details',
     label: 'GoodsIssueItem',
     translation: {
-        key: 'codbex-inventory:t.GOODSISSUEITEM',
+        key: 'codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM',
     },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsIssues/GoodsIssue/GoodsIssueItem/dialog-window/index.html',
     perspectiveName: 'GoodsIssues'

@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface StoreEntity {
     readonly Id: number;
@@ -151,9 +151,10 @@ export interface StoreEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface StoreEntityEvent {
+export interface StoreEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<StoreEntity>;
@@ -164,7 +165,7 @@ interface StoreEntityEvent {
     }
 }
 
-interface StoreUpdateEntityEvent extends StoreEntityEvent {
+export interface StoreUpdateEntityEvent extends StoreEntityEvent {
     readonly previousEntity: StoreEntity;
 }
 
@@ -250,10 +251,11 @@ export class StoreRepository {
     }
 
     public findAll(options: StoreEntityOptions = {}): StoreEntity[] {
-        return this.dao.list(options);
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): StoreEntity | undefined {
+    public findById(id: number, options: StoreEntityOptions = {}): StoreEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

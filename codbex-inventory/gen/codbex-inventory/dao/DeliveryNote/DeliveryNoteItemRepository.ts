@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface DeliveryNoteItemEntity {
     readonly Id: number;
@@ -79,9 +79,10 @@ export interface DeliveryNoteItemEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface DeliveryNoteItemEntityEvent {
+export interface DeliveryNoteItemEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<DeliveryNoteItemEntity>;
@@ -92,7 +93,7 @@ interface DeliveryNoteItemEntityEvent {
     }
 }
 
-interface DeliveryNoteItemUpdateEntityEvent extends DeliveryNoteItemEntityEvent {
+export interface DeliveryNoteItemUpdateEntityEvent extends DeliveryNoteItemEntityEvent {
     readonly previousEntity: DeliveryNoteItemEntity;
 }
 
@@ -139,10 +140,11 @@ export class DeliveryNoteItemRepository {
     }
 
     public findAll(options: DeliveryNoteItemEntityOptions = {}): DeliveryNoteItemEntity[] {
-        return this.dao.list(options);
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): DeliveryNoteItemEntity | undefined {
+    public findById(id: number, options: DeliveryNoteItemEntityOptions = {}): DeliveryNoteItemEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

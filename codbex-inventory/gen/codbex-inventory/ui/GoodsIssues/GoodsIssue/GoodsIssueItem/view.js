@@ -7,7 +7,7 @@ const viewData = {
     id: 'GoodsIssueItem',
     label: 'GoodsIssueItem',
     translation: {
-        key: 'codbex-inventory:t.GOODSISSUEITEM',
+        key: 'codbex-inventory:codbex-inventory-model.t.GOODSISSUEITEM',
     },
     region: 'bottom',
     lazyLoad: false,

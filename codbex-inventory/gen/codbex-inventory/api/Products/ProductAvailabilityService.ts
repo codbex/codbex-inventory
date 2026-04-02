@@ -1,5 +1,5 @@
-import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
-import { Extensions } from "sdk/extensions"
+import { Controller, Get, Post, Put, Delete, request, response } from "@aerokit/sdk/http"
+import { Extensions } from "@aerokit/sdk/extensions"
 import { ProductAvailabilityRepository, ProductAvailabilityEntityOptions } from "../../dao/Products/ProductAvailabilityRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
@@ -16,7 +16,8 @@ class ProductAvailabilityService {
         try {
             const options: ProductAvailabilityEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
-                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
+                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
+                $language: request.getLocale().split("_")[0]
             };
 
             let Product = parseInt(ctx.queryParameters.Product);
@@ -80,7 +81,10 @@ class ProductAvailabilityService {
     public getById(_: any, ctx: any) {
         try {
             const id = parseInt(ctx.pathParameters.id);
-            const entity = this.repository.findById(id);
+            const options: ProductAvailabilityEntityOptions = {
+                $language: request.getLocale().split("_")[0]
+            };
+            const entity = this.repository.findById(id, options);
             if (entity) {
                 return entity;
             } else {

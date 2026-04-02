@@ -21,12 +21,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.action = 'select';
 
 		LocaleService.onInit(() => {
-			description = LocaleService.t('codbex-inventory:defaults.description');
-			$scope.formHeaders.select = LocaleService.t('codbex-inventory:defaults.formHeadSelect', { name: '$t(codbex-inventory:t.STOCKRECORDDIRECTION)' });
-			$scope.formHeaders.create = LocaleService.t('codbex-inventory:defaults.formHeadCreate', { name: '$t(codbex-inventory:t.STOCKRECORDDIRECTION)' });
-			$scope.formHeaders.update = LocaleService.t('codbex-inventory:defaults.formHeadUpdate', { name: '$t(codbex-inventory:t.STOCKRECORDDIRECTION)' });
-			propertySuccessfullyCreated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyCreated', { name: '$t(codbex-inventory:t.STOCKRECORDDIRECTION)' });
-			propertySuccessfullyUpdated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyUpdated', { name: '$t(codbex-inventory:t.STOCKRECORDDIRECTION)' });
+			description = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadSelect', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadCreate', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadUpdate', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.propertySuccessfullyCreated', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.propertySuccessfullyUpdated', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION)' });
 		});
 
 		let params = ViewParameters.get();
@@ -43,7 +43,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			EntityService.create(entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-inventory.Settings.StockRecordDirection.entityCreated', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-inventory:t.STOCKRECORDDIRECTION'),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION'),
 					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
@@ -51,7 +51,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = LocaleService.t('codbex-inventory:messages.error.unableToCreate', { name: '$t(codbex-inventory:t.STOCKRECORDDIRECTION)', message: message });
+					$scope.errorMessage = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToCreate', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -64,7 +64,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			EntityService.update(id, entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-inventory.Settings.StockRecordDirection.entityUpdated', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-inventory:t.STOCKRECORDDIRECTION'),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION'),
 					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
@@ -72,7 +72,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = LocaleService.t('codbex-inventory:messages.error.unableToUpdate', { name: '$t(codbex-inventory:t.STOCKRECORDDIRECTION)', message: message });
+					$scope.errorMessage = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToUpdate', { name: '$t(codbex-inventory:codbex-inventory-model.t.STOCKRECORDDIRECTION)', message: message });
 				});
 				console.error('EntityService:', error);
 			});

@@ -20,12 +20,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.action = 'select';
 
 		LocaleService.onInit(() => {
-			description = LocaleService.t('codbex-inventory:defaults.description');
-			$scope.formHeaders.select = LocaleService.t('codbex-inventory:defaults.formHeadSelect', { name: '$t(codbex-inventory:t.PRODUCTAVAILABILITY)' });
-			$scope.formHeaders.create = LocaleService.t('codbex-inventory:defaults.formHeadCreate', { name: '$t(codbex-inventory:t.PRODUCTAVAILABILITY)' });
-			$scope.formHeaders.update = LocaleService.t('codbex-inventory:defaults.formHeadUpdate', { name: '$t(codbex-inventory:t.PRODUCTAVAILABILITY)' });
-			propertySuccessfullyCreated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyCreated', { name: '$t(codbex-inventory:t.PRODUCTAVAILABILITY)' });
-			propertySuccessfullyUpdated = LocaleService.t('codbex-inventory:messages.propertySuccessfullyUpdated', { name: '$t(codbex-inventory:t.PRODUCTAVAILABILITY)' });
+			description = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadSelect', { name: '$t(codbex-inventory:codbex-inventory-model.t.PRODUCTAVAILABILITY)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadCreate', { name: '$t(codbex-inventory:codbex-inventory-model.t.PRODUCTAVAILABILITY)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-inventory:codbex-inventory-model.defaults.formHeadUpdate', { name: '$t(codbex-inventory:codbex-inventory-model.t.PRODUCTAVAILABILITY)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.propertySuccessfullyCreated', { name: '$t(codbex-inventory:codbex-inventory-model.t.PRODUCTAVAILABILITY)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-inventory:codbex-inventory-model.messages.propertySuccessfullyUpdated', { name: '$t(codbex-inventory:codbex-inventory-model.t.PRODUCTAVAILABILITY)' });
 		});
 
 		let params = ViewParameters.get();
@@ -45,7 +45,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			EntityService.create(entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-inventory.Products.ProductAvailability.entityCreated', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-inventory:t.PRODUCTAVAILABILITY'),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.PRODUCTAVAILABILITY'),
 					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
@@ -53,8 +53,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-inventory:t.PRODUCTAVAILABILITY'),
-					message: LocaleService.t('codbex-inventory:messages.error.unableToCreate', { name: '$t(codbex-inventory:t.PRODUCTAVAILABILITY)', message: message }),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.PRODUCTAVAILABILITY'),
+					message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToCreate', { name: '$t(codbex-inventory:codbex-inventory-model.t.PRODUCTAVAILABILITY)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -68,7 +68,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			EntityService.update(id, entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-inventory.Products.ProductAvailability.entityUpdated', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-inventory:t.PRODUCTAVAILABILITY'),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.PRODUCTAVAILABILITY'),
 					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
@@ -76,8 +76,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-inventory:t.PRODUCTAVAILABILITY'),
-					message: LocaleService.t('codbex-inventory:messages.error.unableToUpdate', { name: '$t(codbex-inventory:t.PRODUCTAVAILABILITY)', message: message }),
+					title: LocaleService.t('codbex-inventory:codbex-inventory-model.t.PRODUCTAVAILABILITY'),
+					message: LocaleService.t('codbex-inventory:codbex-inventory-model.messages.error.unableToUpdate', { name: '$t(codbex-inventory:codbex-inventory-model.t.PRODUCTAVAILABILITY)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);

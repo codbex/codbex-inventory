@@ -7,7 +7,7 @@ const viewData = {
     id: "Store-details",
     label: "Store",
     translation: {
-        key: 'codbex-inventory:t.STORE',
+        key: 'codbex-inventory:codbex-inventory-model.t.STORE',
     },
     path: "/services/web/codbex-inventory/gen/codbex-inventory/ui/Stores/Store/dialog-window/index.html",
     perspectiveName: "Stores",

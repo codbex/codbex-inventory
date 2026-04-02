@@ -7,7 +7,7 @@ const perspectiveData = {
 	id: 'GoodsReceipts',
 	label: 'GoodsReceipts',
 	translation: {
-        key: 'codbex-inventory:t.GOODSRECEIPT',
+        key: 'codbex-inventory:codbex-inventory-model.t.GOODSRECEIPT',
     },
 	path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/index.html',
 	order: 100,

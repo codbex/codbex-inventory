@@ -7,7 +7,7 @@ const perspectiveData = {
 	id: 'Waste',
 	label: 'Waste',
 	translation: {
-        key: 'codbex-inventory:t.WASTE',
+        key: 'codbex-inventory:codbex-inventory-model.t.WASTE',
     },
 	path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Waste/index.html',
 	order: 750,

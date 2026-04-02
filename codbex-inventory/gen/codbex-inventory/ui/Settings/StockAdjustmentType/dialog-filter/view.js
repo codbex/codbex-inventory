@@ -7,9 +7,9 @@ const viewData = {
     id: 'StockAdjustmentType-filter',
     label: 'StockAdjustmentType Filter',
     translation: {
-        key: 'codbex-inventory:extName',
+        key: 'codbex-inventory:codbex-inventory-model.extName',
         options: {
-            content: '$t(codbex-inventory:t.STOCKADJUSTMENTTYPE) $t(codbex-inventory:defaults.filter)',
+            content: '$t(codbex-inventory:codbex-inventory-model.t.STOCKADJUSTMENTTYPE) $t(codbex-inventory:codbex-inventory-model.defaults.filter)',
         }
     },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/Settings/StockAdjustmentType/dialog-filter/index.html',

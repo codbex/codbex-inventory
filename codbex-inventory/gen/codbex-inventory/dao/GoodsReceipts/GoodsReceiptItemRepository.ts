@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 
 export interface GoodsReceiptItemEntity {
     readonly Id: number;
@@ -112,9 +112,10 @@ export interface GoodsReceiptItemEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface GoodsReceiptItemEntityEvent {
+export interface GoodsReceiptItemEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<GoodsReceiptItemEntity>;
@@ -125,7 +126,7 @@ interface GoodsReceiptItemEntityEvent {
     }
 }
 
-interface GoodsReceiptItemUpdateEntityEvent extends GoodsReceiptItemEntityEvent {
+export interface GoodsReceiptItemUpdateEntityEvent extends GoodsReceiptItemEntityEvent {
     readonly previousEntity: GoodsReceiptItemEntity;
 }
 
@@ -195,10 +196,11 @@ export class GoodsReceiptItemRepository {
     }
 
     public findAll(options: GoodsReceiptItemEntityOptions = {}): GoodsReceiptItemEntity[] {
-        return this.dao.list(options);
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): GoodsReceiptItemEntity | undefined {
+    public findById(id: number, options: GoodsReceiptItemEntityOptions = {}): GoodsReceiptItemEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

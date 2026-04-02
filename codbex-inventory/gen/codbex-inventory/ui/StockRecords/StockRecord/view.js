@@ -7,7 +7,7 @@ const viewData = {
     id: 'StockRecord',
     label: 'StockRecord',
     translation: {
-        key: 'codbex-inventory:t.STOCKRECORD',
+        key: 'codbex-inventory:codbex-inventory-model.t.STOCKRECORD',
     },
     region: 'left',
     lazyLoad: false,

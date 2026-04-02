@@ -1,7 +1,7 @@
-import { query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
@@ -126,9 +126,10 @@ export interface WasteEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
-interface WasteEntityEvent {
+export interface WasteEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<WasteEntity>;
@@ -139,7 +140,7 @@ interface WasteEntityEvent {
     }
 }
 
-interface WasteUpdateEntityEvent extends WasteEntityEvent {
+export interface WasteUpdateEntityEvent extends WasteEntityEvent {
     readonly previousEntity: WasteEntity;
 }
 
@@ -213,13 +214,14 @@ export class WasteRepository {
     }
 
     public findAll(options: WasteEntityOptions = {}): WasteEntity[] {
-        return this.dao.list(options).map((e: WasteEntity) => {
+        let list = this.dao.list(options).map((e: WasteEntity) => {
             EntityUtils.setDate(e, "Date");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): WasteEntity | undefined {
+    public findById(id: number, options: WasteEntityOptions = {}): WasteEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "Date");
         return entity ?? undefined;
@@ -228,7 +230,7 @@ export class WasteRepository {
     public create(entity: WasteCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as WasteEntity).Number = new NumberGeneratorService().generate(25);
+        (entity as WasteEntity).Number = new NumberGeneratorService().generateByType('Waste');
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

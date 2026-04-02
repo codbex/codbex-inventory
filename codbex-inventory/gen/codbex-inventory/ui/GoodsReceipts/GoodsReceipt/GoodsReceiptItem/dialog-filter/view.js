@@ -7,9 +7,9 @@ const viewData = {
     id: 'GoodsReceiptItem-filter',
     label: 'GoodsReceiptItem Filter',
     translation: {
-        key: 'codbex-inventory:extName',
+        key: 'codbex-inventory:codbex-inventory-model.extName',
         options: {
-            content: '$t(codbex-inventory:t.GOODSRECEIPTITEM) $t(codbex-inventory:defaults.filter)',
+            content: '$t(codbex-inventory:codbex-inventory-model.t.GOODSRECEIPTITEM) $t(codbex-inventory:codbex-inventory-model.defaults.filter)',
         }
     },
     path: '/services/web/codbex-inventory/gen/codbex-inventory/ui/GoodsReceipts/GoodsReceipt/GoodsReceiptItem/dialog-filter/index.html',
